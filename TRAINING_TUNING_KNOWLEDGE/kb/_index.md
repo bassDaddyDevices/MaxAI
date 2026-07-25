@@ -320,6 +320,18 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **wrap** — Wrap input to a range within a low and high output value
 - **xor** — Logical xor operator
 
+## guide (9)
+
+- **Audio Processing Patterns and Examples** — LFOs, envelope followers, sample and hold, filters, and complete worked device examples
+- **Gen~ and genexpr** — When to use Gen~, codebox basics, full genexpr operator reference, history and param access, DSP patterns, performance costs, limitations, and a cookbook
+- **JavaScript for Max** — When to use js and jsui, the basic object skeleton, and custom UI drawing
+- **Max Patch JSON Interchange** — The .maxpat JSON format, producing valid copy-paste-ready patch JSON, and programmatic patch analysis
+- **Max for Live Fundamentals** — M4L vs standalone Max, device types, live.* objects, audio and MIDI I/O patterns, Live API basics, parameter exposure
+- **Max/MSP Fundamentals and Workflow** — Object types, signal vs message rate, common patching patterns, and the requirements-to-testing development workflow
+- **Performance Optimization and Debugging** — CPU profiling, optimization strategies, memory management, and fixes for no audio, clicks, CPU spikes and preset recall problems
+- **Presets and UI/UX** — pattrstorage and JSON file I/O for preset management, presentation mode, UI object choice and interface best practices
+- **RNBO and rnboexpr** — rnboexpr vs genexpr, RNBO-compatible operator subset, parameter handling via inlets, export workflow and targets
+
 ## jitter (463)
 
 - **jit.!** — Apply binary or unary operators
