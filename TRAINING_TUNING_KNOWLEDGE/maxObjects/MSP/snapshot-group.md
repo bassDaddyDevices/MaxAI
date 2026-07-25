@@ -1,0 +1,119 @@
+---
+type: msp
+name: "snapshot-group"
+summary: "Messages and attributes common to the Snapshot group"
+signal: false
+url: "https://docs.cycling74.com/reference/snapshot-group/"
+package: "MSP"
+---
+
+# snapshot-group
+
+Messages and attributes common to the Snapshot group
+
+## Arguments
+
+None.
+
+## Attributes
+
+### autosave[int] write-only
+
+When the containing patcher is saved, the state of this object's snapshots will also be saved.
+
+## Messages
+
+### snapshot >= 7.0.0
+
+Create a snapshot. When  embedsnapshot  is on it will be saved into the current patcher. Otherwise it will be saved in an external file. You can determine the filename by an argument to this message.
+
+Arguments:
+
+- file-name
+  [symbol]
+
+### restore >= 7.0.0
+
+Restore a snapshot. When  embedsnapshot  is on, the snapshot that is embedded in the current patcher will be used. Otherwise it will be loaded from an external file. You can determine the filename by an argument to this message.
+
+Arguments:
+
+- file-name
+  [symbol]
+
+### addsnapshot
+
+Add a new snapshot. If there are no arguments, it will append the new snapshot to the current list of snapshots. If the first argument is a string containing a file path, Max will try to save a .maxsnap file to that location. If the first argument is a number, it will save the snapshot to that slot, incrementing subsequent slots. If the second argument is a string, it will set the name of the snapshot.
+
+Arguments:
+
+- userpath
+  [String]
+- index
+  [Number]
+- name
+  [String]
+
+### deletesnapshot
+
+Delete a snapshot at the given index, decrementing subsequent slots.
+
+Arguments:
+
+- index
+  [Number]
+
+### exportsnapshot
+
+Exports a snapshot from the given index, specified by the first argument. The second argument specifies the file name and path to export a maxsnap file to. If the second argument is empty, a File dialog box will open, allowing you to specify a file name and location.
+
+Arguments:
+
+- index
+  [Number]
+- filename
+  [String]
+
+### importsnapshot
+
+Imports a snapshot to the given index, specified by the first argument. The second argument specifies the file name and path to load a maxsnap file from. If the second argument is empty, a File dialog box will open, allowing you to choose a file.
+
+Arguments:
+
+- index
+  [Number]
+- filename
+  [String]
+
+### setsnapshotname
+
+Set the name of the snapshot at the given index.
+
+Arguments:
+
+- index
+  [Number]
+- name
+  [String]
+
+### setembedsnapshot
+
+Set the embed state of the snapshot at the index.
+
+Arguments:
+
+- index
+  [Number]
+- embedstate
+  [Number]
+
+### movesnapshot
+
+Change a snapshot's index.
+
+Arguments:
+
+- srcindex
+  [Number]
+- dstindex
+  [Number]

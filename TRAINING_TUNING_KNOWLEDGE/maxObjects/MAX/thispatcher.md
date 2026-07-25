@@ -1,0 +1,496 @@
+---
+type: max
+name: "thispatcher"
+summary: "Send messages to a patcher"
+signal: false
+url: "https://docs.cycling74.com/reference/thispatcher/"
+package: "Max"
+see_also: ["bpatcher", "bgcolor", "join", "pack", "patcher", "pattrforward", "pcontrol", "pvar", "sprintf"]
+---
+# thispatcher
+
+Send messages to a patcher
+
+## Description
+
+Allows modification of a patcher window with Max messages.
+
+#### Discussion
+
+[thispatcher](https://docs.cycling74.com/reference/thispatcher) can be used to modify and/or close a patcher window - it sends a message to the patcher window in which it is contained.
+
+See the [bpatcher](https://docs.cycling74.com/reference/bpatcher) reference page for information on how to use the [thispatcher](https://docs.cycling74.com/reference/thispatcher) object with bpatchers.
+
+Note: Use of the [thispatcher](https://docs.cycling74.com/reference/thispatcher) object to create new objects is not supported.
+
+## Arguments
+
+None.
+
+## Attributes
+
+### Snapshot Attributes
+
+### autosave[int] write-only
+
+When the containing patcher is saved, the state of this object's snapshots will also be saved.
+
+### Common Box Attributes
+
+Shared across all objects — see [Common Box Attributes](../_shared/common-box-attributes.md).
+
+## Messages
+
+### anything
+
+See "Patcher Messages" and "Scripting Messages" discussion.
+
+Arguments:
+
+- message
+  [list]
+
+### end
+
+Used internally.
+
+### savewindow
+
+The word  savewindow , followed by a non-zero number, means that any unusual window settings caused by  window flags  messages to [thispatcher](https://docs.cycling74.com/reference/thispatcher) will be saved as part of the patch the next time the patch is saved. The message  savewindow 0  means that changes to the window caused by  window flags  messages to [thispatcher](https://docs.cycling74.com/reference/thispatcher) will not be retained when the patch is saved; the prior patcher window settings are saved. If no  savewindow  message has been received, the patcher will be saved with a normal window appearance.
+
+Arguments:
+
+- flag
+  [int]
+
+### setactivetab
+
+In a tabbed patcher, the active tab may be changed by passing the  setactivetab  message followed by the name of the subpatcher as displayed on the tab itself.
+
+Arguments:
+
+- message
+  [list]
+
+### Snapshot Messages
+
+### snapshot >= 7.0.0
+
+Create a snapshot. When  embedsnapshot  is on it will be saved into the current patcher. Otherwise it will be saved in an external file. You can determine the filename by an argument to this message.
+
+Arguments:
+
+- file-name
+  [symbol]
+
+### restore >= 7.0.0
+
+Restore a snapshot. When  embedsnapshot  is on, the snapshot that is embedded in the current patcher will be used. Otherwise it will be loaded from an external file. You can determine the filename by an argument to this message.
+
+Arguments:
+
+- file-name
+  [symbol]
+
+### addsnapshot
+
+Add a new snapshot. If there are no arguments, it will append the new snapshot to the current list of snapshots. If the first argument is a string containing a file path, Max will try to save a .maxsnap file to that location. If the first argument is a number, it will save the snapshot to that slot, incrementing subsequent slots. If the second argument is a string, it will set the name of the snapshot.
+
+Arguments:
+
+- userpath
+  [String]
+- index
+  [Number]
+- name
+  [String]
+
+### deletesnapshot
+
+Delete a snapshot at the given index, decrementing subsequent slots.
+
+Arguments:
+
+- index
+  [Number]
+
+### exportsnapshot
+
+Exports a snapshot from the given index, specified by the first argument. The second argument specifies the file name and path to export a maxsnap file to. If the second argument is empty, a File dialog box will open, allowing you to specify a file name and location.
+
+Arguments:
+
+- index
+  [Number]
+- filename
+  [String]
+
+### importsnapshot
+
+Imports a snapshot to the given index, specified by the first argument. The second argument specifies the file name and path to load a maxsnap file from. If the second argument is empty, a File dialog box will open, allowing you to choose a file.
+
+Arguments:
+
+- index
+  [Number]
+- filename
+  [String]
+
+### setsnapshotname
+
+Set the name of the snapshot at the given index.
+
+Arguments:
+
+- index
+  [Number]
+- name
+  [String]
+
+### setembedsnapshot
+
+Set the embed state of the snapshot at the index.
+
+Arguments:
+
+- index
+  [Number]
+- embedstate
+  [Number]
+
+### movesnapshot
+
+Change a snapshot's index.
+
+Arguments:
+
+- srcindex
+  [Number]
+- dstindex
+  [Number]
+
+## Patcher Behavior and Display
+
+### The script message
+
+The  script  message to [thispatcher](https://docs.cycling74.com/reference/thispatcher) permits dynamic control over object creation, deletion, sizing and positioning, and patching. The word  script  is followed by a keyword that indicates a function. Following the keyword are arguments that specify what objects are to be affected by the message.
+
+In the discussion of each  script  message that follows, the syntax indicates required arguments for the message after the keyword in angle brackets. An example of each message is also provided.
+
+A variable-name is a symbol that names either a new or existing object. You can set variable names by choosing Name... from the Object menu, or with certain scripting messages such as  new  and  select .
+
+## Patcher Messages
+
+### anything
+
+In addition to the patcher messages below, thispatcher will accept messages to control any of the attributes found in the patcher inspector by sending the attribute name followed by the appropriate value(s).
+
+### clean
+
+The  clean  message resets the patch's dirty bit in the window so that you won't be asked to save changes in the patch.
+
+### dirty
+
+The  dirty  message is the opposite of the  clean  method; it sets the patch's dirty bit in the window.
+
+### dispose
+
+\*USE AT YOUR OWN RISK\* - Closes the patcher or destroys the subpatcher that the [thispatcher](https://docs.cycling74.com/reference/thispatcher) object is contained in.
+
+### front
+
+The  front  message brings the window that contains the [thispatcher](https://docs.cycling74.com/reference/thispatcher) object to the front. If the patcher is not open, the message opens the patch and brings it to the front.
+
+### loadbang
+
+The  loadbang  message will send the  loadbang  message to all objects in the patch - including the [loadbang](https://docs.cycling74.com/reference/loadbang) object itself.
+
+### lockdown
+
+The  lockdown  message will disable editing of the patcher.
+
+### locked
+
+The  locked  message, followed by a 0 or 1, will lock or unlock the patcher.
+
+### path
+
+The  path  message will send the full pathname of the patcher that contains the [thispatcher](https://docs.cycling74.com/reference/thispatcher) object out the right outlet of the [thispatcher](https://docs.cycling74.com/reference/thispatcher) object.
+
+If the patch is an abstraction, hosted by a bpatcher, in a poly~, etc, this message will report the topmost patcher's path,  **not**  the abstraction's path.
+
+### presentation
+
+The  presentation  message, followed by a 0 or 1, will cause the patcher to enter or exit presentation mode.
+
+### title
+
+The  title  message, followed by a symbol, will change the title displayed in the patcher window.
+
+### topmost
+
+The  topmost  message, followed by a 0 or 1, will set whether or not the patcher window is always on top. An argument of 1 causes the window to always be on top. Please note that the  topmost  message will only work after the patcher has been made visible at least once.
+
+### write
+
+When sent to a patcher that is not saved to disk, the  write  message opens a standard File Dialog window where the user can manually set a file name and a location to save the file. If the patcher is already saved to disk, the  write  message resaves the file to the same location, with the same name.
+
+## Scripting Messages
+
+### bringtofront
+
+Bring an object to the front of the layer it's currently in.
+
+Syntax:  script bringtofront  *<variable-name>*
+
+Example:  script bringtofront visigoth
+
+If  visigoth  is in the foreground layer, this message moves it to the front of the foreground layer. Otherwise it moves it to the front of the background layer.
+
+### class
+
+Assigns a variable name to the first instance of a specified class with matching arguments
+
+Syntax:  script class  *<variable-name>*   *<class-name>*   *<arguments (optional)>*
+
+Example:  script class rubadub + 4
+
+Assigns the name  rubadub  to the first instance found of [+](https://docs.cycling74.com/reference/plus) with argument  4  in the patcher.
+
+### connect
+
+Connects two objects together with a patch cord
+
+Syntax:  script connect  *<outlet-variable-name>*   *<outlet-index>*   *<inlet-variable-name>*   *<inlet-index>*
+
+Example:  script connect fooboo 0 bobo 0
+
+Connects the left outlet of the object with the variable name  fooboo  to the left inlet of the object with the variable name  bobo .
+
+Note: Adding the keyword  hidden  (e.g.,  script hidden connect fooboo 0 bobo 0)  creates hidden connections.
+
+### connectcolor
+
+Modify the color of an existing patch cord, setting it to one of Max's 16 standard colors.
+
+Syntax:  script connectcolor  *<outlet-variable-name>*   *<outlet-index>*   *<inlet-variable-name>*   *<inlet-index>*   *<color>*
+
+Example:  script connectcolor rover 0 dover 2 12
+
+Changes the color of the connection between the left outlet of the  rover  object with the 3rd inlet of the  dover  object to the color stored at index 12.
+
+### delete
+
+Deletes an object in a patcher window.
+
+Syntax:  script delete  *<variable-name>*
+
+Example:  script delete footog
+
+Deletes the object associated with the variable name  footog .
+
+### disconnect
+
+Disconnect two objects connected by a patch cord
+
+Syntax:  script disconnect  *<outlet-variable-name>*   *<outlet-index>*   *<inlet-variable-name>*   *<inlet-index>*
+
+Example:  script disconnect fooboo 0 bobo 0
+
+This message undoes the connection between the left outlet of  fooboo  and the left  inlet  of bobo.
+
+### hidden
+
+Specifies that an object (or connection) will be hidden when created.
+
+Example:  script hidden new footog toggle 101 93 15 0
+
+Creates a hidden object associated with the variable name  footog . The  hidden  keyword can also be used when specifying connections between objects.
+
+### hide
+
+Hide a visible object.
+
+Syntax:  script hide  *<variable-name>*
+
+Example:  script hide visigoth
+
+Hides the object named  visigoth
+
+### ignoreclick
+
+Set an object not to respond to mouse clicks.
+
+Syntax:  script ignoreclick  *<variable-name>*
+
+Example:  script ignoreclick visigoth
+
+Makes the object named  visigoth  ignore mouse clicks.
+
+### move
+
+Move an object to an absolute position relative to the current top-left corner of a patcher window. Note that the 0,0 point is underneath the icon bar.
+
+Syntax:  script move  *<variable-name>*   *<top>*   *<left>*
+
+Example:  script move molly 0 100
+
+Moves the object named  molly  to the left edge of the window, 100 pixels down from the top.
+
+### new
+
+Creates a new object in a patcher window and gives it a name.
+
+Syntax:  script new  *<variable-name>*   *<creation message>*
+
+Example:  script new footog toggle 101 93 15 0
+
+Creates a new [toggle](https://docs.cycling74.com/reference/toggle) object 15 pixels square at 101 93 and assign it to the variable footog.
+
+The format of the arguments (after the class name) to the  script new  message are based on the legacy Max file format.
+
+### newdefault
+
+Creates a new named object with default properties in a patcher window.
+
+Syntax:  script newdefault  *<variable-name>*   *<creation message>*
+
+Example:  script newdefault thatgraph 10 10 filtergraph~
+
+Creates a new [filtergraph~](https://docs.cycling74.com/reference/filtergraph~) object at its default size at 10 10 and assign it to the variable thatgraph.
+
+Example:  script newdefault buffy 200 100 pack foo bar bap
+
+Creates a new [pack](https://docs.cycling74.com/reference/pack) object instantiated with the arguments foo bar bap at 200 100 and assign it to the variable buffy.
+
+### nth
+
+Assigns a variable name to the nth instance of a specified class
+
+Syntax:  script nth  *<variable-name>*   *<class-name>*   *<index>*
+
+Example:  script nth yoyo toggle 1
+
+Assigns the name  yoyo  to the first [toggle](https://docs.cycling74.com/reference/toggle) found in the patcher.
+
+The order of objects in a patcher is determined by the front-to-back ordering. Objects in back of the patcher that draw behind other objects are first in the search order.
+
+### offset
+
+Move an object a distance from its current position. Positive distances move the object down and to the right, negative distances move it up and to the left.
+
+Syntax:  script offset  *<variable-name>*   *<delta-x>*   *<delta-y>*
+
+Example:  script offset molly 30 -40
+
+Moves the object named  molly  30 pixels to the right and 40 pixels up.
+
+### offsetfrom
+
+Move an object a set distance from another object.
+
+Syntax:  script offsetfrom  *<variable-name-to-move>*   *<target-variable-name>*   *<top-left-flag>*   *<delta-x>*   *<delta-y>*
+
+The top-left-flag is 1 if the distance is relative to the top-left corner of the object, and 0 if it is relative to the bottom-right corner.
+
+Example:  script offsetfrom molly panther 1 -100 -120
+
+Moves the object named  molly  100 pixels to the left of the left side of the object named  panther , and 120 pixels above the top of the object named  panther .
+
+### respondtoclick
+
+Set an object to respond to mouse clicks.
+
+Syntax:  script respondtoclick  *<variable-name>*
+
+Example:  script respondtoclick visigoth
+
+Makes the object named  visigoth  respond to mouse clicks.
+
+### selected
+
+Assigns a variable name to the first object found that is selected
+
+Syntax:  script selected  *<variable-name>*
+
+Example:  script selected impo
+
+Assigns the name  impo  to the first object found that is selected. Obviously this  script  message only works when the patcher is unlocked, since no object can be selected in a locked patcher.
+
+For all three connection messages described below, inlets and outlets are specified by  index , with 0 denoting the leftmost inlet or outlet. The first variable specified is the object whose outlet you are connecting or disconnecting and the second variable is the one whose inlet you are connecting. Messages can then flow from outlet to inlet.
+
+### send
+
+Send a message to an object. This message is the same as using a [message](https://docs.cycling74.com/reference/message) box with a semicolon or a [send](https://docs.cycling74.com/reference/send) object, but you use the object variable name feature of scripting to specify the object that will receive the message -- using  script send  to communicate with a named [receive](https://docs.cycling74.com/reference/receive) object does not work. The message can only be sent to an object within the patcher as the [thispatcher](https://docs.cycling74.com/reference/thispatcher) object receiving the  script send  message.
+
+Syntax:  script send  *<variable-name>*   *<message>*
+
+Example:  script send foobert 666
+
+The object with the variable name  foobert  receives an  int 666  message. If  foobert  were a number box, its displayed value would change to 666.
+
+### sendbox
+
+Send a message to an object box. This message is identical to [send](https://docs.cycling74.com/reference/send) except that it sends the message to an object's box rather than the object referred to by the box. There is currently only one object, [bpatcher](https://docs.cycling74.com/reference/bpatcher), in which the object and box are different objects. The box is a [bpatcher](https://docs.cycling74.com/reference/bpatcher), and the object is a patcher. What can you tell a [bpatcher](https://docs.cycling74.com/reference/bpatcher) to do? One example is the  border  message. Peek inside the [bpatcher](https://docs.cycling74.com/reference/bpatcher) Inspector for other ideas.
+
+Syntax:  script sendbox  *<variable-name>*   *<message>*
+
+Example:  script sendbox bpbp border 0
+
+If  bpbp  names a [bpatcher](https://docs.cycling74.com/reference/bpatcher) object, this  script  message would tell it not to draw its border.
+
+### sendtoback
+
+Move an object to the back of the layer it's currently in.
+
+Syntax:  script sendtoback  *<variable-name>*
+
+Example:  script sendtoback visigoth
+
+If  visigoth  is in the foreground layer, this message moves it to the back of the foreground layer. Otherwise it moves it to the back of the background layer. Note that objects that are "in the back" are the first objects to be found by the variable assignment messages  nth  and  class .
+
+### show
+
+Show a hidden object.
+
+Syntax:  script show  *<variable-name>*
+
+Example:  script show visigoth
+
+Makes the object named  visigoth  visible.
+
+### size
+
+Change an object's size. There are some objects that have restrictions on their size, but they generally do not protect themselves against sizes they don't expect, so use this message with some caution. For instance the [toggle](https://docs.cycling74.com/reference/toggle) object expects to be a square. It may not draw properly if it's made into a rectangle.
+
+Syntax:  script size  *<variable-name>*   *<width>*   *<height>*
+
+Example:  script size togipoo 30 30
+
+Changes the object named  togipoo  to be 30 by 30 pixels.
+
+Sending Messages to Objects
+
+## Output
+
+### symbol
+
+Out right outlet: The full pathname of the folder or volume containing the patcher's file in response to the  path  message. If the patcher has not been saved, there is no output.
+
+### window
+
+Out left outlet: When the message  window getsize  is received, [thispatcher](https://docs.cycling74.com/reference/thispatcher) sends out the words  window size  followed by the screen coordinates (in pixels from the top left corner of the screen) of the left, top, right, and bottom limits of the window. When the message  window gettitle  is received, the message  window title  or  window notitle  is sent out, depending on whether the window has a title bar. When the message  window getflags  is received, [thispatcher](https://docs.cycling74.com/reference/thispatcher) sends out the words  window flags  followed by the visibility of the scroll bars and grow box ( grow  or  nogrow ), the close box ( close  or  noclose ), and the zoom box ( zoom  or  nozoom ).
+
+## See Also
+
+| Name | Description |
+| --- | --- |
+| [bpatcher](https://docs.cycling74.com/reference/bpatcher) | Embed a subpatch with a visible UI |
+| [bgcolor](https://docs.cycling74.com/reference/bgcolor) | Set background color |
+| [join](https://docs.cycling74.com/reference/join) | Combine items into a list |
+| [pack](https://docs.cycling74.com/reference/pack) | Create a list |
+| [patcher](https://docs.cycling74.com/reference/patcher) | Create a subpatch within a patch |
+| [pattrforward](https://docs.cycling74.com/reference/pattrforward) | Send any message to a named object |
+| [pcontrol](https://docs.cycling74.com/reference/pcontrol) | Open and close subwindows |
+| [pvar](https://docs.cycling74.com/reference/pvar) | Connect to a named object in a patcher |
+| [sprintf](https://docs.cycling74.com/reference/sprintf) | Format a message of words and numbers |

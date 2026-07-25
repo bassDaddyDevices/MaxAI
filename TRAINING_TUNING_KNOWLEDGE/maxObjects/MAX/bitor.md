@@ -1,0 +1,95 @@
+---
+type: max
+name: "bitor"
+summary: "Bitwise union of two numbers"
+signal: false
+url: "https://docs.cycling74.com/reference/bitor/"
+package: "Max"
+see_also: ["&", "&&", "||"]
+---
+# bitor
+
+Bitwise union of two numbers
+
+## Description
+
+Performs a bit-by-bit OR of two numbers (expressed in binary for the task). Outputs a number composed of all those bits which are 1 in either of the two numbers.
+
+## Arguments
+
+### initial-value[int] optional
+
+Sets an initial value to be OR-ed with a number received in the left inlet.
+
+## Attributes
+
+### Common Box Attributes
+
+Shared across all objects — see [Common Box Attributes](../_shared/common-box-attributes.md).
+
+## Messages
+
+### bang
+
+In left inlet: Performs the calculation with the numbers currently stored. If there is no argument, [|](https://docs.cycling74.com/reference/bitor) initially holds  0 .
+
+### int
+
+In left inlet: Outputs a number composed of all those bits which are 1 in either of the two numbers.
+
+Arguments:
+
+- input
+  [int]
+
+### (inlet1)
+
+In right inlet: The number is stored for combination with a number received in the left inlet.
+
+Arguments:
+
+- comparison-number
+  [int]
+
+### float
+
+Converted to  int .
+
+Arguments:
+
+- input
+  [float]
+
+### set
+
+In left inlet: The word  set  followed by a number will set the input to the bitwise-or operation without causing output (a successive  bang  will output the result).
+
+Arguments:
+
+- set-input
+  [int]
+
+### list
+
+In left inlet: Combines the first and second numbers bit-by-bit, and outputs a number composed of all those bits which are 1 in either of the two numbers.
+
+Arguments:
+
+- input
+  [number]
+- comparison-value
+  [number]
+
+## Output
+
+### int
+
+All the non-zero bits of the two numbers received in the inlets are combined. If a bit is 1 in either one of the numbers, it will be 1 in the output number, otherwise it will be 0 in the output number.
+
+## See Also
+
+| Name | Description |
+| --- | --- |
+| [&](https://docs.cycling74.com/reference/bitand) | Bitwise intersection of two numbers |
+| [&&](https://docs.cycling74.com/reference/logand) | Perform a logical AND |
+| [||](https://docs.cycling74.com/reference/logor) | Perform a logical OR |

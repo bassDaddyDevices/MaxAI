@@ -1,0 +1,167 @@
+---
+type: gen
+name: "gen.codebox~"
+summary: "Generate native audio signal processing routines"
+signal: true
+url: "https://docs.cycling74.com/reference/gen.codebox~/"
+package: "MSP"
+see_also: ["gen~", "gen", "gen.codebox"]
+---
+# gen.codebox~
+
+Generate native audio signal processing routines
+
+## Description
+
+The [gen.codebox~](https://docs.cycling74.com/reference/gen.codebox~) object is a UI object for display and editing of GenExpr code to be converted into signal processing routines of optimized native machine code.
+
+## Arguments
+
+None.
+
+## Attributes
+
+### bgcolor[4 floats]
+
+Sets the color for the object's background frame.
+
+### linenumbers[int]: 1
+
+Show lefthand column containing line numbers for non empty lines.
+
+### linenumberwidth[int32]: 20
+
+Set the width of lefthand line number column in pixels.
+
+### margin[int32]: 4
+
+Set the width of the left and righthand margin in pixels
+
+### style[symbol]:
+
+Style
+
+### textcolor[4 floats]
+
+The default textcolor (typically overridden by syntax coloring)
+
+### autoexport[int]: 1
+
+Automatically export code on edit. Equivalent to sending the exportcode message every time an edit is made. Please note that in order for this to work properly, the following must be true: audio must be on, a previous manual export must have occurred, and a valid value for the exportfolder attribute must be set.
+
+### cpu[float]
+
+Reports cpu usage as a fraction of available compute time, if cpumeasure is enabled.
+
+### cpumeasure[int]
+
+CPU monitoring must be enabled for cpu to work.
+
+### gen[symbol]
+
+Gen patcher name to load from disk
+
+### dumpoutlet[int]: 0
+
+Enables an additional "dump" outlet for diagnostics, such as reading the cpu attribute.
+
+### exportfolder[symbol]:
+
+Folder to export code into. Used by the exportcode message to determine what directory to write source files into.
+
+### title[symbol]
+
+Set patcher title.
+
+### nocache[int]: 0
+
+The nocache attribute, with an argument of 1, recompiles the Gen patcher regardless of whether another instance of Gen has already compiled it. When set to 0 (default), Gen caches previous compiles to save on load time.
+
+### poll[int]: 0
+
+Enable attribute polling
+
+### exportscriptargs[symbol]:
+
+Post export script arguments
+
+### exportscript[symbol]:
+
+Post export script
+
+### exportnotifier[symbol]:
+
+Receive object name to receive export notification
+
+### exportname[symbol]:
+
+Export Filename
+
+### Common Box Attributes
+
+Shared across all objects — see [Common Box Attributes](../_shared/common-box-attributes.md).
+
+## Messages
+
+### reset\_param
+
+Resets a specific param, history or buffer object to the default initial value.
+
+Arguments:
+
+- name
+  [symbol]
+
+### reset
+
+Reset all parameters to defaults (including history values and buffer object associations).
+
+### wclose
+
+Close the view of the Gen patcher.
+
+### reload
+
+Reload the Gen patcher.
+
+### float
+
+Set input value (if signal is not attached).
+
+Arguments:
+
+- value
+  [float]
+
+### int
+
+Set input value (if signal is not attached).
+
+Arguments:
+
+- value
+  [int]
+
+### signal
+
+Send signals to the Gen patcher.
+
+### open
+
+View the Gen patcher.
+
+### exportcode
+
+Export a gen patcher as C++ code.
+
+### (mouse)
+
+Double-click to open the Gen patcher.
+
+## See Also
+
+| Name | Description |
+| --- | --- |
+| [gen~](https://docs.cycling74.com/reference/gen~) | Generate native audio signal processing routines |
+| [gen](https://docs.cycling74.com/reference/gen) | Generate native audio event processing routines |
+| [gen.codebox](https://docs.cycling74.com/reference/gen.codebox) | TEXT\_HERE |

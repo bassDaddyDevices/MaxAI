@@ -1,0 +1,88 @@
+---
+type: msp
+name: "mcs.limi~"
+summary: "Lookahead peak-limiter"
+signal: true
+url: "https://docs.cycling74.com/reference/mcs.limi~/"
+package: "MC"
+see_also: ["limi~", "mc.limi~", "omx.peaklim~"]
+---
+# mcs.limi~
+
+Lookahead peak-limiter
+
+## Description
+
+Lookahead peak-limiter.
+
+## Arguments
+
+### channel\_count[int] optional
+
+The number of channels to process.
+
+### buffer\_size[int] optional
+
+The size (in samples) of internal buffers. This defines the maximum value for the lookahead attribute. The default is 512.
+
+## Attributes
+
+### bypass[int]
+
+Pass the input straight-through.
+
+### dcblock[int]
+
+Filter DC Offsets at the input.
+
+### lookahead[int]
+
+Number of samples to look ahead.
+
+### mode[int]
+
+Response mode for the limiter. Choices are linear or exponential.
+
+Possible values:
+
+0 = 'Linear'
+
+1 = 'Exponential'
+
+### postamp[float]
+
+Gain (db) applied after to processing.
+
+### preamp[float]
+
+Gain (db) applied prior to processing.
+
+### release[float]
+
+Millisecond release time.
+
+### threshold[float]
+
+Level (db) above which to apply limiting.
+
+### Common Box Attributes
+
+Shared across all objects — see [Common Box Attributes](../_shared/common-box-attributes.md).
+
+## Messages
+
+### clear
+
+Reset the limiter history.
+
+### signal
+
+Multi-channel audio signal to process.
+
+## See Also
+
+| Name | Description |
+| --- | --- |
+| [limi~](https://docs.cycling74.com/reference/limi~) | Lookahead peak-limiter |
+| [mc.limi~](https://docs.cycling74.com/reference/mc.limi~) | Lookahead peak-limiter (multichannel) |
+| [omx.peaklim~](https://docs.cycling74.com/reference/omx.peaklim~) | OctiMax Peak Limiter |

@@ -1,0 +1,1830 @@
+---
+type: reference
+name: "Object Index"
+summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line description"
+---
+
+# Cycling '74 Object Index
+
+## ableton (112)
+
+- **abl.device.autofilter~** — Classic analog filter emulation.
+- **abl.device.channeleq~** — Semi-parametric 3-band channel EQ
+- **abl.device.compressor~** — Compressor
+- **abl.device.delay~** — Stereo delay
+- **abl.device.drift~** — Drift synthesizer
+- **abl.device.drumbuss~** — Analog-style drum processor
+- **abl.device.drumsampler~** — Drum sampler
+- **abl.device.echo~** — Modulation delay
+- **abl.device.limiter~** — Limiter
+- **abl.device.redux~** — Downsampling and bit-reduction effect
+- **abl.device.reverb~** — Plate reverb
+- **abl.device.roar~** — Three-stage saturator
+- **abl.device.spectralresonator~** — Spectral resonator
+- **abl.device.spectraltime~** — Spectral delay
+- **abl.device.utility~** — Swiss army knife for audio
+- **abl.dsp.alternate~** — Alternating modulator
+- **abl.dsp.basicshapes~** — Basic shape oscillator
+- **abl.dsp.bitgrunge~** — Bit-grunge oscillator
+- **abl.dsp.bubble~** — Bubble generator
+- **abl.dsp.chip~** — Square wave chiptune oscillator
+- **abl.dsp.chorus~** — Chorus
+- **abl.dsp.compander~** — Compressor/expander
+- **abl.dsp.crackle~** — Crackle sound generator
+- **abl.dsp.darkhall~** — Dark hall reverb
+- **abl.dsp.dfm~** — Digitally modeled analog lowpass filter
+- **abl.dsp.distortion~** — Guitar pedal distortion
+- **abl.dsp.doubler~** — Doubler
+- **abl.dsp.dualbasicshapes~** — Dual basic shape oscillator
+- **abl.dsp.ensemble~** — Ensemble
+- **abl.dsp.envfollower~** — Envelope follower
+- **abl.dsp.euclid~** — Euclidean rhythm ramp generator
+- **abl.dsp.expshaper~** — Exponential shaper
+- **abl.dsp.extratone~** — Granular-esque kick drum tone oscillator
+- **abl.dsp.filterednoise~** — Filtered noise generator
+- **abl.dsp.filther~** — Distorted lowpass filter
+- **abl.dsp.flanger~** — Flanger
+- **abl.dsp.fmbass~** — Three operator FM oscillator
+- **abl.dsp.foldfm~** — Wavefolding FM oscillator
+- **abl.dsp.fuzz~** — Fuzz guitar pedal
+- **abl.dsp.harmonicfm~** — Harmonic FM oscillator
+- **abl.dsp.meldfilter~** — Meta-filter
+- **abl.dsp.meldosc~** — Meta-oscillator
+- **abl.dsp.modalresonator~** — Modal resonator
+- **abl.dsp.modulator~** — Modulation signal generator
+- **abl.dsp.noiseloop~** — Noise buffer looper
+- **abl.dsp.noisyshapes~** — Noisy dual basic shape oscillator
+- **abl.dsp.overdrive~** — Overdriven guitar pedal
+- **abl.dsp.phaser~** — Phaser
+- **abl.dsp.pitchestimator~** — Frequency detector
+- **abl.dsp.pitchshifter~** — Pitch shifter
+- **abl.dsp.prism~** — Prism reverb
+- **abl.dsp.pulsate~** — Random pulse emitter
+- **abl.dsp.quartz~** — Quartz reverb
+- **abl.dsp.rain~** — Rain sound generator
+- **abl.dsp.ramp~** — Ramp generator
+- **abl.dsp.ringmod~** — Ring modulator
+- **abl.dsp.saturator~** — Saturator
+- **abl.dsp.shepard~** — Shepard tone oscillator
+- **abl.dsp.shimmer~** — Shimmer reverb
+- **abl.dsp.simplefm~** — Two-operator FM oscillator
+- **abl.dsp.squarefifth~** — Morphing square wave oscillator
+- **abl.dsp.squaresync~** — Dual square wave oscillator
+- **abl.dsp.stereolfo~** — Stereo low-frequency oscillator
+- **abl.dsp.subosc~** — Oscillator with sub bass
+- **abl.dsp.swarm~** — Multi-oscillator swarm
+- **abl.dsp.tarp~** — Kick/bass oscillator
+- **abl.dsp.tides~** — Modulating algorithmic reverb
+- **abl.dsp.transform~** — Signal transformer
+- **abl.dsp.transientdesign~** — Transient designer
+- **abl.dsp.velvetnoise~** — A velvet noise generator
+- **abl.dsp.vibrato~** — Stereo vibrato effect
+- **abl.dsp.vowel~** — Vowel bandpass filter
+- **abl.dsp.wander~** — Wandering modulator
+- **abl.dsp.waveshaper~** — Waveshaper
+- **amxd~** — Host Max for Live devices
+- **chucker~** — Segment audio and reorder it on looped playback
+- **cverb~** — A simple monaural reverberator
+- **ddg.mono** — Monophonic Synth Controller for Virtual Synths
+- **live.adsrui** — ADSR User Interface
+- **live.adsr~** — ADSR envelope generator
+- **live.arrows** — Vectorized arrow(s) user interface object
+- **live.banks** — Manage Max for Live Device banks for Push controllers.
+- **live.button** — Flash on any message, send a  bang
+- **live.colors** — Get the colors of the active Ableton Live Theme via a Max for Live device.
+- **live.comment** — Explanatory note or label
+- **live.dial** — Output numbers by moving a dial onscreen
+- **live.drop** — Define a region for dragging and dropping a file
+- **live.gain~** — Decibel volume slider and monitor
+- **live.grid** — A UI grid of steps, with constraints and directions
+- **live.line** — Straight line
+- **live.map** — Simplify the process of selecting Live interface elements for use with the Live API.
+- **live.menu** — Dropdown menu
+- **live.meter~** — Live-style visual peak level indicator
+- **live.miditool.in** — Retrieve notes and contextual data of MIDI clips in Live. Designed for use in a MIDI Tool Generator or MIDI Tool Transformation.
+- **live.miditool.out** — Set or replace notes of MIDI clips in Live. Designed for use in a MIDI Tool Generator or MIDI Tool Transformation.
+- **live.modulate~** — Modulate Ableton Live and Max for Live Parameters
+- **live.numbox** — Display and output a number
+- **live.object** — Perform operations on Live objects
+- **live.observer** — Monitor changes in Live objects
+- **live.param~** — Generate an MSP signal from a parameter value.
+- **live.path** — Navigate to objects in the Live application
+- **live.push** — Configuration of Push 2 and 3
+- **live.remote~** — Realtime control of parameters in Ableton Live and Max for Live.
+- **live.routing** — Route MIDI and Audio Inputs and Outputs in Ableton Live
+- **live.scope~** — Visualize an audio signal
+- **live.slider** — Output numbers by moving a slider onscreen
+- **live.step** — Step Sequencer UI object
+- **live.tab** — A user interface tab/multiple button object in the style of Ableton Live.
+- **live.text** — A user interface button/toggle
+- **live.thisdevice** — Send a bang automatically when a Max Device is loaded, report device state
+- **live.toggle** — Switch between off and on (0/1)
+- **midiselect** — Select and interpret raw MIDI data
+
+## gen (196)
+
+- **abs** — The absolute value of the input
+- **absdiff** — Compute the absolute difference between two inputs
+- **accum** — An additive accumulator
+- **acos** — The arc cosine of the input (returns radians)
+- **acosh** — The inverse hyperbolic cosine of the input
+- **add** — Add inputs
+- **and** — Logical and operator
+- **asin** — The arc sine of the input (returns radians)
+- **asinh** — The inverse hyperbolic sine of the input
+- **atan** — The arc tangent of the input (returns radians)
+- **atan2** — The arctangent of the input coordinate
+- **atanh** — The inverse hyperbolic tangent of the input
+- **atodb** — Convert linear amplitude to deciBel value
+- **bool** — constant boolean / convert to boolean
+- **buffer** — A reference to an external buffer~ object
+- **cartopol** — Convert Cartesian values to polar
+- **ceil** — Round the value up to the next higher integer
+- **cell** — Cell coordinates of input matrix
+- **change** — The sign of the derivative of the input
+- **channels** — The number of channels of a data/buffer object
+- **circle** — Equation of a circle taking input coordinates ranging from [0, 1]
+- **clamp** — Clamp values in a specified range
+- **clip** — Clamp values in a specified range
+- **codebox** — GenExpr code
+- **concat** — Concatenate vector values into a larger vector
+- **cone** — Equation of a cone taking input coordinates ranging from [0, 1]
+- **constant** — A constant value
+- **cos** — The cosine of the input (in radians)
+- **cosh** — The hyperbolic cosine of the input
+- **counter** — A sample-rate counter
+- **cross** — Take the cross product of two vectors
+- **cycle** — Sine / wavetable lookup oscillator
+- **cylinder** — Equation of a cylinder taking input coordinates ranging from [0, 1]
+- **data** — A locally stored array of 64-bit values
+- **dbtoa** — Convert deciBel value to linear amplitude
+- **dcblock** — DC blocking filter
+- **degrees** — convert radians to degrees
+- **degtorad** — The constant value of degtorad
+- **delay** — Delays a signal by a certain amount of time (specified in samples)
+- **delta** — The discrete derivative of the input
+- **dim** — Dimensions of input matrix
+- **dim** — The length (in samples) of a data/buffer object
+- **div** — Divide inputs
+- **dot** — Take the dot product of two vectors
+- **e** — The constant value of e
+- **elapsed** — Elapsed time (samples) since load/reset
+- **eq** — Equal operator
+- **eqp** — Equal/pass operator
+- **exp** — Raise the mathematical value e to a power
+- **exp2** — Raise 2 to a power
+- **expr** — An expression
+- **faceforward** — Return a vector pointing in the same direction as another
+- **fastcos** — The approximated cosine of the input (in radians)
+- **fastexp** — Approximated e to a power
+- **fastpow** — Approximated in1 to the power of in2
+- **fastsin** — The approximated sine of the input (in radians)
+- **fasttan** — The approximated tangent of the input (in radians)
+- **fftfullspect** — The pfft~ full spectrum flag (0/1)
+- **ffthop** — The pfft~ FFT hop size
+- **fftinfo** — Report FFT constant data about a patcher loaded by pfft~
+- **fftoffset** — The pfft~ FFT offset
+- **fftsize** — The pfft~ FFT frame size
+- **fixdenorm** — Replace denormal values with zero.
+- **fixnan** — Replace NaN (Not a Number) values with zero.
+- **float** — constant float / convert to float
+- **floor** — Round the value down to the next lower integer (toward negative infinity)
+- **fold** — Fold input to a range within a low and high output value
+- **fract** — Return only the fractional component
+- **ftom** — Convert frequency to MIDI note number
+- **gate** — Select between a number of outputs
+- **gen** — Gen subpatcher
+- **gen.codebox** — Generate native audio signal processing routines
+- **gen.codebox~** — Generate native audio signal processing routines
+- **gen_dsp_mc_channel** — Report channel index of a patcher loaded by mc.gen~
+- **gen_dsp_mc_channelcount** — Report channel count of a patcher loaded by mc.gen~
+- **gen_dsp_read** — reads from a delay line
+- **gen_dsp_voicecount** — Report voice count of a patcher loaded by poly~
+- **gen_dsp_write** — writes to a delay line
+- **gt** — Greater than operator
+- **gte** — Greater than or equals operator
+- **gtep** — Pass greater than or equals operator
+- **gtp** — Pass greater than operator
+- **halfpi** — The constant value of halfpi
+- **history** — Single-sample delay, allowing feedback connections
+- **hsl2rgb** — Convert HSL to RGB
+- **hypot** — The hypoteneuse
+- **in** — Gen patcher input
+- **int** — constant integer / convert to integer
+- **interp** — Interpolate inputs
+- **invpi** — The constant value of invpi
+- **isdenorm** — Return 1 if the input is denormal, else return zero.
+- **isnan** — Return 1 if the input is NaN (Not a Number), else return zero.
+- **latch** — Conditionally pass or hold input
+- **length** — Returns the length of a vector
+- **ln** — The natural logarithm
+- **ln10** — The constant value of ln10
+- **ln2** — The constant value of ln2
+- **log** — The natural logarithm
+- **log10** — The logarithm base 10 of the input
+- **log10e** — The constant value of log10e
+- **log2** — The logarithm base 2 of the input
+- **log2e** — The constant value of log2e
+- **lookup** — Index a data/buffer object using a signal, for waveshaping
+- **lt** — Less than operator
+- **lte** — Less than or equals operator
+- **ltep** — Pass less than or equals operator
+- **ltp** — Pass less than operator
+- **max** — The maximum of the inputs
+- **maximum** — The maximum of the inputs
+- **min** — The minimum of the inputs
+- **minimum** — The minimum of the inputs
+- **mix** — Linear crossfade of inputs
+- **mod** — Modulo inputs (remainder of first input / second input)
+- **mstosamps** — Convert period in milliseconds to samples
+- **mtof** — Convert MIDI note number to frequency
+- **mul** — Multiply inputs
+- **mulequals** — A multiplicative accumulator
+- **nearest** — Multi-channel lookup a data/buffer object (no interpolation)
+- **nearest** — Nearest neighbor sample a matrix
+- **nearestpix** — Nearest neighbor sample a matrix
+- **neg** — Negate input
+- **neq** — Not equal operator
+- **neqp** — Not equal/pass operator
+- **noise** — A random number generator
+- **norm** — Normalized coordinates of input matrix
+- **normalize** — Normalize a vector to unit length
+- **not** — logical negation operator
+- **or** — Logical or operator
+- **out** — Send output from a gen patcher
+- **param** — An externally modifiable, named parameter
+- **pass** — Passes the value through unchanged
+- **peek** — Read values from a data/buffer object
+- **phasewrap** — Wrap input to the range -pi to +pi
+- **phasor** — Sawtooth wave generator
+- **phi** — The constant value of phi
+- **pi** — The constant value of pi
+- **plane** — Equation of a plane taking input coordinates ranging from [0, 1]
+- **plusequals** — An additive accumulator
+- **poke** — Write values into a data/buffer object
+- **poltocar** — Convert polar values to Cartesian
+- **pow** — Raise in1 to the power of in2
+- **qconj** — Get the conjugate of a quaternion.
+- **qmul** — Multiply quaternion inputs
+- **qrot** — Rotate a vector by a quaternion
+- **radians** — convert degrees to radians
+- **radtodeg** — The constant value of radtodeg
+- **rate** — Time-scale the output of a phasor
+- **rdiv** — Reverse division (divide second input by first)
+- **receive** — Receive values from a named send.
+- **reflect** — Reflect a vector
+- **refract** — Refract a vector
+- **rgb2hsl** — Convert RGB to HSL
+- **rmod** — Reverse modulo (remainder of second input / first input)
+- **rotor** — Return a quaternion that can rotate the first input into the second
+- **round** — round to nearest integer
+- **rsub** — Reverse subtraction (subtract first input from second)
+- **sah** — Sample and hold operator (Schmitt trigger)
+- **sample** — Linear interpolated multi-channel lookup of a data/buffer object
+- **sample** — Sample a matrix
+- **samplepix** — Sample a matrix
+- **samplerate** — The DSP samplerate
+- **sampstoms** — Convert period in samples to milliseconds
+- **scale** — Map an input range of values to an output range
+- **selector** — Select between a number of inputs
+- **send** — Send values to a named receive.
+- **setparam** — Set a subpatcher param
+- **sign** — Return the sign of the input
+- **sin** — The sine of the input (in radians)
+- **sinh** — The hyperbolic sine of the input
+- **slide** — Filter a signal logarithmically
+- **smoothstep** — Smoothed fade of inputs
+- **snorm** — Signed normalized coordinates of input matrix
+- **sphere** — Equation of a sphere taking input coordinates ranging from [0, 1]
+- **splat** — Mix values into a data/buffer object, with linear interpolated overdubbing
+- **sqrt** — The square root of the input
+- **sqrt1_2** — The constant value of sqrt1_2
+- **sqrt2** — The constant value of sqrt2
+- **step** — Returns not(in1 < in2)
+- **sub** — Subtract inputs
+- **switch** — Conditional ternary operator
+- **swiz** — Unpack and remap vector components
+- **t60** — Return multiplication factor for a given t60 time (in samples)
+- **t60time** — Return a given t60 time (in samples) for a given multiplication factor
+- **tan** — The tangent of the input (in radians)
+- **tanh** — The hyperbolic tangent of the input
+- **torus** — Equation of a torus taking input coordinates ranging from [0, 1]
+- **train** — Pulse train generator
+- **triangle** — Triangle/ramp wavetable
+- **trunc** — Round the value down to the next smaller integer (toward zero)
+- **twopi** — The constant value of twopi
+- **vec** — Pack scalar values into a vector
+- **vectorsize** — The DSP vectorsize
+- **voice** — Report voice index of a patcher loaded by poly~
+- **wave** — Wavetable synthesis using a data/buffer object
+- **wrap** — Wrap input to a range within a low and high output value
+- **xor** — Logical xor operator
+
+## jitter (463)
+
+- **jit.!** — Apply binary or unary operators
+- **jit.!%** — Apply binary or unary operators
+- **jit.!-** — Apply binary or unary operators
+- **jit.!/** — Apply binary or unary operators
+- **jit.!=** — Apply binary or unary operators
+- **jit.!=p** — Apply binary or unary operators
+- **jit.!pass** — Apply binary or unary operators
+- **jit.%** — Apply binary or unary operators
+- **jit.&** — Apply binary or unary operators
+- **jit.&&** — Apply binary or unary operators
+- **jit.*** — Apply binary or unary operators
+- **jit.+** — Apply binary or unary operators
+- **jit.+m** — Apply binary or unary operators
+- **jit.-** — Apply binary or unary operators
+- **jit.-m** — Apply binary or unary operators
+- **jit./** — Apply binary or unary operators
+- **jit.3m** — Report min/mean/max values
+- **jit.<** — Apply binary or unary operators
+- **jit.<<** — Apply binary or unary operators
+- **jit.<=** — Apply binary or unary operators
+- **jit.<=p** — Apply binary or unary operators
+- **jit.<p** — Apply binary or unary operators
+- **jit.==** — Apply binary or unary operators
+- **jit.==p** — Apply binary or unary operators
+- **jit.>** — Apply binary or unary operators
+- **jit.>=** — Apply binary or unary operators
+- **jit.>=p** — Apply binary or unary operators
+- **jit.>>** — Apply binary or unary operators
+- **jit.>p** — Apply binary or unary operators
+- **jit.^** — Apply binary or unary operators
+- **jit.abs** — Apply binary or unary operators
+- **jit.absdiff** — Apply binary or unary operators
+- **jit.acos** — Apply binary or unary operators
+- **jit.acosh** — Apply binary or unary operators
+- **jit.add** — Apply binary or unary operators
+- **jit.addmod** — Apply binary or unary operators
+- **jit.alphablend** — Blend two images with an alpha channel image
+- **jit.altern** — Color screen with threshold
+- **jit.ameba** — Downsample/upsample with non-obvious results
+- **jit.and** — Apply binary or unary operators
+- **jit.anim.drive** — Animate a 3D transform
+- **jit.anim.node** — Perform hierarchical transformation
+- **jit.anim.path** — Evaluate a path of 3D transform points
+- **jit.argb2ayuv** — Convert ARGB to AYUV
+- **jit.argb2grgb** — Convert ARGB to GRGB
+- **jit.argb2uyvy** — Convert ARGB to UYVY
+- **jit.asin** — Apply binary or unary operators
+- **jit.asinh** — Apply binary or unary operators
+- **jit.atan** — Apply binary or unary operators
+- **jit.atan2** — Apply binary or unary operators
+- **jit.atanh** — Apply binary or unary operators
+- **jit.avc** — Control a FireWire VTR
+- **jit.avg** — Apply binary or unary operators
+- **jit.avg4** — Average four points
+- **jit.axis2quat** — Convert angle-axis to quaternion
+- **jit.ayuv2argb** — Convert AYUV to ARGB
+- **jit.ayuv2luma** — Convert AYUV to monochrome (luminance)
+- **jit.ayuv2uyvy** — Convert AYUV to UYVY
+- **jit.bang** — Outputs float time values using specified mode for realtime animation
+- **jit.bfg** — Evaluate a procedural basis function graph
+- **jit.bitand** — Apply binary or unary operators
+- **jit.bitnot** — Apply binary or unary operators
+- **jit.bitor** — Apply binary or unary operators
+- **jit.bitxor** — Apply binary or unary operators
+- **jit.brass** — Emboss image
+- **jit.brcosa** — Adjust image brightness/contrast/saturation
+- **jit.bsort** — Bubble sort
+- **jit.buffer~** — Access an MSP buffer~ in matrix form
+- **jit.catch~** — Transform signal data into matrices
+- **jit.ceil** — Apply binary or unary operators
+- **jit.cellblock** — Edit rows and columns of data
+- **jit.change** — Only pass different frames
+- **jit.charmap** — Map 256-point input to output
+- **jit.chromakey** — Key images based on chromatic distance
+- **jit.clip** — Limit data to a range
+- **jit.coerce** — Coerce a matrix into different types/planecount
+- **jit.colorspace** — Convert between colorspaces
+- **jit.concat** — Concatenate two matrices
+- **jit.convolve** — Convolve two matrices
+- **jit.conway** — Play Conway's game of life
+- **jit.cos** — Apply binary or unary operators
+- **jit.cosh** — Apply binary or unary operators
+- **jit.cycle** — Cycle messages through outputs
+- **jit.demultiplex** — Demultiplex (deinterleave) one matrix into two
+- **jit.desktop** — Copy the display into a matrix
+- **jit.dimmap** — Remap and/or invert matrix dimensions
+- **jit.dimop** — Downsample using operators across dimensions
+- **jit.displays** — Set and query monitor attributes
+- **jit.div** — Apply binary or unary operators
+- **jit.dx.grab** — Digitize video using DirectX (Windows)
+- **jit.dx.videoout** — Output video to DirectX (Windows)
+- **jit.eclipse** — Create images from images
+- **jit.eq** — Apply binary or unary operators
+- **jit.eqp** — Apply binary or unary operators
+- **jit.euler2quat** — Convert Euler angles to quaternion
+- **jit.exp** — Apply binary or unary operators
+- **jit.exp2** — Apply binary or unary operators
+- **jit.expr** — Evaluate an expression to fill a matrix
+- **jit.fastblur** — Blur/sharpen using optimized algorithm
+- **jit.fft** — Perform a matrix-based FFT
+- **jit.fill** — Fill a matrix with a list
+- **jit.findbounds** — Locate bounding dimensions for a value range
+- **jit.flipdiv** — Apply binary or unary operators
+- **jit.flipmod** — Apply binary or unary operators
+- **jit.flippass** — Apply binary or unary operators
+- **jit.flipsub** — Apply binary or unary operators
+- **jit.floor** — Apply binary or unary operators
+- **jit.fluoride** — Add a neon glow
+- **jit.fold** — Apply binary or unary operators
+- **jit.fprint** — Read/write a matrix as a text file
+- **jit.fpsgui** — FPS meter
+- **jit.framecount** — Outputs float time values using specified mode for realtime animation
+- **jit.freeframe** — Utilize FreeFrame effects
+- **jit.fx.alphaglue** — Create alpha channel from second input
+- **jit.fx.altern** — Color screen with threshold
+- **jit.fx.ameba** — Downsample/upsample with non-obvious results
+- **jit.fx.an.max** — Report max values
+- **jit.fx.an.mean** — Report mean values
+- **jit.fx.an.min** — Report min values
+- **jit.fx.bitcrush** — Bitcrushes an incoming texture
+- **jit.fx.blur** — Blur incoming texture
+- **jit.fx.brass** — Emboss incoming texture
+- **jit.fx.brcosa** — Adjust image brightness/contrast/saturation
+- **jit.fx.bsort** — Bubble sort
+- **jit.fx.camera** — Simulates a virtual camera
+- **jit.fx.cf.bilateral** — Bilateral filter
+- **jit.fx.cf.directional** — Directional blur
+- **jit.fx.cf.gaussian** — Gaussian blur
+- **jit.fx.cf.kuwahara** — Applies a generalized anisotropic Kuwahara filter
+- **jit.fx.cf.radial** — Radial blur
+- **jit.fx.cf.sharpen** — Sharpening filter
+- **jit.fx.cf.tiltshift** — Generates a tilt-shift blur effect
+- **jit.fx.co.accum** — Blend and accumulate a second input
+- **jit.fx.co.additive** — Add a second input
+- **jit.fx.co.alphablend** — Alpha channel blending
+- **jit.fx.co.average** — Average inputs together
+- **jit.fx.co.brightlight** — Blend textures with emphasis on bright regions
+- **jit.fx.co.burn** — Darken areas
+- **jit.fx.co.chromakey** — Chromatic distance based keying
+- **jit.fx.co.darken** — Darken between inputs
+- **jit.fx.co.difference** — Difference between inputs (absolute value)
+- **jit.fx.co.dodge** — Brighten using another input
+- **jit.fx.co.exclude** — Exclude blending mode
+- **jit.fx.co.freeze** — Freeze blending mode
+- **jit.fx.co.glow** — Glow blending mode
+- **jit.fx.co.hardlight** — Hardlight blending mode
+- **jit.fx.co.heat** — Heat blending mode
+- **jit.fx.co.inverse** — Inverse blending mode
+- **jit.fx.co.lighten** — Lighten blending mode
+- **jit.fx.co.lumakey** — Luma key blending mode
+- **jit.fx.co.multiply** — Multiplicative blending effect
+- **jit.fx.co.negate** — Negation blending effect
+- **jit.fx.co.normal** — Normal (opacity) blending effect
+- **jit.fx.co.overlay** — Overlay blending effect
+- **jit.fx.co.reflect** — Reflective blending effect
+- **jit.fx.co.screen** — Screen blending effect
+- **jit.fx.co.softlight** — Blend textures with a subtle emphasis on bright regions
+- **jit.fx.co.stamp** — Stamp composite operator
+- **jit.fx.co.subtractive** — Subtractive composite operator
+- **jit.fx.concat** — Concatenate two textures
+- **jit.fx.conway** — Play Conway's game of life
+- **jit.fx.crt** — CRT monitor siumlation
+- **jit.fx.delay** — Delay texture input
+- **jit.fx.dimmap** — Remap and/or invert texture dimensions
+- **jit.fx.eclipse** — Create images from images
+- **jit.fx.ge.flowfield** — Create a flow field effect
+- **jit.fx.ge.lineinterp** — Image edge line generator
+- **jit.fx.ge.pattern** — Voronoi / Delaunay pattern generator
+- **jit.fx.ge.randlines** — Generate random lines
+- **jit.fx.grain** — Simulate analog film grain
+- **jit.fx.hue** — Rotate hue
+- **jit.fx.lin2srgb** — Convert linear color to srgb
+- **jit.fx.multiplex** — Multiplex (interleave) two textures into one texture
+- **jit.fx.pixelsorting** — Apply real-time pixel sorting to incoming texture
+- **jit.fx.repos** — Reposition spatially
+- **jit.fx.rgb2luma** — Converts RGB to monochrome (luminance)
+- **jit.fx.rota** — Scale/rotate in 2D
+- **jit.fx.slide** — Pixelwise temporal envelope follower
+- **jit.fx.sobel** — Sobel gradient edge detector
+- **jit.fx.srgb2lin** — Convert srgb color to linear
+- **jit.fx.subtexture** — Reference a sub-region of a texture
+- **jit.fx.threshold** — Apply a smooth threshold effect on input texture
+- **jit.fx.tp.delay** — Delay a texture
+- **jit.fx.tp.filter** — Temporal filter
+- **jit.fx.tp.warp** — Temporal
+- **jit.fx.tr.dissolve** — Dissolve transition
+- **jit.fx.tr.gridwipe** — Gridwipe transition
+- **jit.fx.tr.huefade** — Huefade transition
+- **jit.fx.tr.rotfade** — Rotfade transition
+- **jit.fx.tr.shrinkwipe** — Shrinkwipe transition
+- **jit.fx.tr.slide** — Slide transition
+- **jit.fx.tr.vignettes** — Vignette transition
+- **jit.fx.tr.xfade** — Xfade transition
+- **jit.fx.tr.zoomfade** — Zoomfade between two textures
+- **jit.fx.vhs** — VHS playback simulation effect
+- **jit.fx.wake** — Feedback with convolution stage
+- **jit.gen** — Generate new Jitter MOP objects
+- **jit.gen.codebox** — Generate new Jitter MOP objects
+- **jit.gencoord** — Evaluate a procedural basis function graph
+- **jit.geom-group** — Messages and attributes common to Jitter Geometry objects
+- **jit.geom.close** — Named geometry container
+- **jit.geom.crop** — Named geometry container
+- **jit.geom.decimate** — Named geometry container
+- **jit.geom.dimples** — Named geometry container
+- **jit.geom.displace** — Named geometry container
+- **jit.geom.distribute** — Named geometry container
+- **jit.geom.join** — Named geometry container
+- **jit.geom.multiple** — Named geometry container
+- **jit.geom.normalize** — Named geometry container
+- **jit.geom.normgen** — Named geometry container
+- **jit.geom.prop** — Named geometry container
+- **jit.geom.remesh** — Named geometry container
+- **jit.geom.shape** — Named geometry container
+- **jit.geom.smooth** — Named geometry container
+- **jit.geom.subdivide** — Named geometry container
+- **jit.geom.texgen** — Named geometry container
+- **jit.geom.thru** — Named geometry container
+- **jit.geom.todict** — Named geometry container
+- **jit.geom.togeom** — Named geometry container
+- **jit.geom.tomatrix** — Named geometry container
+- **jit.geom.tomesh** — Named geometry container
+- **jit.geom.topoints** — Convert geometry to a matrix of unique points
+- **jit.geom.twist** — Named geometry container
+- **jit.geom.waves** — Named geometry container
+- **jit.geom.xform** — Named geometry container
+- **jit.geometry** — Named geometry container
+- **jit.gl.asyncread** — Read back from an OpenGL framebuffer
+- **jit.gl.bfg** — Procedural basis function texture generator
+- **jit.gl.buffer** — A buffer of mesh data on the GPU
+- **jit.gl.camera** — Set a rendering view
+- **jit.gl.cornerpin** — Map textures in a window
+- **jit.gl.cubemap** — Manage a cubemap texture target
+- **jit.gl.environment** — Manage environment textures for image-based lighting (IBL)
+- **jit.gl.grab** — Digitize video from an external source
+- **jit.gl.graph** — Graph floats into 3D space
+- **jit.gl.gridshape** — Generate simple geometric shapes as a grid
+- **jit.gl.handle** — Use mouse movement to control position/rotation
+- **jit.gl.isosurf** — Generate a GL based surface extraction
+- **jit.gl.layer** — Display video in OpenGL
+- **jit.gl.light** — Place a light source in a 3D scene
+- **jit.gl.lua** — Script OpenGL and Jitter with Lua.
+- **jit.gl.material** — Generate materials for 3D objects
+- **jit.gl.mesh** — Generate GL geometry from matrices
+- **jit.gl.meshwarp** — Video mapping tool
+- **jit.gl.model** — Read and draw various 3D model formats
+- **jit.gl.movie** — Play a movie file
+- **jit.gl.multiple** — Create multiple object instances
+- **jit.gl.node** — Create hierarchical rendering groups
+- **jit.gl.nurbs** — Generate NURBS surface
+- **jit.gl.pass** — Render scene passes with shader processing
+- **jit.gl.path** — Generate and render a path in OpenGL
+- **jit.gl.pbr** — Generate physically based rendering materials for 3D objects
+- **jit.gl.physdraw** — A physics opengl debug drawer
+- **jit.gl.picker** — Mouse picking in an opengl context
+- **jit.gl.pix** — Generates pixel processing shaders from a gen patcher
+- **jit.gl.pix.codebox** — Generates pixel processing shaders from GenExpr code
+- **jit.gl.plato** — Generate platonic solids
+- **jit.gl.render** — Render Jitter OpenGL objects
+- **jit.gl.shader** — Manage a GL shader
+- **jit.gl.sketch** — Use drawing commands with OpenGL
+- **jit.gl.skybox** — Render a skybox in OpenGL
+- **jit.gl.slab** — Process texture data
+- **jit.gl.text** — Render text in a GL context
+- **jit.gl.text2d** — Render text in a GL context
+- **jit.gl.text3d** — Render text in a GL context
+- **jit.gl.textmult** — Multiple 3D Texts
+- **jit.gl.texture** — Create OpenGL textures
+- **jit.gl.textureinfo** — Report texture planecount, type, dimensions
+- **jit.gl.textureset** — A set of textures for storage and resequencing
+- **jit.gl.tf** — Manage transform feedback on geometric meshes
+- **jit.gl.videoplane** — Display video in OpenGL
+- **jit.gl.volume** — Create a volume visualization
+- **jit.glop** — Produce feedback with gain staging
+- **jit.glue** — Glue many matrices into one
+- **jit.grab** — Digitize video from an external source
+- **jit.gradient** — Generate Chebyshev gradients
+- **jit.gradient.ui** — GUI for creating 1-dimensional gradient matrices
+- **jit.graph** — Perform floating-point data visualization
+- **jit.grgb2argb** — Convert GRGB to ARGB
+- **jit.gt** — Apply binary or unary operators
+- **jit.gte** — Apply binary or unary operators
+- **jit.gtep** — Apply binary or unary operators
+- **jit.gtp** — Apply binary or unary operators
+- **jit.hatch** — Perform crosshatch filtering
+- **jit.hello** — Show an example of Jitter attributes
+- **jit.histogram** — Calculate matrix histogram
+- **jit.hsl2rgb** — Convert HSL to RGB
+- **jit.hue** — Rotate hue
+- **jit.hypot** — Apply binary or unary operators
+- **jit.iter** — Iterate a matrix as lists or values
+- **jit.keyscreen** — Choke chromakey from 3 sources
+- **jit.la.determinant** — Calculate the determinant of a matrix
+- **jit.la.diagproduct** — Calculate the product across the main diagonal
+- **jit.la.inverse** — Calculate the inverse of a matrix
+- **jit.la.mult** — True matrix multiplication
+- **jit.la.trace** — Calculate the sum across the main diagonal
+- **jit.la.uppertri** — Convert a matrix into an upper triangular matrix
+- **jit.lcd** — QuickDraw wrapper (deprecated)
+- **jit.linden** — Lindenmayer string expansion (L-systems)
+- **jit.line** — Outputs float time values using specified mode for realtime animation
+- **jit.ln** — Apply binary or unary operators
+- **jit.log** — Apply binary or unary operators
+- **jit.log10** — Apply binary or unary operators
+- **jit.log2** — Apply binary or unary operators
+- **jit.lshift** — Apply binary or unary operators
+- **jit.lt** — Apply binary or unary operators
+- **jit.lte** — Apply binary or unary operators
+- **jit.ltep** — Apply binary or unary operators
+- **jit.ltp** — Apply binary or unary operators
+- **jit.luma2ayuv** — Converts monochrome (luminance) to AYUV
+- **jit.luma2uyvy** — Converts monochrome (luminance) to UYVY
+- **jit.lumakey** — Key based on distance from a luminance value
+- **jit.map** — Map input range to output range
+- **jit.matrix** — The Jitter Matrix!
+- **jit.matrixinfo** — Report matrix planecount, type, dimensions
+- **jit.matrixset** — A set of matrices for storage/resequencing
+- **jit.max** — Apply binary or unary operators
+- **jit.mgraphics** — 2D Vector Graphics
+- **jit.min** — Apply binary or unary operators
+- **jit.mo.field** — Field manipulator for 3 plane jit.mo streams
+- **jit.mo.fieldmask** — Field mask for 3 plane jit.mo streams
+- **jit.mo.func** — Generate animated single dim matrices using a specified function
+- **jit.mo.join** — Combine jit.mo streams and output a multi-plane matrix
+- **jit.mo.line** — Generate animated single dim matrices using a specified function
+- **jit.mo.perlin** — Generate animated single dim matrices using a specified function
+- **jit.mo.saw** — Generate animated single dim matrices using a specified function
+- **jit.mo.sin** — Generate animated single dim matrices using a specified function
+- **jit.mo.time** — Outputs float time values using specified mode for realtime animation
+- **jit.mo.tri** — Generate animated single dim matrices using a specified function
+- **jit.mod** — Apply binary or unary operators
+- **jit.movie** — Play a movie file
+- **jit.movie~** — Play a movie file with an audio track
+- **jit.mult** — Apply binary or unary operators
+- **jit.multiplex** — Multiplex (interleave) two matrices into one matrix
+- **jit.mxform2d** — Spatial transform using 3x3 matrix
+- **jit.neq** — Apply binary or unary operators
+- **jit.neqp** — Apply binary or unary operators
+- **jit.net.recv** — Receive matrices from a  jit.net.send object via TCP/IP
+- **jit.net.send** — Send matrices to a  jit.net.recv object via TCP/IP
+- **jit.noise** — Generate white noise
+- **jit.normalize** — Normalizes a matrix.
+- **jit.not** — Apply binary or unary operators
+- **jit.obref** — Launch html object reference
+- **jit.op** — Apply binary or unary operators
+- **jit.openexr** — Read or write an OpenEXR image.
+- **jit.or** — Apply binary or unary operators
+- **jit.p.bounds** — Limit particles to a region of space
+- **jit.p.shiva** — Generate/eliminate particles
+- **jit.p.vishnu** — Apply single force to particles
+- **jit.pack** — Make a multiplane matrix out of single plane matrices
+- **jit.pass** — Apply binary or unary operators
+- **jit.path** — Evaluates a series of N-dim points as a path
+- **jit.peek~** — Read matrix data as an audio signal
+- **jit.phys.6dof** — A six degrees of freedom constraint in a physics world
+- **jit.phys.barslide** — A bar constraint in a physics world
+- **jit.phys.body** — A rigid body and collision shape
+- **jit.phys.conetwist** — A conetwist constraint in a physics world
+- **jit.phys.ghost** — A collision sensor and forcefield
+- **jit.phys.hinge** — A hinge constraint in a physics world
+- **jit.phys.multiple** — Uses matrices to simulate multiple rigid bodies
+- **jit.phys.picker** — Constraint picking in a physics world
+- **jit.phys.point2point** — A point to point constraint in a physics world
+- **jit.phys.world** — Collision detection and rigid body dynamics
+- **jit.pix** — Generates Jitter mop pixel processing objects from a patcher.
+- **jit.pix.codebox** — Generate Jitter MOP pixel processing objects
+- **jit.planeop** — Operator across planes
+- **jit.playlist** — Play video files
+- **jit.plot** — (x,y) plotting of a two-plane matrix
+- **jit.plume** — Displace points based on luminance
+- **jit.plur** — Peace Love Unity Rave
+- **jit.poke~** — Write an audio signal into a matrix
+- **jit.polymovie** — Manage multiple jit.movie objects
+- **jit.pow** — Apply binary or unary operators
+- **jit.print** — Print a matrix in the Max Console
+- **jit.proxy** — Proxy a Jitter object.
+- **jit.pwindow** — Display Jitter data and images
+- **jit.pworld** — Display a Jitter GL context
+- **jit.qball** — Convert messages at scheduler time to low priority
+- **jit.qfaker** — Fake queue status
+- **jit.qt.grab** — Digitize video from an external source
+- **jit.qt.movie** — Play or edit a movie
+- **jit.qt.record** — Record a movie
+- **jit.qt.videoout** — Output video to QuickTime video output component
+- **jit.quat** — Quaternion multiplication
+- **jit.quat2axis** — Quaternion to angle-axis conversion
+- **jit.quat2euler** — Quaternion to Euler conversion
+- **jit.record** — Record a movie
+- **jit.release~** — Transforms matrix data into signals
+- **jit.repos** — Reposition spatially
+- **jit.resamp** — Resample spatially
+- **jit.reverse** — Reverse output with respect to input
+- **jit.rgb2hsl** — Convert RGB to HSL
+- **jit.rgb2luma** — Converts RGB to monochrome (luminance)
+- **jit.robcross** — Robert's Cross edge detection
+- **jit.rota** — Scale/rotate in 2D
+- **jit.round** — Apply binary or unary operators
+- **jit.roy** — Convert image to halftone image
+- **jit.rshift** — Apply binary or unary operators
+- **jit.rubix** — Reorder grid of rectangles
+- **jit.scalebias** — Multiply and add
+- **jit.scanoffset** — Uses a 1-dimensional matrix to offset scanlines
+- **jit.scanslide** — Cellwise spatial envelope follower
+- **jit.scanwrap** — Resample by scanline wrapping
+- **jit.scissors** — Cut up a matrix into evenly spaced sub matrices
+- **jit.scope** — Visual matrix analysis tools
+- **jit.shade** — Map-based crossfader
+- **jit.sin** — Apply binary or unary operators
+- **jit.sinh** — Apply binary or unary operators
+- **jit.slide** — Cellwise temporal envelope follower
+- **jit.sobel** — Sobel and Prewitt gradient edge detector
+- **jit.spill** — Unroll a matrix into a list
+- **jit.split** — Split a matrix into two matrices
+- **jit.sprinkle** — Introduce spatial noise
+- **jit.sqrt** — Apply binary or unary operators
+- **jit.str.fromsymbol** — Convert Max symbol to Jitter string matrix
+- **jit.str.op** — Apply common string operations
+- **jit.str.regexp** — Use PERL-compatible regular expressions on Jitter matrices
+- **jit.str.tosymbol** — Convert Jitter string matrix to Max symbol
+- **jit.streak** — Probability lines
+- **jit.sub** — Apply binary or unary operators
+- **jit.submatrix** — Reference a sub-region of a matrix
+- **jit.submod** — Apply binary or unary operators
+- **jit.tan** — Apply binary or unary operators
+- **jit.tanh** — Apply binary or unary operators
+- **jit.textfile** — Read and write a matrix as an ASCII text file
+- **jit.thin** — Remove redundant dimensions of size 1
+- **jit.tiffany** — Arbitrary rectangular resampling
+- **jit.time** — Outputs float time values using specified mode for realtime animation
+- **jit.time.delta** — Outputs float time values using specified mode for realtime animation
+- **jit.time.line** — Outputs float time values using specified mode for realtime animation
+- **jit.time.perlin** — Outputs float time values using specified mode for realtime animation
+- **jit.time.saw** — Outputs float time values using specified mode for realtime animation
+- **jit.time.sin** — Outputs float time values using specified mode for realtime animation
+- **jit.time.tri** — Outputs float time values using specified mode for realtime animation
+- **jit.traffic** — Multiply the planar vector by a matrix
+- **jit.transpose** — Calculate the transpose of a matrix
+- **jit.trunc** — Apply binary or unary operators
+- **jit.turtle** — 2-d turtle graphics interpreter
+- **jit.ui.button** — An interactive button in the rendering window
+- **jit.ui.canvas** — A canvas to render jit.ui objects
+- **jit.ui.group** — Group other UI objects into an interactive container
+- **jit.ui.number** — An interactive  flonum in the rendering window
+- **jit.ui.slider** — An interactive slider in the rendering window
+- **jit.ui.toggle** — An interactive toggle in the rendering window
+- **jit.uldl** — Internet upload/download
+- **jit.unpack** — Make multiple single plane matrices out of a multiplane matrix
+- **jit.uyvy2argb** — Converts UYVY to ARGB
+- **jit.uyvy2ayuv** — Converts UYVY to AYUV
+- **jit.uyvy2luma** — Converts UYVY to monochrome (luminance)
+- **jit.vcr** — Record a movie with MSP audio
+- **jit.viddll.movie** — Play a movie file
+- **jit.viddll.record** — Record a movie file
+- **jit.wake** — Feedback with convolution stage
+- **jit.window** — Display data in a window
+- **jit.world** — The Jitter world context
+- **jit.wrap** — Apply binary or unary operators
+- **jit.xfade** — Crossfade between 2 matrices
+- **jit.|** — Apply binary or unary operators
+- **jit.||** — Apply binary or unary operators
+- **jit.~** — Apply binary or unary operators
+- **mc.jit.catch~** — Transform signal data into matrices
+- **mc.jit.peek~** — Read matrix data as an audio signal  (multichannel)
+- **mc.jit.release~** — Transforms matrix data into signals
+
+## max (544)
+
+- **!-** — Subtraction object (inlets reversed)
+- **!/** — Divide input from a number
+- **!=** — Compare numbers for not-equal-to condition
+- **%** — Divide two numbers, output the remainder
+- **&** — Bitwise intersection of two numbers
+- **&&** — Perform a logical AND
+- ***** — Multiply two numbers
+- **+** — Add two numbers, output the result
+- **-** — Subtract two numbers, output the result
+- **/** — Divide two numbers
+- **<** — Compare numbers for less than condition
+- **<<** — Bit shift to the left
+- **<=** — Compare numbers as less than or equal to
+- **==** — Compare numbers for equal-to condition
+- **>** — Compare numbers for greater than condition
+- **>=** — Compare numbers for greater than or equal to condition
+- **>>** — Bit shift to the right
+- **abs** — Calculate an absolute value
+- **absolutepath** — Convert a file name to an absolute path
+- **accum** — Store, add to, and multiply a number
+- **acos** — Arc-cosine function
+- **acosh** — Hyperbolic arc-cosine function
+- **active** — Send 1 when patcher window is active, 0 when inactive
+- **anal** — Make a histogram of number pairs
+- **append** — Append arguments to the end of a message
+- **array** — Create or duplicate an array object
+- **array.at** — Output the indexed element of an array object
+- **array.change** — Detect array changes
+- **array.compare** — Compare two arrays for equality
+- **array.concat** — Concatenate two array objects
+- **array.deserialize** — Parse a string, symbol or list to an array.
+- **array.every** — Tests all elements in the array
+- **array.expr** — Evaluate a math expression for an array
+- **array.fill** — Generate an array of a specified length
+- **array.filter** — Output elements of an array matching a condition
+- **array.flatten** — Flatten a multi-dimensional array object to a single dimension
+- **array.foreach** — Iterate the elements of an array
+- **array.frombuffer** — Read audio buffer values into an array object
+- **array.group** — Output an array when it reaches a certain size
+- **array.index** — Output the indexed element of an array object
+- **array.indexmap** — Reorder the elements of an array object based on an indexed map
+- **array.indexof** — Search for the index of an array element
+- **array.insert** — Insert elements into an array object
+- **array.iter** — Iterate every element of an array object
+- **array.join** — Convert an array object to a string object with an optional separator string
+- **array.length** — Determine the length of an array object
+- **array.map** — Perform an operation on every element of an array object, replacing elements in-place
+- **array.max** — Calculate the minimum of the numerical elements of an array
+- **array.mean** — Calculate the minimum of the numerical elements of an array
+- **array.median** — Calculate the median of the numerical elements of an array
+- **array.min** — Calculate the minimum of the numerical elements of an array
+- **array.mode** — Calculate the mode of the numerical elements of an array
+- **array.pop** — Remove an element from the end of an array
+- **array.push** — Add one or more elements to the end of an array
+- **array.random** — Generate a random array of a specified length
+- **array.reduce** — Combine array elements based on a custom function
+- **array.regexp** — Use regular expressions to process input
+- **array.remove** — Remove a range of elements from an array object
+- **array.replace** — Replace elements in an array
+- **array.reverse** — Reverse the order of elements in an array object
+- **array.rotate** — Rotate the elements in any array object
+- **array.routepass** — Route a complete input array object based on input matching
+- **array.scramble** — Randomize the order of elements in an array object
+- **array.sect** — Return the elements of an array object which intersect with another array object
+- **array.shift** — Remove an element from the beginning of an array
+- **array.shuffle** — Randomize the order of elements in an array object
+- **array.slice** — Output a range of elements of an array object as a new array object
+- **array.some** — Test the elements of an array object for a matching condition
+- **array.sort** — Sort the elements of an array object according to a test
+- **array.split** — Split an array object into two new array objects at a specified index
+- **array.stddev** — Calculate the standard deviation of the numerical elements of an array
+- **array.stream** — Make an array of a certain size
+- **array.sub** — Output a range of elements of an array object as a new array object
+- **array.subarray** — Output a range of elements of an array object as a new array object
+- **array.thin** — Remove duplicated entries from an array object
+- **array.tobuffer** — Write array object values to an audio buffer
+- **array.tolist** — Convert an array object to a list
+- **array.tostring** — Convert an array object to a string object
+- **array.tosymbol** — Convert an array object to a symbol
+- **array.tuplewise** — Make an array of a certain size (counting iterations)
+- **array.union** — Combine two arrays into a new array object containing non-duplicate entries of both arrays
+- **array.unique** — Filtering duplicates and subtract arrays
+- **array.unshift** — Add one or more elements to the beginning of an array
+- **array.wrap** — Wrap an array inside of an array
+- **asin** — Arc-sine function
+- **asinh** — Hyperbolic arc-sine function
+- **atan** — Arc-tangent function
+- **atan2** — Two-variable arc-tangent function
+- **atanh** — Hyperbolic arc-tangent function
+- **atodb** — Convert a linear value to decibels
+- **atoi** — Convert characters to integers
+- **attrui** — Inspect attributes
+- **autopattr** — Expose multiple objects to the pattr system
+- **b** — Output a bang from many outlets
+- **bag** — Store a collection of numbers
+- **bangbang** — Output a bang from many outlets
+- **bendin** — Output MIDI pitch bend values
+- **bendout** — Send MIDI pitch bend messages
+- **bgcolor** — Set background color
+- **bitand** — Bitwise intersection of two numbers
+- **bitor** — Bitwise union of two numbers
+- **bline** — Generate ramps using  bang
+- **bondo** — Synchronize a group of messages
+- **borax** — Report note-on and note-off information
+- **bpatcher** — Embed a subpatch with a visible UI
+- **bucket** — Pass numbers from outlet to outlet
+- **buddy** — Synchronize arriving data
+- **button** — Blink and send a  bang
+- **capture** — Store values to view or edit
+- **cartopol** — Convert cartesian to polar coordinates
+- **change** — Filter out repetitions of a number
+- **chooser** — Display a scrolling list of selectable items
+- **clip** — Limit numbers to a range
+- **clocker** — Output a bang message at regular intervals
+- **closebang** — Send a  bang on close
+- **coll** — Store and edit a collection of data
+- **coll.codebox** — Store and edit a collection of data
+- **colorpicker** — Select and output a color
+- **combine** — Combine multiple items into a single symbol
+- **comment** — Explanatory note or label
+- **conformpath** — Convert file paths styles
+- **console** — Console Output in Patcher
+- **cos** — Cosine function
+- **cosh** — Hyperbolic cosine function
+- **counter** — Keep count based on bang messages
+- **cpuclock** — Retrieve the CPU time
+- **crosspatch** — Patching Editor for Matrix Objects
+- **ctlin** — Output received MIDI control values
+- **ctlout** — Transmit MIDI controller messages
+- **cycle** — Round-robin messages to outlets
+- **date** — Report current date and time
+- **dbtoa** — Convert decibels to a linear value
+- **decide** — Choose randomly between 1 and 0
+- **decode** — Send 1 or 0 out a specific outlet
+- **defer** — Defer execution of a message
+- **deferlow** — Defer the execution of a message (always)
+- **del** — Delay a bang
+- **delay** — Delay a bang
+- **detonate** — Play a score of note events
+- **dial** — Output numbers using an onscreen dial
+- **dialog** — Open a dialog box
+- **dict** — Create and access dictionaries
+- **dict.codebox** — Create and access dictionaries
+- **dict.compare** — Compare two dictionaries for equivalence.
+- **dict.deserialize** — Create a dictionary from text
+- **dict.group** — Build a dictionary iteratively
+- **dict.iter** — Stream the content of a dictionary
+- **dict.join** — Merge the content of two dictionaries
+- **dict.pack** — Create a dictionary and set its values
+- **dict.print** — Post a dictionary to the Max Console
+- **dict.route** — Compare dictionaries
+- **dict.serialize** — Convert a dictionary's content to text
+- **dict.slice** — Split a dictionary into two dictionaries
+- **dict.strip** — Remove keys from a dictionary
+- **dict.unpack** — Extract values from a dictionary
+- **dict.view** — View the contents of a dictionary
+- **div** — Divide two numbers
+- **dropfile** — Drag and drop files
+- **drunk** — Output random numbers within a step range
+- **equals** — Compare numbers for equal-to condition
+- **error** — Report Max errors
+- **expr** — Evaluate a mathematical expression
+- **f** — Store a decimal number
+- **filedate** — Report the modification date of a file
+- **filein** — Read and access a file of binary data
+- **filepath** — Manage and report on the Max search path
+- **filewatch** — Watch a file for changes
+- **float** — Store a decimal number
+- **flonum** — Display and output numbers, lists, and messages
+- **flush** — Output MIDI note-offs for held notes
+- **folder** — List the files in a folder
+- **follow** — Compare a live performance to a recorded performance
+- **fontlist** — List system fonts
+- **forward** — Send messages to specified receive objects
+- **fpic** — Display an image
+- **freebang** — Send a bang when a patcher is freed
+- **fromsymbol** — Convert a symbol into numbers/messages
+- **fswap** — Swap position of two numbers
+- **ftom** — Convert frequency to a MIDI note number
+- **funbuff** — Store pairs of numbers
+- **function** — Breakpoint function editor
+- **funnel** — Tag data with its inlet number
+- **gamepad** — Report gamepad controller events
+- **gate** — Pass input to an outlet
+- **gestalt** — Retrieve system information
+- **getattr** — Query object attributes
+- **ggate** — Send input to one of two outlets
+- **grab** — Intercept the output of another object
+- **greaterthan** — Compare numbers for greater than condition
+- **greaterthaneq** — Compare numbers for greater than or equal to condition
+- **gswitch** — Select output from two inlets
+- **gswitch2** — Send input to one of two outlets
+- **hi** — Human Interface device input (legacy)
+- **hid** — Human Interface Device input (modern)
+- **hint** — Display hint text
+- **histo** — Create a histogram of numbers received
+- **hover** — Report object scripting names
+- **hslider** — Move a slider to output values
+- **i** — Store an integer value
+- **if** — Conditional statement in if/then/else form
+- **imovie** — Play video
+- **incdec** — Increment and decrement a value
+- **inlet** — Receive messages from outside a patcher
+- **int** — Store an integer value
+- **itable** — Data table editor
+- **iter** — Break a list into individual messages
+- **itoa** — Convert character codes to symbol
+- **join** — Combine items into a list
+- **js** — Execute Javascript (Legacy Engine)
+- **jstrigger** — Execute Javascript instructions sequentially
+- **jsui** — Javascript user interfaces and graphics (Legacy Engine)
+- **jweb** — Web browser
+- **key** — Report keyboard presses
+- **keyup** — Report key information on release
+- **kslider** — Output numbers from an onscreen keyboard
+- **lcd** — Display graphics (deprecated)
+- **led** — Color on/off button
+- **lessthan** — Compare numbers for less than condition
+- **lessthaneq** — Compare numbers as less than or equal to
+- **line** — Generate timed ramp
+- **linedrive** — Scale numbers exponentially
+- **list.change** — Process lists in many ways
+- **list.compare** — Process lists in many ways
+- **list.delace** — Process lists in many ways
+- **list.ecils** — Process lists in many ways
+- **list.filter** — Process lists in many ways
+- **list.group** — Process lists in many ways
+- **list.indexmap** — Process lists in many ways
+- **list.iter** — Process lists in many ways
+- **list.join** — Process lists in many ways
+- **list.lace** — Process lists in many ways
+- **list.len** — Process lists in many ways
+- **list.lookup** — Process lists in many ways
+- **list.median** — Process lists in many ways
+- **list.mth** — Process lists in many ways
+- **list.nth** — Process lists in many ways
+- **list.queue** — Process lists in many ways
+- **list.reg** — Process lists in many ways
+- **list.rev** — Process lists in many ways
+- **list.rot** — Process lists in many ways
+- **list.scramble** — Process lists in many ways
+- **list.sect** — Process lists in many ways
+- **list.slice** — Process lists in many ways
+- **list.sort** — Process lists in many ways
+- **list.stack** — Process lists in many ways
+- **list.stream** — Process lists in many ways
+- **list.sub** — Process lists in many ways
+- **list.sum** — Process lists in many ways
+- **list.swap** — Process lists in many ways
+- **list.thin** — Process lists in many ways
+- **list.union** — Process lists in many ways
+- **list.unique** — Process lists in many ways
+- **listbox** — Display and output numbers, lists, and messages
+- **listfunnel** — Index and output list elements
+- **loadbang** — Send a bang when a patcher is loaded
+- **loadmess** — Send a message when a patch is loaded
+- **logand** — Perform a logical AND
+- **logor** — Perform a logical OR
+- **makenote** — Generate a note-on/note-off pair
+- **mappings** — Utility object for Mappings
+- **match** — Watch for a message match, then output the message
+- **matrix** — Event routing matrix
+- **matrixctrl** — Matrix switch control
+- **maximum** — Output the highest value
+- **maxurl** — Make HTTP requests
+- **mean** — Calculate a running average
+- **menubar** — Put up a custom menu bar
+- **message** — Send any message
+- **messageview** — View a stream of messages
+- **metro** — Output a bang message at regular intervals
+- **midiflush** — Send MIDI note-offs for hanging note-ons
+- **midiformat** — Prepare data in the form of a MIDI message
+- **midiin** — Output raw MIDI data
+- **midiinfo** — Fill a pop-up menu with MIDI device names
+- **midiout** — Transmit raw MIDI data
+- **midiparse** — Interpret raw MIDI data
+- **minimum** — Output the smallest value
+- **minus** — Subtract two numbers, output the result
+- **mira.frame** — Mirror your Max patcher on your iPad
+- **mira.motion** — Receive data from iPad accelerometer, gyroscope and magnetometer.
+- **mira.multitouch** — Receive touch and gesture data from touchscreen.
+- **modifiers** — Report modifier key presses
+- **modulo** — Divide two numbers, output the remainder
+- **mousefilter** — Gate messages with the mouse
+- **mousestate** — Report the mouse information
+- **movie** — Play a movie in a window
+- **mpeconfig** — Configure a MIDI device that supports Multidimensional Polyphonic Expression (MPE) messages
+- **mpeformat** — Prepare data in the form of a Multidimensional Polyphonic Expression (MPE) MIDI message
+- **mpeparse** — Interpret raw MPE MIDI data
+- **mtof** — Convert a MIDI note number to frequency
+- **mtr** — Record and sequence messages
+- **multirange** — Graphical function breakpoint editor
+- **multislider** — Display data as sliders or a scrolling display
+- **mxj** — Execute Java in Max
+- **next** — Detect separation of messages
+- **node.codebox** — Control a local Node.js process from Max
+- **node.script** — Control a local Node.js process from Max
+- **nodes** — Interpolate data graphically
+- **notein** — Receive MIDI note messages
+- **noteout** — Transmit MIDI note messages
+- **notequals** — Compare numbers for not-equal-to condition
+- **nrpnin** — Output received NRPN values
+- **nrpnout** — Format 14-bit MIDI NRPN messages
+- **nslider** — Output numbers from a notation display
+- **number** — Display and output numbers, lists, and messages
+- **numkey** — Interpret numbers typed on the keyboard
+- **offer** — Store one-time number pairs
+- **omsinfo** — Fill a pop-up menu with MIDI device names
+- **onebang** — Gate bangs using a bang
+- **onecopy** — Prevent multiple copies of the same patcher from being opened
+- **opendialog** — Open a dialog to ask for a file or folder
+- **osc.codebox** — Display OSC packets as Dictionaries
+- **osc.packet** — Store and recall an OSC packet
+- **outlet** — Send messages out of a patcher
+- **p** — Create a subpatch within a patch
+- **pack** — Create a list
+- **pak** — Output a list when any element changes
+- **panel** — Colored background area
+- **param** — Define a polyphonic-compatible parameter in  poly~
+- **param.osc** — Control and report info about parameters using OSC.
+- **past** — Notify when a threshold is passed
+- **patcher** — Create a subpatch within a patch
+- **patcherargs** — Retrieve patcher arguments
+- **pattr** — Provide an alias with a named data wrapper
+- **pattrforward** — Send any message to a named object
+- **pattrhub** — Access all pattr objects in a patcher
+- **pattrmarker** — Provide pattr communication between patchers
+- **pattrstorage** — Save and recall pattr presets
+- **pcontrol** — Open and close subwindows
+- **peak** — Output larger numbers
+- **pgmin** — Receive MIDI program changes
+- **pgmout** — Send MIDI program changes
+- **pictctrl** — Picture-based control
+- **pictslider** — Picture-based slider control
+- **pipe** — Delay numbers, lists or symbols
+- **playbar** — Control video or audio file playback
+- **plus** — Add two numbers, output the result
+- **poltocar** — Convert polar to cartesian coordinates
+- **poly** — Allocate notes to different voices
+- **polyin** — Received MIDI poly pressure
+- **polymidiin** — Output Multidimensional Polyphonic Expression (MPE) MIDI data
+- **polyout** — Send MIDI poly pressure
+- **pong** — Range limiting
+- **pow** — Computes input to the nth power
+- **prepend** — Add a message in front of input
+- **preset** — Store and recall settings
+- **print** — Print any message in the Max Console
+- **prob** — Create a weighted transition table
+- **project** — TEXT_HERE
+- **pv** — Share data within a patch hierarchy
+- **pvar** — Connect to a named object in a patcher
+- **qlim** — Limit the speed of message throughput
+- **qlist** — Store a collection of messages
+- **qmetro** — Queue-based metronome
+- **quickthresh** — Fast chord detection
+- **r** — Receive messages without patch cords
+- **radiogroup** — Radio button or check box
+- **random** — Generate a random number
+- **rdiv** — Divide input from a number
+- **receive** — Receive messages without patch cords
+- **regexp** — Use regular expressions to process input
+- **relativepath** — Convert an absolute to a relative path
+- **repl** — Send, receive and output Max Console commands
+- **rminus** — Subtraction object (inlets reversed)
+- **round** — Round to a value
+- **route** — Select outlet based on input matching
+- **routepass** — Route a complete incoming message based on input matching
+- **router** — Route messages to multiple locations
+- **rpnin** — Output received RPN values
+- **rpnout** — Format 14-bit MIDI RPN messages
+- **rslider** — Display or change a range of numbers
+- **rtin** — Receive MIDI real time messages
+- **s** — Send messages without patch cords
+- **savebang** — Send a  bang on save
+- **savedialog** — Open a dialog asking for a filename
+- **scale** — Map values to an output range
+- **schedule** — Schedule messages on high priority scheduler thread
+- **screensize** — Output the monitor size
+- **sel** — Output bangs based on input matching
+- **select** — Output bangs based on input matching
+- **send** — Send messages without patch cords
+- **seq** — Sequencer for recording and playing MIDI data
+- **serial** — Send and receive from a serial port
+- **setclock** — Create and control an alternative clock
+- **shiftleft** — Bit shift to the left
+- **shiftright** — Bit shift to the right
+- **sin** — Sine function
+- **sinh** — Hyperbolic sine function
+- **slide** — Smooth values logarithmically
+- **slider** — Move a slider to output values
+- **speedlim** — Limit the speed of message throughput
+- **spell** — Convert input to UTF-8 (Unicode) codes
+- **split** — Look for a range of numbers
+- **spray** — Distribute a value to a numbered outlet
+- **sprintf** — Format a message of words and numbers
+- **sqrt** — Square root function
+- **standalone** — Configure parameters for standalone applications
+- **stepcounter** — Count messages in a sequence
+- **string** — Create or duplicate a string object
+- **string.append** — Append a string to another string object, with an optional separator
+- **string.at** — Output the character at an index in a string object (0-based)
+- **string.bytes** — Iterate the UTF-8 data in a string as bytes (ints)
+- **string.change** — Detect string changes
+- **string.chars** — Iterate the UTF-8 characters of a string object as individual symbols
+- **string.compare** — Compare two string objects for equality
+- **string.concat** — Concatenate two string objects
+- **string.contains** — Test whether a string object contains another string
+- **string.endswith** — Test whether a string object ends with a substring
+- **string.frombytes** — Construct a new string object from bytes (ints)
+- **string.fromchars** — Construct a new string object from bytes (ints)
+- **string.fromsymlist** — Construct a new string from a list of symbols
+- **string.fromutf8** — Construct a new string object from UTF-8 characters, as integer values
+- **string.index** — Output the character at an index in a string object (0-based)
+- **string.indexof** — Search for the index of a string
+- **string.iter** — Iterate the UTF-8 characters of a string object as individual symbols
+- **string.length** — Determine the length of a string object
+- **string.passcmp** — Route a string by a matching substring
+- **string.prepend** — Prepend a string to another string object, with an optional separator
+- **string.regexp** — Use regular expressions to process input
+- **string.remove** — Remove a range of characters from a string object
+- **string.replace** — Replace the first instance of a substring with a substitution string
+- **string.replaceall** — Replace all instances of a substring with a substitution string
+- **string.reverse** — Reverse a string
+- **string.rotate** — Rotate the characters within a string object
+- **string.slice** — Generate a new string from a range of characters in an incoming string
+- **string.split** — Split a string object
+- **string.sprintf** — Generate a string using C-style message formatting
+- **string.startswith** — Test whether a string object starts with a substring
+- **string.sub** — Generate a new string from a range of characters in an incoming string
+- **string.substring** — Generate a new string from a range of characters in an incoming string
+- **string.toarray** — Construct a new array object from a string object
+- **string.tolist** — Construct a new list from a string object
+- **string.tolower** — Convert uppercase characters in a string object to lowercase
+- **string.tosymbol** — Convert a string to a symbol
+- **string.toupper** — Convert lowercase characters in a string object to uppercase
+- **string.trim** — Trim whitespace from the beginning and end of a string object
+- **string.trimend** — Trim whitespace from the end of a string object
+- **string.trimstart** — Remove whitespace from the beginning of a string object
+- **string.utf8** — Iterate the UTF-8 characters in a string as integers
+- **string.withpass** — Route a string by a matching substring
+- **stripnote** — Filter out note-off messages
+- **strippath** — Separate filename from a full pathname
+- **substitute** — Substitute symbols within a message
+- **suckah** — Get a pixel from the display
+- **suspend** — Reports when the application is in the background or foreground
+- **sustain** — Hold note-off messages for release
+- **swap** — Swap position of two numbers
+- **swatch** — Choose a color
+- **switch** — Accept messages from a specific inlet
+- **sxformat** — Prepare MIDI system exclusive messages
+- **sysexin** — Receive MIDI system exclusive messages
+- **t** — Send input to many places
+- **tab** — Tab control
+- **tabcontroller** — Define and manage patcher tabs
+- **table** — Store and edit an array of numbers
+- **tan** — Tangent function
+- **tanh** — Hyperbolic tangent function
+- **tempo** — Output numbers at a metronomic tempo
+- **text** — Format messages as a text file
+- **text.codebox** — Display and edit text
+- **textbox** — Display and output numbers, lists, and messages
+- **textbutton** — Button with text
+- **textedit** — Enter text
+- **themecolor** — Change and/or listen for changes in interface colors
+- **thisobject** — Monitor and control named objects
+- **thispatcher** — Send messages to a patcher
+- **threadcheck** — Report the thread of execution for a message
+- **thresh** — Combine numbers, symbols and lists when received close together
+- **timepoint** — Bang at a specific time
+- **timer** — Report elapsed time between two events
+- **times** — Multiply two numbers
+- **togedge** — Report zero/non-zero transitions
+- **toggle** — Switch between off and on (0 and 1)
+- **tosymbol** — Convert messages, numbers, or lists to a single symbol
+- **touchin** — Receive MIDI aftertouch values
+- **touchout** — Transmit MIDI aftertouch messages
+- **translate** — Convert between different time formats
+- **transport** — Control a clock
+- **trigger** — Send input to many places
+- **trough** — Output a number if it is less than previous numbers
+- **ubumenu** — Pop-up menu
+- **ubutton** — Transparent button
+- **udpreceive** — Receive messages over a network
+- **udpsend** — Send messages over a network
+- **umenu** — Pop-up menu
+- **universal** — Send messages to all objects of the same type
+- **unjoin** — Break a list into messages
+- **unpack** — Break a list into individual messages
+- **urn** — Generate random numbers without duplicates
+- **uslider** — Move a slider to output values
+- **uzi** — Send many bang messages
+- **v** — Share data between other value objects
+- **v8** — Report texture planecount, type, dimensions
+- **v8.codebox** — Execute Javascript (Modern Engine)
+- **v8ui** — Javascript user interfaces and graphics (Modern Engine)
+- **value** — Share data between other value objects
+- **vdp** — Control a videodisk player through a serial port
+- **vexpr** — Evaluate a math expression for a list
+- **vstscan** — Audio Plugin Scanner
+- **when** — Report the current transport time
+- **xbendin** — Interpret extra precision MIDI pitch bend values
+- **xbendin2** — Interpret extra precision MIDI pitch bend values
+- **xbendout** — Format extra precision MIDI pitch bend messages
+- **xbendout2** — Format extra precision MIDI pitch bend messages
+- **xctlin** — Output received 14-bit MIDI control values
+- **xctlout** — Format 14-bit MIDI controller messages
+- **xmidiin** — Output raw MIDI data
+- **xnotein** — Interpret MIDI note messages with release velocity
+- **xnoteout** — Format MIDI note messages with release velocity
+- **zl** — Process lists in many ways
+- **zl.change** — Process lists in many ways
+- **zl.compare** — Process lists in many ways
+- **zl.delace** — Process lists in many ways
+- **zl.ecils** — Process lists in many ways
+- **zl.filter** — Process lists in many ways
+- **zl.group** — Process lists in many ways
+- **zl.indexmap** — Process lists in many ways
+- **zl.iter** — Process lists in many ways
+- **zl.join** — Process lists in many ways
+- **zl.lace** — Process lists in many ways
+- **zl.len** — Process lists in many ways
+- **zl.lookup** — Process lists in many ways
+- **zl.median** — Get the median value of a list of numbers
+- **zl.mth** — Extract item from list
+- **zl.nth** — Extract item from list
+- **zl.queue** — Output elements of a list in the order they are received
+- **zl.reg** — Store and output a list
+- **zl.rev** — Reverse a list
+- **zl.rot** — Rotate a list
+- **zl.scramble** — Scramble a list
+- **zl.sect** — Find common items between two lists
+- **zl.slice** — Slice a list in two
+- **zl.sort** — Arrange a list in alphanumeric order
+- **zl.stack** — Output elements of a list in reverse order
+- **zl.stream** — Make a list of a certain size
+- **zl.sub** — Output position for each occurance of right list in left
+- **zl.sum** — Sum a list of numbers
+- **zl.swap** — Swap two list indexes
+- **zl.thin** — Remove duplicates from list
+- **zl.union** — Combine two lists without duplicating shared items
+- **zl.unique** — Remove items from a list
+- **zmap** — Maps input range of values to output range
+- **|** — Bitwise union of two numbers
+- **||** — Perform a logical OR
+
+## mc (244)
+
+- **mc.!-~** — Signal subtraction (inlets reversed) (multichannel)
+- **mc.!/~** — Signal division (inlets reversed) (multichannel)
+- **mc.!=~** — Not equal to, comparison of two signals (multichannel)
+- **mc.%~** — Divide two signals, output the remainder (multichannel)
+- **mc.*~** — Multiply two signals (multichannel)
+- **mc.+=~** — Signal accumulator (multichannel)
+- **mc.+~** — Add signals (multichannel)
+- **mc.-~** — Signal subtraction (multichannel)
+- **mc./~** — Divide one signal by another (multichannel)
+- **mc.2d.wave~** — Two-dimensional wavetable (multichannel)
+- **mc.<=~** — Is less than or equal to, comparison of two signals (multichannel)
+- **mc.<~** — Is less than, comparison of two signals (multichannel)
+- **mc.==~** — Is equal to, comparison of two signals (multichannel)
+- **mc.>=~** — Is greater than or equal to, comparison of two signals (multichannel)
+- **mc.>~** — Is greater than, comparison of two signals (multichannel)
+- **mc.abs~** — Absolute value of a signal  (multichannel)
+- **mc.acosh~** — Signal hyperbolic arc-cosine function  (multichannel)
+- **mc.acos~** — Signal arc-cosine function  (multichannel)
+- **mc.adc~** — Multichannel audio input and on/off
+- **mc.adsr~** — ADSR envelope generator (multichannel)
+- **mc.allpass~** — Apply an allpass filter effect (multichannel)
+- **mc.amxd~** — Host Max for Live devices (multichannel)
+- **mc.apply~** — Apply a Function to a Multichannel Signal
+- **mc.asinh~** — Signal hyperbolic arc-sine function  (multichannel)
+- **mc.asin~** — Signal arc-sine function  (multichannel)
+- **mc.assign** — Assign Messages to MC Objects
+- **mc.atan2~** — Signal arc-tangent function (two variables)  (multichannel)
+- **mc.atanh~** — Signal hyperbolic arc-tangent function  (multichannel)
+- **mc.atan~** — Signal arc-tangent function  (multichannel)
+- **mc.atodb~** — Convert a linear value to a signal-rate deciBel value  (multichannel)
+- **mc.audiounit~** — Host VST, VST3 and Audio Unit plug-ins (multichannel)
+- **mc.average~** — Multi-mode signal average  (multichannel)
+- **mc.avg~** — Signal average  (multichannel)
+- **mc.bands~** — Filter bank for MC
+- **mc.biquad~** — Two-pole, two-zero filter  (multichannel)
+- **mc.bitand~** — Bitwise and-operation of floating point signals (multichannel)
+- **mc.bitnot~** — Bitwise inversion of a floating point signal (multichannel)
+- **mc.bitor~** — Bitwise or-operation of floating point signals (multichannel)
+- **mc.bitsafe~** — Replace NaN and infinite signal values with 0  (multichannel)
+- **mc.bitshift~** — Bit shifting for floating point signals  (multichannel)
+- **mc.bitxor~** — Bitwise exclusive-or-operation of floating point signals (multichannel)
+- **mc.buffir~** — buffer-based FIR filter (multichannel)
+- **mc.capture~** — Store a signal to view as text
+- **mc.cartopol~** — Signal Cartesian to Polar coordinate conversion  (multichannel)
+- **mc.cascade~** — Cascaded series of biquad filters  (multichannel)
+- **mc.cell** — Format messages from a  jit.cellblock for use with MC objects
+- **mc.change~** — Report signal direction  (multichannel)
+- **mc.channelcount~** — Report channel count
+- **mc.chord~** — Store and Recall Signal Values Associated with an Index
+- **mc.click~** — Create an impulse  (multichannel)
+- **mc.clip~** — Limit signal amplitude  (multichannel)
+- **mc.combine~** — Combine single inputs into a multichannel signal
+- **mc.comb~** — Apply a comb filter effect (multichannel)
+- **mc.cosh~** — Signal hyperbolic cosine function  (multichannel)
+- **mc.cosx~** — Signal cosine function  (multichannel)
+- **mc.cos~** — Signal cosine function (0-1 range)  (multichannel)
+- **mc.count~** — Count samples elapsed  (multichannel)
+- **mc.cross~** — Third-order crossover filter  (multichannel)
+- **mc.curve~** — Exponential ramp generator (multichannel)
+- **mc.cycle~** — Sinusoidal oscillator (multichannel)
+- **mc.dac~** — Multichannel audio output and on/off
+- **mc.dbtoa~** — Convert a deciBel value to a linear value at signal rate  (multichannel)
+- **mc.degrade~** — Signal quality reducer (multichannel)
+- **mc.deinterleave~** — Deinterleave a multichannel audio signal
+- **mc.delay~** — Delay a signal  (multichannel)
+- **mc.deltaclip~** — Limit changes in signal amplitude (multichannel)
+- **mc.delta~** — Signal of sample differences  (multichannel)
+- **mc.div~** — Divide one signal by another (multichannel)
+- **mc.downsamp~** — Downsample a signal  (multichannel)
+- **mc.dup~** — Create a multichannel signal that duplicates a single-channel input
+- **mc.edge~** — Detect logical signal transitions (multichannel)
+- **mc.equals~** — Is equal to, comparison of two signals (multichannel)
+- **mc.evolve~** — Generate a periodic multichannel function from breakpoint ranges
+- **mc.ezadc~** — Audio input and on/off button
+- **mc.ezdac~** — Audio output and on/off button
+- **mc.fffb~** — Fast fixed filter bank (multichannel)
+- **mc.fft~** — Fast Fourier transform  (multichannel)
+- **mc.filtercoeff~** — Signal-rate filter coefficient generator (multichannel)
+- **mc.frameaccum~** — Compute \"running phase\" of successive phase deviation frames  (multichannel)
+- **mc.frameaverage~** — Perform a piece-wise running averaging of consecutive frames of audio.  (multichannel)
+- **mc.framedelta~** — Compute phase deviation between successive FFT frames  (multichannel)
+- **mc.framesmooth~** — Perform averaging of consecutive samples, grouped into frames, without blurring across the frames. (multichannel)
+- **mc.freqshift~** — Time-domain frequency shifter  (multichannel)
+- **mc.ftom~** — Convert frequency to MIDI note numbers at signal-rate (multichannel)
+- **mc.function** — Breakpoint function editor
+- **mc.fzero~** — Fundamental frequency and pitch estimator  (multichannel)
+- **mc.gain~** — Multichannel gain control
+- **mc.gate~** — Route a signal to one of several outlets (multichannel)
+- **mc.gen** — Generate native audio event processing routines (multichannel)
+- **mc.generate~** — Generate Values for a Range of Channels
+- **mc.gen~** — Generate native audio signal processing routines (multichannel)
+- **mc.getattr** — Query object attributes  (multichannel)
+- **mc.gradient~** — Generate a time-varying function over the space of a multichannel signal
+- **mc.greaterthaneq~** — Is greater than or equal to, comparison of two signals (multichannel)
+- **mc.greaterthan~** — Is greater than, comparison of two signals (multichannel)
+- **mc.groove~** — Variable-rate looping sample playback (multichannel)
+- **mc.hilbert~** — Phase quadrature filter  (multichannel)
+- **mc.ifft~** — Inverse fast Fourier transform  (multichannel)
+- **mc.index~** — Read from a (multichannel)  buffer~  with no interpolation
+- **mc.input** — Format messages to control MC objects
+- **mc.interleave~** — Interleave two or more multichannel signals
+- **mc.in~** — Signal inputs for a patcher loaded by poly~
+- **mc.jit.movie~** — Play a movie file with an audio track
+- **mc.kink~** — Distort a sawtooth waveform  (multichannel)
+- **mc.lessthaneq~** — Is less than or equal to, comparison of two signals (multichannel)
+- **mc.lessthan~** — Is less than, comparison of two signals (multichannel)
+- **mc.levelmeter~** — RMS level meter
+- **mc.limi~** — Lookahead peak-limiter (multichannel)
+- **mc.line** — Generate timed ramp  (multichannel)
+- **mc.line~** — Linear signal ramp generator (multichannel)
+- **mc.list~** — Create a multichannel signal from a list of values
+- **mc.live.gain~** — Decibel volume slider and monitor
+- **mc.log~** — Logarithm of a signal (multichannel)
+- **mc.lookup~** — Transfer function lookup table  (multichannel)
+- **mc.lores~** — Resonant lowpass filter  (multichannel)
+- **mc.loudness~** — Report loudness of a signal (multichannel)
+- **mc.makelist** — Create a list from non-signal output of MC objects
+- **mc.matrix~** — Signal routing and mixing matrix (multichannel)
+- **mc.maximum~** — Compare two signals, output the maximum  (multichannel)
+- **mc.meter~** — Visual peak level indicator
+- **mc.midiplayer~** — Generate MIDI Events from Audio Signals
+- **mc.miditarget** — Map MIDI / MPE Channels to MC Channels
+- **mc.minimum~** — Compare two signals, output the minimum  (multichannel)
+- **mc.minmax~** — Compute minimum/maximum signal values (multichannel)
+- **mc.minus~** — Signal subtraction (multichannel)
+- **mc.mixdown~** — Mix and pan a multichannel signal
+- **mc.modulo~** — Divide two signals, output the remainder (multichannel)
+- **mc.mstosamps~** — Convert milliseconds to samples  (multichannel)
+- **mc.mtof~** — Convert a MIDI note number to frequency at signal rate (multichannel)
+- **mc.multigain~** — Gain control
+- **mc.noise~** — Generate white noise (multichannel)
+- **mc.normalize~** — Scale on the basis of maximum amplitude  (multichannel)
+- **mc.noteallocator~** — Manage voice numbers for MIDI note events
+- **mc.notequals~** — Not equal to, comparison of two signals (multichannel)
+- **mc.number~** — Signal monitor and constant generator
+- **mc.omx.4band~** — OctiMax 4-band Compressor  (multichannel)
+- **mc.omx.5band~** — OctiMax 5-band Compressor  (multichannel)
+- **mc.omx.comp~** — OctiMax Compressor  (multichannel)
+- **mc.omx.peaklim~** — OctiMax Peak Limiter (multichannel)
+- **mc.onepole~** — Single-pole lowpass filter (multichannel)
+- **mc.op~** — Apply arithmetic operators to a multichannel signal
+- **mc.out~** — Signal output for a patcher loaded by poly~
+- **mc.overdrive~** — Soft-clipping signal distortion (multichannel)
+- **mc.pack~** — Combine single inputs into a multichannel signal
+- **mc.pattern~** — Signal Pattern Sequencer and Recorder
+- **mc.peakamp~** — Report the maximum amplitude of a signal  (multichannel)
+- **mc.peek~** — Read and write sample values (multichannel)
+- **mc.pfft~** — Spectral processing manager for patchers (multichannel)
+- **mc.phasegroove~** — Control groove~ With phasor~ (multichannel)
+- **mc.phaseshift~** — Distort the phase of a signal (multichannel)
+- **mc.phasewrap~** — Wrap a signal between π and -π  (multichannel)
+- **mc.phasor~** — Generate sawtooth signals (multichannel)
+- **mc.pink~** — Pink noise generator  (multichannel)
+- **mc.pitchshift~** — Ztx-based real-time pitchshifting (multichannel)
+- **mc.playlist~** — Play sound files with multichannel output
+- **mc.play~** — Position-based sample playback (multichannel)
+- **mc.plugin~** — Define a Max for Live device's audio inputs
+- **mc.plugout~** — Define a Max for Live Device's audio outputs
+- **mc.plugphasor~** — Host-synchronized sawtooth wave
+- **mc.plusequals~** — Signal accumulator (multichannel)
+- **mc.plus~** — Add signals (multichannel)
+- **mc.poltocar~** — Signal Polar to Cartesian coordinate conversion  (multichannel)
+- **mc.poly~** — Manage polyphony/DSP for patchers
+- **mc.pong~** — Variable range signal folding (multichannel)
+- **mc.pow~** — Signal power function (multichannel)
+- **mc.rampsmooth~** — Smooth an incoming signal  (multichannel)
+- **mc.ramp~** — Trigger a Single Ramp With an Audio Signal (multichannel)
+- **mc.rand~** — Band-limited random signal  (multichannel)
+- **mc.range~** — Generate a multichannel signal with a range of constant values
+- **mc.rate~** — Time-scale the output of a phasor~  (multichannel)
+- **mc.rdiv~** — Signal division (inlets reversed) (multichannel)
+- **mc.receive~** — Signals can be received from any loaded patcher, without patch cords
+- **mc.record~** — Record sound into a buffer (multichannel)
+- **mc.rect~** — Antialiased rectangular (pulse) oscillator  (multichannel)
+- **mc.resize~** — Resize a multichannel signal using selected channels
+- **mc.reson~** — Resonant bandpass filter (multichannel)
+- **mc.retune~** — Ztx-based pitch detection and pitchshift (multichannel)
+- **mc.rminus~** — Signal subtraction (inlets reversed) (multichannel)
+- **mc.round~** — Round an input signal value  (multichannel)
+- **mc.route** — Direct output of messages based on an index received
+- **mc.r~** — Signals can be received from any loaded patcher, without patch cords
+- **mc.sah~** — Sample and hold a signal (multichannel)
+- **mc.sampstoms~** — Convert time from samples to milliseconds  (multichannel)
+- **mc.sash~** — Sample and Hold with Memory (multichannel)
+- **mc.saw~** — Antialiased sawtooth oscillator  (multichannel)
+- **mc.scale~** — Map an input range of signal values to an output range  (multichannel)
+- **mc.scope~** — Visualize an audio signal
+- **mc.selector~** — Assign one of several inputs to an outlet (multichannel)
+- **mc.send~** — Send signals without patch cords
+- **mc.separate~** — Split a multichannel signal
+- **mc.seq~** — Signal-driven event sequencer  (multichannel)
+- **mc.sfizz~** — Sfz format sample player (multichannel)
+- **mc.sflist~** — Play audio file from disk (multi-channel)
+- **mc.sfplay~** — Play audio file from disk (multi-channel)
+- **mc.sfrecord~** — Record to audio file on disk
+- **mc.shape~** — Time-scaled Breakpoint Envelope Generator (multichannel)
+- **mc.sig~** — Convert numbers into audio signals (multichannel)
+- **mc.sinh~** — Signal hyperbolic sine function  (multichannel)
+- **mc.sinx~** — Signal sine function  (multichannel)
+- **mc.slide~** — Filter a signal logarithmically  (multichannel)
+- **mc.snapshot~** — Convert signal values to numbers (multichannel)
+- **mc.snowfall~** — Phasor-Driven Particle (multichannel)
+- **mc.snowphasor~** — Control a Population of Phasors
+- **mc.spectroscope~** — Signal spectrogram or sonogram
+- **mc.spike~** — Report intervals of zero to non-zero transitions  (multichannel)
+- **mc.sqrt~** — Square root of a signal  (multichannel)
+- **mc.stash~** — Store and Recall Audio Signal Values (multichannel)
+- **mc.stepdiv~** — Generate Phasors for Each Step of a Function (multichannel)
+- **mc.stepfun~** — Generate a Function Sequenced by Input Phasors (multichannel)
+- **mc.stereo~** — Mix and pan a multichannel signal
+- **mc.stutter~** — Signal capture buffer for granular playback  (multichannel)
+- **mc.subdiv~** — Integer Subdivision of a Phasor (multichannel)
+- **mc.sum~** — Apply arithmetic operators to a multichannel signal
+- **mc.svf~** — State-variable filter with simultaneous outputs (multichannel)
+- **mc.swing~** — Subdivide a phasor into two unequal phasors (multichannel)
+- **mc.sync~** — Synchronize MSP with an external source  (multichannel)
+- **mc.s~** — Send signals without patch cords
+- **mc.table~** — Signal Table Lookup (multichannel)
+- **mc.tanh~** — Signal hyperbolic tangent function  (multichannel)
+- **mc.tanx~** — Signal tangent function  (multichannel)
+- **mc.tapin~** — Input to a delay line
+- **mc.tapout~** — Output from a delay line
+- **mc.target** — Format messages to control MC objects
+- **mc.targetlist** — Format messages based on inlet number for controlling MC objects
+- **mc.teeth~** — Comb filter with feedforward and feedback delay control  (multichannel)
+- **mc.thresh~** — Detect signal above a set level  (multichannel)
+- **mc.times~** — Multiply two signals (multichannel)
+- **mc.train~** — Pulse train generator  (multichannel)
+- **mc.transpose~** — Reorganize multichannel signals
+- **mc.trapezoid~** — Trapezoidal wavetable (multichannel)
+- **mc.triangle~** — Triangle/ramp wavetable  (multichannel)
+- **mc.tri~** — Antialiased triangular oscillator  (multichannel)
+- **mc.trunc~** — Truncate fractional signal values  (multichannel)
+- **mc.twist~** — Make Linear Ramps Curved (multichannel)
+- **mc.unpack~** — Split a multichannel signal into single-channel signals
+- **mc.updown~** — Trapezoidal Function Generator With Constant Attack and Release (multichannel)
+- **mc.vectral~** — Vector-based envelope follower  (multichannel)
+- **mc.voiceallocator~** — Manage voice numbers for events
+- **mc.vst~** — Host VST, VST3 and Audio Unit plug-ins (multichannel)
+- **mc.wave~** — Variable size wavetable (multichannel)
+- **mc.what~** — Generate Impulses for a List of Audio Values (multichannel)
+- **mc.where~** — Report Elapsed and Remaining Time of a Phasor (multichannel)
+- **mc.zerox~** — Detect zero crossings  (multichannel)
+- **mc.zigzag~** — Linked list function editor (multichannel)
+
+## msp (246)
+
+- **2d.wave~** — Two-dimensional wavetable
+- **abs~** — Absolute value of a signal
+- **acosh~** — Signal hyperbolic arc-cosine function
+- **acos~** — Signal arc-cosine function
+- **adc~** — Audio input and on/off
+- **adoutput~** — Access audio driver output channel
+- **adsr~** — ADSR envelope generator
+- **adstatus** — Report and control audio driver settings
+- **allpass~** — Apply an allpass filter effect
+- **asinh~** — Signal hyperbolic arc-sine function
+- **asin~** — Signal arc-sine function
+- **atan2~** — Signal arc-tangent function (two variables)
+- **atanh~** — Signal hyperbolic arc-tangent function
+- **atan~** — Signal arc-tangent function
+- **atodb~** — Convert a linear value to a signal-rate deciBel value
+- **audiounit~** — Host VST, VST3 and Audio Unit plug-ins
+- **average~** — Multi-mode signal average
+- **avg~** — Signal average
+- **begin~** — Define a switchable part of a signal network
+- **biquad~** — Two-pole, two-zero filter
+- **bitand~** — Bitwise and-operation of floating point signals
+- **bitnot~** — Bitwise inversion of a floating point signal
+- **bitor~** — Bitwise or-operation of floating point signals
+- **bitsafe~** — Replace NaN and infinite signal values with 0
+- **bitshift~** — Bit shifting for floating point signals
+- **bitxor~** — Bitwise exclusive-or-operation of floating point signals
+- **buffer~** — Store audio samples
+- **buffir~** — buffer-based FIR filter
+- **capture~** — Store a signal to view as text
+- **cartopol~** — Signal Cartesian to Polar coordinate conversion
+- **cascade~** — Cascaded series of biquad filters
+- **change~** — Report signal direction
+- **click~** — Create an impulse
+- **clip~** — Limit signal amplitude
+- **comb~** — Apply a comb filter effect
+- **cosh~** — Signal hyperbolic cosine function
+- **cosx~** — Signal cosine function
+- **cos~** — Signal cosine function (0-1 range)
+- **count~** — Count samples elapsed
+- **cross~** — Third-order crossover filter
+- **curve~** — Exponential ramp generator
+- **cycle~** — Sinusoidal oscillator
+- **dac~** — Audio output and on/off
+- **dbtoa~** — Convert a deciBel value to a linear value at signal rate
+- **degrade~** — Signal quality reducer
+- **delay~** — Delay a signal
+- **deltaclip~** — Limit changes in signal amplitude
+- **delta~** — Signal of sample differences
+- **div~** — Divide one signal by another
+- **downsamp~** — Downsample a signal
+- **dspstate~** — Report current DSP settings
+- **dsptime~** — Report milliseconds of audio processed
+- **edge~** — Detect logical signal transitions
+- **equals~** — Is equal to, comparison of two signals
+- **ezadc~** — Audio input and on/off button
+- **ezdac~** — Audio output and on/off button
+- **fbinshift~** — Frequency domain frequency shifter for pfft~
+- **fffb~** — Fast fixed filter bank
+- **fftinfo~** — Report information about a patcher loaded by pfft~
+- **fftin~** — Input for a patcher loaded by pfft~
+- **fftout~** — Output for a patcher loaded by pfft~
+- **fft~** — Fast Fourier transform
+- **filtercoeff~** — Signal-rate filter coefficient generator
+- **filterdesign** — Create a filter specification
+- **filterdetail** — Detail the characteristics of a filter
+- **filtergraph~** — Filter editor
+- **frameaccum~** — Compute 'running phase' of successive phase deviation frames
+- **frameaverage~** — Perform a piece-wise running averaging of consecutive frames of audio.
+- **framedelta~** — Compute phase deviation between successive FFT frames
+- **framesmooth~** — Perform averaging of consecutive samples, grouped into frames, without blurring across the frames.
+- **framesnap~** — Output an FFT frame or signal vector as a list
+- **frame~** — Output a list as an FFT frame or a signal vector
+- **freqshift~** — Time-domain frequency shifter
+- **ftom~** — Convert frequency to MIDI note numbers at signal-rate
+- **fzero~** — Fundamental frequency and pitch estimator
+- **gain~** — Gain control
+- **gate~** — Route a signal to one of several outlets
+- **gen** — Generate native audio event processing routines
+- **gen~** — Generate native audio signal processing routines
+- **gizmo~** — Frequency-domain pitch shifter for pfft~
+- **greaterthaneq~** — Is greater than or equal to, comparison of two signals
+- **greaterthan~** — Is greater than, comparison of two signals
+- **gridmeter~** — Display signal levels as brightness
+- **groove~** — Variable-rate looping sample playback
+- **hilbert~** — Phase quadrature filter
+- **ifft~** — Inverse fast Fourier transform
+- **in** — Message input for a patcher loaded by poly~ or pfft~
+- **index~** — Read from a  buffer~ with no interpolation
+- **info~** — Report information about a sample
+- **in~** — Signal input for a patcher loaded by poly~
+- **ioscbank~** — Interpolating oscillator bank
+- **jweb~** — Web browser with audio output
+- **kink~** — Distort a sawtooth waveform
+- **lessthaneq~** — Is less than or equal to, comparison of two signals
+- **lessthan~** — Is less than, comparison of two signals
+- **levelmeter~** — RMS level meter
+- **limi~** — Lookahead peak-limiter
+- **line~** — Linear signal ramp generator
+- **log~** — Logarithm of a signal
+- **lookup~** — Transfer function lookup table
+- **lores~** — Resonant lowpass filter
+- **loudness~** — Report loudness of a signal
+- **matrix~** — Signal routing and mixing matrix
+- **maximum~** — Compare two signals, output the maximum
+- **mcs.2d.wave~** — Two-dimensional wavetable (multichannel I/O)
+- **mcs.amxd~** — Host Max for Live devices
+- **mcs.fffb~** — Fast fixed filter bank (multichannel I/O)
+- **mcs.gate~** — Route a signal to a channel within a multi-channel output
+- **mcs.gen~** — Generate native audio signal processing routines
+- **mcs.groove~** — Variable-rate looping sample playback
+- **mcs.limi~** — Lookahead peak-limiter
+- **mcs.matrix~** — Signal routing and mixing matrix (multichannel I/O)
+- **mcs.play~** — Position-based sample playback (multichannel I/O)
+- **mcs.poly~** — Manage polyphony/DSP for patchers
+- **mcs.selector~** — Assign a channel of a multi-channel signal to an outlet
+- **mcs.sig~** — Convert numbers to audio signals (multichannel output)
+- **mcs.tapout~** — Output from a delay line
+- **mcs.vst~** — Host VST, VST3 and Audio Unit plug-ins (multichannel I/O)
+- **mcs.wave~** — Variable size wavetable (multichannel I/O)
+- **mcwrapper-group** — Messages and attributes common to MC wrapper objects
+- **meter~** — Visual peak level indicator
+- **minimum~** — Compare two signals, output the minimum
+- **minmax~** — Compute minimum/maximum signal values
+- **minus~** — Signal subtraction
+- **modulo~** — Divide two signals, output the remainder
+- **mstosamps~** — Convert milliseconds to samples
+- **mtof~** — Convert a MIDI note number to frequency at signal rate
+- **mute~** — Disable signal processing in a subpatch
+- **mxj~** — Java in MSP
+- **noise~** — Generate white noise
+- **normalize~** — Scale on the basis of maximum amplitude
+- **notequals~** — Not equal to, comparison of two signals
+- **number~** — Signal monitor and constant generator
+- **omx.4band~** — OctiMax 4-band Compressor
+- **omx.5band~** — OctiMax 5-band Compressor
+- **omx.comp~** — OctiMax Compressor
+- **omx.peaklim~** — OctiMax Peak Limiter
+- **onepole~** — Single-pole lowpass filter
+- **oscbank~** — Non-interpolating oscillator bank
+- **out** — Message output for a patcher loaded by poly~ or pfft~
+- **out~** — Signal output for a patcher loaded by poly~
+- **overdrive~** — Soft-clipping signal distortion
+- **pass~** — Eliminate noise in a muted subpatcher
+- **peakamp~** — Report the maximum amplitude of a signal
+- **peek~** — Read and write sample values
+- **pfft~** — Spectral processing manager for patchers
+- **phasegroove~** — Control groove~ With phasor~
+- **phaseshift~** — Distort the phase of a signal
+- **phasewrap~** — Wrap a signal between π and -π
+- **phasor~** — Generate sawtooth signals
+- **pink~** — Pink noise generator
+- **pitchshift~** — Ztx-based real-time pitchshifting
+- **playlist~** — Play sound files
+- **play~** — Position-based sample playback
+- **plot~** — Visualize two-dimensional data
+- **plugin~** — Define a Max for Live device's audio inputs
+- **plugout~** — Define a Max for Live Device's audio outputs
+- **plugphasor~** — Host-synchronized sawtooth wave
+- **plugreceive~** — Receive audio from another plug-in
+- **plugsend~** — Send audio to another plug-in
+- **plugsync~** — Report host synchronization information
+- **plusequals~** — Signal accumulator
+- **plus~** — Add signals
+- **poke~** — Write sample values to a buffer by index
+- **poltocar~** — Signal Polar to Cartesian coordinate conversion
+- **polybuffer~** — Manage multiple  buffer~ objects
+- **poly~** — Manage polyphony/DSP for patchers
+- **pong~** — Variable range signal folding
+- **pow~** — Signal power function
+- **rampsmooth~** — Smooth an incoming signal
+- **ramp~** — Trigger a Single Ramp With an Audio Signal
+- **rand~** — Band-limited random signal
+- **rate~** — Time-scale the output of a phasor~
+- **rdiv~** — Signal division (inlets reversed)
+- **receive~** — Signals can be received from any loaded patcher, without patch cords
+- **record~** — Record sound into a buffer
+- **rect~** — Antialiased rectangular (pulse) oscillator
+- **reson~** — Resonant bandpass filter
+- **retune~** — Ztx-based pitch detection and pitchshift
+- **rminus~** — Signal subtraction (inlets reversed)
+- **round~** — Round an input signal value
+- **r~** — Signals can be received from any loaded patcher, without patch cords
+- **sah~** — Sample and hold a signal
+- **sampstoms~** — Convert time from samples to milliseconds
+- **sash~** — Sample and Hold with Memory
+- **saw~** — Antialiased sawtooth oscillator
+- **scale~** — Map an input range of signal values to an output range
+- **scope~** — Visualize an audio signal
+- **selector~** — Assign one of several inputs to an outlet
+- **send~** — Send signals without patch cords
+- **seq~** — Signal-driven event sequencer
+- **sfinfo~** — Report audio file information
+- **sfizz~** — Sfz format sample player
+- **sflist~** — Store audio file cues
+- **sfplay~** — Play audio file from disk
+- **sfrecord~** — Record to audio file on disk
+- **shape~** — Time-scaled Breakpoint Envelope Generator
+- **sig~** — Convert numbers into audio signals
+- **sinh~** — Signal hyperbolic sine function
+- **sinx~** — Signal sine function
+- **slide~** — Filter a signal logarithmically
+- **snapshot-group** — Messages and attributes common to the Snapshot group
+- **snapshot~** — Convert signal values to numbers
+- **snowfall~** — Phasor-Driven Particle
+- **spectroscope~** — Signal spectrogram or sonogram
+- **spike~** — Report intervals of zero to non-zero transitions
+- **sqrt~** — Square root of a signal
+- **stash~** — Store and Recall Audio Signal Values
+- **stepcounter~** — Count signal jumps in a sequence
+- **stepdiv~** — Generate Phasors for Each Step of a Function
+- **stepfun~** — Generate a Function Sequenced by Input Phasors
+- **stretch~** — Ztx-based pitch/time modification of an audio buffer
+- **stutter~** — Signal capture buffer for granular playback
+- **subdiv~** — Integer Subdivision of a Phasor
+- **svf~** — State-variable filter with simultaneous outputs
+- **swing~** — Subdivide a phasor into two unequal phasors
+- **sync~** — Synchronize MSP with an external source
+- **s~** — Send signals without patch cords
+- **table~** — Signal Table Lookup
+- **tanh~** — Signal hyperbolic tangent function
+- **tanx~** — Signal tangent function
+- **tapin~** — Input to a delay line
+- **tapout~** — Output from a delay line
+- **techno~** — Signal-driven step sequencer
+- **teeth~** — Comb filter with feedforward and feedback delay control
+- **thispoly~** — Control  poly~ voice allocation and muting
+- **thresh~** — Detect signal above a set level
+- **times~** — Multiply two signals
+- **train~** — Pulse train generator
+- **trapezoid~** — Trapezoidal wavetable
+- **triangle~** — Triangle/ramp wavetable
+- **tri~** — Antialiased triangular oscillator
+- **trunc~** — Truncate fractional signal values
+- **twist~** — Make Linear Ramps Curved
+- **typeroute~** — Route input based on the type of data received
+- **updown~** — Trapezoidal Function Generator With Constant Attack and Release
+- **vectral~** — Vector-based envelope follower
+- **vst~** — Host VST, VST3 and Audio Unit plug-ins
+- **waveform~** — buffer~ viewer and editor
+- **wave~** — Variable size wavetable
+- **what~** — Generate Impulses for a List of Audio Values
+- **where~** — Report Elapsed and Remaining Time of a Phasor
+- **windowed-fft~** — Windowed/Overlapped Fast Fourier Transform
+- **zerox~** — Detect zero crossings
+- **zigzag~** — Linked list function editor
+- **zplane~** — Graph filter poles and zeros on the Z-plane

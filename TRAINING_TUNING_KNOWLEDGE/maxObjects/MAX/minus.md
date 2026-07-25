@@ -1,0 +1,92 @@
+---
+type: max
+name: "minus"
+summary: "Subtract two numbers, output the result"
+signal: false
+url: "https://docs.cycling74.com/reference/minus/"
+package: "Max"
+see_also: ["!-", "expr"]
+---
+# minus
+
+Subtract two numbers, output the result
+
+## Arguments
+
+### initial[number] optional
+
+Sets the initial value to be subtracted from a number received in the left inlet. A float argument causes the numbers to be subtracted as floats.
+
+## Attributes
+
+### Common Box Attributes
+
+Shared across all objects — see [Common Box Attributes](../_shared/common-box-attributes.md).
+
+## Messages
+
+### bang
+
+In left inlet: Performs the subtraction with the numbers currently stored. If there is no argument, [-](https://docs.cycling74.com/reference/minus) initially holds  0 .
+
+### int
+
+The number in the right inlet is subtracted from the number, and the result is sent out the outlet.
+
+Arguments:
+
+- input
+  [int]
+
+### (inlet1)
+
+The number is stored, to be subtracted from, by a number received in the left inlet.
+
+Arguments:
+
+- value
+  [int]
+
+### float
+
+Converted to  int , unless [-](https://docs.cycling74.com/reference/minus) has a float argument.
+
+Arguments:
+
+- input
+  [float]
+
+### set
+
+Sets the number to be subtracted without causing output ( bang  will output it).
+
+Arguments:
+
+- input
+  [int]
+
+### list
+
+In left inlet: The first number is subtracted from the second number, and the result is sent out the outlet.
+
+Arguments:
+
+- input
+  [list]
+
+## Output
+
+### float
+
+Only if there is an argument with a decimal point.
+
+### int
+
+The difference between the two numbers received in the inlets.
+
+## See Also
+
+| Name | Description |
+| --- | --- |
+| [!-](https://docs.cycling74.com/reference/rminus) | Subtraction object (inlets reversed) |
+| [expr](https://docs.cycling74.com/reference/expr) | Evaluate a mathematical expression |

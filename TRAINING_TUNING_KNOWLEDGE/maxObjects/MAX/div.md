@@ -1,0 +1,99 @@
+---
+type: max
+name: "div"
+summary: "Divide two numbers"
+signal: false
+url: "https://docs.cycling74.com/reference/div/"
+package: "Max"
+see_also: ["!/", "expr", "%"]
+---
+# div
+
+Divide two numbers
+
+## Description
+
+Divides two numbers (according to the specified divisor assignment), and then outputs the result.
+
+## Arguments
+
+### initial[int or float] optional
+
+Sets an initial value for the divisor. If there is no argument, the divisor is set to  1  initially. A float argument causes the numbers to be divided as floats. (Division by 0 is not allowed. Int division by 0 will have the same result as dividing by 1. Float division by 0 will always cause an output of -2
+31
+.)
+
+## Attributes
+
+### Common Box Attributes
+
+Shared across all objects — see [Common Box Attributes](../_shared/common-box-attributes.md).
+
+## Messages
+
+### bang
+
+In left inlet: Performs the division with the numbers currently stored.
+
+### int
+
+In left inlet: The number is divided by the number in the right inlet, and the result is sent out the outlet.
+
+Arguments:
+
+- input
+  [int]
+
+### (inlet1)
+
+In right inlet: The number is stored as the divisor (the number to be divided into the number in the left inlet).
+
+Arguments:
+
+- divisor
+  [int]
+
+### float
+
+Converted to  int , unless [/](https://docs.cycling74.com/reference/div) has a float argument.
+
+Arguments:
+
+- input
+  [float]
+
+### set
+
+Sets the number to be divided without causing output ( bang  will output it).
+
+Arguments:
+
+- input
+  [int]
+
+### list
+
+In left inlet: The first number is divided by the second number, and the result is sent out the outlet.
+
+Arguments:
+
+- input and divisor
+  [list]
+
+## Output
+
+### float
+
+Only if there is an argument with a decimal point.
+
+### int
+
+The two numbers in the inlets are divided, and the result is sent out the outlet.
+
+## See Also
+
+| Name | Description |
+| --- | --- |
+| [!/](https://docs.cycling74.com/reference/rdiv) | Divide input from a number |
+| [expr](https://docs.cycling74.com/reference/expr) | Evaluate a mathematical expression |
+| [%](https://docs.cycling74.com/reference/modulo) | Divide two numbers, output the remainder |

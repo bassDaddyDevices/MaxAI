@@ -1,0 +1,95 @@
+---
+type: max
+name: "bitand"
+summary: "Bitwise intersection of two numbers"
+signal: false
+url: "https://docs.cycling74.com/reference/bitand/"
+package: "Max"
+see_also: ["&&", "|", "||"]
+---
+# bitand
+
+Bitwise intersection of two numbers
+
+## Description
+
+Performs a bit-by-bit AND of two numbers as expressed in binary. Outputs a number composed of all those bits which are 1 in both of the two numbers.
+
+## Arguments
+
+### initial-value[int] optional
+
+Sets an initial value to be AND-ed with a number received in the left inlet.
+
+## Attributes
+
+### Common Box Attributes
+
+Shared across all objects — see [Common Box Attributes](../_shared/common-box-attributes.md).
+
+## Messages
+
+### bang
+
+In left inlet: Performs the comparison with the numbers currently stored. If there is no argument, [&](https://docs.cycling74.com/reference/bitand) initially holds 0 for comparison.
+
+### int
+
+In left inlet: The number is compared, in binary form, with the number in the right inlet. The output is a number composed of those bits which are 1 in both numbers.
+
+Arguments:
+
+- input
+  [int]
+
+### (inlet1)
+
+In right inlet: The number is stored for comparison with a number received in the left inlet.
+
+Arguments:
+
+- comparison-number
+  [int]
+
+### float
+
+Converted to  int .
+
+Arguments:
+
+- input
+  [float]
+
+### set
+
+In left inlet: The word  set  followed by a number will set the input to the bitwise-and operation without causing output (a successive  bang  will output the result).
+
+Arguments:
+
+- set-input
+  [int]
+
+### list
+
+In left inlet: Compares the first and second numbers bit-by-bit, and outputs a number composed of those bits which are 1 in both numbers.
+
+Arguments:
+
+- input
+  [number]
+- comparison-value
+  [number]
+
+## Output
+
+### int
+
+The two numbers received in the inlets are compared, one bit at a time. If a bit is 1 in both numbers, it will be 1 in the output number, otherwise it will be 0 in the output number.
+
+## See Also
+
+| Name | Description |
+| --- | --- |
+| [&&](https://docs.cycling74.com/reference/logand) | Perform a logical AND |
+| [|](https://docs.cycling74.com/reference/bitor) | Bitwise union of two numbers |
+| [||](https://docs.cycling74.com/reference/logor) | Perform a logical OR |

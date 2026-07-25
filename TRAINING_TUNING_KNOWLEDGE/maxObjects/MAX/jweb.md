@@ -1,0 +1,139 @@
+---
+type: max
+name: "jweb"
+summary: "Web browser"
+signal: false
+url: "https://docs.cycling74.com/reference/jweb/"
+package: "Max"
+see_also: ["Web Browser", "jweb~", "js", "maxurl"]
+---
+# jweb
+
+Web browser
+
+## Description
+
+The [jweb](https://docs.cycling74.com/reference/jweb) object uses the cross-platform Chromium Embedded Framework (CEF) to host web pages within a Max UI object.
+
+## Arguments
+
+None.
+
+## Attributes
+
+### disablefind[int]
+
+When enabled, the disablefind prevents the user from using the  **Find...**  command to locate text on the current page.
+
+### history[symbol]:
+
+Specifies a named dictionary ([dict](https://docs.cycling74.com/reference/dict) object) where the browser history will be recorded, up to the number of pages set by the historysize attribute. Previously visited pages can be reloaded with the  gotohistory  message.
+
+### historysize[int]: 25
+
+Set the size of the browser history; the default is 25 pages.
+
+### nonstandardoutletcalls[int]
+
+TEXT\_HERE
+
+### rendermode[int]
+
+When the rendermode attribute is set to ‘offscreen’, [jweb](https://docs.cycling74.com/reference/jweb) will first render to an offscreen buffer, then draw to the patcher window. This mode is slower, but useful if you need UI elements to appear in front of the [jweb](https://docs.cycling74.com/reference/jweb) object. When set to ‘onscreen’, [jweb](https://docs.cycling74.com/reference/jweb) will render faster, but render directly in the patcher (without using an offscreen buffer), drawing over any other UI elements. When set to 'offscreen with transparent background', the background of the [jweb](https://docs.cycling74.com/reference/jweb) object will be rendered transparently.
+
+Possible values:
+
+0 = 'Offscreen'
+
+1 = 'Onscreen'
+
+2 = 'Offscreen with Transparent Background'
+
+### url[symbol]:
+
+The URL of the current page
+
+### Common Box Attributes
+
+Shared across all objects — see [Common Box Attributes](../_shared/common-box-attributes.md).
+
+## Messages
+
+### anything
+
+You can send any message to the JavaScript of the contained website. In order to be able to receive messages make sure to setup the JavaScript as described in the [Web Browser and jweb](https://docs.cycling74.com/userguide/web_browser) guide.
+
+### back
+
+The  back  message reloads the previous page of data, functioning like the 'Back' button in a conventional web browser.
+
+### executejavascript
+
+Using  executejavascript  you can inject and run a JavaScript code snippet in the currently displayed web page. The provided code will be inserted and executed in a new script tag.
+
+Arguments:
+
+- script
+  [symbol]
+
+### forward
+
+When a sequence of multiple pages has been loaded, and the object has received the  back  message, the word  forward  will advance to the following page in the object's page history.  forward  functions like the 'Forward' button in a conventional web browser.
+
+### gotohistory
+
+If the history attribute has been set to a named dictionary,  gotohistory  followed by an index will navigate to the page with that index in the dictionary. The most recently visited page is stored at index 0.
+
+Arguments:
+
+- index
+  [int]
+
+### (mouse)
+
+Use the mouse (and keyboard) to interact with the page displayed by [jweb](https://docs.cycling74.com/reference/jweb) in a locked patcher.
+
+### mute
+
+mute 1  will mute the audio output of the page;  mute 0  will unmute
+
+Arguments:
+
+- mute-state
+  [int]
+
+### read
+
+The word  read , followed by a symbol that specifies a URL or a file pathname, will read the webpage or file and attempt to render its contents. Upon successful load of a page, two messages are sent from the object's outlet:  url , followed the final URL which was loaded based on the provided argument; and  title , followed by the title of the loaded page as a symbol.
+
+Arguments:
+
+- url
+  [symbol]
+
+### readfile
+
+The word  readfile , followed by a symbol that specifies a file pathname, will read the file and attempt to render its contents. The word  readfile  with no argument opens a file dialog to choose a file. Upon successful load of a page, two messages are sent from the object's outlet:  url , followed the final URL which was loaded based on the provided argument; and  title , followed by the title of the loaded page as a symbol.
+
+Arguments:
+
+- file path
+  [symbol]
+
+### reload
+
+The  reload  message causes the browser to refresh the current page, functioning like the 'Reload' button in a conventional web browser. The word  reload  followed by a non-zero argument will ignore the locally cached file.
+
+Arguments:
+
+- ignorecache
+  [int]
+
+## See Also
+
+| Name | Description |
+| --- | --- |
+| [Web Browser](https://docs.cycling74.com/userguide/web_browser) | Web Browser |
+| [jweb~](https://docs.cycling74.com/reference/jweb~) | Web browser with audio output |
+| [js](https://docs.cycling74.com/reference/js) | Execute Javascript (Legacy Engine) |
+| [maxurl](https://docs.cycling74.com/reference/maxurl) | Make HTTP requests |
