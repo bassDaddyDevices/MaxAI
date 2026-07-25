@@ -1,0 +1,409 @@
+s~ - MSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsobject-nameAttributesnameannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesclear(mouse)setsignalOutputSignal-RoutingSee AlsoPackage MSPs~
+
+		Send signals without patch cords
+	 
+Description
+
+		The send~ object lets you send a signal to another patcher window or to another location within the same patcher window without using a patch cord. A send~ object can be instantiated simply by typing into an object box the short-form letter "s~".
+	 
+Discussion
+
+		The destination of the signal can be changed on the fly using the  set  message. A receive~ object with the same name receives the output of send~. When two or more send~ objects are aimed at the same receive~ object, the signals add together.
+		 
+
+		Note: The use of a send~ object can introduce a delay of varying lengths. This delay is dependent on a large number of factors including, but not limited to, how many send~ and receive~ objects are involved, if a feedback loop is detected, and the use of different top-level patchers with multiprocessing enabled.
+	 
+Arguments
+
+
+
+object-name[symbol]
+
+optional
+
+
+				Sets the name of the send~ object.
+			 
+Attributes
+
+
+
+name[symbol]
+
+
+
+
+				Name the send~ object. All send~ objects that share the same name will send data to any receive~ objects that share their name.
+				 
+
+				If you want a named send~ / receive~ object in a Max for Live device to be unique to the device, use three dashes (--- ) to start the name of your send~ / receive~ destination (e.g.  s ---filtercutoff ).
+				 
+
+				When your patch is initialized, it will replace the three dashes with a unique-to-Live number (e.g.  s 024filtercutoff );
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+clear
+
+
+
+				The  clear  message clears all of the receive~ buffers associated with the send~ object. This message is only used with patchers which are being muted inside a subpatch loaded by the poly~ object.
+			 
+
+
+
+(mouse)
+
+
+
+				Double-clicking on a send~ object opens all windows containing receive~ objects with the same name, and also lists the instance numbers of patches hosted in a poly~ object that share named receive~ objects.
+			 
+
+
+
+set
+
+
+
+
+				The word  set , followed by a  symbol , changes the name of the send~ so that it connects to different receive~ objects that have the  symbol  as a name. (If no receive~ objects with the same name exist, send~ does nothing.)
+			 
+Arguments:
+object-name
+      [symbol]
+      
+
+
+
+
+signal
+
+
+
+				The send~ object sends its input signal to all receive~ objects that share its name. The send~ object need not be in the same patch as the corresponding receive~ object(s).
+			 
+Output
+
+Signal-Routing
+
+				Signals are routed remotely (i.e., sans patch-cord-connection).
+			 
+See Also
+
+
+Name
+Description
+
+
+
+receive~
+
+
+		Signals can be received from any loaded patcher, without patch cords
+	
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

@@ -1,0 +1,622 @@
+mc.chord~ - MC Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentschannelsAttributesallocmodebusymapnamechansembedextendmodeinputmodeoffmodetriggermodeusebusymapannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangintfloatlistcleardeletedictionarysignalstoreSee AlsoPackage MCmc.chord~
+
+		Store and Recall Signal Values Associated with an Index
+	 
+Description
+
+		The mc.chord~ object is something like a version of the Max coll object that generates audio signals. You can store lists (which you can think of as  chords ) of numbers associated with a unique index, then recall your lists with messages or signals. When recalled, list values are assigned to channels in a multi-channel signal according to one of several allocation modes.
+	 
+Arguments
+
+
+
+channels[int]
+
+optional
+
+
+				An  int  supplied as an argument sets the initial output channel count.
+			 
+Attributes
+
+
+
+allocmode[int]
+
+
+
+
+				Determine how list values are allocated to channels
+			 Possible values:0 = 'Lowest'
+                   (
+								Start at first channel
+							 )
+								WHen allocmode is set to Lowest (0), list items are output starting with the first item allocated to the first output channel.
+							 1 = 'Highest'
+                   (
+								Start at last channel
+							 )
+								WHen allocmode is set to Highest (1), list items are output starting with the first item allocated to the last output channel, the second item to the second-to-last channel, etc.
+							 2 = 'Cyclic'
+                   (
+								Assign to least recently used channels
+							 )
+								When allocmode is set to Cyclic (2), list items are assigned to least recently used channels in ascending order.
+							 3 = 'Random'
+                   (
+								Assign randomly
+							 )
+								When allocmode is set to Random (3), list items are assigned to randomly chosen channels.
+							 
+
+
+
+
+busymapname[symbol]
+
+
+
+
+
+                  Alias:
+                 bzname
+
+				Sets the name of a busy map (within an mc.noteallocator~ or mc.voiceallocator~ object)to use in determining channel allocation. When there is an active busy map (usebusymap is enabled), items will be assigned to channels accoding to the current allocmode but only non-busy channels will be used. The value  none  resets the busy map to the default busy map for the patcher.
+			 
+
+
+
+
+
+chans[int]
+
+
+
+
+				Sets the number of channels in the two mc.chord~ multi-channel outputs. If the audio is on, the change will take place the next time the audio is restarted.
+			 
+
+
+
+
+embed[int]
+
+
+
+
+				When embed is enabled, list and index data currently stored inside mc.chord~ will be saved in its patcher and recalled when the patcher is reopened.
+			 
+
+
+
+
+extendmode[int]
+
+
+
+
+				Sets how non-existent indices are matched or ignored
+			 Possible values:0 = 'Nearest'
+                   (
+								Match Nearest
+							 )
+								When an  int  is received that does not match an existing index, the list associated with the closest index will be output.
+							 1 = 'Zero'
+                   (
+								Output zero
+							 )
+								When an  int  is received that does not match an existing index, zero signals will be output.
+							 2 = 'Ignore'
+                   (
+								Do nothing
+							 )
+								When an  int  is received that does not match an existing index, no change in the output occurs.
+							 
+
+
+
+
+inputmode[int]
+
+
+
+
+				Determines how a signal value change is mapped to an output
+			 Possible values:0 = 'Lookup'
+                   (
+								Treat signal value as index
+							 )
+								When inputmode is set to Lookup (0), the signal value is converted to an  int  by truncation. When the  int  value changes, the value is used to match a stored list.
+							 1 = 'Increment Index'
+                   (
+								Signal changes output next
+							 )
+								When inputmode is set to Increment Index (1), any change in the input signal according to the current value of triggermode causes the next stored list to be output in a cyclic fashion.
+							 
+
+
+
+
+offmode[int]
+
+
+
+
+				Determines handling of output channels with inactive values
+			 Possible values:0 = 'Zero'
+                   (
+								Zero inactive outputs
+							 )
+								When offmode is set to Zero (0), inactive output channels are set to zero.
+							 1 = 'Hold'
+                  
+								When offmode is set to Hold (1), inactive output channels retain their previous value. You can determine which output channels are active by using the corresponding channel's signal value within the multi-channel signal output from the second outlet of mc.chord~.
+							 
+
+
+
+
+triggermode[int]
+
+
+
+
+				Determines a signal change for increment index inputmode
+Possible values:0 = 'Zero to Non-Zero'
+                   (
+								Trigger changes on zero to non-zero transitions
+							 )
+								When triggermode is set to Zero to Non-Zero (0), signal changes for incrementing the index of the output (when inputmode is set to Increment Index) are defined as the previous sample being zero and the current sample being non-zero.
+							 1 = 'Change'
+                   (
+								Any signal change
+							 )
+								When triggermode is set to Change (1), signal changes for incrementing the index of the output (when inputmode is set to Increment Index) are defined as any difference between the value of the previous and current samples in the input signal.
+							 
+
+
+
+
+usebusymap[int]
+
+
+
+
+
+                  Alias:
+                 bz
+
+				When usebusymap is enabled, mc.chord~ will only allocate output values to non-busy channels of the current busy map.
+			 
+
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+ bang  outputs the next stored list as a multi-channel signal out the left outlet; repeated  bang  messages will cycle through all stored lists.
+			 
+
+
+
+int
+
+
+
+				An  int  outputs the list associated with the number as a multi-channel signal out the left outlet. If no list was stored at this number, zero signals are output.
+			 
+
+
+
+float
+
+
+
+				Converted to int
+			 
+
+
+
+list
+
+
+
+ list  stores the items starting at the second value at an index specified by the first value. Example:  5 30 40 50  will store the list  30 40 50  at index 5.
+			 
+
+
+
+clear
+
+
+
+				The  clear  message clears all lists stored in the object. To delete an individual list using its associated index, use  delete .
+			 
+
+
+
+delete
+
+
+
+				The word  delete  followed by an index deletes a list of values associated with that index.
+			 
+
+
+
+dictionary
+
+
+
+
+				When mc.chord~ receives a  dictionary  in the proper format, it will replace all stored lists with those in the dictionary. Data must be in the form of an array of dictionaries associated with the key  data . Each dictionary has the key  index  with the index to associate with the list, followed by a list of values associated with the key  values .
+			 
+Arguments:
+name
+      [symbol]
+      
+
+
+
+
+signal
+
+
+
+				When inputmode is set to Lookup (0), the signal value is truncated to an integer. When this integer value changes, mc.chord~ checks whether it matches an index for a stored list; if so, it outputs the associated list as a multi-channel signal.
+				 
+				When inputmode is set to Increment Index (1), any change in the value of the input signal will cause the next stored list to be output in a cyclic fashion.
+			 
+
+
+
+store
+
+
+
+
+				The word  store  followed by a list argument, stores the items in the list starting at the second value at an index specified by the first value. Example:  store 5 30 40 50  will store the list  30 40 50  at index 5.
+			 
+Arguments:
+values
+      [list]
+      
+
+See Also
+
+
+Name
+Description
+
+
+
+
+coll
+
+
+		Store and edit a collection of data
+	
+
+
+
+mc.op~
+
+
+		Apply arithmetic operators to a multichannel signal
+	
+
+
+
+mc.snowphasor~
+
+
+		Control a Population of Phasors
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

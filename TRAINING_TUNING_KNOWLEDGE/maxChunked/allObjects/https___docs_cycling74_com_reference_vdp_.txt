@@ -1,0 +1,632 @@
+vdp - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsAttributesannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesintchapterclearcmdcontrolfpsframenameplayrestrictscansearchsetskipskipstepstopOutputbangintintintSee AlsoPackage Maxvdp
+
+		Control a videodisk player through a serial port
+	 
+Description
+
+		The vdp object works with serially-controlled videodisk players (remember them?) that are compatible with the Pioneer 4200 or 8000 standard. Each command received by the vdp object sends a stream of numbers out the object's left outlet, intended to be connected to the serial object. The description of each command discusses what effect the command has on the player, not the exact character stream sent by vdp.		 
+
+		Because videodisc players have relatively buffer-less serial interfaces, vdp places each command it receives in a queue, and sends it out only when the player has finished executing its most recent command. This "feature" may cause a delay between the time a command is sent to the vdp object and the time it is actually sent out the serial port.
+		 
+
+		Any message received in the right inlet will behave exactly as if it had been received in the left inlet, except that it will be put at the front of the queue, to be the very next command sent out to the player.
+	 
+Arguments
+None.Attributes
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+int
+
+
+
+
+				In left inlet: Same as  play  from a specified frame number to the end of the disc.
+				 
+
+				In middle inlet: vdp expects responses from the player to be fed from the serial object into its middle inlet. When vdp sees "received" (the letter  R  followed by the return character) from the player, it sends the next command from its queue of pending commands. The example shows how to connect the vdp and serial objects together.
+			 
+Arguments:
+frame-number
+      [int]
+      
+
+
+
+
+chapter
+
+
+
+				In left inlet: Asks the player what its current chapter number is and sends the response (received in the middle inlet) out the middle-right outlet.
+			 
+
+
+
+clear
+
+
+
+				In left inlet: Removes any pending commands from the queue and resets the object.
+			 
+
+
+
+cmd
+
+
+
+
+				In left inlet: The  cmd  message can be used to send "primitive" commands consisting of ASCII codes to the video disk player. Commands usually consist of two-letter codes preceded by numeric arguments. For example, searching to frame 5000 could be accomplished with the message cmd 5000 SE. Refer to the owner's manual of your player for details. The  cmd  message is particularly useful with the Pioneer 8000 player, since it has a number of special features not supported by the regular messages of the vdp object.
+			 
+Arguments:
+ASCII-primitive-command-code
+      [list]
+      
+
+
+
+
+control
+
+
+
+
+				In left inlet: The word  control , followed by a number, tells the videodisc player to perform one of the following operations:
+				 
+
+				Number Operation
+				 
+				0 --------- Initialize and reset player
+				 
+				1 --------- Eject disk
+				 
+				2 --------- Audio off
+				 
+				3 --------- Audio 1 on
+				 
+				4 --------- Audio 2 on
+				 
+				5 --------- Stereo on
+				 
+				6 --------- Picture on
+				 
+				7 --------- Picture off
+				 
+				8 --------- Display frame numbers on
+				 
+				9 --------- Display frame numbers off
+				 
+				11 ------- Frame access mode
+				 
+				12 ------- Time access mode
+				 
+				13 ------- Chapter access mode
+				 
+
+Arguments:
+action-ID
+      [int]
+      
+
+
+
+
+fps
+
+
+
+
+				In left inlet: Sets the playing speed. The  fps  message is followed by a number (frames per second) or an adjective. The following adjectives and numbers are equivalent (at least for the Pioneer 4200):
+				 
+
+				slowest 1
+				 
+				slower 10
+				 
+				slow 15
+				 
+				normal 30
+				 
+				fast 60
+				 
+				faster 90
+				 
+				fastest 120
+			 
+Arguments:
+playback-speed (frames-per-second)
+      [list]
+      
+
+
+
+
+frame
+
+
+
+				In left inlet: Asks the player what its current frame number is and sends the response (received in the middle inlet) out the middle-right outlet.
+			 
+
+
+
+name
+
+
+
+				In left inlet: Asks the player what the current name is and sends the response (received in the middle inlet) out the middle-right outlet.
+			 
+
+
+
+play
+
+
+
+
+				In left inlet: With no arguments,  play  starts playing at the current speed from the current location to the end of the disk (or until the player receives another command). With one argument (a frame number),  play  searches to the specified frame number and begins playing to the end of the disk. With two arguments,  play  searches to the location specified by the first number and plays until the disc reaches the second frame number.
+			 
+Arguments:
+
+first-frame
+      [int]
+      
+last-frame
+      [int]
+      
+speed
+      [int]
+      
+
+
+
+
+
+restrict
+
+
+
+
+				The word  restrict  followed by a starting frame-number and an ending frame-number will restrict all future messages to perform their actions restricted between the two frames.
+			 
+Arguments:
+
+start-frame-number
+      [int]
+      
+end-frame-number
+      [int]
+      
+
+
+
+
+
+scan
+
+
+
+
+				In left inlet: Initiates a "fast forward" or "rewind" operation.  scan forward  moves forward,  scan backward  moves backward.
+			 
+Arguments:
+forward/backward
+      [list]
+      
+
+
+
+
+search
+
+
+
+
+				In left inlet: The first argument indicates a frame number to search to. The second, optional argument, if non-zero, instructs the player to keep the picture on while searching. If searching a great distance from the current location, the player may not be able to keep from blanking the screen. Once the player arrives at the desired frame, it will display the (still) image from that frame.
+			 
+Arguments:
+
+start-frame-number
+      [int]
+      
+display-flag (0 or non-zero)
+      [int]
+      
+
+
+
+
+
+setskip
+
+
+
+
+				In left inlet: Followed by a number, sets the number of frames to jump (forward or backward) from the current frame location when using the  skip  message.
+			 
+Arguments:
+number-of-skipped-frames
+      [int]
+      
+
+
+
+
+skip
+
+
+
+
+				In left inlet: Followed by -1 , skips backward by a number of frames specified in the  setskip  message. Followed by  1 , skips forward by a number of frames specified in the  setskip  message.
+			 
+Arguments:
+backward/forward-flag (-1 or 1)
+      [int]
+      
+
+
+
+
+step
+
+
+
+
+				In left inlet: Followed by -1 ,  step  pauses the player (if playing) and displays the previous frame. Followed by  1 ,  step  pauses the player (if playing) and displays the next frame.
+			 
+Arguments:
+previous/next-step (-1 or 1)
+      [int]
+      
+
+
+
+
+stop
+
+
+
+				In left inlet: Pauses the player.
+			 
+Output
+
+bang
+
+				Out middle-left outlet: After sending a command out its left outlet, vdp begins "polling" the serial object for a response from the player by sending  bang  messages out this outlet approximately every 20 milliseconds, until vdp receives a "received" signal from the player in its right inlet. (A  bang  sent to a serial object causes any characters received in that serial port to be sent out the serial object's outlet.)
+			 
+
+
+int
+
+				Out left outlet: A stream of characters, coded instructions to the videodisc player, for each command. These numbers are intended to be sent to the left inlet of a serial object.
+			 
+
+
+int
+
+				Out middle-right outlet: Current frame number, received from the player in response to a  frame  message.
+			 
+
+
+int
+
+				Out right outlet: Not implemented.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+serial
+
+
+		Send and receive from a serial port
+	
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

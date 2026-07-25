@@ -1,0 +1,601 @@
+mc.sfrecord~ - MC Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsnumber-of-channelsbuffer-sizeAttributesbeginrampbitdepthditherendrampnchansquantizationresamplesortloopannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesintloopopenprintrecordsamptypesignalOutputsignalSee AlsoPackage MCmc.sfrecord~
+
+		Record to audio file on disk (multi-channel)
+	 
+Description
+
+		Use the mc.sfrecord~ object to record and save multi-channel MSP output as an audio file.
+	 
+Arguments
+
+
+
+number-of-channels[int]
+
+optional
+
+
+				Sets the number of channels to record via the one multi-channel inlet. The maximum number of channels is 64, and the default is 1. The audio file created will have the same number of channels as this argument, unless you set a lower number with the nchans attribute. Whether you can actually record the maximum number of channels is dependent on the speed of your processor and hard disk.
+			 
+
+
+
+
+buffer-size[int]
+
+optional
+
+
+				An optional second argument sets the buffer size. The defult value is 20160.
+			 
+Attributes
+
+
+
+beginramp[float]
+
+
+
+
+				Beginning Ramp Time (ms)
+			 
+
+
+
+
+bitdepth[int]
+
+
+
+
+
+                  Alias:
+                 format
+
+				Bits Per Sample
+			 
+
+
+
+
+
+dither[int]: 0
+
+
+
+
+				Enable triangular dithering (TPDF) when writing PCM (integer) files.
+			 Possible values:0 = 'Off'
+                  1 = 'Dither'
+                  2 = 'Dither + Noise Shaping'
+                  
+
+
+
+
+endramp[float]
+
+
+
+
+				Ending Ramp Time (ms)
+			 
+
+
+
+
+nchans[int]
+
+
+
+
+				Sets the number of channels to record, from 1-64. The default is 1. In order to record more than 1 channel, the maximum number of channels must first be set via the  number-of-channels  argument. Using the nchans attribute you can then specify any number of channels to record that is equal to or less than the  number-of-channels  argument.
+			 
+
+
+
+
+quantization[int]: 0
+
+
+
+
+				Select the quantization rule when writing PCM (integer) files.
+			 Possible values:0 = 'Round'
+                   (
+								Round when quantizing to integer values.
+							 )1 = 'Floor'
+                   (
+								Floor when quantizing to integer values.
+							 )
+
+
+
+
+resample[float]
+
+
+
+
+				Resample Factor
+			 
+
+
+
+
+sortloop[int]: 0
+
+
+
+
+				Save Loop Recording In Order
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+int
+
+
+
+
+				If a file has been opened with the  open  message, a non-zero value begins recording, and  0  stops recording and closes the file. mc.sfrecord~ requires another  open  message to record again if a  0  has been sent.
+				 
+
+				Recording may also stop spontaneously if there is an error, such as running out of space on your hard disk.
+			 
+Arguments:
+recording-start/stop-flag (0 or nonzero)
+      [int]
+      
+
+
+
+
+loop
+
+
+
+
+				If a file has been opened with the  open  message, the word  loop , followed by a number that specifies the loop length in milliseconds, begins recording for the specified amount of time, repeating within the specified area.  loop 0  turns off recording.
+			 
+Arguments:
+looping-flag (0 or 1)
+      [float]
+      
+
+
+
+
+open
+
+
+
+
+				In left inlet: Opens a file for recording. By default, the file type is AIFF, but sfrecord~ also supports WAVE, OGG, FLAC, and Raw Data. The word  open , without an argument, brings up a standard Save As dialog allowing you to choose a filename. The optional symbols  aiff ,  wave ,  ogg ,  flac , or  raw  specify the file format (which can also be set in the Save As dialog with a Format pop-up menu). If  open  is followed by a second symbol, it creates a file in the current default volume. An existing file with the same name will be overwritten. The format symbol (e.g.,  aiff ) can follow the optional filename argument. If only one argument is given to the  open  message, which is a filename, the file type is determined from the file extension (e.g., "open test.wav" sets the file type to  wave ).
+			 
+Arguments:
+
+file-type
+      [symbol]
+      
+filename
+      [symbol]
+      
+
+
+
+
+
+print
+
+
+
+				Outputs cryptic status information about the progress of the recording.
+			 
+
+
+
+record
+
+
+
+
+				If a file has been opened with the  open  message, the word  record , followed by a time in milliseconds, begins recording for the specified amount of time. The recording can be stopped before it reaches the end by sending mc.sfrecord~ a  0 .
+			 
+Arguments:
+recording-time
+      [float]
+      
+
+
+
+
+samptype
+
+
+
+
+				The word  samptype , followed by a symbol, specifies the sample type to use when recording the audio file. The following types of sample data are supported:
+				 
+
+ int8 : 8-bit integer
+				 
+ int16 : 16-bit integer
+				 
+ int24 : 24-bit integer
+				 
+ int32 : 32-bit integer
+				 
+ float32 : 32-bit floating-point
+				 
+ float64 : 64-bit floating-point
+				 
+ mulaw : 8-bit "mu"-law encoding
+				 
+ alaw : 8-bit a-law encoding
+				 
+
+				The optional second argument, a 0 or 1, specifies whether or not byte-swapping should be used, which is only useful when writing a 'raw' audio file.
+				 
+
+Arguments:
+
+sample-type
+      [symbol]
+      
+byte-swap-flag
+      [int]
+      
+
+
+
+
+
+signal
+
+
+
+mc.sfrecord~ accepts a multi-channel signal via the one inlet, which is recorded to an audio file when recording is turned on.
+			 
+Output
+
+signal
+
+				The time, in milliseconds, since recording of the file began. If recording has stopped, the signal value will remain at the length of the last recording until a new recording is started.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+sfplay~
+
+
+		Play audio file from disk
+	
+
+
+
+mc.sfplay~
+
+
+		Play audio file from disk (multi-channel)
+	
+
+
+
+sfrecord~
+
+
+		Record to audio file on disk
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

@@ -1,0 +1,509 @@
+vexpr - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsexpressionconstantformattable(other)Attributesmaxsizescalarmodeannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangintfloatlistanythingOutputfloatintlistSee AlsoPackage Maxvexpr
+
+		Evaluate a math expression for a list
+	 
+Description
+
+		Performs mathematical calculations using C language-style mathematical operations. Operates on inputs that are lists rather than collections of single values.
+	 
+Discussion
+
+		Like its companion expr object, the vexpr object evaluates expressions that use the "variables" $i1-$i9 (the first to ninth inlets, taken as integers), $f1-$f9 (the inlets as floats) and $s1-$s9 (the inlets as symbols), and/or constants of the same types. The vexpr object also has a scalar mode of operation that lets you use the object's inlet value as a single-item list for evaluation with all items in an input list.
+	 
+Arguments
+
+
+
+expression[list]
+
+optional
+
+
+				The argument to the vexpr object is a mathematical expression composed of numbers, arithmetic operators such as + or *, comparisons such as  <  or  > , C functions such as  min ()  or  pow () , names of table objects, and changeable arguments ( $i ,  $f , and  $s ) for ints, floats, and symbols received in the inlets.
+			 
+
+
+
+
+constant[number]
+
+optional
+
+
+				Numbers can be used as constants in the mathematical expression.
+			 
+
+
+
+
+format[symbol]
+
+optional
+
+
+				Changeable arguments that specify data formats associated with an inlet are described using a combination of a data type ( $i  or  $f ) and an inlet number (example:  $i2 ). The argument will be replaced by numbers or symbols received in the specified inlet.
+			 
+
+
+
+
+table[symbol]
+
+optional
+
+
+				Changeable arguments that specify accessing data from a table are described using the argument  $s  and an inlet number which is replaced by the name of a table to be accessed. The argument should be immediately followed by a number in brackets specifying an address in the table. (Examples:  $s2[7]  or  $s3[$i1] .)
+			 
+
+
+
+
+(other)[symbol]
+
+optional
+
+
+				The vexpr object understands the following arithmetic operators:  + , - ,  * ,  / , %. Other operators are  ~  (one's complement),  ^  (bitwise exclusive or),  & ,  && ,  | ,  || , and !  (not).
+				 
+
+				Many C language math functions can be understood by vexpr. A function must be followed immediately by parentheses containing any arguments necessary to the function. If the function requires a comma between arguments, the comma must be preceded by a backslash ( \ ) so that Max will not be confused by it. For example:  (pow ($i1\,2) + $f2) .				 
+
+				C language functions understood by vexpr are: abs, min, max, sin, cos, tan, asin, acos, atan, atan2, sinh, cosh, tanh, int (convert to integer), float (convert to float), pow, sqrt, fact (factorial), exp (power of e to x), log10 (log), ln or log (natural log), and random. Additional functions can be added by means of external code resources placed in Max's startup folder.
+			 
+Attributes
+
+
+
+maxsize[int]
+
+
+
+
+				Set the maximum list length for all modes of operation for the vexpr object. The default list length is 256, and the maximum list length limit is 32,767.
+			 
+
+
+
+
+scalarmode[int]
+
+
+
+
+				The word  scalarmode , followed by a non-zero number, sets the scalar mode of operation. In scalar mode, sending a list of length 1 (i.e., a single value) will cause that value to be applied to each element of the other list. The message  scalarmode 0  disables scalar mode.
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				Evaluates the expression and sends out the results, using the most recently received lists of numbers / symbols.
+			 
+
+
+
+int
+
+
+
+
+				An int or float received in any inlet is treated as a single-item  list .
+			 
+Arguments:
+number
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				An int or float received in any inlet is treated as a single-item  list .
+			 
+Arguments:
+number
+      [float]
+      
+
+
+
+
+list
+
+
+
+
+				The items of each list are used individually, in order from left to right, to replace the changeable argument in a series of evaluations of the expression. When a list is received in the left inlet, the expression is first evaluated using the first item of each list, then using the second item of each list, etc. The series of results of these evaluations is then sent out as a list.
+			 
+Arguments:
+values
+      [list]
+      
+
+
+
+
+anything
+
+
+
+
+				The items of each list are used individually, in order from left to right, to replace the changeable argument in a series of evaluations of the expression. When a list is received in the left inlet, the expression is first evaluated using the first item of each list, then using the second item of each list, etc. The series of results of these evaluations is then sent out as a list.
+			 
+Arguments:
+values
+      [list]
+      
+
+Output
+
+float
+
+				If the input in one of the inlets was a single number rather than a list, and the expression is evaluated as a float value, then a single result is sent out as a float rather than a list.
+			 
+
+
+int
+
+				If the input in one of the inlets was a single number rather than a list, and the expression is evaluated as an integer value, then a single result is sent out as an int rather than a list.
+			 
+
+
+list
+
+				When a list is received in the left inlet, vexpr uses the first item of the lists it has received in each of its different inlets, puts those items in place of the changeable arguments in the expression, and evaluates the expression. It then does the same with the second item in each list, and so on until it has used the last item of the shortest list. It then sends out all of the different results as a single list.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+expr
+
+
+		Evaluate a mathematical expression
+	
+
+
+
+round
+
+
+		Round to a value
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

@@ -1,0 +1,947 @@
+pattr - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsnameAttributesannotation_nameautorestorebindtodefault_activedefault_interpdefault_prioritydirtyinitialinvisiblemaxminparameter_enableparameter_mappablethrutypeannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameOrderParameter Mode EnableLink to Scripting NameLong NameShort NameTypeRange/EnumClip Modulation ModeClip Modulation RangeInitial EnableInitialUnit StyleCustom UnitsExponentStepsControl Surface Button ModeParameter VisibilityUndo When VisibleUpdate Limit (ms)Defer Automation OutputMessagesbangintfloatlistanythingassign(mouse)dictionaryinitOutput(internal)anythingSee AlsoPackage Maxpattr
+
+		Provide an alias with a named data wrapper
+	 
+Description
+
+		Stores its own data, or binds to another object to share its contents with other pattr-based objects (such as pattrstorage). Can be used for data routing or preset creation.
+	 
+Discussion
+
+		The pattr object can be thought of as an alias for data. It functions in two modes. By default, the pattr object maintains its own data. This data can be of any normal Max type (int, float, list, symbol). The pattr object can also bind to another object, as long as that object has a patcher name that the pattr object can resolve. In this instance, the pattr object merely  refers  to the data inside of another object, and is restricted to the type of data expected by the object. When bound, data sent to the pattr object is forwarded to the referred object (target), and changes made to the target are reflected in the pattr object.
+	 
+Arguments
+
+
+
+name[symbol]
+
+optional
+
+
+				A symbol argument may be optionally used to set the pattr object's  name . In the absence of an argument (or the explicit setting of the  name  attribute using the  @name  syntax), the pattr object is given an arbitrary, semi-random name, such as u197000004.
+			 
+Attributes
+
+
+
+annotation_name[symbol]: 
+
+
+
+
+				Info View Title
+			 
+
+
+
+
+autorestore[int]
+
+
+
+
+				Enables (1) or disables (0) the autorestore state of the pattr object. The default is 1 (enabled). When enabled, the pattr object will automatically output its last-saved value when the patcher is loaded (and, if bound to another object, send the value to that object. See the  bindto  attribute, below for more information on bound objects).
+			 
+
+
+
+
+bindto[symbol]
+
+
+
+
+				The word  bindto , which may be followed by an optional  symbol  argument, sets the pattr object's binding state. The default state is unbound (no arguments). By default, the pattr object maintains its own data. When "bound" using the  bindto  feature, a pattr object maintains the data for the other object and automatically gets and sets values for that object.  bindto  takes an optional  symbol  argument, which specifies the name of the object to which pattr will bind. Binding targets need not be at the same patcher-level as the pattr object. In this case, a double-colon syntax ('::') is used to separate levels of patcher hierarchy for the purposes of describing a path for name resolution (e.g. somepatcher::someobject). If the named object is at a higher patcher-level than the pattr object, the word parent can be used to refer to a patcher at a higher level (e.g. parent::objectaboveme, parent::parent::objectaboveobjectaboveme or  parent::patchernexttome::someobject ).
+				 
+
+				If the named object contains attributes, and the user wishes to bind to a specific attribute, the same double-colon syntax is used to specify the name of that attribute (e.g. someobject::someattribute). A  bindto  message sent without an argument unbinds the pattr object from any bound object, and causes it to resume the maintenance its own internal state. See the pattr helpfile for more information about this feature.
+			 
+
+
+
+
+default_active[int]
+
+
+
+
+				Enables (1) or disables (0) the pattr object's default active state, when it is discovered by a pattrstorage object. The default is 1 (active). See the Reference for the pattrstorage object for more information.
+			 
+
+
+
+
+default_interp[2 atoms]
+
+
+
+
+				The word  default_interp , followed by a symbol and an optional 2nd argument, defines the pattr object's default interpolation setting, when it is discovered by a pattrstorage object. The default is  linear . See the Reference for the pattrstorage object for more information.
+			 
+
+
+
+
+default_priority[int]
+
+
+
+
+				The word  default_priority , followed by an  int , defines the pattr object's default priority, when it is discovered by a pattrstorage object. The default is  0 . See the Reference for the pattrstorage object for more information.
+			 
+
+
+
+
+dirty[int]
+
+
+
+
+				Enables (1) or disables (0) the patcher-dirty flag. The default is 0 (disabled). When enabled, the pattr object will dirty the patch whenever its state changes.
+			 
+
+
+
+
+initial[256 atoms]: 
+
+
+
+
+				The pattr object's initial value. If autorestore is set to  1 , this value will be restored upon patch load, rather than the value of the pattr object at the time the patch was last saved. The initial attribute can be used in combination with the  init  message to reset the pattr object to the specified value.
+			 
+
+
+
+
+invisible[int]
+
+
+
+
+				The word  invisible , followed by a 1 or 0, determines whether or not the pattr object is invisible to pattrstorage objects. The default is 0 (visible).
+			 
+
+
+
+
+max[atom]: 
+
+
+
+
+				A maximum value for  int  and  float  values (including values in lists), disabled ( <none> ) by default. When parameter_enable is on, this value is linked to the upper range value of the parameter.
+			 
+
+
+
+
+min[atom]: 
+
+
+
+
+				A minimum value for  int  and  float  values (including values in lists), disabled ( <none> ) by default. When parameter_enable is on, this value is linked to the lower range value of the parameter.
+			 
+
+
+
+
+parameter_enable[int]
+
+
+
+
+				Enables use of this object with Max for Live Parameters.
+			 
+
+
+
+
+parameter_mappable[int]: 1
+
+
+
+
+				When parameter_mappable is enabled, the object will be available for mapping to keyboard or MIDI input using the Mappings feature.
+			 
+
+
+
+
+thru[int]
+
+
+
+
+				Adjusts the pattr object's thru behavior. The default is 1 (Output value on change). When enabled for all change, the object will output its value whenever it changes, or in response to a bang. When set to 0 (Suppress output on change (bang only)), the object will only output its value when it receives a  bang  message. When set to 2 (Suppress output when triggered from inlet), the value will be output upon change which wasn't triggered by a message to the pattr object's inlet.
+			 Possible values:0 = 'Suppress output on change (bang only)'
+                  1 = 'Output value on change'
+                  2 = 'Suppress output when triggered from inlet'
+                  
+
+
+
+
+type[symbol]: atom
+
+
+
+
+				The word  type , followed by a symbol corresponding to a valid type, sets the data type maintained internally by the pattr object, when the object is not bound. The default is  atom . Available types include  char ,  long ,  float32 ,  float64 ,  symbol , and  atom .
+			 Possible values:
+                    'atom'
+                  
+                    'char'
+                  
+                    'long'
+                  
+                    'float32'
+                  
+                    'float64'
+                  
+                    'symbol'
+                  
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+
+
+Parameter Attributes
+
+
+
+Orderint
+
+
+        Sets the order of recall of this parameter. Lower numbers are recalled
+        first. The order of recall of parameters with the same order number is
+        undefined.
+ 
+
+
+
+Parameter Mode Enableint
+
+
+        Parameter Mode Enable (not available from Parameters window)
+ 
+
+
+
+Link to Scripting Nameint
+
+
+        When checked, the Scripting Name is linked to the Long Name attribute.
+ 
+
+
+
+Long Namesymbol
+
+
+        The long name of the parameter. This name must be unique per patcher
+        hierarchy.
+ 
+
+
+
+Short Namesymbol
+
+
+        Sets the short name for the object's visual display. The maximum length
+        varies according to letter width, but is generally in a range of 5 to 7
+        characters.
+ 
+
+
+
+Typeint
+
+
+        Specifies the data type. The data types used in Max for Live are:
+ 
+
+         Float
+ 
+         Int
+ 
+         Enum (enumerated list)
+ 
+         Blob
+ 
+
+         Note: By convention, the Live application uses floating point numbers
+        for its calculations; the native integer representation is limited to 256
+        values, with a default range of 0-255 (similar to the char data type used 
+        in Jitter). When working with Live UI objects whose integer values will 
+        exceed this range, the Type attribute should be set to Float,
+        and the Unit Style attribute should be set to Int.
+ 
+
+
+
+Range/Enumlist
+
+
+        When used with an integer or floating point data type, this field is
+        used to specify the minimum and maximum values of the parameter.
+ 
+        When used with an enumerated list (Enum) data type, this field contains
+        a space-delimited list of the enumerated values (if list items contain a
+        space or special characters, the name should be enclosed in double
+        quotes).
+ 
+
+
+
+Clip Modulation Modeint
+
+
+        Sets the Clip Modulation Mode used by the Live application. The modulation
+        modes are:
+ 
+
+         None
+ 
+         Unipolar
+ 
+         Bipolar
+ 
+         Additive
+ 
+         Absolute
+ 
+
+
+
+
+
+Clip Modulation Rangelist
+
+
+        This parameter is only used with the Absolute modulation mode. It
+        specifies defines the range of values used.
+ 
+
+
+
+Initial Enableint
+
+
+        When checked (set to 1), the UI object can store an initialization
+        value. The value is set using the Initial attribute (see below).
+ 
+
+
+
+Initiallist
+
+
+        Sets the initial value to be stored and used when the Initial Enable
+        attribute is checked.
+ 
+
+
+
+Unit Styleint
+
+
+        Sets the unit style to be used when displaying values. The unit style
+        values are: Int: displays integer values
+ 
+         Float: displays floating point values
+ 
+         Time: displays time values in milliseconds (ms)
+ 
+         Hertz: displays frequency values (Hz/kHz).
+ 
+         deciBel: displays loudness (dB)
+ 
+         %: Percentage
+ 
+         Pan: displays Left and Right values
+ 
+         Semitones: displays steps (st)
+ 
+         MIDI: displays pitch corresponding to the MIDI note number
+ 
+         Custom: displays custom data type
+ 
+         Native: defaults to floating point values
+ 
+
+
+
+Custom Unitssymbol
+
+
+        Sets the units to be used with the 'Custom' unit style (see "Unit
+        Style", above). Custom unit strings may be simple symbols (e.g.
+        "Harmonic(s)"), in which case the parameter's value will be displayed in
+        its 'Native' display mode, followed by the symbol (e.g. "12 Harmonic(s)"
+        for an Int-typed parameter or "12.54 Harmonic(s)" for a Float-typed
+        parameter). For additional control over the numerical component
+        displayed, a sprintf-style string may be used (e.g. "%0.2f Bogon(s)",
+        which would display a value such as ".87 Bogons").
+ 
+
+
+
+Exponentfloat
+
+
+        When set to a value other than 1., the parameter's input and output
+        values will be exponentially scaled according to the factor entered in
+        this column.
+ 
+
+
+
+Stepsint
+
+
+        The number of steps available between the minimum and maximum values of
+        a parameter. For instance, if the parameter has a range from 0.-64.,
+        with Steps set to 4, the user can only set the parameter to 0, 21.33,
+        42.66 and 64.
+ 
+
+
+
+Control Surface Button Modesymbol
+
+
+        The behavior of control surface buttons, when the parameter is assigned with the live.banks object. Currently available modes are:
+ 
+ Toggle : switches between minimum and maximum value (default)
+ 
+ Trigger : outputs the maximum value, immediately followed by the minimum value
+ 
+ Cycle : cycles through available enum values
+ 
+
+
+
+Parameter Visibilityint
+
+
+        For automatable parameters (Int, Float, Enum), 'Stored Only' disables
+        automation, although parameter values are stored in presets. 'Hidden'
+        causes the parameter's value to be ignored when storing and recalling
+        data. Non-automatable parameters (Blob) are 'Stored Only' by default,
+        and can be set to 'Hidden', if desired.
+
+        The 'Visible' and 'Visible (Not Stored)' visibility modes expose parameters to Live, but don't support automation. Practically, this means that they are visible to Push (and other control surfaces), but won't appear in Live's automation view. The 'Visible' mode also causes Live to store the parameter's value in presets and with the set for later restore. 'Visible (Not Stored)' does not store the value (useful for momentary controls). Note that these modes are only available for Float, Int and Enum parameter types.
+
+When using these 'Visible' modes, a new parameter attribute will become available in the object's inspector: 'Undo When Visible'. This is on by default, but when disabled, a Visible parameter becomes invisible to Live's Undo system.
+ 
+
+
+
+Undo When Visibleint
+
+
+        When using the 'Visible' modes (see 'Parameter Visibility'), a this attribute is available in the object's inspector. It is on by default, but when disabled, a Visible parameter becomes invisible to Live's Undo system.
+ 
+
+
+
+Update Limit (ms)int
+
+
+        Speed limits values triggered by automation.
+ 
+
+
+
+Defer Automation Outputint
+
+
+        Defers values triggered by automation.
+ 
+
+
+Messages
+
+
+bang
+
+
+
+				Outputs the data maintained by the pattr object from the left outlet.
+			 
+
+
+
+int
+
+
+
+
+				An  int  is stored inside the pattr object and output from its left outlet. Optionally, the value is passed along to a bound object. (See the  bindto  attribute for more information on bound objects).
+			 
+Arguments:
+input
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+ float  is stored inside the pattr object and output from its left outlet. Optionally, the value is passed along to a bound object. (See the  bindto  attribute for more information on bound objects).
+			 
+Arguments:
+input
+      [float]
+      
+
+
+
+
+list
+
+
+
+
+ list  is stored inside the pattr object and output from its left outlet. Optionally, the value is passed along to a bound object. (See the  bindto  attribute for more information on bound objects).
+			 
+Arguments:
+input
+      [list]
+      
+
+
+
+
+anything
+
+
+
+
+				Any  message  is stored inside the pattr object and output from its left outlet. Optionally, the value is passed along to a bound object. (See the  bindto  attribute for more information on bound objects).
+			 
+Arguments:
+input
+      [list]
+      
+
+
+
+
+assign
+
+
+
+
+				The word  assign , followed by a floating point value, causes that value to be stored and displayed and sent out the pattr object's left outlet. If the object's Parameter Enabled attribute is set (checked) and the Parameter Visibility attribute is set to Stored Only, the  assign  message will not add the new value to the Live application's undo chain.
+			 
+Arguments:
+input
+      [float]
+      
+
+
+
+
+(mouse)
+
+
+
+				Double-clicking on a pattr object that is parameter-enabled will open the Parameters Window in Max for Live.
+			 
+
+
+
+dictionary
+
+
+
+
+				A copy of a  dictionary  is stored inside the pattr object and output from its left outlet. Optionally, the dictionary is passed along to a bound object. (See the  bindto  attribute for more infomation on bound objects).
+			 
+Arguments:
+input
+      [symbol]
+      
+
+
+
+
+init
+
+
+
+				If the pattr object's initial attribute has been set, the  init  message will cause the pattr object's value to be set to value of the initial attribute.
+			 
+Output
+
+(internal)
+
+				A user interface object (or other object that responds to the internal messaging system utilized by pattr) connected to the middle outlet of the pattr object will be automatically named (if necessary) and bound to. The name is automatically generated from the object's class name (e.g. a connected number box might be named number[1].) Currently, the following Max user interface objects can be bound in this fashion: dial, function, gain~, ggate, gswitch, js (requires user support), jsui (see the JavaScript in Max manual for more information on using the pattr system with JavaScript), led, matrixctrl, multislider, nslider, number box (int and float), pattr, pattrstorage, pictctrl, pictslider, radiogroup, rslider, slider, swatch, table, textedit, toggle, and umenu.
+			 
+
+
+anything
+
+				Out left outlet: When the pattr object receives new data, a  bang , or registers the change of the value of its bound object, this value is output.
+				 
+
+				Out right outlet:  get  queries to the pattr object's attributes are output from the right outlet, also known as the  dumpout  outlet.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+autopattr
+
+
+		Expose multiple objects to the pattr system
+	
+
+
+
+pattrforward
+
+
+		Send any message to a named object
+	
+
+
+
+pattrhub
+
+
+		Access all pattr objects in a patcher
+	
+
+
+
+pattrmarker
+
+
+		Provide pattr communication between patchers
+	
+
+
+
+pattrstorage
+
+
+		Save and recall pattr presets
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

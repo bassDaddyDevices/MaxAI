@@ -1,0 +1,851 @@
+filtercoeff~ - MSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsdefault-filter-typeresampling-factorAttributesannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesintfloatlistallpassbandpassbandstopgainapassgainbpassgainbstopgainhpassgainlpassgainresonanthighpasshighshelflowpasslowshelfoffpeaknotchresampresonantsignalOutputsignalSee AlsoPackage MSPfiltercoeff~
+
+		Signal-rate filter coefficient generator
+	 
+Description
+
+		The filtercoeff~ object is a signal-rate filter coefficient calculator for the biquad~ object. It calculates the filter coefficients from three higher-level parameters: frequency, amplitude and resonance (Q) or slope (S). Its internal calculations are based on those of the filtergraph~ object.
+	 
+Arguments
+
+
+
+default-filter-type[symbol]
+
+optional
+
+
+				A symbol argument may be used to set the default filter type (highpass, lowpass, etc...).
+			 
+
+
+
+
+resampling-factor[int]
+
+optional
+
+
+				An optional second argument can be used to specify a resampling factor.
+			 
+Attributes
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+int
+
+
+
+
+				Integer values are converted to  float .				 
+
+				In 1st inlet: Sets the center or cutoff frequency parameter for the filter and causes output.
+				 
+
+				In 2nd inlet: Sets the gain parameter for the filter and causes output.
+				 
+
+				In 3rd inlet: Sets the Q (resonance) or S (slope) parameter for the filter and causes output. (note that the term slope is only used for the third parameter of shelving filters, and is roughly equivalent to resonance).
+			 
+Arguments:
+filter-parameters
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				In 1st inlet: Sets the center or cutoff frequency parameter for the filter and causes output.
+				 
+
+				In 2nd inlet: Sets the gain parameter for the filter and causes output.
+				 
+
+				In 3rd inlet: Sets the Q (resonance) or S (slope) parameter for the filter and causes output. (note that the term slope is only used for the third parameter of shelving filters, and is roughly equivalent to resonance)
+			 
+Arguments:
+filter-parameters
+      [float]
+      
+
+
+
+
+list
+
+
+
+
+				A list of up to 3 floats will specify the center-frequency, the gain, and the Q-factor respectively. A signal connected to any inlet where these parameters would normally be received will override any input from a  list  and the effects of these parameters are completely dependent on what type of filter is chosen.
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+initial-gain
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+allpass
+
+
+
+
+				In left inlet: The word  allpass  sets the filter type to allpass mode. The frequency response of the filter is based on two parameters: center/cutoff frequency and Q (resonance). The gain parameter is set to unity gain (1.0). An allpass filter is designed to modify the phase response, leaving a flat amplitude response
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+bandpass
+
+
+
+
+				In left inlet: The word  bandpass  sets the filter type to bandpass mode. The frequency response of the filter is based on two parameters: center frequency and Q (resonance). The gain parameter is set to unity gain (1.0).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+bandstop
+
+
+
+
+				In left inlet: The word  bandstop  sets the filter type to bandstop mode. The frequency response of the filter is based on two parameters: center frequency and Q (resonance). The gain parameter is set to unity gain (1.0).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+gainapass
+
+
+
+
+				In left inlet: The word  gainapass  sets the filter type to allpass mode with user-controllable gain. The frequency response of the filter is based on three parameters: center/cutoff frequency, gain, and Q (resonance), although only the gain parameter has an effect on the amplitude response. An allpass filter is designed to modify the phase response, leaving a flat amplitude response
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+initial-gain
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+gainbpass
+
+
+
+
+				In left inlet: The word  gainbpass  sets the filter type to bandpass mode with user-controllable gain. The frequency response of the filter is based on three parameters: center frequency, gain, and Q (resonance).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+initial-gain
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+gainbstop
+
+
+
+
+				In left inlet: The word  gainbstop  sets the filter type to bandstop mode with user-controllable gain. The frequency response of the filter is based on three parameters: center frequency, gain, and Q (resonance).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+initial-gain
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+gainhpass
+
+
+
+
+				In left inlet: The word  gainhpass  sets the filter type to highpass mode with user-controllable gain. The frequency response of the filter is based on three parameters: cf (cutoff frequency) gain, and Q (resonance).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+initial-gain
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+gainlpass
+
+
+
+
+				In left inlet: The word  gainlpass  sets the filter type to lowpass mode with user-controllable gain. The frequency response of the filter is based on three parameters: cf (cutoff frequency) gain, and Q (resonance).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+initial-gain
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+gainresonant
+
+
+
+
+				In left inlet: The word  gainrtesonant  sets the filter type to resonant mode (resonant bandpass filter) with user-controllable gain. The frequency response of the filter is based on three parameters: center frequency, gain, and Q (resonance).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+initial-gain
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+highpass
+
+
+
+
+				In left inlet: The word  highpass  sets the filter type to highpass mode. The frequency response of the filter is based on two parameters: cf (cutoff frequency) and Q (resonance). The gain parameter is set to unity gain (1.0).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+highshelf
+
+
+
+
+				In left inlet: The word  highshelf  sets the filter type to highshelf mode. The frequency response of the filter is based on three parameters: cutoff frequency, gain, and S (slope).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+initial-gain
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+lowpass
+
+
+
+
+				In left inlet: The word  lowpass  sets the filter type to lowpass mode. The frequency response of the filter is based on two parameters: cf (cutoff frequency) and Q (resonance). The gain parameter is set to unity gain (1.0).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+lowshelf
+
+
+
+
+				In left inlet: The word  lowshelf  sets the filter type to lowshelf mode. The frequency response of the filter is based on three parameters: cutoff frequency, gain, and S (slope).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+initial-gain
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+off
+
+
+
+
+				In left inlet: The word  off  sets the filter type to off mode whereby the dry, unfiltered signal is passed to the outputs.
+			 
+Arguments:
+filter-type
+      [list]
+      
+
+
+
+
+peaknotch
+
+
+
+
+				In left inlet: The word  peaknotch  sets the filter type to peaknotch mode. The frequency response of the filter is based on three parameters: center/cutoff frequency, gain, and Q (resonance).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+initial-gain
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+resamp
+
+
+
+
+				Set the resampling factor
+			 
+Arguments:
+resampling-factor
+      [int]
+      
+
+
+
+
+resonant
+
+
+
+
+				In left inlet: The word  resonant  sets the filter type to resonant mode (resonant bandpass filter). The frequency response of the filter is based on two parameters: center frequency and Q (resonance). The gain parameter is set to unity gain (1.0).
+			 
+Arguments:
+
+center-frequency
+      [float]
+      
+Q
+      [float]
+      
+
+
+
+
+
+signal
+
+
+
+				In 1st inlet: Sets the center or cutoff frequency parameter for the filter and causes output.
+				 
+
+				In 2nd inlet: Sets the gain parameter for the filter and causes output.
+				 
+
+				In 3rd inlet: Sets the Q (resonance) or S (slope) parameter for the filter and causes output. (note that the term slope is only used for the third parameter of shelving filters, and is roughly equivalent to resonance)
+			 
+Output
+
+signal
+
+				The five signal outlets output signal-rate filter coefficients for the biquad~ object.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+allpass~
+
+
+		Apply an allpass filter effect
+	
+
+
+
+biquad~
+
+
+		Two-pole, two-zero filter
+	
+
+
+
+cascade~
+
+
+		Cascaded series of biquad filters
+	
+
+
+
+delay~
+
+
+		Delay a signal
+	
+
+
+
+filtergraph~
+
+
+		Filter editor
+	
+
+
+
+lores~
+
+
+		Resonant lowpass filter
+	
+
+
+
+reson~
+
+
+		Resonant bandpass filter
+	
+
+
+
+teeth~
+
+
+		Comb filter with feedforward and feedback delay control
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

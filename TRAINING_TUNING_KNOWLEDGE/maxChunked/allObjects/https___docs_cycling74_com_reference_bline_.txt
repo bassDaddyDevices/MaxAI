@@ -1,0 +1,452 @@
+bline - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsinitial-valueAttributesannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangintfloatlistsetstopOutputbangintSee AlsoPackage Maxbline
+
+		Generate ramps using  bang 
+
+Description
+
+		Generates a linear ramp driven by incoming  bang  messages. It takes a list of breakpoint segments (and the number of events to span) and outputs a smooth ramp between values.
+	 
+Discussion
+
+bline is similar to the Max line object, except that it is driven by  bang  messages sent to its left inlet. This gives the object a flexible timebase, which is useful when working with events that have a variable processing time (such as rendering matrices in Jitter). It works with integer and floating point numbers, can be stopped (with the  stop  message), and can use multi-segment lists (similar to the MSP line~ object).
+	 
+Arguments
+
+
+
+initial-value[number]
+
+optional
+
+
+				Optional. An argument may be used to set the initial value to be stored and the output type for the object--if the first argument is an int, the bline object outputs integer values, and a float will set the bline object to output floating point values. If there is no argument, the initial value is  0  and the output type is  int .
+			 
+Attributes
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				Sends a new step in the breakpoint list out the left outlet. If the current list of ramp segments is finished, a  bang  message will be sent out the right outlet
+			 
+
+
+
+int
+
+
+
+
+				Sets the bline object to the specified integer value. Any and all pending breakpoint segments are forgotten (i.e. the time is considered 0 and bline outputs the target value when it receives a  bang ).
+			 
+Arguments:
+input
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				Sets the bline object to the specified float value. Any and all pending breakpoint segments are forgotten (i.e. the time is considered 0 and bline outputs the target value when it receives a  bang ).
+			 
+Arguments:
+input
+      [float]
+      
+
+
+
+
+list
+
+
+
+
+				The bline object sets breakpoint segment values using lists of data composed of pairs of numbers. The first number in each pair can be either an int or a float specifying a target value, followed by an integer that specifies the number of  bang  messages that will have to be received before reaching the target value--note that this differs from other Max breakpoint objects like line, which specify a time-to-target value in milliseconds.
+			 
+Arguments:
+segment-pairs
+      [list]
+      
+
+
+
+
+set
+
+
+
+
+				Sets the bline object to the specified value. Any and all pending breakpoint segments are forgotten (i.e. the time is considered 0 and bline outputs the target value when it receives a  bang ).
+			 
+Arguments:
+input
+      [number]
+      
+
+
+
+
+stop
+
+
+
+				Stops bline from sending out numbers, until a new list of ramp segments is received.
+			 
+Output
+
+bang
+
+				Out right outlet: When bline has arrived at its target value,  bang  is sent out.
+			 
+
+
+int
+
+				Out left outlet: Numbers are sent out in response to received  bang  messages, describing a straight line toward a target value. If a list of breakpoint segments is specified before the line is completed, the new line starts from the most recent output value in order to avoid discontinuities.
+				 
+
+				If a value is received in the left inlet without an accompanying time value, it is sent out immediately.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+funbuff
+
+
+		Store pairs of numbers
+	
+
+
+
+line
+
+
+		Generate timed ramp
+	
+
+
+
+uzi
+
+
+		Send many bang messages
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

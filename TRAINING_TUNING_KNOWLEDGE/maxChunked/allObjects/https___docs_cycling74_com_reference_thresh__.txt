@@ -1,0 +1,429 @@
+thresh~ - MSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentslow/reset-thresholdhigh/set-thresholdAttributesannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesintfloatlistsignalOutputsignalSee AlsoPackage MSPthresh~
+
+		Detect signal above a set level
+	 
+Description
+
+		Use the thresh~ object to detect signals which exceed a specified level.
+	 
+Discussion
+
+thresh~ initially outputs a signal of 0. It outputs a signal of 1 when the input is equal or greater than a set "high" threshold, until it goes below the reset or "low" threshold, at which point the 0 signal is output again. If the low and high thresholds are the same, a reset occurs when the signal is less than the threshold value. Otherwise, a reset occurs when the signal is less than or equal to the low threshold. The low and high thresholds can be specified as arguments, via floats in the middle and right inlets, or as signals in the middle and right inlets.
+	 
+Arguments
+
+
+
+low/reset-threshold[float]
+
+optional
+
+
+				The first argument specifies the reset or low threshold level. If no argument is present, the reset level is  0 .				 
+
+				If only one argument is present, it specifies the reset level, and the set level is  0 .
+			 
+
+
+
+
+high/set-threshold[float]
+
+optional
+
+
+				The second argument specifies the set or high threshold level. If no argument is present, the set level is  0 .
+			 
+Attributes
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+int
+
+
+
+				TEXT_HERE
+			 
+
+
+
+float
+
+
+
+
+				In middle inlet: Sets the lower ("reset") threshold level for the input signal. When a sample in the input signal is greater than or equal to the upper ("set") level, thresh~ sends out a signal of  1  until a sample in the input signal is less than or equal to this reset level.
+				 
+
+				In right inlet: Sets the upper ("set") threshold level for the input signal. When the input is equal to or greater than this value, thresh~ sends out a signal of  1 .
+			 
+Arguments:
+reset/set-threshold
+      [float]
+      
+
+
+
+
+list
+
+
+
+
+				A two element list of floats sent to the middle inlet will set the value of the low and high thresholds.
+			 
+Arguments:
+reset/set-thresholds
+      [float]
+      
+
+
+
+
+signal
+
+
+
+				In left inlet: A signal whose level you want to detect.
+			 
+Output
+
+signal
+
+				When a sample in the input signal is greater than or equal to the upper threshold level, the output is  1 . The output continues to be  1  until a sample in the input signal is equal to or less than the reset level. If the set level and the reset level are the same, the output is  1  until a sample in the input signal is less than the reset level.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+>~
+
+
+		Is greater than, comparison of two signals
+	
+
+
+
+change~
+
+
+		Report signal direction
+	
+
+
+
+edge~
+
+
+		Detect logical signal transitions
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

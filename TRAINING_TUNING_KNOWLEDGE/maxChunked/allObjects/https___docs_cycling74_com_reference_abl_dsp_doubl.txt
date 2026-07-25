@@ -1,0 +1,579 @@
+abl.dsp.doubler~ - Ableton DSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsmodfeedbacktimeAttributesbass_freqdutyenv_amountenv_attackenv_releaseenvelopefeedbackinvertlfo_2_freqlfo_blendmixmodmod_freqspinstereostereo_phasetimewarmthwaveforminsannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesfloatresetsignalSee AlsoPackage Ableton DSPabl.dsp.doubler~
+ Doubler 
+Description
+ Stereo doubler effect Arguments
+
+
+
+mod[number]
+
+optional
+
+ Modulation amount 
+
+
+
+
+feedback[number]
+
+optional
+
+ Feedback 
+
+
+
+
+time[number]
+
+optional
+
+ Delay time 
+Attributes
+
+
+
+bass_freq[float]
+
+
+
+ Reduces the effect's strength on signal components below the specified frequency. [5., 3000.]
+ 
+
+
+
+
+duty[float]
+
+
+
+ Sets the duty cycle of the LFO waveform. [0., 1.] 
+
+
+
+
+env_amount[float]
+
+
+
+ Sets the intensity of the envelope follower. [-1., 1.] 
+
+
+
+
+env_attack[float]
+
+
+
+ Sets how quickly the envelope follower responds to rising input levels. [0.0001, 0.03]
+ 
+
+
+
+
+env_release[float]
+
+
+
+ Sets how quickly the envelope follower responds to falling input levels. [0.001, 0.4]
+ 
+
+
+
+
+envelope[int]
+
+
+
+ Enables/disables the envelope follower. 
+
+
+
+
+feedback[float]
+
+
+
+ Sets the amount of feedback from the output to the input. [0., 1.] 
+
+
+
+
+invert[int]
+
+
+
+ Inverts the polarity of the feedback signal. 
+
+
+
+
+lfo_2_freq[float]
+
+
+
+ Sets the rate of the second LFO's modulation in Hz. [0.001, 5.] 
+
+
+
+
+lfo_blend[float]
+
+
+
+ Sets the amount of the second LFO that is mixed with the first LFO. [0., 1.] 
+
+
+
+
+mix[float]
+
+
+
+ Sets the dry/wet mix of the output signal 
+
+
+
+
+mod[float]
+
+
+
+ Sets the amount of LFO modulation applied to incoming signals. [0., 1.] 
+
+
+
+
+mod_freq[float]
+
+
+
+ Sets the rate of LFO modulation in Hz. [0.001, 5.] 
+
+
+
+
+spin[float]
+
+
+
+ Spin detunes the two LFO speeds relative to each other. [0., 1.] 
+
+
+
+
+stereo[int]
+
+
+
+ Sets the type of stereo LFO offset. Possible values:0 = 'Phase'
+                  1 = 'Spin'
+                  
+
+
+
+
+stereo_phase[float]
+
+
+
+ Sets the amount of offset between the waveforms for the left and right channel. At 180 degrees,
+                the LFOs will be perfectly out of phase. [0., 360.]
+ 
+
+
+
+
+time[float]
+
+
+
+ Sets the delay line time (in milliseconds). [20., 150.] 
+
+
+
+
+warmth[float]
+
+
+
+ Add slight distortion and filtering for a warmer sound. [0., 1.] 
+
+
+
+
+waveform[int]
+
+
+
+ Sets the waveform of the LFO modulation. Possible values:0 = 'Sine'
+                  1 = 'Triangle'
+                  2 = 'Analog triangle'
+                  3 = 'Triangle 8-step'
+                  4 = 'Triangle 16-step'
+                  5 = 'Saw up'
+                  6 = 'Saw down'
+                  7 = 'Square'
+                  8 = 'Random'
+                  9 = 'Random sample-and-hold'
+                  
+
+
+
+
+ins[symbol]
+
+
+
+ Declares additional inlets that can be used to control float-type attributes at either event or
+                signal rate. Any declared attributes already mapped to inlets will be ignored. This attribute can only
+                be set when the object is instantiated.
+ 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+float
+
+
+
+                Function depends on inlet
+ 
+
+
+
+reset
+
+
+ Reset 
+
+
+
+signal
+
+
+
+                Function depends on inlet
+ 
+See Also
+
+
+Name
+Description
+
+
+
+
+abl.dsp.phaser~
+
+Phaser
+
+
+
+abl.dsp.flanger~
+
+Flanger
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

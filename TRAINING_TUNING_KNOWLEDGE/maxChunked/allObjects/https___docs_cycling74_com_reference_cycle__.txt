@@ -1,0 +1,641 @@
+cycle~ - MSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsfrequencybuffer-namesample-offsetAttributesbufferbuffer_offsetbuffer_sizeinsampsfrequencyphaseannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesfloat(mouse)resetsetsetallsignalOutputsignalSee AlsoPackage MSPcycle~
+
+		Sinusoidal oscillator
+	 
+Description
+
+		Use the cycle~ object to generate a periodic waveform. The default waveform is one cycle of a cosine wave. You can also use the wave~ object, which offers additional flexibility though slightly less optimization.
+	 
+Discussion
+
+		The cycle~ object is an interpolating oscillator that reads repeatedly through one cycle of a waveform, using a wavetable. The wavetable can be changed using the 'set' message. This wavetable may be of any size, but historically was limited to 512 samples.
+	 
+Arguments
+
+
+
+frequency[number]hz
+
+optional
+
+
+				Oscillator frequency (initial)
+			 
+				The initial frequency of the oscillator
+			 
+
+
+
+
+buffer-name[symbol]
+
+optional
+
+
+				The name of a buffer~ object used to define the oscillator's wavetable. If a frequency argument is present, the buffer~ name follows the frequency. If no buffer~ name is given, cycle~ uses an internal 64-bit 16K cosine wavetable.
+			 
+
+
+
+
+sample-offset[int]
+
+optional
+
+
+				If a buffer~ name has been given, this defines the sample offset into the named buffer~ object's sample memory. cycle~ only uses the first channel of a multi-channel buffer~.
+			 
+Attributes
+
+
+
+buffer[symbol]
+
+
+
+
+				Buffer containing an external waveform. Setting the buffer~ with the attribute is analogous to sending the  setall  message.
+			 
+
+
+
+
+buffer_offset[atom_long]
+
+
+
+
+				First sample of a buffer (if an external buffer is providing the waveform)
+			 
+
+
+
+
+buffer_sizeinsamps[atom_long]
+
+
+
+
+				Override the size of the buffer used for the wavetable. If using the  set  message the size will be 512, or if using the  setall  message the size will be the whole buffer~ length. Use this attribute to define a different size (the size should be a power of two). Setting this size to 0 will result in an effective size of 512 and setting it to -1 will result an effective size of the whole buffer~ length.
+			 Possible values:
+                    '-1'
+                  
+                    '0'
+                  
+                    '16'
+                  
+                    '32'
+                  
+                    '64'
+                  
+                    '128'
+                  
+                    '256'
+                  
+                    '512'
+                  
+                    '1024'
+                  
+                    '2048'
+                  
+                    '4096'
+                  
+                    '8192'
+                  
+                    '16384'
+                  
+                    '32768'
+                  
+                    '65536'
+                  
+
+
+
+
+frequency[float]
+
+
+
+
+				Oscillator frequency
+			 
+
+
+
+
+phase[float]
+
+
+
+
+				Phase offset
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+float
+
+
+
+
+				Left inlet: frequency of the oscillator
+				 
+				Right inlet: phase of the oscillator in the range 0.0 to 1.0
+			 
+Arguments:
+frequency-or-phase
+      [float]
+      
+
+
+
+
+(mouse)
+
+
+
+				Double-click to display buffer~ contents
+			 
+
+
+
+reset
+
+
+
+
+				In the left inlet, the  reset  message, followed by a float from 0 - 1, resets the phase of the cycle~ object. Signal output continues from the specified phase. If you have multiple cycle~ objects that are out of phase, sending them all the  reset  message will synchronize them.
+			 
+Arguments:
+phase
+      [float]
+      
+
+
+
+
+set
+
+
+
+
+				Set a buffer~ object to use as the wavetable, using the first 512 samples. If no name is given, the internal cosine wavetable with 16K samples will be used. Use the  setall  message to use an entire buffer~ as a wavetable.
+			 
+Arguments:
+
+buffer-name
+      [symbol]
+      
+sample-offset
+      [int]
+      
+
+
+
+
+
+setall
+
+
+
+
+				Set a buffer~ object to use as the wavetable, using the entire buffer~ length. This is in contrast to the  set  message which only uses the first 512 samples of the buffer~.
+			 
+Arguments:
+value
+      [symbol]
+      
+
+
+
+
+signal
+
+
+
+				Left inlet: frequency of the oscillator
+				 
+				Right inlet: phase of the oscillator in the range 0.0 to 1.0
+			 
+Output
+
+signal
+
+				A waveform (cosine by default) repeating at the specified frequency, with the specified phase.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+buffer~
+
+
+		Store audio samples
+	
+
+
+
+buffir~
+
+
+		buffer-based FIR filter
+	
+
+
+
+cos~
+
+
+		Signal cosine function (0-1 range)
+	
+
+
+
+line~
+
+
+		Linear signal ramp generator
+	
+
+
+
+phasor~
+
+
+		Generate sawtooth signals
+	
+
+
+
+rect~
+
+
+		Antialiased rectangular (pulse) oscillator
+	
+
+
+
+saw~
+
+
+		Antialiased sawtooth oscillator
+	
+
+
+
+techno~
+
+
+		Signal-driven step sequencer
+	
+
+
+
+trapezoid~
+
+
+		Trapezoidal wavetable
+	
+
+
+
+tri~
+
+
+		Antialiased triangular oscillator
+	
+
+
+
+triangle~
+
+
+		Triangle/ramp wavetable
+	
+
+
+
+wave~
+
+
+		Variable size wavetable
+	
+
+
+
+2d.wave~
+
+
+		Two-dimensional wavetable
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

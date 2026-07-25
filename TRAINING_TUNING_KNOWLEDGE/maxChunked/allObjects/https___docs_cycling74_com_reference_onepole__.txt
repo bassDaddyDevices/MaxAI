@@ -1,0 +1,514 @@
+onepole~ - MSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentscenter-frequencyHz/linear/radiansAttributesannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesintfloatHzclearlinearradianssignalOutputsignalSee AlsoPackage MSPonepole~
+
+		Single-pole lowpass filter
+	 
+Description
+
+		The onepole~ object implements the simplest of IIR filters, providing a 6dB per octave attenuation. This filter is very efficient and useful for gently rolling off harsh high end and for smoothing out control signals.
+	 
+Discussion
+
+		The standard difference equation for this filter is
+		 
+
+		y(n) = a_{0} x(n) + b_{1} y(n-1)
+		 
+		Where
+		 
+
+		b_{1} = 1 - a_{0}
+		 
+
+		which can be factored down to
+		 
+
+		y(n) = y(n-1) + a_{0}[ x(n) - y(n-1) ]
+		 
+
+		As the value of the a_{0} coefficient is lowered (b_{1} increases) the input will be increasingly smoothed and the effective cutoff frequency (f_c) lowered. Calculating the a_0 coefficient from the f_c cutoff frequency is performed with the equation
+		 
+
+		a_{0} = sin(f_c * (pi/nyquist))
+		 
+
+		where f_s is the sampling frequency and f_c the cutoff frequency expressed in Hertz. onepole~ is a more efficient implementation of a biquad~ object with the following coefficients:
+		 
+
+		a_{0} &= a_{0}
+		 
+		a_{1} &= 0
+		 
+		a_{2} &= 0
+		 
+		b_{1} &= -b_{1}
+		 
+		b_{2} &= 0
+		 
+		Note the sign flip for b_{1} as biquad uses flipped signs for the feedback coefficients.
+	 
+Arguments
+
+
+
+center-frequency[float]hz
+
+optional
+
+
+				Sets the center frequency for the filter, as described above.
+			 
+
+
+
+
+Hz/linear/radians[symbol]
+
+optional
+
+
+				Using the symbols  Hz ,  linear , or  radians  for an optional second argument sets the frequency input mode. The default mode is Hz (which is the same as providing no mode argument). Using the  linear  argument sets the frequency input mode to linear (0 - 1). Using the  radians  argument sets the frequency input mode to radians (0 - 1).
+			 
+Attributes
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+int
+
+
+
+
+				In right inlet: Sets the frequency for the filter (if no signal is connected). By default, frequency is expressed in Hz, where the allowable range is from 0 to one fourth of the current sampling rate. For convenience, onepole~ has two additional input modes that use the more conventional input range, 0 - 1 (see the  linear  and  radians  messages).
+			 
+Arguments:
+center-frequency (Hz)
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				In right inlet: Sets the frequency for the filter (if no signal is connected). By default, frequency is expressed in Hz, where the allowable range is from 0 to one fourth of the current sampling rate. For convenience, onepole~ has two additional input modes that use the more conventional input range, 0 - 1 (see the  linear  and  radians  messages).
+			 
+Arguments:
+center-frequency (Hz or 0 through 1 specified by object-argument)
+      [float]
+      
+
+
+
+
+Hz
+
+
+
+				In either inlet: Sets the frequency input mode to Hz (the default).
+			 
+
+
+
+clear
+
+
+
+				In either inlet: Clears the internal state of onepole~. Since onepole~ does not have the inherent instability of other filter types, this should never be necessary.
+			 
+
+
+
+linear
+
+
+
+				In either inlet: Sets the frequency input mode to linear (0 - 1). Linear mode is simply a scaled version of the standard Hz mode, except that values in the 0-1 range traverses the full frequency range.
+			 
+
+
+
+radians
+
+
+
+				In either inlet: Sets the frequency input mode to radians (0 - 1). Radians mode lets you set the center frequency (f_c) of the equation directly, while the input has the same range (0-1), the output has a curved frequency response that is closer to the exponential pitch scale of the human ear.
+			 
+
+
+
+signal
+
+
+
+				In left inlet: Signal to be filtered.
+				 
+
+				In right inlet: A signal can be used to set the frequency for the filter, with the same effect as a float. If a signal is connected to this inlet, its value is sampled once every signal vector.
+			 
+Output
+
+signal
+
+				The filtered signal.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+biquad~
+
+
+		Two-pole, two-zero filter
+	
+
+
+
+comb~
+
+
+		Apply a comb filter effect
+	
+
+
+
+cross~
+
+
+		Third-order crossover filter
+	
+
+
+
+lores~
+
+
+		Resonant lowpass filter
+	
+
+
+
+reson~
+
+
+		Resonant bandpass filter
+	
+
+
+
+svf~
+
+
+		State-variable filter with simultaneous outputs
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

@@ -1,0 +1,2286 @@
+mc.audiounit~ - MC Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsnumber-of-inputs/outputsVST-plugin-filenamepreset-effects-nameAttributesannotation_nameautosavebypasscurrentplugenablehscrollenablevscrollfloateditorwindowgenericeditorlegacytransportmcisolateparameter_enableprefertransportvaluemodeautosavechansinitialvaluesvaluesreplicatetargetusebusymapzerobusymapnameopvoiceprobannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameOrderParameter Mode EnableLink to Scripting NameLong NameShort NameTypeRange/EnumClip Modulation ModeClip Modulation RangeInitial EnableInitialUnit StyleCustom UnitsExponentStepsControl Surface Button ModeParameter VisibilityUndo When VisibleUpdate Limit (ms)Defer Automation OutputMessagesintfloatlistanything(drag)(mouse)disabledropgetgetsubnamesmidieventmpeeventopenparamspgmnamesplugplug_auplug_vstplug_vst3presetnamesprintidsreadscansetsignalsubnamesysexeventunplugwclosewritewritebankwritepgmsnapshotrestoreaddsnapshotdeletesnapshotexportsnapshotimportsnapshotsetsnapshotnamesetembedsnapshotmovesnapshotdeviateexponentialscaledexponentialincrementharmonicsubharmonicspreadspreadinclusivespreadexclusivespreadincludefirstspreadincludeseconddeciderandomrangegenerateease.linearsmoothstepsetvaluesetvaluerangeapplymessagesapplyvaluesreplicatevaluesapplynvaluesreplicatenvaluesOutputfloatintlistsignalsymbolSee AlsoPackage MCmc.audiounit~
+
+		Host VST, VST3 and Audio Unit plug-ins (multichannel)
+	 
+Description
+
+		Use the vst~ object to load a real-time VST, VST3 or Audio Unit plug-in and use its audio processing in MSP. When vst~ is instantiated as mcs.vst~, the plug-in's audio inputs are combined into a single multichannel inlet and its audio outputs are combined into a single multichannel outlet.
+	 
+Discussion
+
+		Some plug-ins have their own editing window, which is visible when you double-click on the object. Otherwise, double-clicking on the object displays a default parameter editing window. The number of signal inputs and outputs default to 2, but the number required by the plug-in may be less than that. If you want to specify a larger number of inputs and outputs, you can supply them as optional arguments.
+		 
+		Audio plug-ins loaded into a vst~ object can be synchronized by enabling the global transport (choose  GlobalTransport  from the Extras menu and click on the global transport's Activate button).
+	 
+Arguments
+
+
+
+number-of-inputs/outputs[int]
+
+optional
+
+
+				If the first or first and second arguments are numbers, they set the number of audio inputs and outputs. If there is only one number, it sets the number of outlets. If there are two numbers, the first one sets the number of inlets and the second sets the number of outlets.
+			 
+
+
+
+
+VST-plugin-filename[symbol]
+
+optional
+
+
+				Sets the name of a VST or Audio Unit plug-in file to load when the object is created. You can load a plug-in after the object is created (or replace the one currently in use) with the  plug  message.
+			 
+
+
+
+
+preset-effects-name[symbol]
+
+optional
+
+
+				After the plug-in name, a name containing preset effects for the plug-in can be specified. If found, it will be loaded after the plug-in has been loaded.
+			 
+Attributes
+
+
+
+annotation_name[symbol]: 
+
+
+
+
+				Annotation Name
+			 
+
+
+
+
+autosave[int]: 1
+
+
+
+
+				Autosave Snapshot
+			 
+
+
+
+
+bypass[int]: 0
+
+
+
+
+				Bypasses plug-in processing and passes all audio through the vst~ object.
+			 
+
+
+
+
+currentplug[atom]
+
+read-only
+
+
+				Currently Loaded Plugin
+			 
+
+
+
+
+enablehscroll[int]: 0
+
+>= 7.0.0
+
+
+				Enable Horizontal Scrollbar
+			 
+
+
+
+
+enablevscroll[int]: 1
+
+>= 7.0.0
+
+
+				Enable Vertical Scrollbar
+			 
+
+
+
+
+floateditorwindow[int]: 0
+
+
+
+
+				Float Editor Window
+			 
+
+
+
+
+genericeditor[int]: 0
+
+>= 7.0.0
+
+
+				Use a generic editor interface for a plug-in. Note that some Audio Unit plug-ins will not show generic interfaces.
+			 
+
+
+
+
+legacytransport[int]: 0
+
+
+
+
+				Previous versions of Max did not correctly link the Max transport with plug-ins' internal transport. If existing patchers require the old behavior for proper operation, this attribute can be enabled for backward compatibility. The new behavior (attribute disabled) is generally preferable.
+			 
+
+
+
+
+mcisolate[int]: 0
+
+
+
+
+				Isolate parameter changes to a specified channel.
+			 
+
+
+
+
+parameter_enable[int]
+
+>= 7.0.0
+
+
+				Enables use of this object with Max for Live Parameters and setting initial parameter values in Max.
+			 
+
+
+
+
+prefer[symbol]: VST
+
+
+
+
+				In the absence of other information, such as an absolute path to a plug-in file or an explicit typed plug-in path (e.g.  C74_VST:/[pluginname] ,  C74_VST3:/[pluginname] , or  C74_AU:/[pluginname]  on OSX), the prefer attribute will be used to preferentially load one type of plug-in before other available formats when using the  plug  message. Note that the variations  plug_vst ,  plug_vst3 , and  plug_au  can also be used to override the specified preference.
+			 Possible values:
+                    'VST'
+                  
+                    'VST3'
+                  
+                    'AudioUnit'
+                  
+
+
+
+
+transport[symbol]
+
+
+
+
+				Sets the transport name. By default, this is unset, and the vst~ object will use the default transport (the Global Transport in Max, Live's transport in Max for Live). Setting this enables sync to user-defined transports and clock sources.
+			 
+
+
+
+
+valuemode[int]: 0
+
+
+
+
+				Determines the output at the vst~ object's fifth-from-right outlet. In Value mode (the default: 0), the object will send the parameter's index followed by a floating-point value between 0. and 1. (e.g.  2 0.25 ). In String mode (1), the object will send the parameter's index followed by a symbol value (e.g.  2 -6dB ). In Both mode (2), the object will send the parameter's index followed by a floating-point value and a symbol value (e.g.  2 0.25 -6dB ).
+			 Possible values:0 = 'Value'
+                   (
+								Output parameter's normalized value (0. - 1.)
+							 )1 = 'String'
+                   (
+								Output parameter's symbolic value
+							 )2 = 'Both'
+                   (
+								Output parameter's normalized value followed by the symbolic value
+							 )
+
+
+Snapshot Attributes
+
+
+
+autosave[int]
+
+write-only
+
+
+				When the containing patcher is saved, the state of this object's snapshots will also be saved.
+			 
+
+
+
+Multichannel Group Attributes
+
+
+
+
+chans[int]
+
+
+
+
+                The chans attribute sets the number of channels and instances in the MC wrapper object. To define a fixed number of channels regardless of what is connected to the object, set chans via a typed-in argument, for example typing  mc.cycle~ @chans 100  would create 100 instances of a cycle~ object inside the MC wrapper. If chans is 0, the wrapper object will auto-adapt to the number of channels in its input multichannel signals (using the maximum of all connected signals). If an object does not have any multichannel signals connected to its inlets, the chans attribute will need to have a non-zero value if you want more than one instance. 
+                If chans is changed while the audio is on, the number of instances will not change until audio is restarted. However, if chans is reduced while the audio is on, any extra channels will no longer process audio and will output a zero signal.
+ 
+
+
+
+
+initialvalues[list]
+
+
+
+
+                The initialvalues attribute only applies to object creation time so it must be set via a typed-in argument. initialvalues sets the first (and only the first) initial argument for successive instances in the MC wrapper. For example, typing  mc.cycle~ @chans 4 @initialvalues 50 60 70 80  would assign an initial frequency to the cycle~ instances inside the wrapper. The first instance would be assigned a frequency of 50, the second a frequency of 60, the third 70, and the fourth 80. Note that initialvalues does not determine the actual instance count; this can be done using the chans attribute. If there are more instances than elements for the initialvalues attribute, those instances are instantiated with the default value. 
+                To set a default value of an argument for all instances, type it as an argument before any typed-in attributes. For example, modifying our example above:  mc.cycle~ 100 @chans 10 @initialvalues 50 60 70 80 . In this example, the first four instances are set as before, but the next six are created with a frequency argument of 100. 
+                To change instance values or attributes after the wrapper object has been created, use the  setvalue ,  applyvalues , or  replicatevalues  messages.
+ 
+
+
+
+
+values[list]
+
+
+
+
+                You can use values as an alternate name for the initialvalues attribute.
+ 
+
+
+
+
+replicate[int]
+
+
+
+
+                When replicate is enabled, input single-channel or multichannel signals containing fewer channels than the number instances in the MC wrapper object are repeated to fill all input channels. For example, when replicate is enabled and you connect a two-channel multichannel signal to the input of an MC wrapper object with four instances, channel 1 of the input will be repeated to channel 3, and channel 2 of the input will be repeated to channel 4. If replicate were disabled, channels 3 and 4 of the input would be set to zero.
+ 
+
+
+
+
+target[int]
+
+
+
+
+                The target attribute sets an index for targeting specific wrapper instances. Subsequent messages are directed to an individual instance instead of all instances. It is strongly recommended you use the more reliable  setvalue  message instead of the target attribute. The voice index of  setvalue  will override the current setting of target. When target is 0, incoming messages are sent to all instances. When target is -1, incoming messages do nothing. Note that target only affects messages, not setting attribute values.
+ 
+
+
+
+
+usebusymap[int]
+
+
+
+
+                When usebusymap is enabled, the MC wrapper controls whether individual instances process audio using a  busy map  maintained by either an mc.noteallocator~ or mc.voiceallocator~ object. When a channel in the busy map is marked as "free" or "released" no audio processing occurs by any instance on the channel corresponding to the voice index. When usebusymap is disabled, instances in the MC wrapper process audio at all times. This will also be true if usebusymap is enabled and there is no local or named busy map available. (See the busymapname attribute for a description of local and named busy maps). For brevity the name bz can also be used.
+
+ 
+
+
+
+
+zero[int]
+
+
+
+
+                When the zero attribute is enabled, channels in the MC wrapper due to the use of a busy map output zero signals. To save a small amount of CPU at the risk of loud and unpleasant noises due to uncleared signal data, you can disable zero. In this case, disabled channels in the MC wrapper do nothing to their output channels. If usebusymap is disabled or there is no active local or named busy map available, the setting of the zero attribute has no effect.
+ 
+                Conveniently, when usebusymap is enabled in mc.mixdown~ object,  disabled channels are not mixed to the output. When unused signals from wrapped objects with zero disabled feed into mc.mixdown~, they will be ignored, reducing the risk of unpleasantness getting past the mix output.
+ 
+
+
+
+
+busymapname[symbol]
+
+
+
+
+        When the usebusymap attribute is enabled, an MC wrapper object uses the local busy map of any mc.voiceallocator~ or mc.noteallocator~ in the same patcher by default. To use a named global busy map instead, set the busymapname attribute to the desired name. For brevity the name @bzname can also be used.
+ 
+
+
+
+
+op[symbol]
+
+
+
+
+        Sets the function that will be used when the  generate  message is set. If you use attrui set to edit the op attribute, you can see a handy menu of the 40+ possible functions, so you don't have to memorize their names.
+ 
+
+
+
+
+voiceprob[float]
+
+
+
+
+                 The voiceprob attribute is used when employing the $ or * arguments to the  setvalue  message. It determines the probability that the  setvalue  message will be sent. For example, if voiceprob is 0.9, there is a 90% chance the setvalue message will be sent to a randomly chosen voice.
+
+ 
+
+
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+
+
+Parameter Attributes
+
+
+
+Orderint
+
+
+        Sets the order of recall of this parameter. Lower numbers are recalled
+        first. The order of recall of parameters with the same order number is
+        undefined.
+ 
+
+
+
+Parameter Mode Enableint
+
+
+        Parameter Mode Enable (not available from Parameters window)
+ 
+
+
+
+Link to Scripting Nameint
+
+
+        When checked, the Scripting Name is linked to the Long Name attribute.
+ 
+
+
+
+Long Namesymbol
+
+
+        The long name of the parameter. This name must be unique per patcher
+        hierarchy.
+ 
+
+
+
+Short Namesymbol
+
+
+        Sets the short name for the object's visual display. The maximum length
+        varies according to letter width, but is generally in a range of 5 to 7
+        characters.
+ 
+
+
+
+Typeint
+
+
+        Specifies the data type. The data types used in Max for Live are:
+ 
+
+         Float
+ 
+         Int
+ 
+         Enum (enumerated list)
+ 
+         Blob
+ 
+
+         Note: By convention, the Live application uses floating point numbers
+        for its calculations; the native integer representation is limited to 256
+        values, with a default range of 0-255 (similar to the char data type used 
+        in Jitter). When working with Live UI objects whose integer values will 
+        exceed this range, the Type attribute should be set to Float,
+        and the Unit Style attribute should be set to Int.
+ 
+
+
+
+Range/Enumlist
+
+
+        When used with an integer or floating point data type, this field is
+        used to specify the minimum and maximum values of the parameter.
+ 
+        When used with an enumerated list (Enum) data type, this field contains
+        a space-delimited list of the enumerated values (if list items contain a
+        space or special characters, the name should be enclosed in double
+        quotes).
+ 
+
+
+
+Clip Modulation Modeint
+
+
+        Sets the Clip Modulation Mode used by the Live application. The modulation
+        modes are:
+ 
+
+         None
+ 
+         Unipolar
+ 
+         Bipolar
+ 
+         Additive
+ 
+         Absolute
+ 
+
+
+
+
+
+Clip Modulation Rangelist
+
+
+        This parameter is only used with the Absolute modulation mode. It
+        specifies defines the range of values used.
+ 
+
+
+
+Initial Enableint
+
+
+        When checked (set to 1), the UI object can store an initialization
+        value. The value is set using the Initial attribute (see below).
+ 
+
+
+
+Initiallist
+
+
+        Sets the initial value to be stored and used when the Initial Enable
+        attribute is checked.
+ 
+
+
+
+Unit Styleint
+
+
+        Sets the unit style to be used when displaying values. The unit style
+        values are: Int: displays integer values
+ 
+         Float: displays floating point values
+ 
+         Time: displays time values in milliseconds (ms)
+ 
+         Hertz: displays frequency values (Hz/kHz).
+ 
+         deciBel: displays loudness (dB)
+ 
+         %: Percentage
+ 
+         Pan: displays Left and Right values
+ 
+         Semitones: displays steps (st)
+ 
+         MIDI: displays pitch corresponding to the MIDI note number
+ 
+         Custom: displays custom data type
+ 
+         Native: defaults to floating point values
+ 
+
+
+
+Custom Unitssymbol
+
+
+        Sets the units to be used with the 'Custom' unit style (see "Unit
+        Style", above). Custom unit strings may be simple symbols (e.g.
+        "Harmonic(s)"), in which case the parameter's value will be displayed in
+        its 'Native' display mode, followed by the symbol (e.g. "12 Harmonic(s)"
+        for an Int-typed parameter or "12.54 Harmonic(s)" for a Float-typed
+        parameter). For additional control over the numerical component
+        displayed, a sprintf-style string may be used (e.g. "%0.2f Bogon(s)",
+        which would display a value such as ".87 Bogons").
+ 
+
+
+
+Exponentfloat
+
+
+        When set to a value other than 1., the parameter's input and output
+        values will be exponentially scaled according to the factor entered in
+        this column.
+ 
+
+
+
+Stepsint
+
+
+        The number of steps available between the minimum and maximum values of
+        a parameter. For instance, if the parameter has a range from 0.-64.,
+        with Steps set to 4, the user can only set the parameter to 0, 21.33,
+        42.66 and 64.
+ 
+
+
+
+Control Surface Button Modesymbol
+
+
+        The behavior of control surface buttons, when the parameter is assigned with the live.banks object. Currently available modes are:
+ 
+ Toggle : switches between minimum and maximum value (default)
+ 
+ Trigger : outputs the maximum value, immediately followed by the minimum value
+ 
+ Cycle : cycles through available enum values
+ 
+
+
+
+Parameter Visibilityint
+
+
+        For automatable parameters (Int, Float, Enum), 'Stored Only' disables
+        automation, although parameter values are stored in presets. 'Hidden'
+        causes the parameter's value to be ignored when storing and recalling
+        data. Non-automatable parameters (Blob) are 'Stored Only' by default,
+        and can be set to 'Hidden', if desired.
+
+        The 'Visible' and 'Visible (Not Stored)' visibility modes expose parameters to Live, but don't support automation. Practically, this means that they are visible to Push (and other control surfaces), but won't appear in Live's automation view. The 'Visible' mode also causes Live to store the parameter's value in presets and with the set for later restore. 'Visible (Not Stored)' does not store the value (useful for momentary controls). Note that these modes are only available for Float, Int and Enum parameter types.
+
+When using these 'Visible' modes, a new parameter attribute will become available in the object's inspector: 'Undo When Visible'. This is on by default, but when disabled, a Visible parameter becomes invisible to Live's Undo system.
+ 
+
+
+
+Undo When Visibleint
+
+
+        When using the 'Visible' modes (see 'Parameter Visibility'), a this attribute is available in the object's inspector. It is on by default, but when disabled, a Visible parameter becomes invisible to Live's Undo system.
+ 
+
+
+
+Update Limit (ms)int
+
+
+        Speed limits values triggered by automation.
+ 
+
+
+
+Defer Automation Outputint
+
+
+        Defers values triggered by automation.
+ 
+
+
+Messages
+
+
+int
+
+
+
+
+				In left inlet: Changes the effect program of the currently loaded plug-in. The first program is number 1.
+			 
+Arguments:
+effect-program
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				In left inlet: Floating point values are converted to  int  values and used to change the effect program of the currently loaded plug-in. The first program is number 1.
+			 
+Arguments:
+effect-program
+      [float]
+      
+
+
+
+
+list
+
+
+
+
+				In left inlet: Changes a parameter value in the currently loaded plug-in. The first list element is the parameter number (starting at 1) and the second element is the parameter value. The second number should be a float between 0 and 1, where 0 is the minimum value of the parameter and 1 is the maximum.
+			 
+Arguments:
+
+plugin-parameter
+      [symbol]
+      
+setting
+      [float]
+      
+
+
+
+
+
+anything
+
+
+
+
+				A symbol that names a plug-in parameter followed by a float between 0 and 1 set the value of the parameter.
+			 
+Arguments:
+
+plugin-parameter
+      [symbol]
+      
+setting
+      [float]
+      
+
+
+
+
+
+(drag)
+
+
+
+				When a plug-in file is dragged from the file browser to a vst~ object, the plug-in will be loaded.
+			 
+
+
+
+(mouse)
+
+
+
+				Double-clicking on a vst~ object opens the plug-in's edit window.
+			 
+
+
+
+disable
+
+
+
+
+				The word  disable , followed by a non-zero argument, stops any further processing by the currently loaded plug-in and outputs a zero signal.  disable 0  enables processing for the plug-in.
+			 
+Arguments:
+mute-flag (0 or nonzero)
+      [int]
+      
+
+
+
+
+drop
+
+
+
+				Unload the currently loaded plugin.
+			 
+
+
+
+get
+
+
+
+
+				The word  get , followed by a number or symbol argument, reports parameter values and plug-in information. This is output from the fifth-from-right outlet of vst~ as a list with the query index (or plug-in info index) as the first element and the desired information as the second element.
+				 
+
+				If a symbol argument is provided, and the symbol corresponds to the name of a parameter, the  get  message outputs the current parameter value (a float between 0 and 1) of the named parameter. Otherwise, nothing is output.
+				 
+
+				If a number argument is provided, and the number argument is between 1 and the number of parameters of the currently loaded plug-in (inclusive), the  get  message outputs the current parameter value (a float between 0 and 1) of the numbered parameter. If the argument is 0 nothing is output.
+				 
+
+				If a negative number argument is provided, the  get  message outputs a list with the first element specifying the number argument and the remaining elements specifying the following information:
+				 
+
+ get -1  the plug-in's number of inputs
+				 
+ get -2  the plug-in's number of outputs
+				 
+ get -3  the plug-in's number of programs (VST) or factory presets (Audio Unit)
+				 
+ get -4  the plug-in's number of parameters
+				 
+ get -5  whether the plug-in's canMono flag is set. This indicates that the plug-in can be used in either a stereo or mono context
+				 
+ get -6  1 if the plug-in has its own edit window, 0 if it doesn't
+				 
+ get -7  1 if the plug-in is a synth plug-in, 0 if it isn't
+				 
+ get -8  the unique ID of the plug-in as an integer value
+				 
+ get -9  four integer values representing the left, top, right, and bottom coordinates of the desired rectangle of the plug-in UI edit window
+				 
+ get -10  an integer value representing the initial delay of the plug-in in samples to allow you to automatically compensate for the plugin's latency in your patch
+				 
+ get -11  the plug-in's number of user preset files (Audio Unit only)
+			 
+Arguments:
+parameter-data-query-index or parameter-name
+      [int or symbol]
+      
+
+
+
+
+getsubnames
+
+
+
+				In left inlet: When using the vst~ object to host a VST shell plug-in (e.g., WaveShell) that is not instantiated with a specific plug-in name, the word  getsubnames  causes a list of sub plug-in names to be sent out the second-from-right outlet of the vst~ object.
+			 
+
+
+
+midievent
+
+
+
+
+				The word  midievent , followed by two to four numbers, sends a MIDI event to the plug-in. The first three number arguments are the bytes of the MIDI message. The fourth, optional, argument is a detune parameter used for MIDI note messages. The value ranges from -63 to 64 cents, with 0 being the default.
+			 
+Arguments:
+MIDI-message (2 to 4 numbers)
+      [list]
+      
+
+
+
+
+mpeevent
+
+
+
+
+				Send MPE messages to the hosted VST, VST3, or Audio Unit plug-in.
+			 
+Arguments:
+MPE-messages
+      [list]
+      
+
+
+
+
+open
+
+
+
+
+				The word  open  with no arguments opens the plug-in's edit window. If the window was previously opened then the edit window location will persist. The word  open  followed by two integer values specifying the left and top window coordinates respectively will open or move the plug-in's edit window to the given coordinates.
+			 
+Arguments:
+window-coordinates
+      [list]
+      
+
+
+
+
+params
+
+
+
+				The word  params  causes a list of the plug-in's parameters to be sent out the sixth-from-right outlet.
+			 
+
+
+
+pgmnames
+
+
+
+				The word  pgmnames  causes a list of the plug-in's current program names to be sent out the right outlet.
+			 
+
+
+
+plug
+
+
+
+
+				In left inlet: The word  plug  with no arguments opens a standard open file dialog allowing you to choose a new VST or Audio Unit plug-in to host. The word  plug  followed by a symbol argument searches for plug-in with the specified name in the Max search path. If a new plug-in is opened and found, the old plug-in (if any) is discarded and the new one loaded. An optional second argument to the  plug  message can be used to specify a plug-in name within a shell plug-in (e.g., WaveShell). This can either be a symbolic plug-in name or an associated ID value as displayed by the  printids  message).
+				 
+
+				For mc.vst~, if the attribute @mcisolate is set to 1, sending a plug message will allow the user to load a VST for each instance individually. When @mcisolate is set to 0, any plug message received loads that plug-in to all instances.
+				 
+
+				When the Max application starts up, the system VST folder will be added to the max search path. On the Macintosh this is generally /Library/Audio/Plug-ins/VST/ and on windows this is the folder specified in the VSTPluginsPath string value under the registry key HKLM\Software\VST. On Mac OS, Audio Unit plug-ins will be scanned and .auinfo files for Apple built-in and user-installed plug-ins will be added to the search path.
+			 
+Arguments:
+plug-in-name
+      [symbol]
+      
+
+
+
+
+plug_au
+
+
+
+
+				Attempt to load an AudioUnit plug-in by name. Equivalent to  plug C74_AU:/<plug-in name> .
+			 
+Arguments:
+filename
+      [list]
+      
+
+
+
+
+plug_vst
+
+
+
+
+				Attempt to load a VST plug-in by name. Equivalent to  plug C74_VST:/<plug-in name> .
+			 
+Arguments:
+filename
+      [list]
+      
+
+
+
+
+plug_vst3
+
+
+
+
+				Attempt to load a VST3 plug-in by name. Equivalent to  plug C74_VST3:/<plug-in name> .
+			 
+Arguments:
+filename
+      [list]
+      
+
+
+
+
+presetnames
+
+
+
+				For Audio Unit plug-ins only, the word  presetnames  causes a list of the plug-in's user preset filenames to be sent out the right outlet.
+			 
+
+
+
+printids
+
+
+
+				In left inlet: When using the vst~ object to host a VST shell plug-in (e.g., WaveShell) that is not instantiated with a specific plug-in name, the word  printids  causes a list of sub plug-in IDs to be displayed in the Max Console.
+			 
+
+
+
+read
+
+
+
+
+				With no arguments,  read  opens a standard open file dialog prompting for a file of effect programs, either in bank or individual program format.  read  accepts an optional symbol argument where it looks for a VST plug-in bank or effect program file in the Max search path.
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+
+
+
+scan
+
+
+
+
+				Re-scan the system VST folders for new plug-ins. On the Macintosh this is generally /Library/Audio/Plug-ins/VST/ and on windows this is the folder specified in the VSTPluginsPath string value under the registry key HKLM\Software\VST. On Mac OS, Audio Unit plug-ins will be scanned and .auinfo files for Apple built-in and user-installed plug-ins will be added to the search path. The optional arguments 0, 1, 2, or 3, set the scan type to 0=default, 1=partial, 2=full, and 3=reset.
+			 
+Arguments:
+scan type
+      [int]
+      
+
+
+
+
+set
+
+
+
+
+				In left inlet: The word  set , followed by a symbol, changes the name of the current effect program to the symbol.
+			 
+Arguments:
+effect-program-name
+      [symbol]
+      
+
+
+
+
+signal
+
+
+
+				Input to be processed by the plug-in. If the plug-in is an instrument plug-in, the input will be ignored.
+			 
+
+
+
+subname
+
+
+
+
+				In left inlet: The word  subname , followed by a plug-in name or plug-in ID, will cause a shell VST plug-in (e.g., WaveShell) to be re-instantiated with the specified name/ID.
+			 
+Arguments:
+plug-in-name
+      [symbol]
+      
+
+
+
+
+sysexevent
+
+
+
+
+				The word  sysexevent , followed by a sequence of numbers, sends a sysex message to the plug-in. The message should be complete and properly formatted (e.g. with a header  0xF0  ( 240 ) byte and a trailing  0xF7  ( 247 ) byte). If the first number in the list is  not   0xF0  ( 240 ), it will be interpreted as a sample offset for the message.
+			 
+Arguments:
+
+sample-offset
+      [int]
+      
+sysex-bytes
+      [list]
+      
+
+
+
+
+
+unplug
+
+
+
+				Unload the currently loaded plugin.
+			 
+
+
+
+wclose
+
+
+
+				Closes the plug-in's edit window.
+			 
+
+
+
+write
+
+
+
+
+				For VST plug-ins, with no arguments,  write  opens a standard Save As dialog box prompting you to choose the name and type of the effect program file (single program or bank).  write  accepts an optional symbol argument that specifies a full or partial destination pathname. An individual program file is written in this case. For Audio Unit plug-ins, the filename argument is required, and specifies the name of a user preset that will be written to a standard plug-in user preset location.
+			 
+Arguments:
+file/pathname
+      [symbol]
+      
+
+
+
+
+writebank
+
+
+
+
+				With no arguments,  writebank  opens a standard Save As dialog box prompting you to choose the name of the effect program bank file.  writebank  accepts an optional symbol argument that specifies a full or partial destination pathname. For Audio Unit plug-ins, the  writebank  message is the same as  write  and saves only the current settings to a named file.
+			 
+Arguments:
+program-bank-file/pathname
+      [symbol]
+      
+
+
+
+
+writepgm
+
+
+
+
+				With no arguments,  writepgm  opens a standard Save As dialog box prompting you to choose the name of the individual effect program file.  writepgm  accepts an optional symbol argument that specifies a full or partial destination pathname. For Audio Unit plug-ins, the  writepgm  message is the same as  write  and saves the current settings to a named file.
+			 
+Arguments:
+inividual-effect-program-file/pathname
+      [symbol]
+      
+
+
+
+Snapshot Messages
+
+
+
+snapshot
+>= 7.0.0
+
+
+
+				Create a snapshot. When  embedsnapshot  is on it will be saved into the current patcher. Otherwise it will be saved in an external file. You can determine the filename by an argument to this message.
+			 
+Arguments:
+file-name
+      [symbol]
+      
+
+
+
+
+restore
+>= 7.0.0
+
+
+
+				Restore a snapshot. When  embedsnapshot  is on, the snapshot that is embedded in the current patcher will be used. Otherwise it will be loaded from an external file. You can determine the filename by an argument to this message.
+			 
+Arguments:
+file-name
+      [symbol]
+      
+
+
+
+
+addsnapshot
+
+
+
+
+				Add a new snapshot. If there are no arguments, it will append the new snapshot to the current list of snapshots. If the first argument is a string containing a file path, Max will try to save a .maxsnap file to that location. If the first argument is a number, it will save the snapshot to that slot, incrementing subsequent slots. If the second argument is a string, it will set the name of the snapshot.
+			 
+Arguments:
+
+userpath
+      [String]
+      
+index
+      [Number]
+      
+name
+      [String]
+      
+
+
+
+
+
+deletesnapshot
+
+
+
+
+				Delete a snapshot at the given index, decrementing subsequent slots.
+			 
+Arguments:
+index
+      [Number]
+      
+
+
+
+
+exportsnapshot
+
+
+
+
+				Exports a snapshot from the given index, specified by the first argument. The second argument specifies the file name and path to export a maxsnap file to. If the second argument is empty, a File dialog box will open, allowing you to specify a file name and location.
+			 
+Arguments:
+
+index
+      [Number]
+      
+filename
+      [String]
+      
+
+
+
+
+
+importsnapshot
+
+
+
+
+				Imports a snapshot to the given index, specified by the first argument. The second argument specifies the file name and path to load a maxsnap file from. If the second argument is empty, a File dialog box will open, allowing you to choose a file.
+			 
+Arguments:
+
+index
+      [Number]
+      
+filename
+      [String]
+      
+
+
+
+
+
+setsnapshotname
+
+
+
+
+				Set the name of the snapshot at the given index.
+			 
+Arguments:
+
+index
+      [Number]
+      
+name
+      [String]
+      
+
+
+
+
+
+setembedsnapshot
+
+
+
+
+				Set the embed state of the snapshot at the index.
+			 
+Arguments:
+
+index
+      [Number]
+      
+embedstate
+      [Number]
+      
+
+
+
+
+
+movesnapshot
+
+
+
+
+				Change a snapshot's index.
+			 
+Arguments:
+
+srcindex
+      [Number]
+      
+dstindex
+      [Number]
+      
+
+
+
+
+
+
+Multichannel Group Messages
+
+
+
+deviate
+
+
+
+
+              Generate a random value for each channel around a center value. An optional number after the center value specifies the upper range size so it can be different from the lower range size.
+ 
+              Example:  deviate 100 cutoff 1000  will generate random values for the cutoff attribute of the objects in the wrapper centered around 1000 Hz (between 900 and 1100 Hz).  deviate 100 1000 200  sends  float  messages to the objects in the wrapper with random values between 900 and 1200.
+ 
+              If no message name is provided, a  float  message is used by default.
+ 
+Arguments:
+
+range
+      [float]
+      
+message-name
+      [symbol]
+      
+center-value
+      [float]
+      
+upper-range
+      [float]
+      
+
+
+
+
+
+exponential
+
+
+
+
+        The  exponential  message generates an exponential series. The first argument is  N  and the second
+        (optional) argument is  K  in the following expression:
+ 
+ K * exp(-1 * N * channel)  where channel starts at 0 for the first channel.
+ 
+        If the second argument is not present the default value is 1. Example:  exponential 1 10  would generate, for four channels, values of 10, 3.678, 1.353, and 0.498.  exponential -1 2  would generate 2, 5.437, 14.78, and 40.17.
+ 
+        If no message name is provided, a  float  message is used by default.
+ 
+Arguments:
+
+exponent
+      [float]
+      
+message-name
+      [symbol]
+      
+multiplier
+      [float]
+      
+
+
+
+
+
+scaledexponential
+
+
+
+
+        The  scaledexponential  message generates an exponential series with the exponent scaled by the total number of channels. The first argument is  N  and the second (optional) argument is  K  in the following expression:
+ 
+ K * exp(-1 * N * (channel / num_channels)  where channel starts at 0 for the first channel.
+ 
+        If the second argument is not present the default value is 1. Example:  exponential -1 2  would generate, for six channels, values of 2, 2.363, 2.791, 3.297, 3.895, 4.602.  scaledexponential -1 2  for four channels would generate 2, 2.568, 3.297, 4.324.  scaledexponential  provides a way to keep the range of the exponential series roughly the same independent of the number of channels.
+ 
+        If no message name is provided, a  float  message is used by default.
+ 
+Arguments:
+
+exponent
+      [float]
+      
+message-name
+      [symbol]
+      
+base
+      [float]
+      
+
+
+
+
+
+increment
+
+
+
+
+              The  increment  message generates a range of increasing values for each channel. The range starts at the second argument and increments each channel's value by the first argument. If no message name is provided then a  float  message is used by default.
+ 
+              Example:  increment 5 2  for four channels would generate 2, 7, 12, and 17.
+ 
+              If no message name is provided, a  float  message is used by default.
+ 
+Arguments:
+
+increment-amount
+      [float]
+      
+message-name
+      [symbol]
+      
+start-value
+      [float]
+      
+
+
+
+
+
+harmonic
+
+
+
+
+        The  harmonic  message generates a harmonic series using the second argument as the fundamental
+        frequency ( F ) and the first argument as a multiplier ( N ) in the following expression:
+ 
+ F * (1 + N * channel)  where channel starts at 0 for the first channel.
+ 
+        Example:  harmonic 1 440  for five channels would generate 440, 880, 1320, 1760, and 2200.  harmonic 0.5 440  for
+        four channels would generate 440, 660, 880, and 1100.
+ 
+        If no message name is provided, a  float  message is used by default.
+ 
+Arguments:
+
+multiplier
+      [float]
+      
+message-name
+      [symbol]
+      
+fundamental
+      [float]
+      
+
+
+
+
+
+subharmonic
+
+
+
+
+        The  subharmonic  message generates a subharmonic series using the second argument as the fundamental
+        frequency ( F ) and the first argument as a multiplier ( N ) in the following expression:
+ 
+ F / (1 + N * channel)  where channel starts at 0 for the first channel.
+ 
+        Example:  subharmonic 1 440  for five channels would generate 440, 220, 146.7, and 110.
+ 
+        If no message name is provided, a  float  message is used by default.
+ 
+Arguments:
+
+multiplier
+      [float]
+      
+message-name
+      [symbol]
+      
+fundamental
+      [float]
+      
+
+
+
+
+
+spread
+
+
+
+
+            The  spread  message generates a range of values distributed to each channel.
+              The first boundary value is included in the range outputs, but the second boundary value is not (see  spreadinclusive ,  spreadexclusive , and  spreadincludesecond  for other options).
+ 
+              Example:  spread 0 10  for four channels would generate 0, 2.5, 5, and 7.5.
+ 
+              If no message name is provided, a  float  message is used by default.
+ 
+              By default the generated values are linearly distributed. If the optional exponent argument is present and greater than 0, the generated values are exponentially distributed.
+ 
+Arguments:
+
+boundary-value
+      [float]
+      
+message-name
+      [symbol]
+      
+other-boundary-value
+      [float]
+      
+exponent
+      [float]
+      
+
+
+
+
+
+spreadinclusive
+
+
+
+
+            The  spreadinclusive  message generates a range of values distributed to each channel.
+              Both the first and second boundary values are included in the range outputs.
+ 
+              Example:  spreadinclusive 0 10  for four channels would generate 0, 3.33, 6.66, and 10.
+ 
+              If no message name is provided, a  float  message is used by default.
+ 
+              By default the generated values are linearly distributed. If the optional exponent argument is present and greater than 0, the generated values are exponentially distributed.
+ 
+Arguments:
+
+boundary-value
+      [float]
+      
+message-name
+      [symbol]
+      
+other-boundary-value
+      [float]
+      
+exponent
+      [float]
+      
+
+
+
+
+
+spreadexclusive
+
+
+
+
+            The  spreadexclusive  message generates a range of values distributed to each channel.
+              Neither the first and second boundary values are included in the range outputs.
+ 
+              Example:  spreadexclusive 0 10  for four channels would generate 2, 4, 6, and 8.
+ 
+              If no message name is provided, a  float  message is used by default.
+ 
+              By default the generated values are linearly distributed. If the optional exponent argument is present and greater than 0, the generated values are exponentially distributed.
+ 
+Arguments:
+
+boundary-value
+      [float]
+      
+message-name
+      [symbol]
+      
+other-boundary-value
+      [float]
+      
+exponent
+      [float]
+      
+
+
+
+
+
+spreadincludefirst
+
+
+
+
+            The  spreadincludefirst  message generates a range of values distributed to each channel. It is the same as the  spread  message. The first boundary value is included in the range outputs, but the second boundary value is not.
+ 
+              Example:  spreadincludefirst 0 10  for four channels would generate 0, 2.5, 5, and 7.5.
+ 
+              If no message name is provided, a  float  message is used by default.
+ 
+              By default the generated values are linearly distributed. If the optional exponent argument is present and greater than 0, the generated values are exponentially distributed.
+ 
+Arguments:
+
+boundary-value
+      [float]
+      
+message-name
+      [symbol]
+      
+other-boundary-value
+      [float]
+      
+exponent
+      [float]
+      
+
+
+
+
+
+spreadincludesecond
+
+
+
+
+            The  spreadincludesecond  message generates a range of values distributed to each channel. The first boundary value is not included in the range outputs, but the second boundary value is included.
+ 
+              Example:  spreadincludesecond 0 10  for four channels would generate 2.5, 5, 7.5, and 10.
+ 
+              If no message name is provided, a  float  message is used by default.
+ 
+              By default the generated values are linearly distributed. If the optional exponent argument is present and greater than 0, the generated values are exponentially distributed.
+ 
+Arguments:
+
+boundary-value
+      [float]
+      
+message-name
+      [symbol]
+      
+other-boundary-value
+      [float]
+      
+exponent
+      [float]
+      
+
+
+
+
+
+decide
+
+
+
+
+            The  decide  message generates a uniformly distributed random value between 0 and 1 for each channel; if the value is less than the probability value set by the first argument, the second argument is assigned to the channel. If the random value is greater than the probability value, 0 is asigned to the channel. (If a second argument is not present, 1 is used by default.)
+ 
+              Example:  decide 0 10  for four channels would generate 0, 0, 0, 0 because the probability of generating a 1 is zero.  decide 0.5 10  could generate 10, 0, 0, 10 if the randomly generated values exceeded 0.5 for the first and fourth channels.
+ 
+              If no message name is provided, a  float  message is used by default.
+ 
+Arguments:
+
+probability
+      [float]
+      
+message-name
+      [symbol]
+      
+value
+      [float]
+      
+
+
+
+
+
+randomrange
+
+
+
+
+            The  randomrange  message generates a uniformly distributed random range of values for all channels between the first argument and the second argument.
+ 
+              If no message name is provided, a  float  message is used by default.
+ 
+Arguments:
+
+low-value
+      [float]
+      
+message-name
+      [symbol]
+      
+high-value
+      [float]
+      
+
+
+
+
+
+generate
+
+
+
+
+            The  generate  message runs the function whose name is stored in the op attribute. Arguments passed to  generate  will be given to the function that is called. Example: if op is set to  deviate ,  generate 50 440  is the same as sending the message  deviate 50 440 .
+ 
+Arguments:
+
+low-value
+      [float]
+      
+message-name
+      [symbol]
+      
+high-value
+      [float]
+      
+
+
+
+
+
+ease.linear
+
+
+
+
+            The MC wrapper provides access to the easing functions found in the Ease Package. These are accessed with message names consisting of  ease.  concatenated with the easing function name. For example, to use the  in_out_circular  function, send the message  ease.in_out_circular .
+ 
+            The  ease  messages generate an non-linear and inclusive range of values across the space of channels. When you use two number arguments, the first value will be the low end of the range and the second will be the high end of the range. For  in_  and  in_out_  functions, this means the low end value will be set for the first channel and the high end will be set for the last channel. For  out_  function variants, the high end will be set for the first channel and the low end will be set for the last channel.
+ 
+            When the  ease  messages are supplied with three numerical arguments, the first two specify the range as in the two-argument case, but the third argument, which will be constrained between 0 and 1, defines a mid point. Between the first channel and the channel closest to the mid point, the entire range of the function is applied. Between the mid point and the last channel, the range of the function is applied with the values reversed, creating a mirror image. The mirror image is exact when the third argument is 0.5, otherwise it will be biased toward 0 or 1. With a mid point of 1, the result is the same as if the third argument was not supplied at all. With a mid point of 0, the result is the same as if it was entirely reversed. In other words, it's as if the  out_  version of the function were used instead of the  in_  version that was originally specified -- or vice versa.
+ 
+            Available messages are:  ease.linear ,  ease.in_back ,  ease.in_out_back ,  ease.out_back ,  ease.in_bounce ,  ease.in_out_bounce ,  ease.out_bounce ,  ease.in_circular ,  ease.in_out_circular ,  ease.out_circular ,  ease.in_cubic ,  ease.in_out_cubic ,  ease.out_cubic ,  ease.in_elastic ,  ease.in_out_elastic ,  ease.out_elastic ,  ease.in_exponential ,  ease.in_out_exponential ,  ease.out_exponential ,  ease.in_quadratic ,  ease.in_out_quadratic ,  ease.out_quadratic ,  ease.in_quartic ,  ease.in_out_quartic ,  ease.out_quartic ,  ease.in_quintic ,  ease.in_out_quintic ,  ease.out_quintic ,  ease.in_sine ,  ease.in_out_sine , and  ease.out_sine . Refer to the Ease Package documentation for details on these functions and demonstrations of their behavior.
+ 
+            If no message name is provided, a  float  message is used by default.
+ 
+Arguments:
+
+low-value
+      [float]
+      
+message-name
+      [symbol]
+      
+high-value
+      [float]
+      
+mid-point
+      [float]
+      
+
+
+
+
+
+smoothstep
+
+
+
+
+            The  smoothstep  function works analogously to the  ease  messages to generate an inclusive non-linear range of values, but uses the  smoothstep  function to generate a non-linear ramp. Refer to the documentation of the  ease  messages for more information.
+ 
+            If no message name is provided, a  float  message is used by default.
+ 
+Arguments:
+
+low-value
+      [float]
+      
+message-name
+      [symbol]
+      
+high-value
+      [float]
+      
+mid-point
+      [float]
+      
+
+
+
+
+
+setvalue
+
+
+
+
+            The word  setvalue , followed by both a channel index (starting at 1) and any message that can be sent to the wrapped object, sends the message to an individual instance within the MC wrapper.  setvalue 0 , followed by a message, sends the message to all instances. The  setvalue  message can be used in any inlet.
+ 
+                Instead of a number, the  setvalue  message can also take a symbol indicating that the target channel index should be randomly chosen:
+ 
+
+ setvalue *  will choose a channel randomly but avoid duplicate choices until all channels have been chosen (similar to the Max urn object). Before chosing a channel,  *  will also decide whether to send the message according to the current value of the voiceprob attribute. If voiceprob is 0.1, there is a 10% chance of sending the message. If voiceprob is 0.9, there is a 90% chance of sending the message.
+ 
+
+ setvalue +  will choose a channel randomly but avoid duplicate choices until all channels have been chosen (similar to the Max urn object). Unlike  *  it will always send the message.
+ 
+
+ setvalue $  will choose a channel randomly (similar to the Max random object). Before chosing a channel,  $  will also decide whether to send the message according to the current value of the voiceprob attribute. If voiceprob is 0.1, there is a 10% chance of sending the message. If voiceprob is 0.9, there is a 90% chance of sending the message.
+ 
+
+ setvalue #  will choose a channel randomly (similar to the Max random object). Unlike  $  it will always send the message.
+ 
+
+Arguments:
+
+channel
+      [int]
+      
+message
+      [symbol]
+      
+message arguments
+      [list]
+      
+
+
+
+
+
+setvaluerange
+
+
+
+
+            The word  setvaluerange , followed by a low and high channel index (starting at 1) and any message that can be sent to the wrapped object, sends the message to the specified range of channels.
+ 
+            Example:  setvaluerange 1 4 50 , sends the message 50 to channels 1 - 4. If the second argument is -1, the message is sent to all subsequent channels. For example,  setvaluerange 2 -1 50  sends the message 50 to all channels between 2 and the current number of voices.
+ 
+            Note: the random channel selection feature using  * ,  + ,  $ , and  #  does not work with the  setvaluerange  message.
+ 
+Arguments:
+
+low channel
+      [int]
+      
+high channel
+      [int]
+      
+message
+      [symbol]
+      
+message arguments
+      [list]
+      
+
+
+
+
+
+applymessages
+
+
+
+
+              The word  applymessages , followed by one or more numbers and/or symbols, sends individual messages
+              successively to instances in the MC wrapper, starting with the first instance. For example, the message
+  applymessages 0 bang  will send the '0' message to the first instance, and the 'bang' message to
+              the second instance. If there are more instances than arguments to  applymessages ,
+              the extra instances are unaffected.
+ 
+Arguments:
+messages
+      [list]
+      
+
+
+
+
+applyvalues
+
+
+
+
+              The word  applyvalues , followed by an optional message name and one or more
+              message arguments, sends individual values in the arguments successively to instances
+              in the MC wrapper, starting with the first instance. For example, the message
+  applyvalues 4 5 6  will send 4 to the first instance, 5 to the second instance,
+              and 6 to the third instance. If there are more instances than arguments to  applyvalues ,
+              the extra instances are unaffected.
+ 
+Arguments:
+
+message-name
+      [symbol]
+      
+values
+      [list]
+      
+
+
+
+
+
+replicatevalues
+
+
+
+
+              The word  replicatevalues , followed by an optional message name and one or more message
+              arguments, sends individual values in the arguments successively to instances in the MC wrapper,
+              starting with the first instance. Unlike  applyvalues , the  replicatevalues  message
+              continues sending values to successive instances, restarting with the first element, if it runs
+              out of arguments to send. For example,  replicatevalues 4 5  to an MC wrapper object with
+              three instances will send 4 to the first instance, 5 to the second instance, and 4 to the third
+              instance.
+ 
+Arguments:
+
+message-name
+      [symbol]
+      
+values
+      [list]
+      
+
+
+
+
+
+applynvalues
+
+
+
+
+              Whereas  applyvalues  can only set one value, the message  applynvalues  permits sending
+              a message or setting an attribute with multiple values to instances in the MC wrapper, starting with
+              the first instance. This is helpful for messages that require multiple values, such as the list
+              message to wave~ to set start/end points. The message syntax is [applynvalues N value1,
+              value2 etc.] where N is the number of values to set for each instance. For example, the message
+  applynvalues 2 500 600 900 1000  will send 500 600 to the first instance and 900 1000 to
+              the second instance. If there are more instances than specified in  applynvalues ,
+              the extra instances are unaffected.
+ 
+Arguments:
+
+message
+      [int]
+      
+values
+      [list]
+      
+
+
+
+
+
+replicatenvalues
+
+
+
+
+          Whereas  replicatevalues  can only set one value, the message  replicatenvalues  permits sending
+          a message or setting an attribute with multiple values to instances in the MC wrapper, starting with
+          the first instance. This is helpful for messages that require multiple values, such as the list
+          message to wave~ to set start/end points. The message syntax is [replicatenvalues N value1,
+          value2 etc.] where N is the number of values to set for each instance. Unlike  applynvalues ,
+          the  replicatenvalues  message continues sending values to successive instances, restarting with
+          the first group, if it runs out of arguments to send. For example,  replicatenvalues 2 500 600 900 1000 
+          to an MC wrapper object with three instances will send 500 600 to the first instance, 900 1000 to the
+          second instance, and 500 600 to the third instance.
+ 
+Arguments:
+
+message
+      [int]
+      
+values
+      [list]
+      
+
+
+
+
+Output
+
+float
+
+				Out fifth-from-right outlet: Parameter values or plug-in informational values in response to the  get  message.
+			 
+
+
+int
+
+				Out fifth-from-right outlet: Parameter values or plug-in informational values in response to the  get  message.
+				 
+
+				Out fourth-from-right outlet: Raw MIDI bytes received by the plug-in (but not any MIDI messages received using the  midievent  message). Please note though that some plug-ins echo their MIDI input to their MIDI output.
+			 
+
+
+list
+
+				Out second-from-right outlet: When a VST shell plug-in (e.g., WaveShell) is instantiated without specifying a plug-in name, a list of symbols specifying sub plug-in IDs are sent out the seventh outlet in response to the  printids  message.
+			 
+
+
+signal
+
+				Out left outlet (and other signal outlets as defined by the number of outputs argument): Audio output from the plug-in. The left outlet is the left channel (or channel 1).
+			 
+
+
+symbol
+
+				Out sixth-from-right outlet: The plug-in's parameters are sent out as a series of symbols in response to the  params  message.
+				 
+				Note: Some plug-ins, especially those with their own editors, fail to name the parameters.
+				 
+
+				Out third-from-right outlet: A series of symbols are sent out in response to the  pgmnames  message. If there are no program names, the message  pgmnames: Default  is output.
+				 
+
+				Out second-from-right outlet: When a VST shell plug-in (e.g., WaveShell) is instantiated without specifying a plug-in name, a series of symbols specifying plug-in names are sent out the seventh outlet in response to the  getsubnames  message.
+				 
+
+				Out right outlet: An Audio Unit plug-in's user preset files are sent out as a series of symbols in response to the  presetnames  message.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+amxd~
+
+
+		Host Max for Live devices
+	
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

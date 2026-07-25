@@ -1,0 +1,518 @@
+mcs.2d.wave~ - MC Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsbuffer-namestart and end-pointsnumber-of-output-channelsrowsAttributesannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesintfloatlist(mouse)rowssetsignalOutputsignalSee AlsoPackage MCmcs.2d.wave~
+
+		Two-dimensional wavetable (multichannel I/O)
+	 
+Description
+
+2d.wave~ is similar to wave~, but with an additional axis. A given ms range of an audio file will be divided into n rows. Y phase input will determine which row(s) will be used for playback. When the 2d.wave~ object is instantiated as mcs.2d.wave~ its outputs are combined into a single multichannel output but otherwise it functions identically to 2d.wave~.
+	 
+Discussion
+
+		Try loading a 16-bar loop and setting your rows to be 16 (or 7 for that matter). Try also using a short (150 ms or so) section of an audio file as a 2-d wave table. Set the phasor of one axis to be very fast, and one to be very slow.
+	 
+Arguments
+
+
+
+buffer-name[symbol]
+
+optional
+
+
+				Obligatory. Names the buffer~ object whose sample memory is used by 2d.wave~ for its stored waveform. Note that if the underlying data in a buffer~ changes, the signal output of 2d.wave~ will change, since it does not copy the sample data in a buffer~. 2d.wave~ always uses the first n channels of a multi-channel buffer~, where n is the number of the 2d.wave~ object's output channels. The default number of channels, set by the third argument to the 2d.wave~ object, is  1 .
+			 
+
+
+
+
+start and end-points[number]
+
+optional
+
+
+				After the buffer~ name argument, you can type in values for the start and end points of the waveform, as millisecond offsets from the beginning of a buffer~ object's sample memory. By default the start point is 0 and the end point is the end of the sample. If you want to set a non-zero start point but retain the sample end as the waveform end point, use only a single typed-in argument after the buffer~ name. If a  signal  is connected to the start point (middle) inlet, the initial waveform start point argument is ignored. If a  signal  is connected to the end point (right) inlet, the initial waveform end point is ignored. The number of channels in the buffer~ file and the number of rows to be used may also be specified.
+			 
+
+
+
+
+number-of-output-channels[int]
+
+optional
+
+
+				Sets the number of output channels, which determines the number of outlets that the 2d.wave~ object will have. The maximum number of channels is 8. The default is 1. If the audio file being played has more output channels than the 2d.wave~ object, higher-numbered channels will not be played. If the audio file has fewer channels, the signals coming from the extra outlets of 2d.wave~ will be 0.
+			 
+
+
+
+
+rows[int]
+
+optional
+
+
+				Sets the inital number of  rows  to divide the file into.
+			 
+Attributes
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+int
+
+
+
+
+				In 3rd or 4th inlets: Numbers can be used instead of signal objects to control the start and end points of the waveform, provided a signal is not connected to the inlet that receives the number.
+			 
+Arguments:
+start and end-points
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				In 3rd or 4th inlets: Numbers can be used instead of signal objects to control the start and end points of the waveform, provided a signal is not connected to the inlet that receives the number.
+			 
+Arguments:
+start and end-points
+      [float]
+      
+
+
+
+
+list
+
+
+
+				TEXT_HERE
+			 
+
+
+
+(mouse)
+
+
+
+				Double-clicking on the 2d.wave~ object will open a window that displays the audio file loaded in the buffer associated with the object.
+			 
+
+
+
+rows
+
+
+
+
+				The word  rows , followed by an int, sets the number of rows a given range of an audio file will be divided into. The phase input signal value received in the 2nd inlet of 2d.wave~ determines which row(s) are used for playback. The default value is 0.
+			 
+Arguments:
+number-of-divisions
+      [int]
+      
+
+
+
+
+set
+
+
+
+
+				The word  set , followed by a symbol, sets the buffer~ used by 2d.wave~ for its stored waveform. The symbol can optionally be followed by two values setting new waveform start and end points. If the values are not present, the default start and end points (the start and end of the sample) are used. If signal objects are connected to the start and/or end point inlets, the start and/or end point values are ignored.
+			 
+Arguments:
+
+buffer-name
+      [symbol]
+      
+start-point
+      [float]
+      
+end-point
+      [float]
+      
+
+
+
+
+
+signal
+
+
+
+				In left inlet: Input signal values progressing from 0 to 1 are used to scan a specified range of samples in a buffer~ object. The output of a phasor~ can be used to control 2d.wave~ as an oscillator, treating the range of samples in the buffer~ as a repeating waveform. However, note that when changing the frequency of a phasor~ connected to the left inlet of 2d.wave~, the perceived pitch of the signal coming out of 2d.wave~ may not correspond exactly to the frequency of phasor~ itself if the stored waveform contains multiple or partial repetitions of a waveform. You can invert the phasor~ to play the waveform backwards.
+				 
+
+				In 2nd inlet: Input signal values progressing from 0 to 1 are used to determine which of the row(s) specified by the  rows  message will be used for playback. You can invert the phasor~ to reverse the order in which rows are played.
+				 
+
+				In 3rd inlet: The start of the waveform as a millisecond offset from the beginning of a buffer~ object's sample memory.
+				 
+
+				In 4th inlet: The end of the waveform as a millisecond offset from the beginning of a buffer~ object's sample memory.
+			 
+Output
+
+signal
+
+				The portion of the buffer~ specified by the 2d.wave~ object's start and end points is scanned by signal values ranging from 0 to 1 in the 2d.wave~ object's inlet, and the corresponding sample value from the buffer~ is sent out the 2d.wave~ object's outlet. If the signal received in the object's inlet is a repeating signal such as a sawtooth wave from a phasor~, the resulting output will be a waveform (excerpted from the buffer~) repeating at the frequency corresponding to the repetition of the input signal.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+buffer~
+
+
+		Store audio samples
+	
+
+
+
+groove~
+
+
+		Variable-rate looping sample playback
+	
+
+
+
+phasor~
+
+
+		Generate sawtooth signals
+	
+
+
+
+play~
+
+
+		Position-based sample playback
+	
+
+
+
+wave~
+
+
+		Variable size wavetable
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

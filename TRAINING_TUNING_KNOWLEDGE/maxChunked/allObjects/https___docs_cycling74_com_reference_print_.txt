@@ -1,0 +1,560 @@
+print - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsidentifierAttributesbettersymquotesdeltatimefloatprecisionlevelpopuptimeannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangintfloatlistanythingarray(mouse)dictionarystringOutputanythingSee AlsoPackage Maxprint
+
+		Print any message in the Max Console
+	 
+Description
+
+print will print any input into the Max Console for debugging, messaging, or analysis purposes. Selecting "Show Output" from the Object Action Menu opens the sidebar Max console and filters output to only show posts from the print object.
+	 
+Arguments
+
+
+
+identifier[anything]
+
+optional
+
+
+				The argument is an identifier for the print object. Each message printed in the Max Console is preceded by the name of the print object. The name can be either a number or a word. If there is no argument, the name of the print object is  print . Using an argument to print can help distinguish the output of two or more print objects.
+			 
+Attributes
+
+
+
+bettersymquotes[int]: 0
+
+
+
+
+				When enabled, numerical symbols will be quoted in the Max Console (e.g. "3.14", and quoted symbols will be enslashed (e.g.  \"3.14\") for clarity. When disabled (default), the legacy behavior will be used (numerical symbols will be unquoted, quoted symbols will not display slashes).
+			 
+
+
+
+
+deltatime[int]: 0
+
+
+
+
+				Print Time Between Messages
+			 
+
+
+
+
+floatprecision[int]: 0
+
+
+
+
+				Selects regular, low, or high precision float display
+			 Possible values:0 = 'regular'
+                  1 = 'low'
+                  2 = 'high'
+                  
+
+
+
+
+level[int]: 0
+
+
+
+
+				Selects the style of text displayed in the Max Console. Except for the  Error  style, these styles are only used for display, and have no additional meaning in Max. Messages displayed using the  Error  style will also appear at any error objects in the patcher.
+				 
+
+				Four styles are available: Print (0), Warn (1), Error (2), Bug (3)
+				 
+
+Possible values:0 = 'Print'
+                   (
+								Normal (default)
+							 )
+								In Max 8's default theme, white text against the default (dark) background.
+							 1 = 'Warn'
+                   (
+								Warning
+							 )
+								In Max 8's default theme, green text against the default (dark) background.
+							 2 = 'Error'
+                   (
+								Error
+							 )
+								In Max 8's default theme, white text against a red background.
+							 3 = 'Bug'
+                   (
+								Bug
+							 )
+								In Max 8's default theme, blue text against the default (dark) background.
+							 
+
+
+
+
+popup[int]: 0
+
+
+
+
+				Popup When Message Received
+			 
+
+
+
+
+time[int]: 0
+
+
+
+
+				Prints scheduler time before message
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				Performs the same function as  anything .
+			 
+
+
+
+int
+
+
+
+
+				Performs the same function as  anything .
+			 
+Arguments:
+input
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				Performs the same function as  anything .
+			 
+Arguments:
+input
+      [float]
+      
+
+
+
+
+list
+
+
+
+
+				Performs the same function as  anything .
+			 
+Arguments:
+input
+      [list]
+      
+
+
+
+
+anything
+
+
+
+
+				Messages are not interpreted by the print object. They are simply printed verbatim in the Max Console.
+			 
+Arguments:
+input
+      [list]
+      
+
+
+
+
+array
+
+
+
+
+				Sending an array to print will display the contents of the array in the console as though it were a single line.
+			 
+Arguments:
+array
+      [symbol]
+      
+
+
+
+
+(mouse)
+
+
+
+				Double-clicking on any print object opens the Max Console or brings it to the front.
+			 
+
+
+
+dictionary
+
+
+
+
+				Sending a dictionary to print will display the fully expanded contents of the dictionary in the console as though it were a single line.
+			 
+Arguments:
+dict
+      [symbol]
+      
+
+
+
+
+string
+
+
+
+
+				Sending a string object to print will display the contents of the string in the console on a single line.
+			 
+Arguments:
+string
+      [symbol]
+      
+
+Output
+
+anything
+
+				There are no outlets. The message received in the inlet is printed in the Max Console.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+console
+
+
+		Console Output in Patcher
+	
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

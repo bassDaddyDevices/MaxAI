@@ -1,0 +1,610 @@
+zplane~ - MSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsAttributesbgcolorgridlinecolororderpconstrainpolezerocolorstyleannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangfloat(inlet1)(inlet2)(inlet3)(inlet4)listdictionarylogscale(mouse)rangeOutputlistSee AlsoPackage MSPzplane~
+
+		Graph filter poles and zeros on the Z-plane
+	 
+Description
+
+		The zplane~ object provides a way to graph filter poles and zeros in the Z-plane for display. Use the zplane~ object in conjunction with the filtergraph~ object, or provide it with a list of biquad~ coefficients.
+	 
+Discussion
+
+		Like the filtergraph~ object, it does not process audio signals by itself, but it does react internally to the current MSP sampling rate. The zplane~ object is designed to help in digital filter design and visualization for MSP, and to provide a basic pedagogical tool which may be used to help explain digital filter theory.
+		 
+		You can change the filter parameters by clicking and dragging on the zplane~ object's display. Clicking and dragging on any of the poles (shown as an x in the display) or zeros (shown as an o in the display) will modify the filter coefficients and output the new filter coefficient values.
+	 
+Arguments
+None.Attributes
+
+
+
+bgcolor[4 floats]
+
+
+
+
+				Sets the background color of the zplane~ object in RGBA format.
+			 
+
+
+
+
+gridlinecolor[4 floats]
+
+
+
+
+				Sets the colors for the grids and lines in RGBA format. The  gridlinecolor  attribute is mapped to the  elementcolor  style color.
+			 
+
+
+
+
+order[int]: 2
+
+
+
+
+				The word  order , followed by an even number between 2 and 24, sets the number of poles and zeros.
+			 
+
+
+
+
+pconstrain[int]: 0
+
+
+
+
+				When set to 1, poles will be constrained inside the unit circle, and thus yield a stable filter. An argument of zero will turn this feature off (the default).
+			 
+
+
+
+
+polezerocolor[4 floats]
+
+
+
+
+				Sets the pole zero color in RGBA format. The  polezerocolor  attribute is mapped to the  color  style color.
+			 
+
+
+
+
+style[symbol]: 
+
+>= 7.0.0
+
+
+				Sets the style to be applied to the object. Styles can be set using the Format Palette.
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				Causes the current pole and zero values to be re-output.
+			 
+
+
+
+float
+
+
+
+
+				In 1st-5th inlets: A float in one of the first five inlets changes the current value of the corresponding biquad~ filter coefficients (a0, a1, a2, b1, and b2, respectively), recalculates and displays the filter's pole-zero graph on the Z-plane and causes a lists of poles and zeros be output.
+			 
+Arguments:
+biquad-filter-coefficients
+      [float]
+      
+
+
+
+
+  (inlet1)
+
+
+
+
+				In 2nd inlet: Sets the current value of the biquad~ filter's  a1  coefficient.
+			 
+Arguments:
+coefficient value
+      [float]
+      
+
+
+
+
+  (inlet2)
+
+
+
+
+				In 3rd inlet: Sets the current value of the biquad~ filter's  a2  coefficient.
+			 
+Arguments:
+coefficient value
+      [float]
+      
+
+
+
+
+  (inlet3)
+
+
+
+
+				In 4th inlet: Sets the current value of the biquad~ filter's  b1  coefficient.
+			 
+Arguments:
+coefficient value
+      [float]
+      
+
+
+
+
+  (inlet4)
+
+
+
+
+				In 5th inlet: Sets the current value of the biquad~ filter's  b2  coefficient.
+			 
+Arguments:
+coefficient value
+      [float]
+      
+
+
+
+
+list
+
+
+
+
+				In left inlet: A list of five float values which correspond to biquad~ filter coefficients sets the zplane~ object's internal values for these coefficients and causes the object to visually display the poles and zeros for the filter(s) and to output the pole and zero data.
+				 
+
+				If more than five values are sent, they are interpreted as sets of cascaded biquad coefficients. The zplane~ object will display a composite pole-zero graph which shows the multiplication of a group of biquad filters in cascade. Up to 24 groups of five float values may be cascaded.
+			 
+Arguments:
+
+a0
+      [float]
+      
+a1
+      [float]
+      
+a2
+      [float]
+      
+b1
+      [float]
+      
+b2
+      [float]
+      
+
+
+
+
+
+dictionary
+
+
+
+
+				The word  dictionary , followed by a symbol that references a named filterdesign object dictionary (set via the  name  attribute), will cause the zplane~ object to use the dictionary values for filter coefficients.
+			 
+Arguments:
+dictionary-name
+      [symbol]
+      
+
+
+
+
+logscale
+
+
+
+
+				The word  logscale , followed by a zero or one, toggles between linear (the default) and log frequency display.
+			 
+Arguments:
+logscale-flag
+      [int]
+      
+
+
+
+
+(mouse)
+
+
+
+				You can change the filter parameters by clicking and dragging on the zplane~ object's display. Clicking and dragging on any of the poles (shown as an x in the display) or zeros (shown as an o in the display) will modify the filter coefficients and output the new filter coefficient values.
+			 
+
+
+
+range
+
+
+
+
+				The word  range , followed by a floating point value, changes the visual scaling of the zplane~ object's display. The default is 1.5.
+			 
+Arguments:
+visual scaling amount
+      [float]
+      
+
+Output
+
+list
+
+				Out left outlet: a list of 5 floating-point filter coefficients for the biquad~ object. Coefficients output in response to mouse clicks and changes in the coefficient inlets.
+				 
+
+				Out second outlet: a list of "zero" location values expressed as complex numbers (real, imaginary). These correspond to the "a" coefficients of the filter. A 2nd order (biquad) filter will have 2 zeros, a 4th order filter will have four, etc...
+				 
+
+				Out third outlet: a list of "pole" location values expressed as complex numbers (real, imaginary). These correspond to the "b" coefficients of the filter. A 2nd order (biquad) filter will have 2 zeros, a 4th order filter will have four, etc...
+				 
+
+				Out fourth outlet: a list of floating-point values representing the overall gain of each cascaded filter.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+biquad~
+
+
+		Two-pole, two-zero filter
+	
+
+
+
+cascade~
+
+
+		Cascaded series of biquad filters
+	
+
+
+
+filtercoeff~
+
+
+		Signal-rate filter coefficient generator
+	
+
+
+
+filtergraph~
+
+
+		Filter editor
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

@@ -1,0 +1,1028 @@
+movie - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsfilenameAttributesautofitbordernameannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangint(drag)activeclear(mouse)disposedurationffgetdurationgetrategettimelengthloadintoramlooploopendlooppointsloopsetloopstartmatrixmutenextnextmovieopenpalindromepassivepauseposprevqualityraterdreadreadanyrectreloadresumerwstartstartatstopswitchtimetimescaletoggleplayvolwclosewindowposOutputintSee AlsoPackage Maxmovie
+
+		Play a movie in a window
+	 
+Description
+
+		Plays a movie in a separate window. All movie playback control is managed by messages to the object.
+	 
+Discussion
+
+		Note: The movie object requires that QuickTime be installed on your system. If you are using Max on Windows, we recommend that you install QuickTime and choose a complete install of all optional components.The movie object plays a movie in its own window, and the imovie object plays a movie in a box inside a patcher window.
+	 
+Arguments
+
+
+
+filename[symbol]
+
+optional
+
+
+				Specifies the name of a movie file to be read into movie automatically when the patch is loaded. The same effect can be achieved for imovie by selecting the object in an unlocked patcher and choosing Get Info... from the Object menu to select a movie file. Both objects retain the name(s) of the movie(s) they have loaded at the time that the patch is saved, and attempt to load the same movie(s) the next time the patch is opened.
+			 
+Attributes
+
+
+
+autofit[int]: 0
+
+
+
+
+				Toggles scaling the movie to fit in the window currently displayed.
+			 
+
+
+
+
+border[int]: 1
+
+
+
+
+				Toggles the movie's border type. The message  border 1  (the default) uses the traditional Macintosh-style border for the movie window. The message  border 0  displays only the rectangle in which the movie plays.
+			 Possible values:0 = 'Plain'
+                  1 = 'Document'
+                  
+
+
+
+
+name[symbol]
+
+
+
+
+				Name of the movie file loaded.
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				Same as  resume .
+			 
+
+
+
+int
+
+
+
+
+				Sets the current time location of the movie. If the movie is playing, it will play from the newly set location. 0 is always the beginning. The end time varies from one movie to another. (The  length  message reports the end time location out the left outlet.)
+			 
+Arguments:
+location
+      [int]
+      
+
+
+
+
+(drag)
+
+
+
+				When a QuickTIme movie file is dragged from the Max File Browser to a movie object, the file will be loaded.
+			 
+
+
+
+active
+
+
+
+
+				The word  active , followed by a non-zero number, makes the movie active (the default). Followed by a 0,  active  makes the movie inactive. An inactive movie will not play or change location.
+			 
+Arguments:
+flag
+      [int]
+      
+
+
+
+
+clear
+
+
+
+				Has the same effect as  dispose  with no arguments.
+			 
+
+
+
+(mouse)
+
+
+
+				Double-clicking on the movie object will make the movie window active.
+			 
+
+
+
+dispose
+
+
+
+
+				Closes the movie window if it is open, and removes all movies from the movie object's memory. If the word  dispose  is followed by the name of a loaded movie, only the named movie will be removed.
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+
+
+
+duration
+
+
+
+				Reports the duration of the movie (in time units) out the left-most outlet.
+			 
+
+
+
+ff
+
+
+
+				The word  ff  fast-forwards the movie.
+			 
+
+
+
+getduration
+
+
+
+				Reports the end time position of the movie (in QuickTime Time Units) from the left outlet.
+			 
+
+
+
+getrate
+
+
+
+				Reports the current rate multiplied by 65536 out the right outlet. Thus, normal speed is reported as  65536 , half speed is reported as  32768 , double speed backward is reported as -131072 , etc. If the movie is not playing, the rate is reported as  0 , and if no movie has yet been loaded nothing is sent out.
+			 
+
+
+
+gettime
+
+
+
+				Reports the current time location of the movie.
+			 
+
+
+
+length
+
+
+
+				The  length  message's functionality is equivalent to the  getduration  message.
+			 
+
+
+
+loadintoram
+
+
+
+
+				The word  loadintoram , followed by a non-zero number, attempts to load the entire movie into memory, if possible. The default is 0.
+			 
+Arguments:
+flag
+      [int]
+      
+
+
+
+
+loop
+
+
+
+
+				The word  loop , followed by a number in the range 0-2, controls looping for the current film on. The options are:
+				 
+				0: looping off (default) 1: looping on 2: palindrome mode (forward and then backward)
+			 
+Arguments:
+flag
+      [int]
+      
+
+
+
+
+loopend
+
+
+
+
+				The word  loopend , followed by a number, sets the end point of a loop. The default value is corresponds to the end of the film.
+			 
+Arguments:
+end
+      [int]
+      
+
+
+
+
+looppoints
+
+
+
+
+				The word  looppoints , followed by two numbers, sets the beginning and end points of a loop. the default values are 0 (i.e., the start of the film) for the start point and the end of the film for the endpoint.
+			 
+Arguments:
+
+beginning
+      [int]
+      
+end
+      [int]
+      
+
+
+
+
+
+loopset
+
+
+
+
+				The  loopset  message's functionality is equivalent to the  looppoints  message.
+			 
+Arguments:
+
+beginning
+      [int]
+      
+end
+      [int]
+      
+
+
+
+
+
+loopstart
+
+
+
+
+				The word  loopstart , followed by a number, sets the beginning point of a loop. The default value is 0 (i.e., the start of the film).
+			 
+Arguments:
+beginning
+      [int]
+      
+
+
+
+
+matrix
+
+
+
+
+				The word  matrix , followed by nine floating point numbers, reloads the current movie into RAM after performing a transformation matrix operation on the image. This transformation is the same one used for the mapping in QuickTime of points from one coordinate space (i.e, the original image) into another coordinate space (a scaled, rotated, or translated version of the original image).
+				 
+
+				The transform matrix operation consists of nine matrix elements
+			 
+Arguments:
+matrix
+      [list]
+      
+
+
+
+
+mute
+
+
+
+
+				The word  mute , followed by a non-zero number, turns off the movie's sound (if it has any). Followed by a 0,  mute  turns on the movie's sound (the default).
+			 
+Arguments:
+flag
+      [int]
+      
+
+
+
+
+next
+
+
+
+
+				The word  next , followed by a number, moves the time location ahead by that amount. If no number is supplied,  next  moves the time ahead by 5. (The actual time meaning of these units varies from movie to movie.)
+			 
+Arguments:
+time-units
+      [int]
+      
+
+
+
+
+nextmovie
+
+
+
+				Stops the movie if it is playing, and switches to the movie that was loaded just prior to the current movie. (The movies are stored in reverse order from the order in which they were loaded.) If there is no prior movie,  nextmovie  wraps around back to the most recently loaded movie. Note that the title of the movie window is not automatically changed, even though the "current movie" has been changed by  nextmovie .
+			 
+
+
+
+open
+
+
+
+				Brings the movie window to the foreground (applies only to movie, not imovie).
+			 
+
+
+
+palindrome
+
+
+
+
+				The word  palindrome , followed by a non-zero number, sets the movie to play in palindrome mode (forward and then backward). Looping must be turned on.  palindrome 0  (the default) disables palindrome mode.
+			 
+Arguments:
+flag
+      [int]
+      
+
+
+
+
+passive
+
+
+
+
+				The word  passive , followed by a non-zero number, sets the passive mode. In passive mode, starting a movie will not cause the frame to change unless a bang message is received.  passive   0  (the default) sets the movie object to respond to normal  start  messages.
+			 
+Arguments:
+mode
+      [int]
+      
+
+
+
+
+pause
+
+
+
+				Stops the movie.
+			 
+
+
+
+pos
+
+
+
+
+				The word  pos  followed by a floating-point number which denotes a position-index within the movie will cause the playback-position to jump to the specified position in the movie.
+			 
+Arguments:
+index
+      [float]
+      
+
+
+
+
+prev
+
+
+
+
+				The word  prev , followed by a number, moves the time location backward by that amount. If no number is supplied,  prev  moves the time backward by 5.
+			 
+Arguments:
+time-units
+      [int]
+      
+
+
+
+
+quality
+
+
+
+
+				The word  quality , followed by a number, sets the minimum interval, in milliseconds, between movie redraws. The default is 0 (i.e., no minimum).
+			 
+Arguments:
+interval
+      [int]
+      
+
+
+
+
+rate
+
+
+
+
+				The word  rate , followed by one or more integers or floats, sets the playing speed of the movie. If  rate  is followed by one integer, that number is taken to be a whole number playing speed. If  rate  is followed by two numbers, the first number is taken to be the numerator and the second the denominator of a fractional speed.  1  is the normal playing speed,  0  means the movie is stopped, and a negative rate plays backwards.  rate 1 2  would play the movie at half speed. Immediately after you send a non-zero  rate  message, the movie will begin playing, so you may wish to precede any  rate  messages with an integer to locate to the desired starting position.
+			 
+Arguments:
+input
+      [list]
+      
+
+
+
+
+rd
+
+
+
+
+				Same as  read .
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+
+
+
+read
+
+
+
+
+				The word  read , followed by a symbol, looks for a movie file with that name in Max's file search path, and opens it if it exists, displaying the movie's first frame in a movie window. If the filename contains any spaces or special characters, the name should be enclosed in double quotes or each special character should be preceded by a backslash ( \ ). The word  read  by itself puts up a standard Open Document dialog box and reads in any movie file you select. The  read  message will open at least 26 different types of files that can be opened by QuickTime, these include movie files such as MPEG, audio files including AIFF and MP3, and graphics files including GIF and JPEG.
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+
+
+
+readany
+
+
+
+
+				The  readany  message opens any type of file, using QuickTime routines to try to interpret it as a movie or other supported media file.
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+
+
+
+rect
+
+
+
+
+				The word  rect , followed by four numbers, specifies the size of the rectangle in which the movie is displayed within the movie window. The first two numbers specify the position of the rectangle within the movie window, in relative coordinates, and the second two numbers specify the width and height, in pixels, of the rectangle.
+			 
+Arguments:
+
+x-position-coordinate
+      [int]
+      
+y-position-coordinate
+      [int]
+      
+width (pixels)
+      [int]
+      
+height (pixels)
+      [int]
+      
+
+
+
+
+
+reload
+
+
+
+				The word  reload  will reload the current movie into memory (can be used to refresh; for example, if a movie is playing and the  stop  message is sent followed by  reload , the movie will reload into memory and be set to play from the beginning as a newly loaded movie).
+			 
+
+
+
+resume
+
+
+
+				Begins playing the movie from its current location, at the most recently specified rate.
+			 
+
+
+
+rw
+
+
+
+				The word  rw  rewinds the movie.
+			 
+
+
+
+start
+
+
+
+
+				Sets the movie's rate to 1 and begins playing from the beginning. If the word  start  is followed by the name of a specific loaded movie, that movie becomes the current movie before starting.
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+
+
+
+startat
+
+
+
+
+				The word  startat , followed by a number, set the current time location of the movie and begins playing from that point.
+			 
+Arguments:
+location
+      [list]
+      
+
+
+
+
+stop
+
+
+
+				Stops the movie.
+			 
+
+
+
+switch
+
+
+
+
+				The word  switch , followed by a symbol, makes the named movie the active one without changing the transport state (See the  start  message).
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+
+
+
+time
+
+
+
+
+				The word  time , followed by a number that specifies a QuickTime frame number, goes to the time location specified by the number. When no argument is present, the  time  message's functionality is equivalent to the  gettime  message.
+			 
+Arguments:
+frame
+      [list]
+      
+
+
+
+
+timescale
+
+
+
+				Reports the timescale of the movie out the left-most outlet.
+			 
+
+
+
+toggleplay
+
+
+
+				The word  toggleplay  activates or pauses playback of the movie.
+			 
+
+
+
+vol
+
+
+
+
+				The word  vol , followed by a number in the range 1-255, sets the movie's sound volume. Optionally, the volume can be set by using the word  vol , followed by a floating-point value in the range 0. - 1.0.
+			 
+Arguments:
+volume
+      [int]
+      
+
+
+
+
+wclose
+
+
+
+				Closes the movie window.
+			 
+
+
+
+windowpos
+
+
+
+
+				The word  windowpos , followed by four numbers, specifies the location and size of the movie window on the screen. The four numbers specify the left, top, right, and bottom of the movie window in global coordinates. This message is only supported by the movie object, not the imovie object.
+			 
+Arguments:
+
+left-coordinate
+      [int]
+      
+top-coordinate
+      [int]
+      
+right-coordinate
+      [int]
+      
+bottom-coordinate
+      [int]
+      
+
+
+Output
+
+int
+
+				Out left outlet: The current time location, when a  time  message is received; the end time location when a  length  message is received.
+				 
+
+				Out middle outlet: The horizontal position of the mouse, relative to the left side of the movie box or window, when the mouse is clicked or dragged inside the movie.
+				 
+
+				Out right outlet: The vertical position of the mouse, relative to the top of the movie box or window, when the mouse is clicked or dragged inside the movie.
+				 
+
+				Also, in response to a  getrate  message, the current movie rate multiplied by 65536 is sent out the right outlet.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+imovie
+
+
+		Play video
+	
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

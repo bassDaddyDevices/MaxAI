@@ -1,0 +1,533 @@
+dialog - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentslabelAttributeslabelmaskmodeannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangint(inlet1)floatclearsymbolsymbolOutputbangsymbolSee AlsoPackage Maxdialog
+
+		Open a dialog box
+	 
+Description
+
+		Displays a dialog box with a selection of appearance modes. In Default mode, the dialog object permits entry of a symbol (as text) and sends it out the outlet when you click on the "OK" button in the dialog box. In the other modes, the dialog object displays text, but doesn't permit data entry.
+	 
+Discussion
+
+		Note that the output of a dialog object is not directly "caused" by sending the object a message, so you can't count on it happening by a certain time.
+	 
+Arguments
+
+
+
+label[symbol]
+
+optional
+
+
+				Sets the prompt which will appear above the text entry box in the dialog window. In Alert, Confirmation and Extended modes (mode = 1, 2, 3 or 4), the prompt is displayed as a title above the default text. See label.
+			 
+Attributes
+
+
+
+label[atom]
+
+
+
+
+				Sets the prompt which will appear above the text entry box in the dialog window. In Alert, Confirmation and Extended modes (mode = 1, 2, 3 or 4), the prompt is displayed as a title above the default text.
+			 
+
+
+
+
+mask[int]: 0
+
+
+
+
+				Mask input text with bullet characters. The text output from the dialog object's outlet remains human-readable.
+			 
+
+
+
+
+mode[int]: 0
+
+
+
+
+				The dialog box has five different display modes, Default, Alert, Confirmation and two Extended modes. Text input is permitted in Default mode, while the other two modes are used for text display with limited user interaction.
+			 Possible values:0 = 'Default (OK/Cancel)'
+                   (
+								"Default" mode has a text entry field, and the buttons "OK" and "Cancel".
+							 )1 = 'Alert (OK)'
+                   (
+								"Alert" mode has no text entry field, and the button "OK" only.
+							 )2 = 'Confirmation (OK/Cancel)'
+                   (
+								"Confirmation" mode has no text entry field, and the buttons "OK" and "Cancel".
+							 )3 = 'Extended (Yes/No/Cancel)'
+                   (
+								"Extended" mode has no text entry field, and the buttons "Yes", "No" and "Cancel".
+							 )4 = 'Extended (Yes/No)'
+                   (
+								A second "Extended" mode without a text entry field, and the buttons "Yes" and "No" (but no "Cancel" option).
+							 )
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				In left inlet: Opens the dialog box with the previous text displayed as the default.
+			 
+
+
+
+int
+
+
+
+
+				See the  symbol  entry.
+			 
+Arguments:
+text
+      [int]
+      
+
+
+
+
+  (inlet1)
+
+
+
+
+ Only applicable to Default display mode  (mode = 0):
+				 
+
+				In right inlet: The number  0  configures the dialog object to send out the text typed by the user into the dialog box as a symbol preceded by the word  symbol . A non-zero number configures the dialog object to send out the typed-in text exactly as-is if it begins with a word, or preceded by the word  list  if it begins with a number. If no number is received, it is considered  0  by default.
+			 
+Arguments:
+output-mode
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				In left inlet: Same as  symbol .
+			 
+Arguments:
+text
+      [float]
+      
+
+
+
+
+clearsymbol
+
+
+
+				In left inlet: Clears any previously set default text.
+			 
+
+
+
+symbol
+
+
+
+
+				In Default mode (mode = 0):
+				 
+				In left inlet: The word  symbol , followed by any word, opens a dialog box prompting the user to enter text. The word following  symbol  is shown as the default text.
+				 
+
+				In other modes:
+				 
+				In left inlet: the word  symbol , followed by any word, opens a dialog box displaying that word.
+				 
+
+				If you want more than one word to appear as the default text, you must enclose the words in double quotes.
+			 
+Arguments:
+text
+      [symbol]
+      
+
+Output
+
+bang
+
+				In Alert, Confirmation and Extended modes (mode = 1, 2, 3 or 4) if the user clicks the "OK" (or "Yes" button in Extended mode), a  bang  message is sent out the left outlet.
+				 
+
+				If the dialog box is cancelled by the user, a  bang  message is sent out the middle outlet.
+				 
+
+				In Extended modes (mode = 2 or 3), if the "No" button is clicked, a  bang  message is sent out the rightmost outlet.
+			 
+
+
+symbol
+
+ Only applicable to Default display mode  (mode = 0):
+				 
+
+				If the user clicks the "OK" button, the dialog object makes a symbol out of the entered text (even if it's a number or it's more than one word) and sends it out its outlet with the word  symbol  prepended. If a non-zero number has been received in the right inlet, the typed-in message is sent out as is (without being preceded by the word  symbol ). This message can be displayed by prepending the word  set  and sending it to a message box (as shown in the example). If the user clicks Cancel, nothing is sent out.
+				 
+
+				In Alert, Confirmation and Extended modes (mode = 1, 2, 3 or 4) if the user clicks the "OK" (or "Yes" button in Extended mode), a  bang  message is sent out the left outlet.
+				 
+
+				Since your patch continues to run while waiting for the user to type text into your dialog box, you can't count on getting the typed-in symbol immediately after sending the message that opens the dialog box.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+message
+
+
+		Send any message
+	
+
+
+
+opendialog
+
+
+		Open a dialog to ask for a file or folder
+	
+
+
+
+savedialog
+
+
+		Open a dialog asking for a filename
+	
+
+
+
+sprintf
+
+
+		Format a message of words and numbers
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

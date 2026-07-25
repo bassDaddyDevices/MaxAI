@@ -1,0 +1,531 @@
+drunk - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsmaximum valuestep sizeAttributescyclefloatoutputrangeseedstepsizeannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangintfloatlistresetsetsetresetvalueOutputintSee AlsoPackage Maxdrunk
+
+		Output random numbers within a step range
+	 
+Description
+
+		Performs a "drunken" walk by outputting random numbers within a specified step range.
+	 
+Arguments
+
+
+
+maximum value[int/float]
+
+optional
+
+
+				Sets the maximum number produced. If this argument is not provided, the maximum value is set to  128 . In floatoutput mode, the default maximum value is  1. . By default, the minimum value produced is  0 , but this can be overridden with the range attribute.
+				 
+
+				If this argument is a floating-point value, floatoutput will be enabled, and the object will generate floating-point output.
+			 
+
+
+
+
+step size[int/float]
+
+optional
+
+
+				Sets an initial limit on the size of random steps taken; the absolute value of the step size will always be less than (in floatoutput mode, less than or equal to) the absolute value of this limit. If a negative value is specified as a step size, steps of size zero are never generated.
+				 
+
+				If this argument is not provided, the step size is set to  2  (movement up or down by no more than 1); in floatoutput mode, the default step size is  0.1 
+
+Attributes
+
+
+
+cycle[atom_long]: 0
+
+
+
+
+				When cycle is greater than zero, it determines a count of outputs before drunk will reset its output to an initial value (set using the  setresetvalue  message) and its random number generator state to the current seed. The result is a repeating pattern whose contents is determined by the seed value. When cycle is 0, drunk never resets its state.
+			 
+
+
+
+
+floatoutput[int]: 0
+
+
+
+
+				Enable/disable float output using the current range.
+			 
+
+
+
+
+range[2 atoms]: 0 128
+
+
+
+
+				The range can be any two numerical values, including negative values.
+			 
+
+
+
+
+seed[atom_long]: 0
+
+
+
+
+				The seed attribute sets the state of the random number generator. When seed is 0 (the default), drunk uses the time elapsed since system startup as the seed. When seed is non-zero, the value is used to initialize ("seed") the random number generator, resulting in the same predictable but statistically random sequence. You can reset the random number generator state by changing seed or with the  reset  message.
+			 
+
+
+
+
+stepsize[atom]: 2
+
+
+
+
+				The limit on the size of random steps taken; the absolute value of the step size will always be less than (in floatoutput mode, less than or equal to) the absolute value of this limit. If a negative value is specified as a step size, steps of size zero are never generated.
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				Causes drunk to take a step of random size up or down from its currently stored value. It updates the stored value and outputs it.
+			 
+
+
+
+int
+
+
+
+
+				In the left inlet: Replace the current value, send new value to the outlet.
+				 
+
+				In the middle inlet: Set the maximum value that can be output by the drunk object. If the specified maximum is less than 0 it is set to  0 .				 
+
+				In the right inlet: Set the step size taken in response to a  bang  in the left inlet. The step (up or down) will always be less than (in floatoutput mode, less than or equal to) the absolute value of this number.
+			 
+Arguments:
+input
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				In floatoutput mode, the functions are the same, but in the floating-point domain. When floatoutput is disabled, arriving values are converted to  int  during processing.
+			 
+Arguments:
+input
+      [float]
+      
+
+
+
+
+list
+
+
+
+				TEXT_HERE
+			 
+
+
+
+reset
+
+
+
+
+				With no arguments, the  reset  message resets the cycle counter to zero. (The cycle counter is used when the cycle attribute is non-zero.) When an optional int argument is present,  reset  assigns that value to the cycle counter and "fast-forwards" from the beginning of the cycle so that the next output value will be at the specified cycle position.  reset  is useful immediately after changing the seed or cycle to ensure the cycle starts or continues a consistent pattern.
+			 
+Arguments:
+cycle-index
+      [int]
+      
+
+
+
+
+set
+
+
+
+
+				The word  set , followed by a number, sets the stored value to that number without triggering output. The stored value is initially set in the center of the total range (half of the maximum value).
+			 
+Arguments:
+input
+      [int/float]
+      
+
+
+
+
+setresetvalue
+
+
+
+
+				With no arguments, the  setresetvalue  message assigns the most recent output value to be the value assigned when a cycle reset occurs. With an int argument sets the reset value to a specific number.
+			 
+Arguments:
+stored-value
+      [int]
+      
+
+Output
+
+int
+
+				The number sent out the outlet is automatically limited between 0 and the specified maximum value, and differs from the previously stored number by less than (in floatoutput mode, less than or equal to) the maximum step size.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+decide
+
+
+		Choose randomly between 1 and 0
+	
+
+
+
+random
+
+
+		Generate a random number
+	
+
+
+
+urn
+
+
+		Generate random numbers without duplicates
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

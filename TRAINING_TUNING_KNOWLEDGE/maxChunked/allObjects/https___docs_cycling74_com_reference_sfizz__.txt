@@ -1,0 +1,730 @@
+sfizz~ - MSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsfilenameAttributesbasedefaultpathnamefilenamemapmapnamemidoutputspathmoderefscalescalenamesilentvoicesvolumeannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesintfloatlist(drag)(mouse)dictionarymidieventreadreadagainsignalSee AlsoPackage MSPsfizz~
+
+		Sfz format sample player
+	 
+Description
+
+sfizz~ is a player for files in the Sfz format. The format uses simple text files that specify how audio sample files are triggered by MIDI notes and controllers. (Information on the format is available at
+		 
+			sfzformat.com
+		
+		.) The object accepts MIDI messages and produces two or more audio outputs. sfizz~ makes use of the open source
+		 
+			Sfizz library project
+		
+		that supports a
+		 
+			large subset of standard Sfz opcodes
+		
+
+Arguments
+
+
+
+filename[symbol]
+
+optional
+
+
+				Sets an initial file to load and use.
+			 
+Attributes
+
+
+
+base[float]
+
+
+
+
+				Sets the "base frequency" used when calculating frequency values (e.g., A = 440.) from MIDI notes. The default base frequency is 440 Hz.
+			 
+
+
+
+
+defaultpathname[symbol]: 
+
+
+
+
+				Note:
+				 
+					defaultpathname
+				
+				applies exclusively to dictionaries not standard Sfz format files.
+				 
+				When the
+				 
+					pathmode
+				
+				attribute is set to 1, the value of the
+				 
+					defaultpathname
+				
+				is used as the base path for sample references in a dictionary.
+			 
+
+
+
+
+filename[symbol]: 
+
+
+
+
+				SFZ File
+			 
+
+
+
+
+map[atom]
+
+
+
+
+				Keyboard Map
+			 
+
+
+
+
+mapname[symbol]
+
+
+
+
+				A set of values, given as a list, for a keyboard map in Scala format:
+				 
+
+						Size of map; the pattern repeats every so many keys (example: 12)
+					 
+
+						First MIDI note number to retune (example: 0)
+					 
+
+						Last MIDI note number to retune (example: 127)
+					 
+
+						Middle note where the first entry of the mapping is mapped to (example: 60)
+					 
+
+						Reference note for which frequency is given (example: 69)
+					 
+
+						Frequency for reference note, as a float (example: 440.0)
+					 
+
+						Frequency for reference note, as a float (example: 440.0)
+					 
+
+						Scale degree to consider as formal octave, determines difference in pitch between adjacent mapping patterns (example: 12)
+					 
+
+						Mapping (example: 0 1 2 3 4 5 6 7 8 9 10 11)
+					 
+
+				Note: to indicate an unmapped key, you can use either an "x" or "-1". At the end of the list, unmapped keys may be left out. For more information about keyboard mappings, visit
+				 
+					the Scala documentation.
+				
+
+
+
+
+
+mid[int]
+
+
+
+
+				The note number where a Scala scale begins (default 60).
+			 
+
+
+
+
+outputs[int]: 2
+
+
+
+
+				Sets the number of audio output channels. The minimum is 2 and the maximum is 1024. If you want more than the default stereo outputs, the Sfz file can specify a stereo output pair for a sample or region of samples using the  output  opcode. A value of 0 for the  output  opcode means output channels 1 and 2 in the sfizz~ object.  output  1 uses channels 3 and 4. If you created an object with 1024 audio output channels, the highest allowable value of the  output  opcode would be 511 (for channels 1023 and 1024). With any larger value of the
+				 
+					outputs
+				
+				attribute you'll want to use the mcs.sfizz~ object that combines all outputs into a single multi-channel patch cord.
+			 
+
+
+
+
+pathmode[int]: 0
+
+
+
+
+
+                  Alias:
+                 defaultpathmode
+
+				Determines how sfizz~ locates sample files when using a dictionary. Note that
+				 
+					defaultpath
+				
+				does not apply when reading in Sfz format files. For Sfz files, all samples must be specified as paths relative to the location of the Sfz file.
+			 Possible values:0 = 'Default'
+                   (
+								Use Search Path
+							 )
+								In this mode, sfizz~ locates sample files in the Max search path.
+							 1 = 'Max Library'
+                   (
+								Use Max Library folder
+							 )
+								In this mode sfizz~ prepends the full pathname of the Max library folder to any sample filename.
+							 2 = 'Last Opened Sfz File'
+                   (
+								Use the location of the most recently opened Sfz file
+							 )
+								In this mode sfizz~ prepends the full pathname of the most recently opened Sfz file to any sample filename.
+							 3 = 'Patcher File'
+                   (
+								Use the location of the patcher file containing the sfizz~ object.
+							 )
+								In this mode sfizz~ prepends the full pathname of the patcher containing the object to any sample filename.
+							 4 = 'default_path Opcode'
+                   (
+								Use a  default_path  opcode in the dictionary
+							 )
+								In this mode sfizz~ prepends the pathname of any  default_path  opcode contained in the dictionary to any sample filename.
+							 
+
+
+
+
+
+ref[int]
+
+
+
+
+				The MIDI note number assigned to the base frequency (default 69).
+			 
+
+
+
+
+scale[atom]
+
+
+
+
+				A set of values, given as a list, for a scale described using the Scala format. The first value is the count of notes, followed either by floats defining a value in cents (example: 579.47057) or a ratio of two ints (example: 5/4). For more information, see the
+				 
+					the Scala documentation.
+				
+
+
+
+
+
+scalename[symbol]
+
+
+
+
+				A valid scale name from the
+				 
+					Scala archive
+				
+				, will cause sfizz~ to use the tuning described in that scale for its MIDI to frequency conversion. For this purposes of this attribute, the file extension (.scl) can be omitted.
+			 
+
+
+
+
+silent[int]: 0
+
+
+
+
+				Suppress Informational Messages
+			 
+
+
+
+
+voices[int]: 64
+
+
+
+
+				Sets the maximum number of simultaneously sounding voices. The default is 64.
+			 
+
+
+
+
+volume[float]: 0.
+
+
+
+
+				Sets the global output volume in dB; 0 is the default while -70 is close to silence.
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+int
+
+
+
+				You can trigger samples to play with a MIDI note number in the left inlet preceded by a non-zero MIDI velocity in the right inlet. This allows you to connect a makenote object directly to sfizz~ to trigger notes.
+			 
+
+
+
+float
+
+
+
+				Converted to  int 
+
+
+
+
+list
+
+
+
+				TEXT_HERE
+			 
+
+
+
+(drag)
+
+
+
+				TEXT_HERE
+			 
+
+
+
+(mouse)
+
+
+
+				Double-click to open a text editor to display and edit the contents of the currently loaded Sfz file.
+			 
+
+
+
+dictionary
+
+
+
+				The sfizz~ object accepts Max dictionaries to define the current sample mapping. For examples of the dictionary format refer to the  dictionaries  tab of the sfizz~ help file. The location of audio sample files referenced by a dictionary is more flexible than the Sfz file relative paths used by the standard Sfz format. Refer to the description of the
+				 
+					defaultpathmode
+				
+				and
+				 
+					defaultpathname
+				
+				attributes for more details.
+				 
+				The ability to generate sample data dynamically with a patch is one use case for the dictionary feature. You can even send dictionaries to sfizz~ while it is playing notes; the new data will be utilized once all sounding notes have turned off.
+			 
+
+
+
+midievent
+
+
+
+ midievent  followed by two or more numbers, sends a MIDI note or control event to the plug-in. The first two to three numbers are bytes of the MIDI message. sfizz~ supports an extension to standard MIDI with the third velocity value: if this is a  float  instead of an  int , it will be interpreted as a "high resolution" velocity value between 0 (note-off) and 1 (maximum velocity).
+				 
+sfizz~ supports audio-rate MIDI connections from the mc.midiplayer~ object.
+			 
+
+
+
+read
+
+
+
+
+				When  read  is followed by a filename, sfizz~ will locate the file in the Max search path and load it as the current sample player specification. With no arguments,  read  will show an open file dialog prompting you to choose an Sfz file.
+				 
+				If there are errors in the file they will be reported in the Max window. A sample file referenced in the Sfz file is not a fatal error; missing samples are displayed as warnings.
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+
+
+
+readagain
+
+
+
+				The  readagain  message will reload the previously loaded Sfz file (using the  read  message).  readagain  is useful after editing Sfz files with an external text editor.
+			 
+
+
+
+signal
+
+
+
+				The sfizz~ object accepts a signal connection to mc.midiplayer~ for sending audio-rate sample-accurate MIDI events. Connections from other signal objects to sfizz~ are ignored.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+makenote
+
+
+		Generate a note-on/note-off pair
+	
+
+
+
+midiformat
+
+
+		Prepare data in the form of a MIDI message
+	
+
+
+
+mc.midiplayer~
+
+
+		Generate MIDI Events from Audio Signals
+	
+
+
+
+mtof~
+
+
+		Convert a MIDI note number to frequency at signal rate
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

@@ -1,0 +1,516 @@
+mc.mixdown~ - MC Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsoutput-channel-countAttributesactivechansautogainbusymapnamechanslinearpanmodelinearpanscalefactorpancontrolmodepansusebusymapannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagessignalSee AlsoPackage MCmc.mixdown~
+
+		Mix and pan a multichannel signal
+	 
+Description
+
+		The mc.mixdown~ object mixes channels in a multichannel signal connected to its left inlet to a multichannel output. mc.mixdown~ can use a signal connected to its right inlet to pan the channels of its left (mix) input signal.
+	 
+Arguments
+
+
+
+output-channel-count[int]
+
+optional
+
+
+				An optional argument sets the number of channels in the multichannel output signal (default 2).
+			 
+Attributes
+
+
+
+activechans[int]
+
+
+
+
+				Setting the activechans attribute reduces the number of channels that will be used for mixing. Extra channels will be set to zero. Use of activechans provides a way to set different output mix channel counts without repatching. For example, you could switch your patch from multichannel to stereo output by using an mc.mixdown~ object with an argument of 5, then setting activechans to 2 at runtime.
+			 
+
+
+
+
+autogain[int]: 0
+
+
+
+
+				When autogain is enabled, overall gain is scaled by the number of output channels (as determined by the activechans attribute) divided by the number of input channels.
+			 
+
+
+
+
+busymapname[symbol]
+
+
+
+
+
+                  Alias:
+                 bzname
+
+				When the usebusymap attribute is enabled, mc.mixdown~ uses the local busy map of any mc.voiceallocator~ or mc.noteallocator~ object in the same patcher by default. To use a named global busy map instead, set the busymapname attribute to the desired name.
+			 
+
+
+
+
+
+chans[int]
+
+
+
+
+				Sets the number of output channels in the multichannel output. If chans is sent to the object when audio is on, the number of output channels will not change until the audio is turned off and back on again.
+			 
+
+
+
+
+linearpanmode[int]: 0
+
+
+
+
+				When enabled, mc.mixdown~ applies a linear pan scaling factor to all input channels. This scaling factor is set by the linearpanscalefactor attribute (default 1). When linearpanmode is disabled (the default), mc.mixdown~ applies a constant power pan scale factor (square root of 2 over 2).
+			 
+
+
+
+
+linearpanscalefactor[float]: 1.
+
+
+
+
+				Sets the panning scale factor to apply to all input channels when linearpanmode is enabled (default 1).
+			 
+
+
+
+
+pancontrolmode[int]: 0
+
+
+
+
+				The pancontrolmode determines how mc.mixdown~ interprets values in its pan input signal. In all pan control modes, values outside the specified range are wrapped around to be within the range.
+			 Possible values:0 = 'Circle (0 - 1)'
+                  
+								When pancontrolmode is 0 (default), mc.mixdown~ interprets pan values in a circular map with 0.5 defined as the "front" position between the two middle channels (if there are an even number of output channels) or the center channel (if there are an odd number of output channels). For stereo output, panning all the way to the left (channel 1) is at 0.25 and panning all the way to the right (channel 2) is at 0.75. For higher output channel counts, exact pan for a specific channel can be calculated by dividing 1 by twice the number of output channels and then using odd numbers for the value of the numerator. For example, for 4 channels, the exact pan for channel 1 is at 1/8 (0.125), channel 2 is at 3/8 (0.375), channel 3 is at 5/8 (0.625), and channel 4 is at 7/8 (0.875). (If all this math seems daunting, look at the other pancontrolmode settings below.)
+							 1 = 'Line (0 - 1)'
+                  
+								When pancontrolmode is 1, all channels are arranged in a line with panning to the first channel at 0 and the last channel at 1. This prevents any panning between the first and last channel in a case where the number of outputs are larger than 2. However, for the 2-channel output case where this is not an issue, it is often more convenient to produce a signal where 0 represents channel 1 and 1 represents channel 2.
+							 2 = 'Line (1 - N)'
+                  
+								When pancontrolmode is 2, all channels are arranged in a line with panning to the first channel at 1 and the last channel when the the pan value is equal to the output channel count. This prevents any panning between the first and last channel in a case where the number of outputs are larger than 2.
+							 3 = 'Circle (0 - N)'
+                  
+								When pancontrolmode is 3, mc.mixdown~ interprets pan values in a circular map where panning only to each output channel is represented by a whole number. Values between 0 and 1 represent a pan position between the first and last output channels.
+							 
+
+
+
+
+pans[atom]
+
+
+
+
+				Pan Values
+			 
+
+
+
+
+usebusymap[int]
+
+
+
+
+
+                  Alias:
+                 bz
+
+				When usebusymap is enabled, mc.mixdown~ will not mix non-busy channels in its mix input. This can increase efficiency and avoid unpleasant noise when mixing channels that are not set to zero. Note that the way mc.mixdown~ uses the busy map is somewhat different from the way the MC wrapper uses it, but the two systems are designed to work together.
+			 
+
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+signal
+
+
+
+				In left inlet: a multichannel signal to mix
+				 
+				In right inlet: a single- or multichannel signal with pan information
+				 
+
+				Without a signal connected to the right inlet, mc.mixdown~ alternates input channels to output channels (output channel 1 contains inputs 1, 3, 5, ... and output channel 2 contains input 2, 4, 6...). With a signal connected to the right inlet, mc.mixdown~ performs N-way panning. The pan behavior is determined by the linearpanmode, pancontrolmode, and activechans attributes.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+MC Channel Topology
+
+MC Channel Topology
+
+
+
+MC Mixing and Panning
+
+MC Mixing and Panning
+
+
+
+MC Hardware Interfacing
+
+MC Hardware Interfacing
+
+
+
+mc.dac~
+
+
+		Multichannel audio output and on/off
+	
+
+
+
+mc.live.gain~
+
+
+		Decibel volume slider and monitor
+	
+
+
+
+gain~
+
+
+		Gain control
+	
+
+
+
+mc.op~
+
+
+		Apply arithmetic operators to a multichannel signal
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

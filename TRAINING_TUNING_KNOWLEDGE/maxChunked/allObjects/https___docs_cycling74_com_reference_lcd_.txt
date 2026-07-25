@@ -1,0 +1,1436 @@
+lcd - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageArgumentsAttributesbgtransparentborderenablespritesidlelocalannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesanythingasciibackspritebrgbclearclearpictsclearspritesclosespritecolordeletepictdeletespritedrawpictdrawspritefontframearcframeovalframepolyframerectframeroundrectfrgbfrontspritegetpenlocgetpixelgetsizehidespritelinelinesegmentlineto(mouse)movemovetooprgbpaintarcpaintovalpaintpolypaintrectpaintroundrectpenmodepensizereadpictrecordspriteresetscrollrectsetpixelsizetextfacetilepictwritewritepictOutputintlistlistpenlocupdateSee AlsoPackage Maxlcd
+
+		Display graphics (deprecated)
+	 
+Arguments
+None.Attributes
+
+
+
+bgtransparent[int]: 0
+
+
+
+
+				Toggles background transparency. The message  bgtransparent 1  sets the background of the lcd object to transparent. When set to 1, the background of the object remains transparent until you clear it using the  clear  message. When the attribute value is set to 0 (the default) the background is initially white, consistent with earlier versions of Max.
+			 
+
+
+
+
+border[int]: 1
+
+
+
+
+				The word  border , followed by a zero or one, toggles the drawing of a border around the lcd object's window, which is on by default. A message of  border 0  turns this feature off.
+			 
+
+
+
+
+enablesprites[int]: 0
+
+
+
+
+				Toggles the drawing of sprites. The message  enablesprites 0  turns this feature off (the default). When sprites are enabled, lcd consumes more memory.
+			 
+
+
+
+
+idle[int]: 0
+
+
+
+
+				Toggles the reporting of idle mouse position over an lcd object. The coordinates of the mouse position are sent out the middle outlet as a two-item list as the mouse moves. The numbers represent local coordinates relative to the top-left corner of the lcd display area. The first number is the number of pixels to the right of that corner, and the second number is the number of pixels down from that corner.  idle 0  turns off this feature, which is off by default.
+			 
+
+
+
+
+local[int]: 1
+
+
+
+
+				Toggles drawing in the lcd with the mouse. The message  local 1  turns the feature on (the default). In either case, lcd will still report the location of the mouse as it is dragged within the object's rectangle.
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+anything
+
+
+
+
+ anything  refers to the backwards-compatible capitalized messages.
+			 
+Arguments:
+arguments
+      [list]
+      
+
+
+
+
+ascii
+
+
+
+
+				The word  ascii , followed by a number between 0 and 255, writes the character corresponding to that ASCII value at the current pen position, then moves the pen position to the right of that character. Numbers that exceed the 0-255 range are restricted to that range with a modulus operation.
+			 
+Arguments:
+ascii value
+      [int]
+      
+
+
+
+
+backsprite
+
+
+
+
+				The word  backsprite , followed by a symbol, sets the named sprite's drawing order so that it is drawn first (and displayed last). This command can be used to alter the order in which sprites are drawn. (Normally, sprites are drawn in the order they are recorded.)
+			 
+Arguments:
+any symbol
+      [list]
+      
+
+
+
+
+brgb
+
+
+
+
+				Set the background color
+			 
+Arguments:
+
+red
+      [int]
+      
+green
+      [int]
+      
+blue
+      [int]
+      
+
+
+
+
+
+clear
+
+
+
+
+				Erase the contents of the lcd display
+			 
+Arguments:
+arguments
+      [list]
+      
+
+
+
+
+clearpicts
+
+
+
+				The word  clearpicts , followed by a symbol, deletes all of an lcd object's named pictures from memory so that they can no longer be drawn. To remove the images from the lcd object's display, the command should be followed by a  clear  message.
+			 
+
+
+
+clearsprites
+
+
+
+				Deletes all of an lcd object's named sprites.
+			 
+
+
+
+closesprite
+
+
+
+
+				The word  closesprite , followed by a symbol argument that names the sprite, turns off sprite command collection and associates the defined region with the symbol. After the  closesprite  message, drawing commands function normally again.
+			 
+Arguments:
+any symbol
+      [list]
+      
+
+
+
+
+color
+
+
+
+
+				Max color palette selections are specified by a number in the range 0 - 255. Values exceeding 255 are range-restricted using a modulus operation.
+			 
+Arguments:
+color-id
+      [int]
+      
+
+
+
+
+deletepict
+
+
+
+
+				The word  deletepict , followed by a symbol, deletes the named the picture from memory so that it can no longer be drawn. To remove the image from the lcd object's display, the command should be followed by a  clear  message.
+			 
+Arguments:
+any symbol
+      [list]
+      
+
+
+
+
+deletesprite
+
+
+
+
+				The word  deletesprite , followed by a symbol, deletes the named sprite.
+			 
+Arguments:
+any symbol
+      [list]
+      
+
+
+
+
+drawpict
+
+
+
+
+				The word  drawpict , followed by a symbol, draws the named picture. Optionally there may follow four numbers specifying a destination rectangle in which the picture is scaled and drawn, and source rectangle that specifies the area of the picture to use in the operation. These rectangles are specified as left, top, width, and height values in pixels. The destination rectangle is relative to the top left corner of the lcd display area. The source rectangle is relative to the top, left corner of the picture. If not present, these rectangles are both set to be the same size as the picture.
+			 
+Arguments:
+arguments
+      [list]
+      
+
+
+
+
+drawsprite
+
+
+
+
+				The word  drawsprite , followed by a symbol, draws the named sprite. Optionally this may be followed by a pair of numbers that specify a horizontal and vertical offset for drawing the sprite.
+			 
+Arguments:
+any symbol
+      [list]
+      
+
+
+
+
+font
+
+
+
+
+				The  font  message specifies a font ID using the font number mapping that Max 6 uses generally and a font size to select a font used when drawing text in response to a  write  or  ascii  message.
+			 
+Arguments:
+
+font-id
+      [list]
+      
+font-size ()
+      [list]
+      
+
+
+
+
+
+framearc
+
+
+
+
+				Same as  paintarc  except that only the unfilled outline of the arc is drawn.
+			 
+Arguments:
+
+left ()
+      [int]
+      
+top ()
+      [int]
+      
+right ()
+      [int]
+      
+bottom ()
+      [int]
+      
+start-angle
+      [degrees]
+      
+degrees-arc
+      [degrees]
+      
+red
+      [int]
+      
+green
+      [int]
+      
+blue
+      [int]
+      
+
+
+
+
+
+frameoval
+
+
+
+
+				Same as  paintoval  except that only the unfilled outline of the oval is drawn.
+			 
+Arguments:
+
+left ()
+      [int]
+      
+top ()
+      [int]
+      
+right ()
+      [int]
+      
+bottom ()
+      [int]
+      
+red
+      [int]
+      
+green
+      [int]
+      
+blue
+      [int]
+      
+
+
+
+
+
+framepoly
+
+
+
+
+				Same as  paintpoly  except that only the unfilled outline of the polygon is drawn.
+			 
+Arguments:
+x/y int pairs
+      [list]
+      
+
+
+
+
+framerect
+
+
+
+
+				Same as  paintrect  except that only the unfilled outline of the rectangle is drawn.
+			 
+Arguments:
+
+left ()
+      [int]
+      
+top ()
+      [int]
+      
+right ()
+      [int]
+      
+bottom ()
+      [int]
+      
+red
+      [int]
+      
+green
+      [int]
+      
+blue
+      [int]
+      
+
+
+
+
+
+frameroundrect
+
+
+
+
+				Same as  paintroundrect  except that only the unfilled outline of the rounded rectangle is drawn.
+			 
+Arguments:
+
+left ()
+      [int]
+      
+top ()
+      [int]
+      
+right ()
+      [int]
+      
+bottom ()
+      [int]
+      
+horizontal-roundness ()
+      [int]
+      
+vertical-roundness ()
+      [int]
+      
+red
+      [int]
+      
+green
+      [int]
+      
+blue
+      [int]
+      
+
+
+
+
+
+frgb
+
+
+
+
+				Set the foreground (pen) color
+			 
+Arguments:
+
+red ()
+      [int]
+      
+green ()
+      [int]
+      
+blue ()
+      [int]
+      
+
+
+
+
+
+frontsprite
+
+
+
+
+				The word  frontsprite , followed by a symbol, sets the named sprite's drawing order so that it is drawn last (and displayed first). This command can be used to alter the order in which sprites are drawn. (Normally, sprites are drawn in the order they are recorded.)
+			 
+Arguments:
+any symbol
+      [list]
+      
+
+
+
+
+getpenloc
+
+
+
+
+				The word  getpenloc  outputs a message consisting of the word  penloc  followed by two numbers, out the lcd object's right outlet. The numbers represent local coordinates relative to the top-left corner of the lcd display area. The first number is the number of pixels to the right of that corner, and the second number is the number of pixels down from that corner.
+			 
+Arguments:
+local-coordinates
+      [list]
+      
+
+
+
+
+getpixel
+
+
+
+
+				The word  getpixel , followed by two integers specifying an offset from the top left corner of the lcd object's display, sends a message consisting of the word  pixel  followed by three numbers that specify the color of the pixel in RGB format and two additional numbers that specify the pixel offset.
+			 
+Arguments:
+
+x-offset ()
+      [int]
+      
+y-offset ()
+      [int]
+      
+
+
+
+
+
+getsize
+
+
+
+				Ouputs a message from the right outlet consisting of the word  size  and two numbers which report the width and height in pixels of the lcd display area.
+			 
+
+
+
+hidesprite
+
+
+
+
+				Disable the drawing of a named sprite
+			 
+Arguments:
+any symbol
+      [list]
+      
+
+
+
+
+line
+
+
+
+
+				The word  line , followed by two int arguments for horizontal and vertical offset, in pixels, relative to the current pen position, draws a line from the current pen position to a point determined by the specified offset, and that point becomes the new pen position. Positive arguments draw the line to the right or down; negative arguments draw up or to the left.
+			 
+Arguments:
+
+x position
+      [int]
+      
+y position
+      [int]
+      
+
+
+
+
+
+linesegment
+
+
+
+
+				The word  linesegment , followed by four int arguments that specify the endpoints of a line segment, draw a line. The numbers represent the horizontal and vertical offset of the beginning endpoint, and the horizontal and vertical offset of the finishing endpoint, in pixels, relative to the top left corner of the lcd display area. A color may optionally be specified using a single number that selects a color from Max's color palette (similar to the  color  message), or by using three additional numbers that describe an RGB value (similar to the  frgb  message).
+			 
+Arguments:
+
+x start ()
+      [int]
+      
+y start ()
+      [int]
+      
+x end ()
+      [int]
+      
+y end ()
+      [int]
+      
+
+
+
+
+
+lineto
+
+
+
+
+				The word  lineto , followed by two int arguments for horizontal and vertical ending point, draws a line from the current pen position to the position specified by the arguments.
+			 
+Arguments:
+
+x endpoint
+      [int]
+      
+y endpoint
+      [int]
+      
+
+
+
+
+
+(mouse)
+
+
+
+				You can draw freehand in lcd with the mouse (provided this feature has not been turned off with a local 0 message). The mouse will draw with the current pen and color characteristics, and the mouse location will be sent out the outlet.
+			 
+
+
+
+move
+
+
+
+
+				Moves the pen position a certain number of pixels down from, and to the right of, its current position. The word  move  must be followed by two int arguments for horizontal and vertical offset, in pixels, relative to the current pen position. Negative arguments may be used to move the pen position up or to the left.
+			 
+Arguments:
+
+x position
+      [int]
+      
+y position
+      [int]
+      
+
+
+
+
+
+moveto
+
+
+
+
+				Sets the pen position at which the next graphic instruction will be drawn. The  moveto  message must include two int arguments for horizontal and vertical offset, in pixels, relative to the upper left corner of the lcd display area.
+			 
+Arguments:
+
+x position
+      [int]
+      
+y position
+      [int]
+      
+
+
+
+
+
+oprgb
+
+
+
+
+				The word  oprgb , followed by three numbers between 0 and 255, specify an RGB value used as the opcolor for penmodes that support it.
+				 
+				If the penmode is set to 32, the alpha channel value is derived by averaging the three RGB values and mapping the average to the range 0. - 1.0 (e.g., an oprgb value of 128 128 128 would have an alpha value of .5 when the penmode is set to 32).
+			 
+Arguments:
+
+red
+      [int]
+      
+green
+      [int]
+      
+blue
+      [int]
+      
+
+
+
+
+
+paintarc
+
+
+
+
+				The word  paintarc , followed by six int arguments that specify the left, top, right, and bottom extremities of an oval across which the arc will be drawn, the start angle (0 is the top) and degrees of arc, paints an arc.
+			 
+Arguments:
+
+left ()
+      [int]
+      
+top ()
+      [int]
+      
+right ()
+      [int]
+      
+bottom ()
+      [int]
+      
+start-angle
+      [degrees]
+      
+degrees-arc
+      [degrees]
+      
+red
+      [int]
+      
+green
+      [int]
+      
+blue
+      [int]
+      
+
+
+
+
+
+paintoval
+
+
+
+
+				The word  paintoval , followed by four int arguments specifying the left, top, right, and bottom extremities of an oval, paints an oval. These extremities are specified in pixels, relative to the top left corner of the lcd display area. A color may optionally be specified using a single number that selects a color from Max's color palette (similar to the  color  message), or by using three additional numbers that describe an RGB value (similar to the  frgb  message).
+			 
+Arguments:
+
+left ()
+      [int]
+      
+top ()
+      [int]
+      
+right ()
+      [int]
+      
+bottom ()
+      [int]
+      
+red
+      [int]
+      
+green
+      [int]
+      
+blue
+      [int]
+      
+
+
+
+
+
+paintpoly
+
+
+
+
+				The word  paintpoly  may be followed by as many as 254 int arguments that would specify a series of x/y pairs that define a polygon to be painted in lcd. These x/y pairs are specified in pixels, relative to the top left corner of the lcd display area.
+			 
+Arguments:
+x/y int pairs
+      [list]
+      
+
+
+
+
+paintrect
+
+
+
+
+				Left, top, right and bottom positions for the rectangle are specified in pixels, relative to the top left corner of the lcd display area when painting a filled rectangle. A color may optionally be specified using a single number that selects a color from Max's color palette (similar to the  color  message), or by using three additional numbers that describe an RGB value (similar to the  frgb  message).
+			 
+Arguments:
+
+left ()
+      [int]
+      
+top ()
+      [int]
+      
+right ()
+      [int]
+      
+bottom ()
+      [int]
+      
+red
+      [int]
+      
+green
+      [int]
+      
+blue
+      [int]
+      
+
+
+
+
+
+paintroundrect
+
+
+
+
+				The word  paintroundrect , followed by six int arguments specifying the left, top, right, and bottom positions of a rectangle and the amount of horizontal and vertical roundness in pixels, paints a rounded rectangle. The edge positions are specified in pixels, relative to the top left corner of the lcd display area. A color may optionally be specified using a single number that selects a color from Max's color palette (similar to the  color  message), or by using three additional numbers that describe an RGB value (similar to the  frgb  message).
+			 
+Arguments:
+
+left ()
+      [int]
+      
+top ()
+      [int]
+      
+right ()
+      [int]
+      
+bottom ()
+      [int]
+      
+horizontal-roundness ()
+      [int]
+      
+vertical-roundness ()
+      [int]
+      
+red
+      [int]
+      
+green
+      [int]
+      
+blue
+      [int]
+      
+
+
+
+
+
+penmode
+
+
+
+
+				The word  penmode , followed by a number in the range 0-7, sets the transfer mode for subsequent drawing operations. The following are transfer mode constants;
+				 
+
+				Copy 0
+				 
+				Or 1
+				 
+				Xor 2
+				 
+				Bic 3
+				 
+				NotCopy 4
+				 
+				NotOr 5
+				 
+				NotXor 6
+				 
+				NotBic 7
+				 
+
+Arguments:
+transfer-mode
+      [list]
+      
+
+
+
+
+pensize
+
+
+
+
+				The word  pensize , followed by two equal int arguments specifying horizontal and vertical thickness in pixels (e.g., 4 4), sets the current pensize. The horizontal and vertical thicknesses must be equal.
+			 
+Arguments:
+
+horizontal-thickness ()
+      [int]
+      
+vertical-thickness ()
+      [int]
+      
+
+
+
+
+
+readpict
+
+
+
+
+				The word  readpict  followed by a symbol which specifies a filename, looks for a graphic file (a .pct  file openable on Windows using the QuickTime Picture Viewer for Windows) with that name in Max's file search path, and reads the picture file from disk into RAM. This named picture can then be drawn in lcd with the  drawpict  and  tilepict  messages. In response to the  readpict  message, the object sends a message out the right outlet of the lcd object consisting of the word  pict  followed by a symbol which specifies the name of the picture file and two numbers which specify the file's width and height. If the read is unsuccessful, the error message  pict <pictname> error  will be sent out the right outlet.
+			 
+Arguments:
+filename
+      [list]
+      
+
+
+
+
+recordsprite
+
+
+
+				Initiates the recording of drawing commands which will be stored in a named sprite. While recording, drawing commands will have no effect on the contents of the lcd object's window.
+			 
+
+
+
+reset
+
+
+
+
+				The  erase  message erases the current display and resets the colors, pen, and pen position to their default states. It is equivalent to the message
+				 
+
+ clear, pensize 1, penmode 0, frgb 0 0 0, brgb 255 255 255, moveto 0 0 
+
+Arguments:
+arguments
+      [list]
+      
+
+
+
+
+scrollrect
+
+
+
+
+				The word  scrollrect , followed by six int arguments that specify the left, top, right, and bottom positions of a rectangle to be scrolled and the number of pixels to scroll in the x and y direction, scrolls a rectangle within the lcd object's display area.
+			 
+Arguments:
+
+left ()
+      [int]
+      
+top ()
+      [int]
+      
+right ()
+      [int]
+      
+bottom ()
+      [int]
+      
+x-offset ()
+      [int]
+      
+y-offset ()
+      [int]
+      
+
+
+
+
+
+setpixel
+
+
+
+
+				The word  setpixel , followed by two numbers which specify a location in local coordinates relative to the top-left corner of the lcd display area and a list of three integers in the range 0-255 which specify a color in RGB format, will set the pixel at the designated location to the selected color.
+			 
+Arguments:
+
+x coordinate
+      [int]
+      
+y coordinate
+      [int]
+      
+red
+      [int]
+      
+green
+      [int]
+      
+blue
+      [int]
+      
+
+
+
+
+
+size
+
+
+
+
+				The word  size , followed by two integers, changes the lcd object window size. The Maximum size is 8192 x 8192.
+			 
+Arguments:
+
+horizontal-size ()
+      [int]
+      
+vertical-size ()
+      [int]
+      
+
+
+
+
+
+textface
+
+
+
+
+				The word  textface , followed by one or more names specifying text style(s), sets the font style(s) to be used when rendering text. Text style names are  normal ,  bold , and  italic .
+			 
+Arguments:
+text-styles
+      [list]
+      
+
+
+
+
+tilepict
+
+
+
+
+				The word  tilepict , followed by a picture name argument, fills a rectangle by tiling a picture. Optionally there may follow, four numbers that specify a destination rectangle in which the picture is tiled and four numbers that specify a source rectangle that specifies the area of the picture to use in the operation. These rectangles are specified as left, top, width, and height values in pixels. The destination rectangle is relative to the top left corner of the lcd display area. The source rectangle is relative to the top, left corner of the picture. If not present, the destination rectangle is set to the same size of lcd, and the source rectangle is set to be the same size as the picture.
+			 
+Arguments:
+arguments
+      [list]
+      
+
+
+
+
+write
+
+
+
+
+				The word  write , followed by any symbol, writes that symbol beginning at the current pen position, and moves the pen position to the end of the text.
+			 
+Arguments:
+any symbol
+      [list]
+      
+
+
+
+
+writepict
+
+
+
+
+				The word  writepict , followed by an optional filename argument, writes the current contents of the lcd display area to a PNG file.
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+Output
+
+int
+
+				Out 3rd outlet: A  1  is sent out the third outlet if the mouse button is currently being held down. A  0  is sent, otherwise.
+			 
+
+
+list
+
+				Out 1st outlet: When you draw in the lcd with the mouse button held down, the coordinates of the mouse position are sent out the outlet as a two-item list as the mouse moves. The numbers represent local coordinates relative to the top-left corner of lcd. The first number is the number of pixels to the right of that corner, and the second number is the number of pixels down from that corner.
+			 
+
+
+list
+
+				Out 2nd outlet: If the  idle  attribute is set to one, the coordinates of the mouse position are sent out the second outlet as a two-item list as the mouse moves. The numbers represent local coordinates relative to the top-left corner of the lcd display area. The first number is the number of pixels to the right of that corner, and the second number is the number of pixels down from that corner.
+			 
+
+
+penloc
+
+				Out 4th outlet: In response to the  getpenloc  message, lcd outputs a message consisting of the word  penloc  followed by two numbers representing the pen location in local coordinates relative to the top-left corner of the lcd display area. The first number is the number of pixels to the right of that corner, and the second number is the number of pixels down from that corner.
+			 
+
+
+update
+
+				Out 4th outlet: The word  update  is output whenever lcd receives an update message from Max telling it to redraw itself. This is only done when lcd is in onscreen mode
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+mousestate
+
+
+		Report the mouse information
+	
+
+
+
+panel
+
+
+		Colored background area
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

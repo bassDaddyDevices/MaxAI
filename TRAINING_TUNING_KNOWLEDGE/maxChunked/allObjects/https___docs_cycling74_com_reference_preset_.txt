@@ -1,0 +1,770 @@
+preset - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsAttributesactive1bgcolorbubblesizedirtyembedemptycolorignoreconnectedignoreemptyinterpparamonlypattrstoragestored1styletextcolorannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangintfloatlistanythingclearclearall(mouse)namereadrecallmultisetnamestorewriteOutput(internal)intint or floatConnectionschoosernodesumenuSee AlsoPackage Maxpreset
+
+		Store and recall settings
+	 
+Description
+
+preset can store and recall the parameters of any specified user interface objects at the click of a mouse. It can also be used as a user interface link to a named pattrstorage object.
+	 
+Arguments
+None.Attributes
+
+
+
+active1[4 floats]
+
+
+
+
+				Sets the active preset color of the object in RGBA format
+			 
+
+
+
+
+bgcolor[4 floats]
+
+
+
+
+				Sets the background color of the object in RGBA format
+			 
+
+
+
+
+bubblesize[int32]: 8
+
+
+
+
+				Sets the size of the preset "bubble", in pixels. A bubble must be larger than 2 pixels.
+			 
+
+
+
+
+dirty[int]: 0
+
+
+
+
+				When enabled, storing or clearing a preset will mark the parent patcher of the preset dirty so you will be prompted to save changes when closing the document.
+			 
+
+
+
+
+embed[int]: 1
+
+
+
+
+				Toggles the ability to save your presets as part of the main patch (The default behavior is 1 (save presets with the patcher).
+			 
+
+
+
+
+emptycolor[4 floats]
+
+
+
+
+				Sets the empty slot color of the object in RGBA format.
+			 
+
+
+
+
+ignoreconnected[int]: 0
+
+
+
+
+				Ignore Objects Connected to Preset Inlet
+			 
+
+
+
+
+ignoreemptyinterp[int]: 1
+
+
+
+
+				Ignore Empty Multi Interpolation
+			 
+
+
+
+
+paramonly[int]: 0
+
+
+
+
+				When enabled, preset will store only parameters in objects connected to its rightmost outlet instead of all attributes. This applies only to objects with parameters such as gen~ and rnbo~.
+			 
+
+
+
+
+pattrstorage[symbol]
+
+
+
+
+				the  pattrstorage  attribute takes as its argument the name of a pattrstorage object and sets the preset object to allow its use as a user interface object for the named pattrstorage object's contents.
+			 
+
+
+
+
+stored1[4 floats]
+
+
+
+
+				Sets the stored preset color of the object in RGBA format.
+			 
+
+
+
+
+style[symbol]: 
+
+>= 7.0.0
+
+
+				Sets the style to be applied to the object. Styles can be set using the Format Palette.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the text color of the object in RGBA format.
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				Sends out the settings of the preset that was most recently recalled with an  int  or a mouse click.
+			 
+
+
+
+int
+
+
+
+
+				Sending any integer will trigger the preset of the same number.
+			 
+Arguments:
+slotnumber
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				A float recalls a preset that is a linear interpolation between two adjacent presets. The first preset is the integer part of the float value and the second preset is the next highest integer. The weight of the first preset is 1 minus the decimal part of the float value. The weight of the second preset is the decimal part of the float value. For example with an input of 2.7, preset 2 will contribute 30% and preset 3 will contribute 70%. Not all objects that store data in a preset can interpolate their stored data. For these objects, the data used will be selected from the preset slot with the highest weighting.
+			 
+Arguments:
+interpolation_value
+      [float]
+      
+
+
+
+
+list
+
+
+
+				See the  bang  listing.
+			 
+
+
+
+anything
+
+
+
+
+				If a preset with a matching name is found, it is recalled.
+			 
+Arguments:
+name
+      [symbol]
+      
+
+
+
+
+clear
+
+
+
+
+				Erases the contents of the most recently sent preset. The word  clear , followed by a number, erases the contents of that numbered preset.
+			 
+Arguments:
+slotnumber
+      [int]
+      
+
+
+
+
+clearall
+
+
+
+				Erases the contents of all presets.
+			 
+
+
+
+(mouse)
+
+
+
+				Clicking on a button in the preset object will recall a stored preset.
+				 
+
+				Shift-clicking on a button in the preset object will store a preset.
+				 
+
+				The number of visible presets can be adjusted by resizing the preset object's box. The maximum number of presets in a single preset object is 2048.
+			 
+
+
+
+name
+
+
+
+
+				The word  name , followed by a symbol, sets the ID Name for the preset. The ID Name allows the preset to have a unique ID so that files created for it will not read into other presets.
+			 
+Arguments:
+ID
+      [symbol]
+      
+
+
+
+
+read
+
+
+
+
+				The word  read , followed by no arguments or a number, displays an Open Document dialog box for choosing a file of preset data to read. If the preset has been given a Preset Name Code, only files of the type specified by the code will be displayed. The number argument specifies the preset number into which the file data should be read. If the number is 0 or -1, the data in the file will be read into the number of presets contained in the file starting with the first one. If the word  read  is followed by a symbol or a number and a symbol, no dialog box is displayed. Instead, the symbol is taken as a filename from which to read presets. The number functions as previously described.
+			 
+Arguments:
+
+filename
+      [symbol]
+      
+slotnumber
+      [int]
+      
+
+
+
+
+
+recallmulti
+
+
+
+
+				The arguments to  recallmulti  are a series of float values representing preset slots (the integer part) and weights (the decimal part). The preset values recalled are the weighted combination of all the presets. Weights are normalized so they are not required to add to 1. Example:  recallmulti 4.6 6.1 3.3  will combine preset slots 4, 6, and 3 with weights of 0.6, 0.1, and 0.3 respectively. Not all objects that store data in a preset can interpolate their stored data. For these objects, the data used will be selected from the preset slot with the highest weighting.
+			 
+Arguments:
+preset_weights
+      [list]
+      
+
+
+
+
+setname
+
+
+
+
+ setname  followed by an  int  slot number and a name, assigns the name to the slot number. Names will be displayed when moving the mouse over a slot or when connecting a umenu or chooser object to a preset. Once assigned a name, presets can be recalled by sending the name as a message.
+				 
+				If the slot number is 0, the name will be assigned to the current preset.
+			 
+Arguments:
+
+slotnumber
+      [int]
+      
+name
+      [symbol]
+      
+
+
+
+
+
+store
+
+
+
+
+				The word  store , followed by a number, stores the current setting of all user interface objects in the same window in the preset indicated by the number. If an optional name argument is present, it is assigned to the stored preset.
+				 
+
+				Presets are numbered left-to-right, top-to-bottom. When settings are stored in a preset, the dot's color changes to indicate that it contains something. Settings can also be stored in a preset by holding down the Shift key and clicking on the preset with the mouse.
+				 
+
+Arguments:
+
+slotnumber
+      [int]
+      
+name
+      [symbol]
+      
+
+
+
+
+
+write
+
+
+
+
+				The word  write , followed by no arguments or a number, displays a Save As dialog box for specifying a destination filename for writing the preset data. If the preset has been given a Preset Name Code, the file is given this code as its file type. The number argument specifies the preset number from which the preset data should be written. If the number is 0 or -1, all presets will be written. If the word  write  is followed by a symbol or a number and a symbol, no dialog box is displayed. Instead, the symbol is taken as a filename to use for writing the data, and the file will be placed in the current default folder. The number functions as previously described.
+			 
+Arguments:
+
+filename
+      [symbol]
+      
+slotnumber
+      [int]
+      
+
+
+Output
+
+(internal)
+
+				Third outlet: Any user interface objects connected to the third outlet of preset will be excluded from the effects of that preset. (This is particularly useful when there are many objects you want to affect with preset, and only a few you want to exclude.)
+				 
+
+				Objects whose data is stored in a preset include almost all user interface objects. Although an itable object will get stored and recalled, a table object must be connected to the preset object's first outlet with a patch cord.
+				 
+
+				The first outlet of preset can also be connected to a send object, to communicate with objects connected to a receive object of the same name.
+				 
+
+
+
+
+int
+
+				Out second outlet: When a preset is recalled, the number of the preset is sent out.
+				 
+
+				Out fourth outlet: When a preset is stored, the number of the preset is sent out.
+			 
+
+
+int or float
+
+				Out left (first) outlet: When a preset is recalled, either by a mouse click or by a number in the inlet, the settings stored in that preset are sent out the outlet to all connected objects, or, if no objects are connected, to all user interface objects in the patcher.
+				 
+
+				Out right (fifth) outlet: Similar to the left outlet, but the right outlet will also send out attribute states for all connected objects that were stored with the preset.
+			 
+Connections
+
+chooser
+
+				Connecting a chooser object to the inlet of preset displays the numbers and names of all presets. Clicking on a row in chooser will recall the displayed preset. The chooser display updates as presets are are added, removed, or named.
+			 
+
+
+nodes
+
+				Connecting a nodes object to the inlet of preset adds a node for each preset up to a maximum set by the maxdynamicnodes attribute of the nodes object. Once connected, nodes serves as a user interface for multi-way interpolation as described under the  recallmulti  message.
+			 
+
+
+umenu
+
+				Connecting a umenu object to the inlet of preset displays the numbers and names of all presets in a menu. Choosing a menu item from umenu will recall the displayed preset. The menu will update as presets are added, removed, or named.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+grab
+
+
+		Intercept the output of another object
+	
+
+
+
+pattstorage
+
+
+
+
+
+nodes
+
+
+		Interpolate data graphically
+	
+
+
+
+umenu
+
+
+		Pop-up menu
+	
+
+
+
+chooser
+
+
+		Display a scrolling list of selectable items
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

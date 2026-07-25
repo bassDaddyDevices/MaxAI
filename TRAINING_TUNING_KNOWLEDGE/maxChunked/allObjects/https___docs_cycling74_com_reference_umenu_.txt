@@ -1,0 +1,1355 @@
+umenu - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsAttributesalignallowdragannotation_nameapplycolorsarrowautopopulatebgfillcolorblanksymcollectioncolordepthelementcoloritemslabelclickmenumodeparam_connectparameter_enableparameter_mappablepattrmodeprefixprefix_modeshowdotfilesstyletextcolortruncatetypesunderlineannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameOrderParameter Mode EnableLink to Scripting NameLong NameShort NameTypeRange/EnumClip Modulation ModeClip Modulation RangeInitial EnableInitialUnit StyleCustom UnitsExponentStepsControl Surface Button ModeParameter VisibilityUndo When VisibleUpdate Limit (ms)Defer Automation OutputMessagesbangintfloat(drag)appendcheckitemclearclearcheckscountdeletedictionarydumpenableitemgettoggleinsertmode(mouse)nextpopulateprevsetsetchecksetitemsetrgbsetsymbolsettoggleshowcheckedsymboltoggleOutputanythingintConnectionspresetSee AlsoPackage Maxumenu
+
+		Pop-up menu
+	 
+Description
+
+		Displays text as a pop-up menu. Selections can be made manually, or set incoming numbers. Outputs both selection number and selection text.
+	 
+Arguments
+None.Attributes
+
+
+
+align[atom]
+
+renamed
+
+
+				Sets the text alignment mode. Alignment modes are:
+				 
+				0 left (the default)
+				 
+				1 center (1)
+				 
+				2 right alignment (2)
+			 
+
+
+
+
+allowdrag[int]: 1
+
+>= 7.0.2
+
+
+				Toggles the ability of using drag & drop from a folder to populate the umenu object (default = 1).
+			 
+
+
+
+
+annotation_name[symbol]: 
+
+
+
+
+				Info View Title
+			 
+
+
+
+
+applycolors[int]: 0
+
+
+
+
+				When applycolors is on, and menumode is set to "Normal", the background of the drop-down menu will use the bgfillcolor.
+			 
+
+
+
+
+arrow[int]
+
+
+
+
+				Toggles the drawing of the down arrow on the umenu object (default = 1).
+			 
+
+
+
+
+autopopulate[int]: 0
+
+
+
+
+				Toggles the automatic population of an umenu object with folder contents (default = 0). The automatic population will occur when it receives a valid folder path as the argument to a prefix message, or at patcher load, if a valid prefix is stored with the object. See the prefix, populate, and types message descriptions for more information.
+			 
+
+
+
+
+bgfillcolor[4 floats]
+
+>= 7.0.0
+
+
+				Sets the background color of the umenu object in RGBA format.
+			 
+
+
+
+
+blanksym[symbol]: <none>
+
+
+
+
+				Symbol To Output For Empty Text
+			 
+
+
+
+
+collection[symbol]: 
+
+>= 7.0.0
+
+
+				Toggles the automatic population of an umenu object with the contents of a Collections folder (default = 1). The automatic population will occur when the  autopopulate  attribute is enabled.
+			 
+
+
+
+
+color[4 floats]
+
+>= 7.0.0
+
+
+				Sets the toggle ON color in RGBA format. When the menumode is set to "Toggle", the color attribute sets the active font color.
+			 
+
+
+
+
+depth[int]: 0
+
+
+
+
+				Sets the folder recursion depth used by the umenu object when populating from a valid file path.
+			 
+
+
+
+
+elementcolor[4 floats]
+
+>= 7.0.0
+
+
+				Sets the toggle OFF color in RGBA format. When the menumode is set to "Toggle", the elementcolor attribute sets the inactive font color.
+			 
+
+
+
+
+items[atom]
+
+
+
+
+				The items attribute, which is only accessible using the umenu object's Inspector, lets you enter the items which you want to appear on the menu by typing into a dialog box. Menu items are separated by by commas (e.g., red, orange, yellow, green).
+			 
+
+
+
+
+labelclick[int]: 0
+
+
+
+
+				Toggles Label Click mode on or off. In this mode, when the object is in Label mode, you can click in the object's rectangle and the current value of the menu is sent out the left outlet. In addition, the text of the current item is shown underlined.
+			 
+
+
+
+
+menumode[int]: 0
+
+
+
+
+				Sets the appearance and behavior of the umenu object. The modes are:
+				 
+
+				0: Normal mode - the normal pop-up menu (default).
+				 
+				1: Scrolling mode - lets you scroll through the individual menu items by dragging the mouse up or down, displaying one item at a time.
+				 
+				2: Label mode - shows the text of the selected menu item with no border around it, and does not respond to the mouse.
+				 
+				3: Toggle mode - Clicking on the object in mode 3 causes it to alternate between an active and inactive state. When changing from inactive to active, the object sends the message  toggle 1  from its rightmost outlet, and changes to the color set using the color attribute. When changing from active to inactive, the object sends the message  toggle 0  from its rightmost outlet, and changes to the color set using the elementcolor attribute. Whether activating or deactivating, the object also sends its current message from the middle outlet and its current item number from the left outlet.
+				 
+				Control-clicking allows you to change the current state of a umenu object in toggle mode.
+			 Possible values:0 = 'Normal'
+                  1 = 'Scrolling'
+                  2 = 'Label'
+                  3 = 'Toggle'
+                  
+
+
+
+
+param_connect[symbol]: 
+
+
+
+
+				Establishes a two-way connection between the object and a parameter of a compatible object with parameters such as gen~ or jit.gl.slab. The object can be used to change the value of the parameter and will update if the parameter value changes. The easiest way to set param_connect is with the attribute's menu in the inspector or the Connect submenu of the Object Action menu. The menu displays all available parameters of compatible objects.
+				 
+
+				Setting the param_connect attribute with a message requires the target parameter's path, which is the host object's scriping name followed by two colons and the parameter name. For example, for a gen~ object with scripting name  gen~_AB , the path of the  freq  parameter would be  gen~_AB::freq . You can set a value for the param_connect before the host object or parameter exists, and the object will connect to the parameter once it exists. Refer to the user guide entry for param_connect for more details.
+			 
+
+
+
+
+parameter_enable[int]
+
+
+
+
+				Enables use of this object with Max for Live Parameters and setting initial parameter values in Max.
+			 
+
+
+
+
+parameter_mappable[int]: 1
+
+
+
+
+				When parameter_mappable is enabled, the object will be available for mapping to keyboard or MIDI input using the Mappings feature. (default = 1).
+			 
+
+
+
+
+pattrmode[int]: 0
+
+
+
+
+				Sets the method used by the umenu object object to report its internal state to the pattr object. When the argument is 0 (default), the umenu object reports its internal state by number (e.g. item 3 of the list of items). When the argument is 1, the umenu object reports its internal state by symbol (e.g. item 'carrots' of the list of items).
+			 
+
+
+
+
+prefix[symbol]: 
+
+
+
+
+				Sets a menu-wide prefix, which can be concatenated or prepended to all menu item text before output. If the prefix is a valid folder path, the populate and types messages can be used to automatically fill the umenu object with a list of files in the folder. See the entries for those messages for more information. Sending a prefix message without any argument clears the currently stored prefix.
+			 
+
+
+
+
+prefix_mode[int]: 0
+
+
+
+
+				Sets the output behavior of the prefix mode. The modes are:
+				 
+
+				0: concatenate mode; the prefix is added to the front of the outgoing message without a space.
+				 
+				1: prepend mode; the prefix is added to the front of the outgoing message list as a discrete symbol.
+				 
+				2: ignore mode; the prefix is not used for output.
+			 Possible values:0 = 'Concatenate'
+                  1 = 'Prepend'
+                  2 = 'Ignore'
+                  
+
+
+
+
+showdotfiles[int]: 0
+
+
+
+
+				Toggles the display of files whose names begin with a dot (.). The default is off.
+			 
+
+
+
+
+style[symbol]: 
+
+>= 7.0.0
+
+
+				Sets the style to be applied to the object. Styles can be set using the Format Palette.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the text color of the umenu object in RGBA format. The  textcolor  attribute is mapped to the  textcolor_inverse  style color.
+			 
+
+
+
+
+truncate[int]: 1
+
+
+
+
+				Toggles the location of the truncation of text in the umenu object when the text is too long. The default is 1 (truncate the end of the text on the right-hand side). A value of 2 will cause the text to truncate in the middle in the same manner as the textbutton object.
+			 Possible values:0 = 'Truncation full words'
+                  1 = 'Truncate from the right'
+                  2 = 'Truncate from the middle'
+                  
+
+
+
+
+types[symbol]
+
+
+
+
+				Sets a file type filter for use by the  populate  message. Up to 64 file types or file extensions (beginning with '.') may be entered as a list. By default, no file types are filtered. For a list of valid four-letter filetype codes, see the file types Guide.
+			 
+
+
+
+
+underline[int]: 0
+
+
+
+
+				Toggles the underlining of text in the umenu object. The default is 0 (no underlining).
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+
+
+Parameter Attributes
+
+
+
+Orderint
+
+
+        Sets the order of recall of this parameter. Lower numbers are recalled
+        first. The order of recall of parameters with the same order number is
+        undefined.
+ 
+
+
+
+Parameter Mode Enableint
+
+
+        Parameter Mode Enable (not available from Parameters window)
+ 
+
+
+
+Link to Scripting Nameint
+
+
+        When checked, the Scripting Name is linked to the Long Name attribute.
+ 
+
+
+
+Long Namesymbol
+
+
+        The long name of the parameter. This name must be unique per patcher
+        hierarchy.
+ 
+
+
+
+Short Namesymbol
+
+
+        Sets the short name for the object's visual display. The maximum length
+        varies according to letter width, but is generally in a range of 5 to 7
+        characters.
+ 
+
+
+
+Typeint
+
+
+        Specifies the data type. The data types used in Max for Live are:
+ 
+
+         Float
+ 
+         Int
+ 
+         Enum (enumerated list)
+ 
+         Blob
+ 
+
+         Note: By convention, the Live application uses floating point numbers
+        for its calculations; the native integer representation is limited to 256
+        values, with a default range of 0-255 (similar to the char data type used 
+        in Jitter). When working with Live UI objects whose integer values will 
+        exceed this range, the Type attribute should be set to Float,
+        and the Unit Style attribute should be set to Int.
+ 
+
+
+
+Range/Enumlist
+
+
+        When used with an integer or floating point data type, this field is
+        used to specify the minimum and maximum values of the parameter.
+ 
+        When used with an enumerated list (Enum) data type, this field contains
+        a space-delimited list of the enumerated values (if list items contain a
+        space or special characters, the name should be enclosed in double
+        quotes).
+ 
+
+
+
+Clip Modulation Modeint
+
+
+        Sets the Clip Modulation Mode used by the Live application. The modulation
+        modes are:
+ 
+
+         None
+ 
+         Unipolar
+ 
+         Bipolar
+ 
+         Additive
+ 
+         Absolute
+ 
+
+
+
+
+
+Clip Modulation Rangelist
+
+
+        This parameter is only used with the Absolute modulation mode. It
+        specifies defines the range of values used.
+ 
+
+
+
+Initial Enableint
+
+
+        When checked (set to 1), the UI object can store an initialization
+        value. The value is set using the Initial attribute (see below).
+ 
+
+
+
+Initiallist
+
+
+        Sets the initial value to be stored and used when the Initial Enable
+        attribute is checked.
+ 
+
+
+
+Unit Styleint
+
+
+        Sets the unit style to be used when displaying values. The unit style
+        values are: Int: displays integer values
+ 
+         Float: displays floating point values
+ 
+         Time: displays time values in milliseconds (ms)
+ 
+         Hertz: displays frequency values (Hz/kHz).
+ 
+         deciBel: displays loudness (dB)
+ 
+         %: Percentage
+ 
+         Pan: displays Left and Right values
+ 
+         Semitones: displays steps (st)
+ 
+         MIDI: displays pitch corresponding to the MIDI note number
+ 
+         Custom: displays custom data type
+ 
+         Native: defaults to floating point values
+ 
+
+
+
+Custom Unitssymbol
+
+
+        Sets the units to be used with the 'Custom' unit style (see "Unit
+        Style", above). Custom unit strings may be simple symbols (e.g.
+        "Harmonic(s)"), in which case the parameter's value will be displayed in
+        its 'Native' display mode, followed by the symbol (e.g. "12 Harmonic(s)"
+        for an Int-typed parameter or "12.54 Harmonic(s)" for a Float-typed
+        parameter). For additional control over the numerical component
+        displayed, a sprintf-style string may be used (e.g. "%0.2f Bogon(s)",
+        which would display a value such as ".87 Bogons").
+ 
+
+
+
+Exponentfloat
+
+
+        When set to a value other than 1., the parameter's input and output
+        values will be exponentially scaled according to the factor entered in
+        this column.
+ 
+
+
+
+Stepsint
+
+
+        The number of steps available between the minimum and maximum values of
+        a parameter. For instance, if the parameter has a range from 0.-64.,
+        with Steps set to 4, the user can only set the parameter to 0, 21.33,
+        42.66 and 64.
+ 
+
+
+
+Control Surface Button Modesymbol
+
+
+        The behavior of control surface buttons, when the parameter is assigned with the live.banks object. Currently available modes are:
+ 
+ Toggle : switches between minimum and maximum value (default)
+ 
+ Trigger : outputs the maximum value, immediately followed by the minimum value
+ 
+ Cycle : cycles through available enum values
+ 
+
+
+
+Parameter Visibilityint
+
+
+        For automatable parameters (Int, Float, Enum), 'Stored Only' disables
+        automation, although parameter values are stored in presets. 'Hidden'
+        causes the parameter's value to be ignored when storing and recalling
+        data. Non-automatable parameters (Blob) are 'Stored Only' by default,
+        and can be set to 'Hidden', if desired.
+
+        The 'Visible' and 'Visible (Not Stored)' visibility modes expose parameters to Live, but don't support automation. Practically, this means that they are visible to Push (and other control surfaces), but won't appear in Live's automation view. The 'Visible' mode also causes Live to store the parameter's value in presets and with the set for later restore. 'Visible (Not Stored)' does not store the value (useful for momentary controls). Note that these modes are only available for Float, Int and Enum parameter types.
+
+When using these 'Visible' modes, a new parameter attribute will become available in the object's inspector: 'Undo When Visible'. This is on by default, but when disabled, a Visible parameter becomes invisible to Live's Undo system.
+ 
+
+
+
+Undo When Visibleint
+
+
+        When using the 'Visible' modes (see 'Parameter Visibility'), a this attribute is available in the object's inspector. It is on by default, but when disabled, a Visible parameter becomes invisible to Live's Undo system.
+ 
+
+
+
+Update Limit (ms)int
+
+
+        Speed limits values triggered by automation.
+ 
+
+
+
+Defer Automation Outputint
+
+
+        Defers values triggered by automation.
+ 
+
+
+Messages
+
+
+bang
+
+
+
+				Sends out the currently displayed menu item.
+			 
+
+
+
+int
+
+
+
+
+				The number specifies a menu item to be sent out, and causes umenu to display that item. The items are numbered starting at 0. A menu item can also be chosen from a umenu with the mouse, as with any pop-up menu.
+			 
+Arguments:
+index
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				Converted to  int .
+			 
+Arguments:
+index
+      [float]
+      
+
+
+
+
+(drag)
+
+
+
+				When a file folder is dragged from the Max File Browser to a umenu object, the folder's contents will be loaded into as menu choices.
+				 
+
+				When a file folder is dragged from the Max File Browser to a blank space in an unlocked patcher window, a umenu object containing the folder's contents loaded will be created.
+			 
+
+
+
+append
+
+
+
+
+				The word  append , followed by any message, appends that message as the new last item in the menu.
+			 
+Arguments:
+message
+      [list]
+      
+
+
+
+
+checkitem
+
+
+
+
+				The word  checkitem , followed by an item number and 1 or 0, places (1) or removes (0) a check mark next to the item number.
+			 
+Arguments:
+
+index
+      [int]
+      
+checked
+      [int]
+      
+
+
+
+
+
+clear
+
+
+
+				Removes all items from the umenu.
+			 
+
+
+
+clearchecks
+
+
+
+				The word  clearchecks  removes check marks for all items.
+			 
+
+
+
+count
+
+
+
+				Sends the number of items in the umenu out the right outlet, preceded by the word  count .
+			 
+
+
+
+delete
+
+
+
+
+				The word  delete , followed by one or more numbers that correspond to items in the list, deletes the item or items from the umenu.
+			 
+Arguments:
+indices
+      [list]
+      
+
+
+
+
+dictionary
+
+
+
+
+				The word  dictionary , followed by a dictionary name, will set the menu items for umenu. You can also attach the first outlet of a dict object to the first inlet of umenu. In order for this to work, the dictionary needs to include an "items" entry. For example, the following dictionary entry will populate umenu with the items "hank, carol, andreas, roland":
+				 
+
+				"items" : [ "hank", "carol", "andreas", "roland" ]
+			 
+Arguments:
+dict-name
+      [symbol]
+      
+
+
+
+
+dump
+>= 8.0.0
+
+
+				Output is the word 'dump', the item's entry number, and the contents. ex: 'dump 1 one'.
+			 
+
+
+
+enableitem
+
+
+
+
+				The word  enableitem , followed by a number that specifies a menu item and a 1 or 0, enables or disables the specified item number. Disabled menu items cannot be selected, but their text and item number are sent from the rightmost outlet if the mouse is released while above them, prefixed by the symbols  disabled_eval  and  disabled_item , respectively.
+			 
+Arguments:
+
+index
+      [int]
+      
+enable
+      [int]
+      
+
+
+
+
+
+gettoggle
+
+
+
+				Reports the current value of the umenu object's toggle state (1 or 0, for on or off), from the right outlet, preceded by the word  toggle .
+			 
+
+
+
+insert
+
+
+
+
+				The word  insert , followed by a number and a message, inserts the message at the address specified by the number, incrementing all equal or greater addresses by 1 if necessary.
+			 
+Arguments:
+
+index
+      [int]
+      
+message
+      [list]
+      
+
+
+
+
+
+mode
+
+
+
+
+				Legacy message. Please use the menumode attribute. The word  mode , followed by a number in the range 1-4, sets the appearance and behavior of the umenu object. The normal pop-up menu style is 1 (the default). Scrolling mode (2) lets you scroll through the individual menu items by dragging the mouse up or down, displaying one item at a time. Label mode (3) shows the text of the selected menu item with no border around it, and does not respond to the mouse. Toggle mode (4) sets a button style. Clicking on the object in mode 3 causes it to alternate between an active and inactive state. When changing from inactive to active, the object sends the message  toggle 1  from its rightmost outlet. When changing from active to inactive, the object sends the message  toggle 0  from its rightmost outlet, and changes to the color set using the  bgcolor  attribute. Whether activating or deactivating, the object also sends its current message from the middle outlet and its current item number from the left outlet.
+			 
+Arguments:
+display
+      [int]
+      
+
+
+
+
+(mouse)
+
+
+
+				Clicking with the mouse lets you select a menu item to be sent out, and causes umenu to display that item.
+			 
+
+
+
+next
+
+
+
+				Selects the next menu item and causes the umenu object to display that item. This message will ignore disabled or separator menu items.
+			 
+
+
+
+populate
+
+
+
+				If the umenu object has a valid folder path as its prefix, the  populate  message will cause the menu to re-populate its items list, based on the current contents of the specified path (and filtered by the types list). After population is complete, the number of items added to the umenu object will be output from the right outlet, preceded by the word  populate .
+			 
+
+
+
+prev
+
+
+
+				Selects the previous menu item and causes the umenu object to display that item. This message will ignore disabled or separator menu items.
+			 
+
+
+
+set
+
+
+
+
+				The word  set , followed by a number or symbol, specifies a menu item to be displayed by umenu, but does not send it out the outlet. If the set argument is a symbol,  set  searches for a menu item which begins with the symbol.
+			 
+Arguments:
+item
+      [list]
+      
+
+
+
+
+setcheck
+
+
+
+
+				(Macintosh only) The word  setcheck , followed by a number that specifies the decimal representation of a UTF-8 character (e.g. 8226 for a bullet or 62 for a greater than symbol), sets the character used to be the check mark. The word  setcheck  with no argument specifies the default square root checkbox.
+			 
+Arguments:
+character
+      [int]
+      
+
+
+
+
+setitem
+
+
+
+
+				The word  setitem , followed by an item number and any message, sets the specified menu item to that message.
+			 
+Arguments:
+
+index
+      [int]
+      
+message
+      [list]
+      
+
+
+
+
+
+setrgb
+
+
+
+
+				The word  setrgb , followed by six numbers between 0 and 255 that specify RGB values, uses the first three numbers to set the foreground (text) color and the second three numbers to set the background (fill) color.
+			 
+Arguments:
+
+fore-red
+      [int]
+      
+fore-green
+      [int]
+      
+fore-blue
+      [int]
+      
+back-red
+      [int]
+      
+back-green
+      [int]
+      
+back-blue
+      [int]
+      
+
+
+
+
+
+setsymbol
+
+
+
+
+				The word  setsymbol , followed by a message, specifies a menu item to be displayed by name without triggering any output.
+			 
+Arguments:
+menu item
+      [symbol]
+      
+
+
+
+
+settoggle
+
+
+
+
+				The word  settoggle , followed by a one or zero, sets the umenu object to the specified state if it is in toggle mode and performs output as if the object were clicked on (the symbol  toggle , followed by a zero or one, indicating the toggle state). Without an argument, the message simply toggles the object's state and triggers output.
+			 
+Arguments:
+state
+      [int]
+      
+
+
+
+
+showchecked
+
+
+
+				This message operates as follows. If the currently displayed item is checked, do nothing. Otherwise, starting at the first item in the menu, find one that is checked and set the menu to display that item. If there isn't one, do nothing.
+			 
+
+
+
+symbol
+
+
+
+
+				Identical to the  set  message with a symbol argument, except that the found item number is sent out (and the text of the item is sent out the right outlet, if the Evaluate Item Text feature is enabled).
+			 
+Arguments:
+item
+      [symbol]
+      
+
+
+
+
+toggle
+
+
+
+
+				The word  toggle , followed by a one or zero, sets the umenu object to the specified state if it is in toggle mode and performs output as if the object were clicked on (the symbol  toggle , followed by a zero or one, indicating the toggle state). Without an argument, the message simply toggles the object's state and triggers output.
+			 
+Arguments:
+state
+      [int]
+      
+
+Output
+
+anything
+
+				Out middle outlet: The text of the selected menu item is sent out as a message.
+				 
+
+				Out right outlet: The  count ,  gettoggle , and  populate , messages will cause status messages to be sent out the right outlet.
+			 
+
+
+int
+
+				Out left outlet: The number of the selected menu item is sent out. Menu items are numbered beginning with 0.
+			 
+Connections
+
+preset
+
+				Connecting the left outlet of umenu to the inlet of a preset object establishes a two-way connection where umenu displays the current set of presets and acts as a front end for selecting presets by number and/or name.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+coll
+
+
+		Store and edit a collection of data
+	
+
+
+
+fontlist
+
+
+		List system fonts
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

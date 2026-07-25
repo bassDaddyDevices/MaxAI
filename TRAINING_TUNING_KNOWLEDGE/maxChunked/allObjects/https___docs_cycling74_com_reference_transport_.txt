@@ -1,0 +1,542 @@
+transport - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsAttributesclocksourcenameresetbarcounttempoannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangintfloatlist(mouse)dumpgetclocksourcestimesigOutputfloatintlistSee AlsoPackage Maxtransport
+
+		Control a clock
+	 
+Description
+
+		Starts and stops the passage of time for objects linked to a transport. If given a name, the transport object will control a time context of the given name, otherwise it will control Max's global 'internal' transport. The transport object reports time consistent with the time formats used in Max.
+	 
+Discussion
+
+		Note for Max For Live Users: Currently translating a beat time song position in Max for Live will only take the global tempo into account and might not be accurate when the Live set contains tempo changes.
+	 
+Arguments
+None.Attributes
+
+
+
+clocksource[symbol]
+
+
+
+
+				The current timing source for the transport. The default source is Max's internal clock but other timing sources may also be used.
+			 
+
+
+
+
+name[symbol]
+
+
+
+
+				There can be multiple named transports running simultaneously. By default, a transport will be associated with Max's global transport. If a name is provided then a new transport is created with that name and can be referenced using this attribute.
+			 
+
+
+
+
+resetbarcount[int]
+
+
+
+
+				Toggles whether the bar/beat/unit counter advances to the beginning of the next measure when a time signature change is received. By default, this is disabled (0).
+			 
+
+
+
+
+tempo[float]
+
+
+
+
+				Sets the tempo in beats-per-minute for this transport.
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				Report current state
+			 
+
+
+
+int
+
+
+
+
+				In left inlet: toggle whether or not the transport is running on or off
+				 
+				In right inlet: set the current position of the transport in ticks
+			 
+Arguments:
+input
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				In left inlet: toggle whether or not the transport is running on or off
+				 
+				In right inlet: set the current position of the transport in ticks
+			 
+Arguments:
+input
+      [float]
+      
+
+
+
+
+list
+
+
+
+
+				Set the current position of the transport using a time unit.
+			 
+Arguments:
+position
+      [list]
+      
+
+
+
+
+(mouse)
+
+
+
+				Double-clicking on the transport object opens the GlobalTransport window.
+			 
+
+
+
+dump
+
+
+
+				Causes a report of the current state of the transport to be sent to the Max Console.
+			 
+
+
+
+getclocksources
+
+
+
+				Causes a list of active clock sources to be sent out the right outlet.
+			 
+
+
+
+timesig
+
+
+
+
+				Set the time signature for this transport using two numbers. The default is 4 4.
+			 
+Arguments:
+
+beats
+      [list]
+      
+value
+      [list]
+      
+
+
+Output
+
+float
+
+				Out 3rd outlet: When transport receives a bang, the units are sent out the third outlet.
+				 
+
+				Out 4th outlet: When transport receives a bang, the current resolution (ticks per beat) is sent out the fourth outlet.
+				 
+
+				Out 5th outlet: When transport receives a bang, the current tempo is sent out the fifth outlet.
+				 
+
+				Out 8th outlet: When transport receives a bang, the number if raw ticks is sent out the eighth outlet.
+			 
+
+
+int
+
+				Out 1st outlet: When transport receives a bang, the current bar is sent out the first outlet.
+				 
+
+				Out 2nd outlet: When transport receives a bang, the current beat (within the bar) is sent out the second outlet.
+				 
+
+				Out 7th outlet: When transport receives a bang, the Transport State is sent out the seventh outlet. A value of 1 means that the transport is on, and a value of 0 means that the transport it off.
+			 
+
+
+list
+
+				Out 6th outlet: When transport receives a bang, the current time signature is sent out the sixth outlet.
+				 
+
+				Out 9th outlet: When the message  getclocksources  is sent to transport, a list of active clock sources is sent out the right outlet.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+metro
+
+
+		Output a bang message at regular intervals
+	
+
+
+
+translate
+
+
+		Convert between different time formats
+	
+
+
+
+timepoint
+
+
+		Bang at a specific time
+	
+
+
+
+when
+
+
+		Report the current transport time
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

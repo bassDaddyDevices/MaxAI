@@ -1,0 +1,579 @@
+techno~ - MSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsAttributesannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesamplitudeattackcurvedecaylengthpitchposrepeatpossignalOutputsignalSee AlsoPackage MSPtechno~
+
+		Signal-driven step sequencer
+	 
+Description
+
+techno~ is a signal-based step-sequencer that facilitates sample-accurate timing of events.
+	 
+Arguments
+None.Attributes
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+amplitude
+
+
+
+
+				The word  amplitude , followed by a number that specifies the sequencer step and a float that specifies an amplitude value, sets the amplitude (as an absolute factor) of a step's output note. The amplitude is specified as an absolute factor of that step's note -- an amplitude of 1.0 will result in the amplitude output signal having a value of 1.0 at the very beginning of the step.
+			 
+Arguments:
+
+sequencer-step
+      [int]
+      
+amplitude-value
+      [float]
+      
+
+
+
+
+
+attack
+
+
+
+
+				The word  attack , followed by a number that specifies the sequencer step and a float that specifies the exponent of a curve, sets the curve used to calculate the amplitude trajectory from 0.0 at the beginning of the previous step to the amplitude value at the beginning of the current step. The values used to specify the exponents of the curve are the same as those used for the  curve  message.
+			 
+Arguments:
+
+sequencer-step
+      [int]
+      
+attack-curve-exponent
+      [float]
+      
+
+
+
+
+
+curve
+
+
+
+
+				The word  curve , followed by a number that specifies the sequencer step and a float that specifies the exponent of a curve, sets the curve used to calculate the trajectory of pitch from the previous step.
+				 
+
+				A value of 1.0 represents a linear slide from the previous step; a value of 0.5 represents a square root function; a value of 2.0 represents a second-order parabolic slide; etc. The  curve  message lets you set and experiment with different varieties of portamento.
+			 
+Arguments:
+
+sequencer-step
+      [int]
+      
+curve-exponent
+      [float]
+      
+
+
+
+
+
+decay
+
+
+
+
+				The word  decay , followed by a number that specifies the sequencer step and a float that specifies the exponent of a curve, sets the curve used to calculate the decay trajectory from the amplitude value at the beginning of this previous step to 0.0 at the beginning of the next step. The values used to specify the exponents of the curve are the same as those used for the  curve  message.
+			 
+Arguments:
+
+sequencer-step
+      [int]
+      
+decay-trajectory-exponent
+      [float]
+      
+
+
+
+
+
+length
+
+
+
+
+				The word  length , followed by a number, sets the number of notes in the sequence. The default is 1.
+			 
+Arguments:
+number-of-steps
+      [int]
+      
+
+
+
+
+pitch
+
+
+
+
+				The word  pitch , followed by a number that specifies the sequencer step and a float that specifies a pitch as a Hertz frequency, sets the pitch of that step's note.
+			 
+Arguments:
+
+sequencer-step
+      [int]
+      
+frequency
+      [float]
+      
+
+
+
+
+
+pos
+
+
+
+
+				The word  pos , followed by an integer that specifies the sequencer step and a float that specifies a start position, positions the step to the specified position. A step may not be placed before the previous step or after the next step. For instance, a uniformly-spaced four step sequence will have its steps in positions 0.0, 0.25, 0.5 and 0.75, so a  pos  message for the third step (index 2) can only specify positions between 0.25 and 0.75.
+			 
+Arguments:
+
+sequencer-step
+      [int]
+      
+start-position (step-size-coefficient)
+      [float]
+      
+
+
+
+
+
+repeatpos
+
+
+
+
+				The word  repeatpos , followed by one or more floats, allows repeating settings of non-uniform sequencer step sizes. The number of floats following the lengths message represents one less than the size of the repeating segment of steps - this segment size can be any even divisor of the total number of steps in the sequence. So for instance with an eight-step sequence the length of the segment can be 2, 4, or 8 steps. The floating point arguments, which must be strictly increasing and in the range between 0 and 1, set the relative width of each step. For instance, one can set uniform divisions for a sequence with an even number of steps with any of the following messages:
+				 
+
+				repeatpos 0.5
+				 
+
+				repeatpos 0.25 0.5 0.75
+				 
+
+				repeatpos 0.125 0.25 0.375 0.5 0.625 0.75 0.875
+				 
+
+				The message  repeatpos 0.66  affects a repeating segment two steps long, giving the first step 66% of the time and the second step 34%. (This is like classic "swing" on a drum machine.)
+			 
+Arguments:
+step-width
+      [list]
+      
+
+
+
+
+signal
+
+
+
+				A signal is used as an input to the techno~ object to specify the step position in a sequence. The signal is in the range 0 - 1.0 and indicates a phase value, expressed as a fraction of the number of total steps in the sequence (set using the  length  message). A phasor~ object is customarily used as input to the techno~ object. All input signals are clipped to the range 0 - 1.0.
+			 
+Output
+
+signal
+
+				Out left inlet: Pitch signal output for oscillator(s).
+				 
+
+				Out middle inlet: An amplitude envelope. You can multiply this signal output with the output of your oscillators.
+				 
+
+				Out right inlet: The current position in the step sequence. Each step represents a distance of 1.0 and the total output range is from 0 to the value set by the  size  message.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+adsr~
+
+
+		ADSR envelope generator
+	
+
+
+
+cycle~
+
+
+		Sinusoidal oscillator
+	
+
+
+
+phasor~
+
+
+		Generate sawtooth signals
+	
+
+
+
+rate~
+
+
+		Time-scale the output of a phasor~
+	
+
+
+
+rect~
+
+
+		Antialiased rectangular (pulse) oscillator
+	
+
+
+
+saw~
+
+
+		Antialiased sawtooth oscillator
+	
+
+
+
+seq~
+
+
+		Signal-driven event sequencer
+	
+
+
+
+svf~
+
+
+		State-variable filter with simultaneous outputs
+	
+
+
+
+tri~
+
+
+		Antialiased triangular oscillator
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

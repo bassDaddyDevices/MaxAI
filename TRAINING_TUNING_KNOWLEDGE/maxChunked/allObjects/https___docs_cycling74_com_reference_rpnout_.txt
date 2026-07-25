@@ -1,0 +1,542 @@
+rpnout - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsparameter-channelAttributeshiresrunningannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangint(inlet1)(inlet2)(inlet3)listsetOutputintSee AlsoPackage Maxrpnout
+
+		Format 14-bit MIDI NRPN messages
+	 
+Description
+
+		Format 14-bit MIDI Non-Registered Parameter Number messages to be transmitted using the midiout object.
+	 
+Discussion
+
+		A Non-Registered Parameter message comprises several groups of bytes to specify a 14-bit parameter number (2 groups for the for the most significant byte of the parameter number (MSB) and one for the least significant byte of the parameter number (LSB)), a 14-bit value (2 groups for the MSB and LSB of the value) or a 7-bit delta value (1 group), followed by a Null Function (2 groups) to terminate changes to the parameter.
+	 
+Arguments
+
+
+
+parameter-channel[list]
+
+optional
+
+
+				The initial argument is an initial non-registered parameter number (in the range 0-16383) to be used in parameter changes messages formatted by nrpnout. Non-registered parameter numbers are automatically limited between 0 and 16383. The parameter number can also be expressed as a symbol formatted 'MSB:LSB' (for instance, '1:0' would specify parameter 128). If there is no controller number specified, the initial controller number is 0.
+				 
+
+				Following the controller number argument is an initial value for the channel number with which to format control messages. If the channel argument is not present, nrpnout initially formats control messages on channel 1. In order for this argument to be used, a controller number argument must precede it. The channel number is clipped to the range 1-16.
+			 
+Attributes
+
+
+
+hires[int]: 1
+
+
+
+
+				When enabled, nrpnout formats high resolution, 14-bit NRPN messages for the provided input. If you know that the parameter you are working with only responds to 7-bit values using the MSB, set hires to  0  to avoid inaccurate output from the object. If the parameter you are working with responds to 'high resolution' 7-bit values using an MSB of 0 and a value in the LSB, this setting will have no effect.
+			 
+
+
+
+
+running[int]: 0
+
+
+
+
+				If running status is enabled, the status byte of all but the first group of bytes in the formatted NRPN messages will be eliminated.
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				Sends out a non-registered parameter message using the numbers currently stored in nrpnout
+
+
+
+
+int
+
+
+
+
+				The number is a 14-bit non-registered parameter value to be formatted into a complete MIDI non-registered parameter number message by nrpnout.
+			 
+Arguments:
+input
+      [int]
+      
+
+
+
+
+  (inlet1)
+
+
+
+
+				In middle-left inlet: The delta will be formatted into a complete MIDI non-registered parameter number message by nrpnout. Deltas outside of the range -127-127 will be ignored.
+			 
+Arguments:
+delta
+      [int]
+      
+
+
+
+
+  (inlet2)
+
+
+
+
+				In middle-right inlet: The number is stored as the non-registered parameter number of the messages transmitted by nrpnout. Parameter numbers outside of the range 0-16383 will be ignored.
+			 
+Arguments:
+parameter
+      [int]
+      
+
+
+
+
+  (inlet3)
+
+
+
+
+				In right inlet: The number is stored as the MIDI channel for the continuous controller message sent out by nrpnout. Channel numbers will be clipped to stay within the 1-16 range.
+			 
+Arguments:
+channel
+      [int]
+      
+
+
+
+
+list
+
+
+
+
+				A pair of two 7-bit values, most significant byte (MSB) followed by least significant byte (LSB). The 7-bit MSB will be bitshifted and ORd with the 7-bit LSB to specify a 14-bit non-registered parameter value. The 14-bit value will be formatted into a complete MIDI non-registered parameter number message by nrpnout.
+			 
+Arguments:
+
+msb
+      [int]
+      
+lsb
+      [int]
+      
+
+
+
+
+
+set
+
+
+
+
+				An argument between  0  and  16383  ((1 << 14) - 1) will be stored as the non-registered parameter number of the messages transmitted by nrpnout.				 
+
+				The  set  message also accepts an argument list comprising most signficant byte (MSB) followed by least significant byte (LSB). The 7-bit MSB will be bitshifted and ORd with the 7-bit LSB to specify a 14-bit parameter number. For instance,  set 1 0  would specify non-registered parameter number 128.
+				 
+
+				The parameter number argument can also be expressed as a symbol formatted 'MSB:LSB'. For instance,  set 1:0  would specify non-registered parameter number 128.
+				 
+
+				Non-registered parameter numbers outside of the range 0-16383 will be ignored.
+			 
+Arguments:
+parameter
+      [list]
+      
+
+Output
+
+int
+
+				When a value is received in the left inlet or 2nd inlet (value or delta), the complete MIDI NRPN message is sent out the outlet, byte-by-byte.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+midiout
+
+
+		Transmit raw MIDI data
+	
+
+
+
+ctlout
+
+
+		Transmit MIDI controller messages
+	
+
+
+
+nrpnin
+
+
+		Output received NRPN values
+	
+
+
+
+xctlout
+
+
+		Format 14-bit MIDI controller messages
+	
+
+
+
+xbendout
+
+
+		Format extra precision MIDI pitch bend messages
+	
+
+
+
+xnoteout
+
+
+		Format MIDI note messages with release velocity
+	
+
+
+
+rpnin
+
+
+		Output received RPN values
+	
+
+
+
+rpnout
+
+
+		Format 14-bit MIDI RPN messages
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

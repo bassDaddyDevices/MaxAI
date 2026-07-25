@@ -1,0 +1,661 @@
+number~ - MSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsAttributesbgcolorft1intervalmaximumminimummonitormodenumdecimalplacessigoutmodestyletextcolorannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangintfloat(inlet1)listallowflagsmaxminmode(mouse)setsignalOutputfloatsignalSee AlsoPackage MSPnumber~
+
+		Signal monitor and constant generator
+	 
+Description
+
+		Use the number~ object to display signal values or generate them.
+	 
+Discussion
+
+		The number~ object has two different display modes. In Signal Monitor Mode it displays the value of the  signal  received in the left inlet.
+		 
+
+		In Signal Output Mode it displays the value of the  float  or  int  most recently received in the left inlet, or entered directly into the number~ box (the signal being sent out the left outlet). When a number~ object is highlighted (indicated by a yellow downward arrow), numerical keyboard input changes its value. Clicking the mouse or pressing Return or Enter stores a pending typed number and sends it out the left outlet as the new signal value.
+	 
+Arguments
+None.Attributes
+
+
+
+bgcolor[4 floats]
+
+
+
+
+				Sets the color for the number~ box object's displayed/unclicked background.
+			 
+
+
+
+
+ft1[float]: 0.
+
+
+
+
+				The word  ft1 , followed by a number, sets the interpolation ramp time in milliseconds. The default time is 0.
+			 
+
+
+
+
+interval[float]: 100.
+
+
+
+
+				Sets the update interval, in milliseconds. This controls the rate at which the display is updated when number~ is input monitor display mode, as well as the rate that numbers are sent out the object's right outlet.
+			 
+
+
+
+
+maximum[atom]: <none>
+
+
+
+
+				Sets the maximum value that can be displayed or sent out by the object.
+			 
+
+
+
+
+minimum[atom]: <none>
+
+
+
+
+				Sets the minimum value that can be displayed or sent out by the object.
+			 
+
+
+
+
+monitormode[int]: 1
+
+
+
+
+				Toggles the signal monitor mode. The default is 1 (on).
+			 
+
+
+
+
+numdecimalplaces[int]: 0
+
+
+
+
+				Number of decimal places displayed
+			 
+
+
+
+
+sigoutmode[int]: 1
+
+
+
+
+				Toggles the signal output mode. The default is 1 (on).
+			 
+
+
+
+
+style[symbol]: 
+
+>= 7.0.0
+
+
+				Sets the style to be applied to the object. Styles can be set using the Format Palette.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the number~ box object's displayed/unclicked number values. The  textcolor  attribute is mapped to the  textcolor_inverse  style color.
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				In signal output mode, a  bang  message will output the current signal value.
+			 
+
+
+
+int
+
+
+
+
+				Converted to  float .				 
+				In left inlet: The value is sent out the left outlet as a constant signal. When number~ is in Signal Output display mode, the value is displayed. If the current ramp time is non-zero, the output signal will ramp between its previous value and the newly set value.
+				 
+				In right inlet: Sets a ramp time in milliseconds. The default time is 0.
+			 
+Arguments:
+input
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				In left inlet: The value is sent out the left outlet as a constant signal. When number~ is in Signal Output display mode, the value is displayed. If the current ramp time is non-zero, the output signal will ramp between its previous value and the newly set value.
+				 
+				In right inlet: Sets a ramp time in milliseconds. The default time is 0.
+			 
+Arguments:
+input
+      [float]
+      
+
+
+
+
+  (inlet1)
+
+
+
+
+				In right inlet: Sets a ramp time in milliseconds. The default time is 0.
+			 
+Arguments:
+input
+      [float]
+      
+
+
+
+
+list
+
+
+
+
+				The first number sets the value of the signal sent out the left outlet, and the second number sets the ramp time in milliseconds.
+			 
+Arguments:
+
+input-value
+      [number]
+      
+ramp-time
+      [int]
+      
+
+
+
+
+
+allow
+
+
+
+
+				The word  allow , followed by a number, sets what display modes can be used.  allow 1  restricts number~ to signal output display mode.  allow 2  restricts number~ to input monitor display mode.  allow 3  allows both modes, and lets the user switch between them by clicking on the left triangular area of number~.
+			 
+Arguments:
+display-mode-availability
+      [int]
+      
+
+
+
+
+flags
+
+
+
+
+				The  flags  message is provided for legacy support of the number~ object; all the original functionality is now provided by object attributes.
+			 
+Arguments:
+appearance/behavior
+      [int]
+      
+
+
+
+
+max
+
+
+
+
+				The word  max , followed by an optional number, sets the maximum value of number~ for signal output. Note that unlike a floating-point number box, the maximum value of number~ is not restricted to being an integer value. If the word  max  is not followed by a number, any maximum value is removed.
+			 
+Arguments:
+maximum-value
+      [number]
+      
+
+
+
+
+min
+
+
+
+
+				The word  min , followed by an optional number, sets the minimum value of number~ for signal output. Note that unlike a floating-point number box, the minimum value of number~ is not restricted to being an integer value. If the word  min  is not followed by a number, any minimum value is removed.
+			 
+Arguments:
+minimum-value
+      [number]
+      
+
+
+
+
+mode
+
+
+
+
+				The word  mode , followed by a number, sets the current display mode, if it is currently allowed (see the  allow  message).  mode 1  sets signal output display mode.  mode 2  sets signal input monitor display mode.
+			 
+Arguments:
+display-mode
+      [int]
+      
+
+
+
+
+(mouse)
+
+
+
+				Clicking on the triangular area at the left side of number~ will toggle between Signal Monitor display mode (green waveform) and Signal Output display mode (yellow or green downward arrow). When in Signal Output display mode, clicking in the area that displays the number changes the value of the signal sent out the left outlet of number~ and/or selects it for typing.
+			 
+
+
+
+set
+
+
+
+
+				The word  set  followed by a number sets the number~ object to display that number without causing output.
+			 
+Arguments:
+set-input
+      [float]
+      
+
+
+
+
+signal
+
+
+
+				Any signal, the value of which is sampled and sent out the right outlet at regular intervals. When number~ is in Signal Monitor display mode, the signal value is displayed.
+			 
+Output
+
+float
+
+				Out right outlet: Samples of the input signal are sent out at a rate specified by the  interval  message.
+			 
+
+
+signal
+
+				Out left outlet: When audio is on, number~ sends a constant signal out its left outlet equal to the number most recently received in the left inlet (or entered by the user). It sends out this value independent of its  signal  input, and whether or not it is currently in Signal Output display mode. If the ramp time most recently received in the right inlet is set to a non-zero value, the output will interpolate between its previous value and a newly set value over the specified time.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+line~
+
+
+		Linear signal ramp generator
+	
+
+
+
+sig~
+
+
+		Convert numbers into audio signals
+	
+
+
+
+snapshot~
+
+
+		Convert signal values to numbers
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

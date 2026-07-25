@@ -1,0 +1,448 @@
+mc.apply~ - MC Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentschannelsAttributeschansfunctionsramptimeannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesintfloatlistsignalSee AlsoPackage MCmc.apply~
+
+		Apply a Function to a Multichannel Signal
+	 
+Description
+
+		The mc.apply~ object accepts a breakpoint function in the same format as line~ and applies it over the space of channels of a multi-channel signal. Each channel contains a sample of the function evenly divided in the X dimension. In addition, mc.apply~ can store up to 64 functions, edited by mc.function, which you can recall and continuously interpolate using a signal input.
+	 
+Arguments
+
+
+
+channels[int]
+
+optional
+
+
+				Sets the number of output channels in the multi-channel signal. The default value is 1.
+			 
+Attributes
+
+
+
+chans[int]
+
+
+
+
+				Sets the number of output channels in the multi-channel signal. When chans is set as a typed-in argument or when the audio is turned off, the change is reflected immediately. If chans is changed while the audio is on, the change is reflected the next time audio is restarted.
+			 
+
+
+
+
+functions[int]
+
+
+
+
+				Sets the number of stored functions. This attribute can only be set as a typed-in argument; it cannot be changed after the object is created.
+			 
+
+
+
+
+ramptime[float]
+
+
+
+
+				Sets the ramp time between changes in the output in milliseconds. Note that large ramp time values may cause unpredictable behavior when driving continuous interpolation between functions with a signal input.
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+int
+
+
+
+				In left inlet: Sets function number to output (starting at 0); only has an effect when there is no signal connected to the left inlet.
+				 
+				In middle inlet: Set the initial Y value of the breakpoint function (at time 0). However until a list is received, the function won't be changed.
+				 
+				In right inlet: Sets the function number that will be modified by a subsequent  list  message of breakpoints received in the middle inlet.
+			 
+
+
+
+float
+
+
+
+				In left inlet: Sets function number to output (starting at 0); only has an effect when there is no signal connected to the left inlet. A  float  with a fractional part performs interpolation between two functions.
+				 
+				In middle inlet: Set the initial Y value of the breakpoint function (at time 0). However until a list is received, the function won't be changed.
+				 
+				In right inlet: Sets the function number that will be modified by a subsequent  list  message of breakpoints received in the middle inlet.
+			 
+
+
+
+list
+
+
+
+				In middle inlet: A list of breakpoints in line~ format (as output by the function object) defines a function for mc.apply~ to apply across a space of output channels. The list should consist of alternating value, time pairs. The function is applied such that the beginning (at 0) maps to the first output channel and the end maps to the last output channel.
+			 
+
+
+
+signal
+
+
+
+				Specifies the index of the stored function to output, where 0 represents the first function. A number with a fractional part will interpolate between functions, so 0.5 will be halfway between the first and second stored. By sending a ramp into the inlet inlet of mc.apply~ you can continuously morph between two functions.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+function
+
+
+		Breakpoint function editor
+	
+
+
+
+mc.function
+
+
+		Breakpoint function editor
+	
+
+
+
+mc.gradient~
+
+
+		Generate a time-varying function over the space of a multichannel signal
+	
+
+
+
+mc.range~
+
+
+		Generate a multichannel signal with a range of constant values
+	
+
+
+
+phasor~
+
+
+		Generate sawtooth signals
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

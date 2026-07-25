@@ -1,0 +1,563 @@
+qlist - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsAttributesannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangappendclear(mouse)fwdinsertnextopenreadrewindsetstoptempowclosewriteOutputbangbangintlistSee AlsoPackage Maxqlist
+
+		Store a collection of messages
+	 
+Description
+
+		Stores a collection of timed or untimed "cues" in the form of messages which can be sent either out its outlet or remotely to various receive objects in your patch.
+	 
+Discussion
+
+		If you double-click on the object it opens up a text editor where you can enter or edit the qlist object's cue-list. Each line of the cue-list is a message ending in a semicolon. Lines do not need to be numbered or indexed (as with the coll object), but there are a few idiosyncrasies which need to be discussed here.
+		 
+
+		There are three different message formats for lines in a cue-list: lines which contain only numerical values (i.e an  int ,  float  or  list ), lines which begin with a  symbol  (i.e. message name and arguments), and lines beginning with a numerical value (or  list  of numerical values) and subsequently having a  symbol  (message name) with arguments. These three types of lines are treated differently by qlist. Lines containing only numerical values are sent out the qlist object's left outlet, and lines beginning with a symbol are sent remotely to a receive object named with that symbol. (Note that this is similar to remotely sending messages from a message box - contents before the first semicolon are sent out the outlet, and messages after each semicolon are sent remotely to named receive objects.) Lines which begin with a numerical value (or values) but have a message and arguments after the number(s), are treated as two separate lines - the first part (all numerical) is sent out the left outlet, and the second (message) part is remotely sent to a receive object.
+		 
+
+		When qlist receives a command (such as the  next  message) to output data, it will send all lines beginning with symbols to the corresponding receive objects, and stop after it has output the numerical contents of a line beginning with a number. The qlist object also has an internal timer which it uses for automatic sequencing. Sending a  bang  message to a qlist will cause it to play the entire contents of the cue-list. When a line begins with a number, qlist will use that number as a delay time in milliseconds before it continues outputting or sending the remaining cues.
+		 
+
+		The qlist objects saves its cue-list with the patcher.
+	 
+Arguments
+None.Attributes
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				Sending a  bang  to qlist triggers automatic-playback of the entire cue list. It begins sending messages from the first line, until a line begins with a number, at which point qlist will use that number as a delay time in milliseconds before continuing to send the remaining messages. A qlist that is playing automatically can be stopped using the  stop  message.
+			 
+
+
+
+append
+
+
+
+
+				The word  append  followed by any arguments will append those arguments to the last entry in the qlist object's cue-list. To append a semicolon, it must be preceded by a backslash character.
+			 
+Arguments:
+message
+      [list]
+      
+
+
+
+
+clear
+
+
+
+				The word  clear  will clear the contents of the cue-list. This is the same as sending a  set  message with no arguments.
+			 
+
+
+
+(mouse)
+
+
+
+				Double-clicking with the mouse on the qlist object displays its contents as text in an editing window which the user can modify.
+			 
+
+
+
+fwd
+
+
+
+
+				The word  fwd , followed by a number, is used to "fast forward" through a given number of lines, without remotely sending messages to named receive objects. For example,  fwd 2  will output the next two lines in the cue-list which bengin with numerical values. Lines beginning with symbols will be ignored.
+			 
+Arguments:
+lines
+      [int]
+      
+
+
+
+
+insert
+
+
+
+
+				The word  insert  followed by any arguments will append those arguments to the qlist object's cue-list as a new entry in the list. To append a semicolon, it must be preceded by a backslash character.
+			 
+Arguments:
+message
+      [list]
+      
+
+
+
+
+next
+
+
+
+
+				The word  next  is used to output the next line in the cue-list. It will remotely send all lines beginning with a symbol, and stop after it encounters and outputs a line beginning with a numerical value. If the word  next  is followed by a non-zero argument, it will ignore lines beginning with symbols and only output the next line beginning with a numerical value.
+			 
+Arguments:
+ignore-symbols
+      [int]
+      
+
+
+
+
+open
+
+
+
+				The word  open  will cause the qlist object's text editing window to be opened.
+			 
+
+
+
+read
+
+
+
+
+				The word  read  will allow you to read a file from disk via a standard Max file opening dialog. If followed by a symbol argument, Max will use the symbol as a filename (or filepath and filename) and try to read a text file with the given name from the disk.
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+
+
+
+rewind
+
+
+
+				Move to the beginning of the file
+			 
+
+
+
+set
+
+
+
+
+				The word  set  can be used to set the contents of a qlist object. It completely clears any previous cue-list contents. Sending a  set  message with no arguments is the same as sending a  clear  message.
+			 
+Arguments:
+cue-list-contents
+      [list]
+      
+
+
+
+
+stop
+
+
+
+				The word  stop  can be used to stop a qlist which is in the middle of playback as a result of a  bang  message.
+			 
+
+
+
+tempo
+
+
+
+
+				The word  tempo , followed by a floating-point numerical value, can be used to allow a qlist to automatically play itself at a faster or slower speed than indicated by the millisecond values stored internally in the cue list. By default the tempo is 1.0, which means the playback tempo is not scaled. A tempo of 0.5 plays back the cue list at half speed, whereas a tempo of 2. plays it back twice as fast.
+			 
+Arguments:
+tempo-multiplier
+      [float]
+      
+
+
+
+
+wclose
+
+
+
+				The word  wclose  will cause the qlist object's text editing window to be closed.
+			 
+
+
+
+write
+
+
+
+
+				The word  write  will allow you to save a file via a standard Max file saving dialog. If followed by a symbol argument, Max will use the symbol as a filename (or filepath and filename) and write a text file with the given name to disk.
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+Output
+
+bang
+
+				Out middle outlet. A  bang  is sent when a cue list has reached the end, and there are no more lines to send or output.
+			 
+
+
+bang
+
+				Out right outlet. A  bang  is sent when a file has been read successfully from disk.
+			 
+
+
+int
+
+				Out left outlet. The qlist object outputs a numerical value or list of numerical values when a line in the cue list begins with a number. Output is usually in response to a  next  or  fwd  message, but can also be a result of the object's internal timer, when the entire list of cues is being played as the result of a  bang  message.
+			 
+
+
+list
+
+				Out left outlet. The qlist object outputs a numerical value or list of numerical values when a line in the cue list begins with a number. Output is usually in response to a  next  or  fwd  message, but can also be a result of the object's internal timer, when the entire list of cues is being played as the result of a  bang  message.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+External Text Editor
+
+External Text Editor
+
+
+
+coll
+
+
+		Store and edit a collection of data
+	
+
+
+
+text
+
+
+		Format messages as a text file
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

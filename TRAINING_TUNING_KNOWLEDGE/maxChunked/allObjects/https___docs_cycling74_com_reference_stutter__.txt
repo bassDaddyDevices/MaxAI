@@ -1,0 +1,560 @@
+stutter~ - MSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsmax-buffer-lengthinitial-buffer-sizetrigger-polaritynumber-of-copied-samplesnumber-of-outputsAttributesannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangintampvarcleardropoutmaxsizepolarityprintrepeatsetbufsignalOutputsignalSee AlsoPackage MSPstutter~
+
+		Signal capture buffer for granular playback
+	 
+Description
+
+		The stutter~ object keeps a history of its signal input (left inlet). Upon receiving an int (left inlet), it copies that number of the most recently received samples to another playback buffer. This buffer may be cycled through by its phase, 0-1 (right inlet). On receiving a  bang  (left inlet) or a trigger signal (middle inlet), the last integer number of samples are copied to the playback buffer.
+	 
+Arguments
+
+
+
+max-buffer-length[int]samples
+
+optional
+
+
+				The maximum buffer length, in samples. This determines the memory size of the record buffer. Parts of the record buffer are copied to the playback buffer when the object is triggered.
+			 
+
+
+
+
+initial-buffer-size[int]samples
+
+optional
+
+
+				The initial buffer size, in samples, to copy from the record to the playback buffer upon receiving a trigger.
+			 
+
+
+
+
+trigger-polarity[int]
+
+optional
+
+
+				The polarity to use for accepting a trigger signal in the middle inlet. If the argument is greater than 0, stutter~ accepts a positive trigger; otherwise stutter~ accepts a negative trigger.
+			 
+
+
+
+
+number-of-copied-samples[int]samples
+
+optional
+
+
+				The number of samples which are copied from the record buffer to the playback buffer each iteration of the perform loop (the signal vector size). A larger value will decrease the stutter~ object's memory requirements and increase the CPU requirements.
+			 
+
+
+
+
+number-of-outputs[int]
+
+optional
+
+
+				An optional fifth argument allows you to specify multiple independent signal outputs the stutter~ object will use when playing back from the playback buffer. The default is 1, and the maximum is 30. The number of phase signal inputs to the stutter~ object is also determined by this argument.
+			 
+Attributes
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				In left inlet: A  bang  causes the last buffer of recorded samples to be copied to the playback buffer. You can use a  bang  instead of or in conjunction with the middle inlet trigger signal.
+			 
+
+
+
+int
+
+
+
+
+				In left inlet: Specifies the size (in samples) of the playback buffer. This can be any number up to the maximum memory determined by the first argument to stutter~.
+			 
+Arguments:
+playback-buffer-size
+      [int]
+      
+
+
+
+
+ampvar
+
+
+
+
+				The word  ampvar , followed by a float, specifies a random amplitude variation in the output signal(s). The default is 0 (no variation).
+			 
+Arguments:
+random-amplitude-variation
+      [float]
+      
+
+
+
+
+clear
+
+
+
+				Clears the object's sample memory.
+			 
+
+
+
+dropout
+
+
+
+
+				The word  dropout , followed by a float, determines the percentage chance of a playback signal dropping out (i.e. 'gapping' or not playing). The default is 0 (no gapping).
+			 
+Arguments:
+drop-out-chance
+      [float]
+      
+
+
+
+
+maxsize
+
+
+
+
+				The word  maxsize , followed by a number, sets the maximum buffer size, in samples.
+			 
+Arguments:
+max-buffer-size
+      [int]
+      
+
+
+
+
+polarity
+
+
+
+
+				The word  polarity , followed by a zero or one, changes the trigger polarity of stutter~ to negative or positive, respectively.
+			 
+Arguments:
+trigger-polarity
+      [int]
+      
+
+
+
+
+print
+
+
+
+				The word  print  will cause the object to print a detailed listing of all of its parameter settings within the Max Console.
+			 
+
+
+
+repeat
+
+
+
+
+				The word  repeat , followed by a float, determines the percentage change of the record buffer not being copied to the playback buffer so that the previous playback buffer is repeated. The default is 0 (no repeat).
+			 
+Arguments:
+repeat-chance
+      [float]
+      
+
+
+
+
+setbuf
+
+
+
+
+				The word  setbuf , followed by arguments for a buffer name, a sample offset, and a channel, copies the specified samples to the named buffer~ object. Note: stutter~ always uses its internal buffer as the playback buffer; the copied samples can be sent to a named buffer~ object for use in some other way, if desired. The time required to move the specified amount of memory to the buffer is n/m, there n is the number of samples being copied and m is the fourth argument to the stutter~ object.
+			 
+Arguments:
+
+buffer-name
+      [symbol]
+      
+sample-offset
+      [int]
+      
+channel-number
+      [int]
+      
+
+
+
+
+
+signal
+
+
+
+				In left inlet: Signals coming into the left inlet are stored in a record buffer, where they can be copied into a playback buffer and used as a playback source.
+				 
+
+				In middle inlet: Accepts a trigger signal, which can be specified to be positive or negative. When the signal changes polarity in the correct direction, samples recorded from the left inlet are copied to the playback buffer.
+				 
+
+				In right and successive inlets: A phase signal input in the range of 0-1 for each inlet controls the output speed of the playback buffer for that inlet. The number of phase inlets in a stutter~ object is set using the fifth argument; the default is a single inlet. Specifying multiple phase inlets allows you to specify multiple playback points in the sampled buffer.
+			 
+Output
+
+signal
+
+				All outlets: The stutter~ object's outlets produce a signal from the playback buffer, the location and speed of which is determined by the phase input for that playback outlet. The number of outlets is determined by the fifth argument to the stutter~ object.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+buffer~
+
+
+		Store audio samples
+	
+
+
+
+phasor~
+
+
+		Generate sawtooth signals
+	
+
+
+
+record~
+
+
+		Record sound into a buffer
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

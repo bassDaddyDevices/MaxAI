@@ -1,0 +1,638 @@
+seq~ - MSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsAttributesannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangintfloatlistanythingaddcleardeletedumperaseoffsetoverdubplayreadrecordseqseqnumsignalsymbolwriteOutputany messagelistSee AlsoPackage MSPseq~
+
+		Signal-driven event sequencer
+	 
+Description
+
+		The seq~ object is an event sequencer that is driven by a signal input. seq~ can be used to create looping sequences of control data that are synchronized to a phasor~.
+	 
+Discussion
+
+		It is optimized for continuous ramp input, but any signal passing through any range of values will work. Sequence events can be recorded in real-time or inserted with the  add  message. seq~ can contain any number of sequences, but only one at a time is active for playback and recording.
+	 
+Arguments
+None.Attributes
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				Causes information about the seq~ object's current sequence number, mode of operation (record, overdub, play) and total number of current events to be printed in the Max window.
+			 
+
+
+
+int
+
+
+
+
+				Same as  anything .
+			 
+Arguments:
+input
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				Same as  anything .
+			 
+Arguments:
+input
+      [float]
+      
+
+
+
+
+list
+
+
+
+
+				Same as  anything .
+			 
+Arguments:
+input
+      [list]
+      
+
+
+
+
+anything
+
+
+
+
+				The seq~ object is used to record and play back messages. All events received in the inlet are stored according to the current value of the input signal. Any message can be sequenced except for commands to the seq~ object itself. The example shows a simple way to work around this limitation.
+				 
+				Note: seq~ can be used to sequence MIDI data if the MIDI input stream is converted into lists of MIDI events. This conversion is necessary to avoid outputting a corrupted MIDI stream which would occur if only the raw int messages of a MIDI stream were sequenced individually and the seq~ object were not doing a simple forward linear playback.
+			 
+Arguments:
+input
+      [list]
+      
+
+
+
+
+add
+
+
+
+
+				The word  add , followed by an int, a float and a message, inserts a Max event specified by the message at the time specified by the float for the sequence number specified by the int. (e.g.,  add 2 0.5 honk  will insert the message  honk  to be played at the halfway point of sequence 2.)
+			 
+Arguments:
+sequence-name (symbol), start time (float), optional end time (float) and Max-Event (message)
+      [list]
+      
+
+
+
+
+clear
+
+
+
+				The word  clear , followed by the name of a sequence, erases the sequence. The message  clear all  erases all current sequences.
+			 
+
+
+
+delete
+
+
+
+
+				The word  delete , followed by an symbol that specifies a sequence name, a float and a message, deletes a Max event or events specified by the message at the time specified by the float for the sequence name specified by the symbol. An additional end time may also be specified. Here are some examples:
+				 
+
+ delete mysequence 5. : delete all the events at time 5 in mysequence.
+				 
+ delete mysequence 6.5 8. : delete all the events between time 6.5 and 8 in mysequence.
+				 
+ delete mysequence -1. 99. explosion : delete only the event explosion wherever it occurs.
+			 
+Arguments:
+sequence-number (int), time (float), and Max-Event (message)
+      [list]
+      
+
+
+
+
+dump
+
+
+
+
+				Causes the contents of the current stored event sequence to be sent out the middle outlet. The word  dump , followed by a number, outputs only the sequence designated by the number.
+			 
+Arguments:
+sequence-number (int)
+      [int]
+      
+
+
+
+
+erase
+
+
+
+				Synonym for  clear .
+			 
+
+
+
+offset
+
+
+
+
+				The word  offset  followed by a number will offset the numbering of sequences by the specified number.
+			 
+Arguments:
+number-to-offset-sequence-numbering
+      [int]
+      
+
+
+
+
+overdub
+
+
+
+
+				The word  overdub , followed by 1, causes seq~ to begin Max event recording of the current sequence (set by the  seqnum  message) in "overdub" mode. Recording begins at the current point of the loop and wraps around at the point where the input signal reaches 1, continuing to record as the signal passes its original value. The message  overdub 0  turns off overdub mode.
+			 
+Arguments:
+overdub-enable-flag (0 or 1)
+      [int]
+      
+
+
+
+
+play
+
+
+
+
+				The word  play , followed by 1, causes seq~ to begin Max event playback of the current sequence (set by the  seqnum  message) at the point of the loop specified by the current value of the signal input.  play 0  turns off playback. By default, playback is off.
+			 
+Arguments:
+playback-enable-flag (0 or 1)
+      [int]
+      
+
+
+
+
+read
+
+
+
+
+				Reads a text file containing Max event sequences created using the seq~ object's  write  message into the memory of the. seq~ object. If no symbol argument appears after the word  read , a standard open file dialog is opened showing available text files. The word  read , followed by a symbol, reads the file whose filename corresponds to the symbol into the seq~ object's memory without opening the dialog box.
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+
+
+
+record
+
+
+
+
+				The word  record , followed by 1, causes seq~ to begin recording events into the current sequence (set by the  seqnum  message) at the point of the loop specified by the current value of the signal input.  record 0  turns off recording. Recording is off by default.
+			 
+Arguments:
+playback-enable-flag (0 or 1)
+      [int]
+      
+
+
+
+
+seq
+
+
+
+
+				Performs the same function as  seqnum .
+			 
+Arguments:
+sequence (int or symbol)
+      [int]
+      
+
+
+
+
+seqnum
+
+
+
+
+				The word  seqnum , followed by a number or symbol, sets the current Max event sequence being recorded or played back.
+			 
+Arguments:
+sequence (int or symbol)
+      [int]
+      
+
+
+
+
+signal
+
+
+
+				An input signal whose output is between 0. and 1.0 (usually the output of a phasor~) is used to drive the event sequencer.
+			 
+
+
+
+symbol
+
+
+
+
+				Same as  anything .
+			 
+Arguments:
+input
+      [symbol]
+      
+
+
+
+
+write
+
+
+
+
+				Saves the contents of all current Max event sequences into a text file. A standard file dialog is opened for naming the file. The word  write , followed by a symbol, saves the file, using the symbol as the filename, in the same folder as the patch containing the seq~ object. If the patch has not yet been saved, the seq~ file is saved in the same folder as the Max application.
+			 
+Arguments:
+filename
+      [symbol]
+      
+
+Output
+
+any message
+
+				Out left outlet: When playback is enabled with the  play 1  message, the seq~ object outputs all events recorded at the time specified by the input signal.
+			 
+
+
+list
+
+				Out right outlet: The dump message will cause the seq~ object to output the contents of a specified sequence to be output in the form of a list consisting of an int which specifies the sequence number, a float which specifies the signal value associated with that point in time, and the int, float, symbol or list to be output at that time.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+phasor~
+
+
+		Generate sawtooth signals
+	
+
+
+
+techno~
+
+
+		Signal-driven step sequencer
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

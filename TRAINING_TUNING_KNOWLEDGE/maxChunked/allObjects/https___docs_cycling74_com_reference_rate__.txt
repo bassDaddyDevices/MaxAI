@@ -1,0 +1,490 @@
+rate~ - MSP Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsmultipliersync-mode-flagAttributessyncannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesintfloatgotooneshotresetsignalOutputsignalSee AlsoPackage MSPrate~
+
+		Time-scale the output of a phasor~
+	 
+Description
+
+		The rate~ object accepts an input signal from a phasor~ and time scales it by a multiplier received as a float in its right inlet. Numbers less than 1 create several ramps per phase cycle. Numbers greater than 1 create fewer ramps. This can be useful for implementing a phasor~-synchronized system in MSP.
+	 
+Arguments
+
+
+
+multiplier[float]
+
+optional
+
+
+				The multiplier value used to scale the output signal.
+			 
+
+
+
+
+sync-mode-flag[int]
+
+optional
+
+
+				Sets the sync mode (see the  sync  message).
+			 
+Attributes
+
+
+
+sync[int]
+
+
+
+
+				Sets the sync mode of the rate~ object. The sync mode determines whether or not the rate~"in" will stay in phase with the input signal, and the method used for synchronization. When the output of the rate~ object is "in phase," the input and output signals align precisely at the least common multiple of their periods (i.e., they pass through zero and begin a new cycle at precisely the same time). If the signals are in phase, and a new multiplier value is received, the rate~ object changes the frequency of its output ramp accordingly. However, the change in multiplier values means that the two signals may be out of phase. The rate~ object handles this situation in one of three different ways, depending on the sync mode
+			 Possible values:0 = 'cycle'
+                   (
+								Set the cycle mode for sync
+							 )
+								The arguments  @sync 0  or  @sync cycle  set the cycle mode of the rate~ object. In cycle mode, the rate~ object does not change the phase of its output until the end of the current cycle. When the input ramp reaches its peak and starts over from zero, the rate~ object immediately restarts the output ramp, causing a discontinuity in the output signal, and immediate phase synchronization.
+							 1 = 'lock'
+                   (
+								Set the lock mode for sync
+							 )
+								The arguments  @sync 1  or  @sync lock  set the lock mode of the rate~ object. In sync lock mode, the rate~ object performs synchronization whenever a new multiplier is received. The rate~ object immediately calculates the proper ramp position which corresponds to being "in phase" with the new multiplier value, and jumps to that position.
+							 2 = 'off'
+                   (
+								Disable the sync mode
+							 )
+								The arguments  @sync 2  or  @sync off  disables the sync mode of the rate~ object (the default mode). In this mode rate~ never responds to phase differences; when a new multiplier is received, the rate~ object adjusts the speed of its output ramps and they continue without interruption. Since this mode never introduces a discontinuous jump in the ramp signal, it may be useful if phase is unimportant.
+							 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+int
+
+
+
+
+				In left inlet: Sets the phase value for the rate~ object's signal output.
+				 
+
+				In right inlet: The signal multiplier value used to scale the phasor~ signal input. Integer values greater than 1 create fewer ramps. This can be useful for synchronizing multiple processes to a single reference phasor~ object, preserving their ratio relationships.
+			 
+Arguments:
+phase/multiplier
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				In left inlet: Sets the phase value for the rate~ object's signal output.
+				 
+
+				In right inlet: The signal multiplier value used to scale the phasor~ signal input. Float values less than 1.0 create several ramps per phase cycle. Numbers greater than 1.0 create fewer ramps. This can be useful for synchronizing multiple processes to a single reference phasor~ object, preserving their ratio relationships.
+			 
+Arguments:
+phase/multiplier
+      [float]
+      
+
+
+
+
+goto
+
+
+
+
+				In left inlet: The word  goto , followed by a float, causes the rate~ object to jump immediately to the specified value. An optional second argument may be used to specify the time at which to jump to the value (e.g.,  goto 1.0 .5  will output a value of 1.0 at the halfway point of the phasor~ object's input signal ramp).
+			 
+Arguments:
+
+jump-to-value
+      [float]
+      
+time-of-action
+      [float]
+      
+
+
+
+
+
+oneshot
+
+
+
+
+				The message  oneshot 1  will turn on "oneshot"-mode whereby rate~ outputs only one cycle of a ramp. The message  oneshot 0  will turn "oneshot"-mode off whereby rate~ can cycle through ramps continuously when instructed to do so (i.e. by the  sync cycle  message).
+			 
+Arguments:
+loop-flag (0 or nonzero)
+      [int]
+      
+
+
+
+
+reset
+
+
+
+				In left inlet: The word  reset  will lock the output to the input on its next reset. It is equivalent to the message  goto 0. 0 .
+			 
+
+
+
+signal
+
+
+
+				In left inlet: An input signal from a phasor~ object.
+				 
+
+				In right inlet: The rate~ object time scales the input signal from a phasor~ by a multiplier value. The multiplier value can be specified as an argument or received as a float to the rate~ object's right inlet.
+			 
+Output
+
+signal
+
+				The synchronized signal is sent out the outlet.
+			 
+See Also
+
+
+Name
+Description
+
+
+
+
+phasor~
+
+
+		Generate sawtooth signals
+	
+
+
+
+sync~
+
+
+		Synchronize MSP with an external source
+	
+
+
+
+techno~
+
+
+		Signal-driven step sequencer
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74

@@ -1,0 +1,548 @@
+translate - Max Reference | Cycling '74 DocumentationUser GuideReference API ReferenceMax JavaScript APILive Object ModelNode for Max APIObject ReferenceObject & Operator ReferenceLearnUser GuideReferenceMax JavaScript APILive Object ModelNode for Max APIObject & Operator ReferenceLearnSwitch ThemeOn this pageDescriptionArgumentsinput-formatoutput-formatAttributesinlistenlistmodemodeouttransportannotationbackgroundcolorfontfacefontnamefontsizehiddenhintignoreclickjspainterfilepatching_rectpositionpresentationpresentation_rectrectsizetextcolortextjustificationvaluepopupvaluepopuplabelvarnameMessagesbangintfloatlistanythingSee AlsoPackage Maxtranslate
+
+		Convert between different time formats
+	 
+Description
+
+		The translate object converts from any of the fixed or relative Max time values to any other fixed or relative time value.
+	 
+Arguments
+
+
+
+input-format[symbol]
+
+optional
+
+
+				The first argument sets the input format to expect. These arguments are a shortcut for setting the attributes of this object which do the same thing. Time can be specified in any of the time formats used in Max.
+			 
+
+
+
+
+output-format[symbol]
+
+optional
+
+
+				The second argument sets the format to output. These arguments are a shortcut for setting the attributes of this object which do the same thing. Time can be specified in any of the time formats used in Max.
+			 
+Attributes
+
+
+
+in[symbol]: bbu
+
+
+
+
+				Sets the time format of the input to be translated.
+			 Possible values:
+                    'ticks'
+                  
+                    'ms'
+                  
+                    'bars.beats.units'
+                  
+                    'samples'
+                  
+                    'hz'
+                  
+                    'notevalues'
+                  
+                    'hh:mm:ss'
+                  
+
+
+
+
+listen[int]: 1
+
+
+
+
+				When listen is enabled, transport will output new values for the most recent input when the transport tempo or time signature changes. listen is enabled by default.
+			 
+
+
+
+
+listmode[int]: 0
+
+
+
+
+				When listmode is enabled, incoming lists are treated as a series of single values to translate one-by-one, producing a list of translated time values. However, list conversion only happens when both the input and output time formats are single-valued. When listmode is disabled or the input or output time formats are multi-valued, an input list will be treated as describing a single time value with multiple elements.
+			 
+
+
+
+
+mode[symbol]: interval
+
+
+
+
+				Sets the mode for time values. The translate object can output time values in either  position  relative to the system start value of 1.1.0 or  interval , where a value of 1.1.0 would indicate one bar, one beat, and no units (2400 ticks at 4/4 in the default resolution).
+				 
+				Note: this attribute may not apply, depending on the type of unit conversion.
+			 Possible values:
+                    'interval'
+                   (
+								Value represents a time interval
+							 )
+                    'position'
+                   (
+								Value represents a position in time
+							 )
+
+
+
+
+out[symbol]: ticks
+
+
+
+
+				Set the time format to use for output
+			 Possible values:
+                    'ticks'
+                  
+                    'ms'
+                  
+                    'bars.beats.units'
+                  
+                    'samples'
+                  
+                    'hz'
+                  
+                    'notevalues'
+                  
+                    'hh:mm:ss'
+                  
+
+
+
+
+transport[symbol]
+
+
+
+
+				The name of a transport object to use for tempo information. The default value is the global 'internal' transport.
+			 
+
+
+Common Box Attributes
+
+
+		Below is a list of attributes shared by all objects. If you want to change one of these attributes for an object based on the object box, you need to place the word  sendbox  in front of the attribute name, or use the object's Inspector.
+	 
+
+
+
+annotation[symbol]
+
+
+
+
+				Sets the text that will be displayed in the Clue window when the user moves the mouse over the object.
+			 
+
+
+
+
+background[int]: 0
+
+
+
+
+				Adds or removes the object from the patcher's background layer.  background 1  adds the object to the background layer,  background 0  removes it. Objects in the background layer are shown behind all objects in the default foreground layer.
+			 
+
+
+
+
+color[4 floats]
+
+
+
+
+				Sets the color for the object box outline.
+			 
+
+
+
+
+fontface[int]
+
+
+
+
+				Sets the type style used by the object. The options are:
+				 
+
+				plain
+				 
+				bold
+				 
+				italic
+				 
+				bold italic
+			 Possible values:0 = 'regular'
+                  1 = 'bold'
+                  2 = 'italic'
+                  3 = 'bold italic'
+                  
+
+
+
+
+fontname[symbol]
+
+
+
+
+				Sets the object's font.
+			 
+
+
+
+
+fontsize[float]
+
+
+
+
+				Sets the object's font size (in points).
+			 Possible values:
+                    '8'
+                  
+                    '9'
+                  
+                    '10'
+                  
+                    '11'
+                  
+                    '12'
+                  
+                    '13'
+                  
+                    '14'
+                  
+                    '16'
+                  
+                    '18'
+                  
+                    '20'
+                  
+                    '24'
+                  
+                    '30'
+                  
+                    '36'
+                  
+                    '48'
+                  
+                    '64'
+                  
+                    '72'
+                  
+
+
+
+
+hidden[int]: 0
+
+
+
+
+				Toggles whether an object is hidden when the patcher is locked.
+			 
+
+
+
+
+hint[symbol]
+
+
+
+
+				Sets the text that will be displayed in as a pop-up hint when the user moves the mouse over the object in a locked patcher.
+			 
+
+
+
+
+ignoreclick[int]: 0
+
+
+
+
+				Toggles whether an object ignores mouse clicks in a locked patcher.
+			 
+
+
+
+
+jspainterfile[symbol]
+
+
+
+
+				You can override the default appearance of a user interface object by assigning a JavaScript file with code for painting the object. The file must be in the search path.
+			 
+
+
+
+
+patching_rect[4 floats]: 0. 0. 100. 0.
+
+
+
+
+
+                  Aliases:
+                 patching_position, patching_size
+
+				Sets the position and size of the object in the patcher window.
+			 
+
+
+
+
+
+position[2 floats]
+
+write-only
+
+
+				Sets the object's x and y position in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its size unchanged.
+			 
+
+
+
+
+presentation[int]: 0
+
+
+
+
+				Sets whether an object belongs to the patcher's presentation.
+			 
+
+
+
+
+presentation_rect[4 floats]: 0. 0. 0. 0.
+
+
+
+
+
+                  Aliases:
+                 presentation_position, presentation_size
+
+				Sets the x and y position and width and height of the object in the patcher's presentation, leaving its patching position unchanged.
+			 
+
+
+
+
+
+rect[4 floats]
+
+write-only
+
+
+				Sets the x and y position and width and height of the object in both patching and presentation modes (if the object belongs to its patcher's presentation).
+			 
+
+
+
+
+size[2 floats]
+
+write-only
+
+
+				Sets the object's width and height in both patching and presentation modes (if the object belongs to its patcher's presentation), leaving its position unchanged.
+			 
+
+
+
+
+textcolor[4 floats]
+
+
+
+
+				Sets the color for the object's text in RGBA format.
+			 
+
+
+
+
+textjustification[int]
+
+
+
+
+				Sets the justification for the object's text.
+			 Possible values:0 = 'left'
+                  1 = 'center'
+                  2 = 'right'
+                  
+
+
+
+
+valuepopup[int]: 0
+
+
+
+
+				For objects with single values, enabling valuepopup will display the object's current value in a popup caption when the mouse is over the object or it is being changed with the mouse.
+			 
+
+
+
+
+valuepopuplabel[int]: 0
+
+
+
+
+				Sets the source of a text label shown in a value popup caption.
+			 Possible values:0 = 'None'
+                  1 = 'Hint'
+                  2 = 'Scripting Name'
+                  3 = 'Parameter Long Name'
+                  4 = 'Parameter Short Name'
+                  
+
+
+
+
+varname[symbol]
+
+
+
+
+				Sets the patcher's scripting name, which can be used to address the object by name in pattr, scripting messages to thispatcher, and the js object.
+			 
+
+
+Messages
+
+
+bang
+
+
+
+				The last time passed in is converted into the output type specified. Where appropriate, the input type of the last time passed in will be re-assessed by checking the in attribute.
+			 
+
+
+
+int
+
+
+
+
+				The time value is converted from the input to output time format and sent out the outlet.
+			 
+Arguments:
+time
+      [int]
+      
+
+
+
+
+float
+
+
+
+
+				The time value is converted from the input to output time format and sent out the outlet.
+			 
+Arguments:
+time
+      [float]
+      
+
+
+
+
+list
+
+
+
+
+				When listmode is enabled and the input and output time formats are single valued, list items are translated individually and produce a corresponding output list. For example, if the input format is  ticks  and the output format is  ms  at a tempo of 120 BPM, the input list  480 240 120  will produce an output of  500 250 125 .				 
+				When listmode is disabled or the input or output time formats are multi-valued, an input list will be treated as describing a single time value with multiple elements.
+			 
+Arguments:
+time
+      [list]
+      
+
+
+
+
+anything
+
+
+
+
+				The time value is converted from the input to output time format and sent out the outlet.
+			 
+Arguments:
+time
+      [list]
+      
+
+See Also
+
+
+Name
+Description
+
+
+
+
+metro
+
+
+		Output a bang message at regular intervals
+	
+
+
+
+timepoint
+
+
+		Bang at a specific time
+	
+
+
+
+transport
+
+
+		Control a clock
+	
+
+
+
+when
+
+
+		Report the current transport time
+	
+
+
+
+ResourcesRNBO DocumentationPDF DocumentationLegacy DocumentationCycling '74 WebsiteSupportKnowledge BaseReport an issueCommunitiesCycling '74 ForumsMax DiscordLegal InfoPrivacy PolicyCopyright © 2024 Cycling '74
