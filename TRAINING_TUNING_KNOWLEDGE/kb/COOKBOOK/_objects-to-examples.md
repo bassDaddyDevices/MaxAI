@@ -1,0 +1,438 @@
+---
+type: reference
+name: "Object to Cookbook Example Index"
+summary: "Which Max Cookbook examples demonstrate each object"
+---
+
+# Object → Cookbook Examples
+
+- **!-** (19) — Crossfade to new location in a video; Crossfade video and audio; Delay a matrix; Draw Points on the Circumference of a Circle; Drawing an image from a file into lcd; FM mix; Generate random numbers within a specified range; Granulation of a recorded sound; Invert the pitches of MIDI notes; Mixing sound of two videos; Mousestate; Play random clips (in reverse) from a RAM buffer …
+- **!-~** (19) — Abstraction for crossfading between delay times; Abstraction for crossfading delay times of a remote tapin~ object; Abstraction for hexagonal constant-intensity panning; Calculating Doppler shift for moving virtual sound sources; Choosing one of two signals; Comb filtering; Control the balance between two channels of audio; Delay effect with feedback; Delay with tapin~ and tapout~; Linear interpolation of audio; Mix two signals (more efficiently); Mixing and crossfading …
+- **!/** (46) — A beeping test sound; Accelerando; Adjust the pitch of a comb filter; Alter phase of sinusoid by milliseconds; Avoiding infinity in pow and /; Base transport tempo on loop length; Buffer techniques; Calculating the mean of each cell of a series of matrices; Choose a random mix of sine tones; Circular quadraphonic panning; Comb filter; Comb filtering …
+- **!/~** (2) — Abstraction for hexagonal constant-intensity panning; Calculating Doppler shift for moving virtual sound sources
+- **!=** (10) — Abstraction for hexagonal constant-intensity panning; Choosing one of two signals; Convert MIDI data into coll format; Routing a signal to one of two destinations; Stop a modulating oscillator; Tap Tempo; Tap Tempo for Ableton Live; Tap tempo utility in Max for Live; Tap to teach tempo to Max; Turning a signal on or off
+- **%** (15) — Adjust pitches according to a pitch class set; Algorithmic counting; Automated countermelody improviser; Checkerboard pattern with jit.gen; Customize oscillator behavior; Delay a matrix; Linear mapping and linear interpolation; MIDI with ProTools; Modulo operator: %; Oscillators controlled by cellular automata; Play a sinusoidal melody; Playing sound files with a MIDI Keyboard …
+- **&** (2) — Bass drum player with swing; Checkerboard pattern in a matrix
+- **&&** (1) — Testing for a range of numbers
+- ***** (129) — 3D animation of a MIDI note; A basic chorus effect; A subpatch suitable for use in poly~; ADSR amplitude envelope; ADSR filter envelope; ASCII key; Abstraction for calculating the Hénon attractor; Abstraction for flanging; Abstraction to flange an audio signal; Accelerando; Algorithmic counting; Arpeggiate the harmonic series …
+- ***~** (201) — 1/4 of a sine wave as a control shape; A basic chorus effect; A beeping test sound; A demonstration of phase distortion synthesis; A subpatch suitable for use in poly~; A useful noise gate (ducker) subpatch for rejecting unwanted sounds; A useful subpatch for mixing and balancing two sounds; A/B audio crossfade; ADSR amplitude envelope; ADSR filter envelope; Abstraction for S-curve crossfading; Abstraction for crossfading between delay times …
+- **+** (118) — 32-bit versus 64-bit; A timepoint is a point in musical time; Abstraction for calculating the Hénon attractor; Abstraction for crossfading between delay times; Abstraction for crossfading delay times of a remote tapin~ object; Abstraction for hexagonal constant-intensity panning; Accelerando; Adjust pitches according to a pitch class set; Algorithmic counting; Amplitude and decibels; Animating 2D graphics; Any rhythmic value, with transport …
+- **+~** (119) — 1/4 of a sine wave as a control shape; A basic chorus effect; A beeping test sound; A subpatch suitable for use in poly~; A useful subpatch for mixing and balancing two sounds; A/B audio crossfade; Abstraction for S-curve crossfading; Abstraction for crossfading between delay times; Abstraction for crossfading delay times of a remote tapin~ object; Abstraction for flanging; Abstraction for hexagonal constant-intensity panning; Abstraction for mixing or crossfading two audio signals …
+- **-** (67) — 3D animation of a MIDI note; ADSR filter envelope; Abstraction for calculating the Hénon attractor; Abstraction for hexagonal constant-intensity panning; Animating 2D graphics; Automated countermelody improviser; Bass drum player with swing; Calculate pitchbend transposition; Calculate the range of rslider; Centering an image in jit.window; Continuous control shapes; Conversion between pitch and frequency …
+- **-1** (2) — Play random clips (in reverse) from a RAM buffer; Using the preset capabilities of pattrstorage
+- **-~** (16) — A basic chorus effect; A useful subpatch for mixing and balancing two sounds; A/B audio crossfade; Abstraction for hexagonal constant-intensity panning; Abstraction for mixing or crossfading two audio signals; Abstraction to flange an audio signal; Constant power panning using square root of intensity; DIY ring buffer; Delay with tempo-relative timing; Generate classic waveforms; Linear amplitude panning; Modulated sound …
+- **/** (69) — 32-bit versus 64-bit; Abstraction for flanging; Accelerando; Adjust brightness and contrast on a 1-plane char matrix; Adjustable Tempo; Amplitude and decibels; Animating 2D graphics; Attributes of jit.qt.movie; Avoiding infinity in pow and /; Base transport tempo on loop length; Basic linear mapping; Bass drum player with swing …
+- **/~** (1) — Calculating Doppler shift for moving virtual sound sources
+- **0** (18) — Adjustable Tempo; Ask if a number belongs to a set; Audio amplitude control; Automate pitch with bline; Fade audio after a given time under a dB threshold; Linear interpolation of audio; MIDI stream to exponential curve; MIDIGlissando; Output bang if two bangs are received at the same time; Play random clips (in reverse) from a RAM buffer; Rhythmic delays in time with a musical tempo; Schedule timepoints in straight clock time …
+- **0.** (6) — Amplitude and decibels; Exponential mapping; Linear fade-in/out of audio; MIDI stream to exponential curve; Representing all decibel values as positive; Windowing an audio signal
+- **0.1** (1) — Trapezoidal envelope
+- **0.5** (2) — Circular quadraphonic panning; Gain factors for quadraphonic panning based on radial angle
+- **0.6** (1) — Trapezoidal envelope
+- **0.666667** (1) — Automate pitch with bline
+- **1** (12) — A demonstration of phase distortion synthesis; Amplitude modulation and frequency modulation; Ask if a number belongs to a set; Detokenizing Stream of Numbers; Fade audio after a given time under a dB threshold; Gain factors for quadraphonic panning based on radial angle; MIDIGlissando; MSP vector to list; Multiple delays with stereo panning; Tendency Masks; Using key presses and releases; Variable-mode filter demo
+- **1.** (1) — Sigmoid vs Sinusoid acceleration control
+- **1.333333** (1) — Automate pitch with bline
+- **2** (2) — Detokenizing Stream of Numbers; MIDIGlissando
+- **24** (1) — Play random clips (in reverse) from a RAM buffer
+- **256** (1) — A demonstration of phase distortion synthesis
+- **3** (1) — Detokenizing Stream of Numbers
+- **3.14** (1) — Pack without Pack
+- **30** (1) — Using Jitter to store numerical data
+- **38** (1) — Score following with the follow object
+- **4** (2) — Detokenizing Stream of Numbers; Pack without Pack
+- **4.** (2) — Create a stop motion effect using jit.qt.movie; Pack without Pack
+- **42** (1) — Score following with the follow object
+- **60** (1) — Demonstration of the randomizedmetro subpatch
+- **64** (1) — Tremolo effect in Max for Live
+- **75** (1) — Create MIDI File
+- **96** (2) — Tap Tempo; Tap to teach tempo to Max
+- **<** (8) — Creating a MIDI trill effect; Linear interpolation to a new value; Make a yes-or-no decision with a given likelihood; Pass a certain percentage of bangs; Program changes for multi-timbral MIDI; Report a data stream’s peak; Testing for a range of numbers; Trigger a bang when numbers increase or decrease
+- **<<** (2) — MIDI with ProTools; MIDI-DMX conversion
+- **<=** (2) — Amplitude control in decibels; Detect two bangs within a given interval
+- **<~** (11) — Abstraction for hexagonal constant-intensity panning; Control the balance between two channels of audio; Detect the end of a phasor~ cycle; Generate a burst of audio pulses; Generate classic waveforms; Interference; Play a stream of random grains from a sound file; Play part of a sample using groove~; Transport-controlled phasor~; Triggering events with each cycle of a phasor~; Using audio to trigger the display of a frame of video
+- **==** (18) — A/B video switcher; Abstraction for hexagonal constant-intensity panning; Checkerboard pattern with jit.gen; Create a go board in Max; Enable/disable subpatches; GL quad panning demo; Jit start; LCD in Jitter; Mixing sound of two videos; Monitor no change; Quadraphonic panning with mouse control and Open GL visualization; Random Except Previous Number …
+- **==~** (1) — Isolate a single bin of an FFT
+- **>** (4) — Abstraction for hexagonal constant-intensity panning; Creating a MIDI trill effect; Inaccuracy in very large float values; Non-UI version of live.gain~
+- **>=** (12) — A useful noise gate (ducker) subpatch for rejecting unwanted sounds; Check movie position; Detect end of video in imovie; Detect when a video has reached the end; Detect when an audio event occurs; Fade audio after a given time under a dB threshold; Fitting text to a window; Interpolation with the function object; Mousestate; Notify when a certain time has elapsed; Testing for a range of numbers; Timed counting in Max
+- **>=~** (2) — Fade audio after a given time under a dB threshold; Synchronize an LFO to a note onset with phasor~
+- **>>** (3) — Centering an image in jit.window; Rhythmic automated panning; Tremolo effect in Max for Live
+- **>~** (1) — Control the balance between two channels of audio
+- **abgate~** (1) — Turn an audio effect on or off
+- **abs** (1) — Detect two bangs within a given interval
+- **abs~** (2) — Play a stream of random grains from a sound file; Transport-controlled phasor~
+- **accum** (3) — Oscillators controlled by cellular automata; Play chunks of a movie; Timed ouput of list elements
+- **adc~** (18) — Basic RAM recording into buffer~; Basic stereo recording into buffer~; Change hue rotation; Consecutive recordings concatenated in the same buffer~; DIY ring buffer; Different number sources using Max; Granulation of a recorded sound; Live capture in buffer~; Live capture in sound file; Play random clips (in reverse) from a RAM buffer; Record and fragment audio in rhythmic units; Recording to and playing sounds from RAM …
+- **adsr~** (6) — A subpatch suitable for use in poly~; ADSR amplitude envelope; ADSR filter envelope; Generating a simple 2-operator FM tone; How the adsr~ object works; Phase distortion synthesis in a poly~ subpatch
+- **adstatus** (13) — Abstraction for flanging; Alter phase of sinusoid by milliseconds; Circular quad panning; Interface for a flanger; Interference; MSP vector to list; Reset Meter~ Display; Sample and hold using triggers stored in a buffer; Simple delay of audio signal; Simple demonstration of flanging; Single stream of grains from a buffer~; Test hexagonal panner …
+- **allpass~** (1) — Multi-tap audio delay with feedback
+- **ampindB~** (2) — Abstraction for delay with quadraphonic panning; Polyphonic quad-panned delays with poly~
+- **append** (1) — Frequency and pitch
+- **atan2~** (1) — Calculating Doppler shift for moving virtual sound sources
+- **AtodB** (1) — Different number sources using Max
+- **atodb** (3) — Interpolation with pattrstorage; Pitch and loudness formulae; Record mater values
+- **atoi** (2) — Fitting text to a window; Pseudo-random numbers appear random
+- **attrui** (1) — Using the Hénon attractor
+- **autopattr** (2) — Interpolation with pattrstorage; Using the preset capabilities of pattrstorage
+- **b** (51) — A timepoint is a point in musical time; Abstraction to trigger a timed series of bangs; Adjustable Tempo; Algorithmic composition with math functions; Apply a texture to a shape in OpenGL; Bass drum player with swing; Calculating the mean of each cell of a series of matrices; Capture and play video excerpts; Change hue rotation; Consecutive recordings concatenated in the same buffer~; Controlling sfplay~ speed with line~; Convert MIDI data into coll format …
+- **bag** (4) — Ask if a number belongs to a set; Detect MIDI Notes Being Played; Keep pitches of held MIDI notes in a bag; Note on and off with list
+- **bangbang** (3) — Audio cue chooser; Manage MIDI processing using Gate; Message ordering in Max
+- **BCF2000** (1) — Behringer BCF2000 router
+- **bendin** (10) — Calculate pitchbend transposition; Different number sources using Max; Frequency and pitch; MIDI input objects; MIDI to saturation and rotation; Make slider spring back to a designated value; Overly simple MIDI synth; Sampling synthesizer in Max; Useful MIDI Objects; Very simple monophonic MIDI synthesizer
+- **bendout** (6) — Automate sinusoidal MIDI pitchbend; MIDI input objects; MIDIGlissando; Overly simple MIDI synth; Useful MIDI Objects; Very simple monophonic MIDI synthesizer
+- **biquad~** (3) — Biquad filter; Smooth filter changes; Variable-mode filter demo
+- **bline** (3) — Automate pitch with bline; Linear mapping and linear interpolation; Sinusoidal events
+- **borax** (4) — Convert MIDI data into coll format; Delay MIDI note messages; Polyphony with multiple copies of a MSP subpatch; Useful MIDI Objects
+- **bucket** (4) — Tap Tempo; Tap Tempo for Ableton Live; Tap tempo utility in Max for Live; Tap to teach tempo to Max
+- **buffer~** (55) — Audio in RAM — buffer~ and related objects; Automate pitch with bline; Avoid groove~ sync output initial jump; Base transport tempo on loop length; Basic RAM recording into buffer~; Basic stereo recording into buffer~; Buffer shape; Buffer techniques; Consecutive recordings concatenated in the same buffer~; Customize oscillator behavior; DIY ring buffer; DJ-like sample scrubbing …
+- **capture** (1) — Interpolation with line or line~
+- **capture~** (6) — Envelope follower with minimal latency; Generate a sinusoid with gen~; Interpolation with line or line~; Linear interpolation to a new value; Sample and hold using triggers stored in a buffer; teeth~ test
+- **cartopol~** (1) — Isolate a single bin of an FFT
+- **cell** (1) — Checkerboard pattern with jit.gen
+- **change** (26) — A useful noise gate (ducker) subpatch for rejecting unwanted sounds; Activate and deactivate parameters for pattrstorage; Automated blues "improviser"; Automated countermelody improviser; Basic linear mapping; Bass drum player with swing; Creating a MIDI trill effect; Detect end of video in imovie; Fade audio after a given time under a dB threshold; Generate MIDI notes; Linear interpolation to a new value; Linear mapping of one range to another …
+- **click~** (12) — Comb filtering; Envelope follower with minimal latency; Linear interpolation to a new value; Polyphonic panned delays with poly~; Rhythmic delays in time with a musical tempo; Short delay creates a timbre change; Simple delay of audio signal; Switching and mixing audio; Test Interaural Time Difference; Test interaural intensity difference; Trigger repeated actions metronomically; Using the Hénon attractor
+- **clip** (14) — A basic chorus effect; Abstraction for flanging; Convert MIDI data into coll format; FM mix; Ganging sliders; Interface for a flanger; Invert the pitches of MIDI notes; Make a yes-or-no decision with a given likelihood; Measure time recorded into a buffer; Metronome with random perturbations of tempo; Other basic functionality of the transport object; Program changes for multi-timbral MIDI …
+- **clip~** (7) — Abstraction for S-curve crossfading; Abstraction for hexagonal constant-intensity panning; Abstraction to flange an audio signal; Control the balance between two channels of audio; Interface for a flanger; Panning between four front speakers; Quadraphonic panning based on radial angle
+- **clocker** (4) — Different number sources using Max; Frequency and amplitude; Interpolation with the function object; Notify when a certain time has elapsed
+- **closebang** (8) — Adjusting audio amplitude; Linear fade-in/out of audio; Linear motion in two voices; MIDI Control to VST; MIDIGlissando; Preload and play sound cues; Slideshow; Ways to turn MSP on and off
+- **coll** (37) — A timepoint is a point in musical time; Adjustable Tempo; Append data to coll; Automated countermelody improviser; Behringer BCF2000 router; Choose one of several sounds; Convert MIDI data into coll format; Create MIDI File; Dealing with the "symbol" output of coll; Demonstration of multiple crossfading delay times referring to the same remote tapin~ object; Dump list into another coll; Interweave Lists …
+- **combine** (3) — Combine items into a single message; Providing a full path name; Slow OSC messages
+- **comb~** (4) — Adjust the pitch of a comb filter; Comb filter; Comb filtering; Switching and mixing audio
+- **cos** (2) — Draw Points on the Circumference of a Circle; Generate a sinusoid with gen~
+- **counter** (87) — A 16-stage note sequencer; A timepoint is a point in musical time; Abstraction to trigger a timed series of bangs; Accelerando; Adjustable Tempo; Algorithmic counting; Any rhythmic value, with transport; Apply a texture to a shape in OpenGL; Arpeggiate the harmonic series; Auto-panning MIDI notes; Automate file creation; Beat divisions with transport …
+- **count~** (7) — Audio in RAM — buffer~ and related objects; DIY ring buffer; Envelope follower with minimal latency; Getting a sound sample from RAM; MSP vector to list; Sample and hold using triggers stored in a buffer; continually write to and read from a buffer~
+- **cpuclock** (1) — Detect two bangs within a given interval
+- **ctlin** (29) — Amplitude and decibels; Attributes of jit.qt.movie; Basic linear mapping; Behringer BCF2000 emulator; Crossfade and blur movie files using jit.xfade and jit.matrix; Different number sources using Max; Exponential mapping; Generate MIDI notes; Linear mapping and linear interpolation; Linear mapping of one range to another; Linear mapping of ranges; MIDI Input in Ableton Live …
+- **ctlout** (16) — Algorithmic composition with math functions; Auto-panning MIDI notes; Behringer BCF2000 emulator; Grand Master Fader; Iterate through Polyphonic MIDI files as simultaneous chords with detonate; MIDI input objects; MIDI with ProTools; MIDIGlissando; Overly simple MIDI synth; Routing MIDI to other applications; Saving and recalling presets in pattrstorage; Use function to control line segments …
+- **curve~** (2) — Fade audio after a given time under a dB threshold; Oscillator bank with Glissandi
+- **cycle~** (141) — 1/4 of a sine wave as a control shape; A beeping test sound; A demonstration of phase distortion synthesis; A subpatch suitable for use in poly~; Abstraction for S-curve crossfading; Abstraction for flanging; Abstraction for hexagonal constant-intensity panning; Abstraction to flange an audio signal; Addition of sinusoidal tones; Adjusting audio amplitude; Alter phase of sinusoid by milliseconds; Alter the speed of an audio file …
+- **dac~** (85) — A demonstration of phase distortion synthesis; A/B audio crossfade; A/B audio switch; Amplitude modulation and frequency modulation; Arpeggiate the harmonic series; Audio amplitude control; Basic RAM recording into buffer~; Basic stereo recording into buffer~; Beating between sine tones; Calculating Doppler shift for moving virtual sound sources; Choose a random mix of sine tones; Choose one of several sounds …
+- **dbtoa** (35) — A useful noise gate (ducker) subpatch for rejecting unwanted sounds; ADSR filter envelope; Amplitude and decibels; Amplitude control in decibels; Audio amplitude control; Detect when an audio event occurs; Exponential mapping; Granulation of a recorded sound; Indexing and accessing the bins of an FFT; Interpolation with pattrstorage; Linear interpolation of audio; Linear vs. exponential audio fade …
+- **dbtoA** (1) — Live capture in sound file
+- **dBtoA** (1) — Test interaural intensity difference
+- **dbtoa~** (5) — Frequency and amplitude; Line segment function as a musical motive; Linear and exponential; Sync tremolo to transport units; Tremolo effect in Max for Live
+- **decide** (3) — Bidirectional jit.matrix scroll; Capture and play video excerpts; Using the preset capabilities of pattrstorage
+- **deferlow** (10) — Amplitude modulation and frequency modulation; Customize oscillator behavior; Cycle~ phase demo; Fitting text to a window; Interface for a flanger; Load and Read Video Files; Multiple times for timepoint object; Output bang if two bangs are received at the same time; Polyphonic panned delays with poly~; Polyphonic quad-panned delays with poly~
+- **del** (2) — Sigmoid vs Sinusoid acceleration control; Turn files on and off
+- **delay** (52) — Algorithmic composition with math functions; Audio cue chooser; Automated countermelody improviser; Bass drum player with swing; Cause and effect; Consecutive recordings concatenated in the same buffer~; Create MIDI File; Crossfade to new location in a video; Delaying MIDI notes; Detect pauses in a data stream; Detect when an audio event occurs; Envelope follower with minimal latency …
+- **delaynote** (1) — Try the delaynote abstraction
+- **delayxfade~** (1) — Demonstration of crossfading delay
+- **delay~** (12) — Abstraction for flanging; Alter phase of sinusoid by milliseconds; Delay with tempo-relative timing; Ducking when changing delay time; Interface for a flanger; Phase cancellation due to delay; Short delay creates a timbre change; Simple delay of audio signal; Simple demonstration of flanging; Simple flanging; Test Interaural Time Difference; The simplest lowpass filter
+- **delta~** (6) — Detect the end of a phasor~ cycle; Interference; Play a stream of random grains from a sound file; Transport-controlled phasor~; Triggering events with each cycle of a phasor~; Using audio to trigger the display of a frame of video
+- **detonate** (3) — Algorithmic composition with math functions; Iterate through Polyphonic MIDI files as simultaneous chords with detonate; detonate demo
+- **dial** (22) — A basic chorus effect; ADSR amplitude envelope; Basic frequency modulation; Behringer BCF2000 emulator; Binding pattr objects between a subpatch and its parent patch; Dial Min/Max Demo; Different number sources using Max; Dynamic view of bpatcher; Dynamically hide or show an object one at a time; Frequency and pitch; Frequency modulation; Gain factors for quadraphonic panning based on radial angle …
+- **dialog** (1) — Fitting text to a window
+- **dropfile** (2) — Preload Sound Files; Slideshow folders in Jitter
+- **drunk** (5) — Continuous control shapes; Different number sources using Max; MIDI and audio via ReWire; Random "one-hand" MIDI note playing; Routing MIDI to other applications
+- **ducker~** (1) — sigmund~ for pitch tracking
+- **edge~** (5) — Detect the end of a phasor~ cycle; Interference; MSP vector to list; Triggering events with each cycle of a phasor~; Using audio to trigger the display of a frame of video
+- **error** (1) — The error object
+- **expr** (54) — Algorithmic composition with math functions; Amplitude and decibels; Automated countermelody improviser; Binding pattr objects between a subpatch and its parent patch; Calculating the mean of each cell of a series of matrices; Chaos algorithm for choosing pitches; Continuous control shapes; Conversion between pitch and frequency; Converting MIDI pitch to frequency; Curve in a transfer function; Customize oscillator behavior; Different number sources using Max …
+- **ezadc~** (15) — Creating a MIDI trill effect; Delay with feedback; Delay with tempo-relative timing; Ducking when changing delay time; Measure time recorded into a buffer; Pitch tracking with sigmund~; Record an audio file; Record as long as space bar is held; Reset Meter~ Display; Simple flanging; Smooth audio switching to bypass an audio effect; Tremolo effect in Max for Live …
+- **ezdac~** (174) — 1/4 of a sine wave as a control shape; A basic chorus effect; A polyphonic phase distortion synthesizer using poly~; ADSR amplitude envelope; ADSR filter envelope; Addition of sinusoidal tones; Adjust the pitch of a comb filter; Adjusting audio amplitude; Alter phase of sinusoid by milliseconds; Alter the speed of an audio file; Amplitude and decibels; Amplitude envelope with the function object …
+- **f** (20) — A beeping test sound; ADSR filter envelope; Abstraction for calculating the Hénon attractor; Abstraction for crossfading between delay times; Chaos algorithm for choosing pitches; Choosing one of two signals; Delay MIDI note messages; Generate a burst of audio pulses; Get the mean of many numbers; Linear interpolation to a new value; MSP transport demo; Pack without Pack …
+- **fft~** (1) — Isolate a single bin of an FFT
+- **filepath** (1) — Live capture in sound file
+- **filtercoeff~** (1) — Smooth filter changes
+- **filtergraph~** (4) — Biquad filter; MIDI to Frequency; Smooth filter changes; Variable-mode filter demo
+- **float** (1) — Pack without Pack
+- **flush** (8) — Automated countermelody improviser; Harmonizer written in JavaScript; Look up chords in an array; MIDIGlissando; Manage MIDI processing using Gate; Mouse click kslider; Useful MIDI Objects; Using gate to route messages
+- **FMtone~** (1) — Polyphony with multiple copies of a MSP subpatch
+- **follow** (1) — Score following with the follow object
+- **forward** (2) — Formatting messages to use in "forward"; loadbang delay argument
+- **fpic** (6) — Behringer BCF2000 emulator; Flashing picture as a button; Hide or show an object; Phasor lookup in cosine; The ‘alpha’ attribute of a picture; Trigger sound cues with the mouse or from the computer keyboard
+- **fswap** (1) — Converting MIDI pitch to frequency
+- **ftom** (3) — Conversion between pitch and frequency; MIDIGlissando; Pitch and loudness formulae
+- **function** (20) — Amplitude envelope with the function object; Controlling sfplay~ speed with line~; Curve in a transfer function; Easing function for animation; Envelope function without a fixed starting point; Envelope with the function object; Function Demo; Interpolation with the function object; Line segment control functions; Line segment function as a musical motive; Linear control function; MSP functions …
+- **funnel** (1) — Toggle on/off router
+- **gain~** (39) — Adjust the pitch of a comb filter; Amplitude envelope with the function object; Amplitude modulation and frequency modulation; Audio amplitude control; Change of delay time may cause clicks; Chorusing; Continuous change of delay time causes a pitch shift; Delay with feedback; Delay with tempo-relative timing; Ducking when changing delay time; Ducking when changing delay time using tapin~ and tapout~; Enable/disable subpatches …
+- **gate** (33) — Abstraction for crossfading between delay times; Abstraction for crossfading delay times of a remote tapin~ object; Adjustable Tempo; Amplitude and decibels; Capture and play video excerpts; Choose from among multiple processes; Choose which video is displayed by jit.window; Conditional timepoint; Convert MIDI data into coll format; Create a go board in Max; Crossfade to new location in a video; Delay MIDI note messages …
+- **gate~** (9) — Biquad filter; Buffer techniques; Comb filter; Generate a burst of audio pulses; Panning between four front speakers; Resonant bandpass filter; Resonant lowpass filter; Routing audio data flow; Test multi-channel audio with stereo output
+- **gen~** (2) — Envelope follower with minimal latency; Generate a sinusoid with gen~
+- **grab** (1) — Detect end of video in imovie
+- **groove~** (18) — Audio in RAM — buffer~ and related objects; Automate pitch with bline; Avoid groove~ sync output initial jump; Buffer techniques; Granulation of a recorded sound; Keeping audio and video synced; Live capture in buffer~; Managing samples in Max; Play a sound from RAM with vibrato; Play part of a sample using groove~; Play random clips (in reverse) from a RAM buffer; Playing a sample with groove~ …
+- **gswitch2** (9) — Audio cue chooser; Bypass video effect; Easing function for animation; Linear interpolation to a new value; Mousestate; Palindrome Counter; Sequential or random access of a lookup table; Simplest possible A/B video switcher; Slideshow
+- **gtrvoice** (1) — Sampling synthesizer in Max
+- **henon** (1) — Using the Hénon attractor
+- **hexagonalradialpanner~** (1) — Test hexagonal panner
+- **hi** (2) — Different number sources using Max; Joystick to MIDI
+- **histo** (1) — sigmund~ for pitch tracking
+- **i** (43) — Adjustable Tempo; Animating 2D graphics; Append data to coll; Ask if a number belongs to a set; Bandpass filter swept with a LFO; Bass drum player with swing; Bidirectional jit.matrix scroll; Change color of selected messages; Creating a window on a sound file; Crossfade to new location in a video; Easing function for animation; Envelope with the function object …
+- **if** (13) — Adjust pitches according to a pitch class set; Create a go board in Max; Display a video on a plane in OpenGL; Dump list into another coll; Dynamically resize matrixctrl range; Fitting text to a window; Moving video using x y coordinates; Polyphony requires multiple objects; Random numbers without repetitions; Testing for a range of numbers; Using alpha masking with jit.lcd content overlay; Using the metro object controlled by the transport …
+- **imovie** (2) — Detect end of video in imovie; iMovie demo
+- **in** (8) — A subpatch suitable for use in poly~; Abstraction for delay with quadraphonic panning; Abstraction for delay with stereo panning; Checkerboard pattern with jit.gen; Generate a sinusoid with gen~; Phase distortion synthesis in a poly~ subpatch; Sine grain player suitable for use in poly~; Subpatch for playing sound cues from sflist~
+- **incdec** (4) — Change number box with key; Count with incdec; Increase or Decrease a value; Using arrow keys to control a slider
+- **index~** (4) — Audio in RAM — buffer~ and related objects; DIY ring buffer; Getting a sound sample from RAM; Sample and hold using triggers stored in a buffer
+- **info~** (12) — Audio in RAM — buffer~ and related objects; Base transport tempo on loop length; Buffer techniques; Determine the length of a buffer~; Play a stream of random grains from a sound file; Play random excerpts from a sound file; Playing a sample from RAM; Random access of a sound sample; Repeatedly reading a function with phasor~; Synchronizing MSP audio loops with the transport; Transport-controlled phasor~; Windowing an audio signal
+- **inlist** (1) — Adjust pitches according to a pitch class set
+- **int** (2) — ASCII key; Pack without Pack
+- **invertpitch** (1) — Try the invertpitch abstraction
+- **ioscbank~** (3) — ADSR amplitude envelope; Choose a random mix of sine tones; Sonification of pixel hue and level
+- **iter** (12) — Choose a random mix of sine tones; Harmonizer written in JavaScript; Indexing and accessing the bins of an FFT; Iterate through elements of a message with a delay interval; Look up chords in an array; Pseudo-random numbers appear random; Random voicings of a pitch class set; Separating items in a formatted message; Simple MIDI harmonizer in C major; Sonification of pixel hue and level; Sync pipe to transport; Timed ouput of list elements
+- **itoa** (1) — Fitting text to a window
+- **jit.*** (1) — Calculating the mean of each cell of a series of matrices
+- **jit.+** (2) — Calculating the mean of each cell of a series of matrices; Write subtitles onto a video
+- **jit.3m** (3) — Adjust brightness and contrast on a 1-plane char matrix; Find the maximum of a jitter matrix column; Report different cells from consecutive frames
+- **jit.<** (1) — Choose a random mix of sine tones
+- **jit.alphablend** (5) — Alpha masking; Multicolor Subtitles; Reveal sections of an image with alphablend; Submatrices and masking; Using alpha masking with jit.lcd content overlay
+- **jit.brcosa** (5) — Adjust image brightness, contrast and saturation; Bypass video effect; Exponential video fade; MIDI to saturation and rotation; Play a movie in Jitter, fade in and out, and jump around
+- **jit.catch~** (1) — MSP via TCP
+- **jit.cellblock** (3) — Blur a float32 matrix; Color bit depth in Jitter; Sync 2 jit.cellblocks
+- **jit.change** (1) — Detect Changes in jit.matrix
+- **jit.convolve** (1) — Blur a float32 matrix
+- **jit.expr** (2) — Adjust brightness and contrast on a 1-plane char matrix; Sonification of pixel hue and level
+- **jit.fill** (3) — Change color with RGB values; Oscillators controlled by cellular automata; Upsampling number lists with Jitter
+- **jit.fpsgui** (8) — Check movie position; Crossfade and blur movie files using jit.xfade and jit.matrix; Display a video on a plane in OpenGL; MIDI to saturation and rotation; Moving video using x y coordinates; Oscillators controlled by cellular automata; Play random video segments; Upsampling & downsampling video using Jitter
+- **jit.gen** (1) — Checkerboard pattern with jit.gen
+- **jit.gl.gridshape** (9) — 3D animation of a MIDI note; Apply a texture to a shape in OpenGL; Display a video on a shape in OpenGL; GL alpha blending; GL quad panning demo; Move text across the surface of a sphere; Quadraphonic panning with mouse control and Open GL visualization; Render a moving object; Using the Hénon attractor
+- **jit.gl.handle** (1) — Apply a texture to a shape in OpenGL
+- **jit.gl.mesh** (1) — List to 3plane 2D matrix
+- **jit.gl.multiple** (1) — Using the Hénon attractor
+- **jit.gl.render** (14) — Add text to video in GL; Alphablend a videoplane in OpenGL; Apply a texture to a shape in OpenGL; Display a video on a plane in OpenGL; Display a video on a shape in OpenGL; Four videos in one window; GL alpha blending; GL quad panning demo; List to 3plane 2D matrix; Move text across the surface of a sphere; Moving video using x y coordinates; Quadraphonic panning with mouse control and Open GL visualization …
+- **jit.gl.text** (1) — Add text to video in GL
+- **jit.gl.text2d** (1) — Move text across the surface of a sphere
+- **jit.gl.texture** (2) — Display a video on a shape in OpenGL; Move text across the surface of a sphere
+- **jit.gl.videoplane** (6) — Add text to video in GL; Alphablend a videoplane in OpenGL; Display a video on a plane in OpenGL; Four videos in one window; GL alpha blending; Moving video using x y coordinates
+- **jit.glue** (1) — Split screen video
+- **jit.grab** (1) — Capture and play video excerpts
+- **jit.gradient** (1) — Stretch 1D matrix to 2D matrix
+- **jit.hue** (1) — Change hue rotation
+- **jit.iter** (1) — Dynamically resize matrixctrl range
+- **jit.lcd** (16) — Animating 2D graphics; Displaying MIDI note values using jit.lcd; Draw shapes and text; Easing function for animation; Fitting text to a window; LCD in Jitter; Multicolor Subtitles; Replaceable white mask; Reveal sections of an image with alphablend; Simple subtitles in a video; Timed removal of drawn objects using jit.lcd; Using alpha masking with jit.lcd content overlay …
+- **jit.matrix** (54) — 32-bit versus 64-bit; Adjust brightness and contrast on a 1-plane char matrix; Alpha masking; Apply a texture to a shape in OpenGL; Bidirectional jit.matrix scroll; Blur a float32 matrix; Calculating the mean of each cell of a series of matrices; Centering an image in jit.window; Change color with RGB values; Change hue rotation; Checkerboard pattern in a matrix; Checkerboard pattern with jit.gen …
+- **jit.matrixset** (3) — Capture and play video excerpts; Delay a matrix; Save jit.matrix presets
+- **jit.mgraphics** (1) — Simulation of MIDI lighting control
+- **jit.movie** (10) — Add text to video in GL; Alpha masking; Detect when a movie has been read successfully; Display randomly chosen frames of a movie; Exponential video fade; Four videos in one window; Some useful Jitter attributes; Sonification of pixel hue and level; Video effect chooser; Write subtitles onto a video
+- **jit.net.recv** (2) — MSP via TCP; Networking Jitter matrices via TCP
+- **jit.net.send** (2) — MSP via TCP; Networking Jitter matrices via TCP
+- **jit.noise** (15) — Adjust brightness and contrast on a 1-plane char matrix; Blur a float32 matrix; Choose a random mix of sine tones; Color bit depth in Jitter; Copying one matrix to another; Detect Changes in jit.matrix; Find the maximum of a jitter matrix column; Invert Black and White; Invert a black and white image using jit.op; Output matrix values to a number box; Reference particular plane in matrix; Report different cells from consecutive frames …
+- **jit.op** (16) — 32-bit versus 64-bit; Adjust brightness and contrast on a 1-plane char matrix; Adjust image brightness, contrast and saturation; Alpha masking; Color bit depth in Jitter; Copying one matrix to another; Delay a matrix; Invert Black and White; Invert a black and white image using jit.op; Linear interpolation over time; Oscillators controlled by cellular automata; Replaceable white mask …
+- **jit.pack** (6) — Combine 2 Matrices; Multicolor Subtitles; Reference particular plane in matrix; Reveal sections of an image with alphablend; Submatrices and masking; Using alpha masking with jit.lcd content overlay
+- **jit.poke~** (2) — Interference; MSP vector to list
+- **jit.print** (1) — 32-bit versus 64-bit
+- **jit.pwindow** (58) — Adjust brightness and contrast on a 1-plane char matrix; Adjust image brightness, contrast and saturation; Attributes example; Autostart; Bidirectional jit.matrix scroll; Blur a float32 matrix; Body tracking with Kinect and Synapse; Calculating the mean of each cell of a series of matrices; Cause and effect; Change color with RGB values; Checkerboard pattern in a matrix; Checkerboard pattern with jit.gen …
+- **jit.qt.movie** (70) — A/B video switcher; Adjust image brightness, contrast and saturation; Alphablend a videoplane in OpenGL; Attributes example; Attributes of jit.qt.movie; Autostart; Basic movie playing; Bypass video effect; Cause and effect; Check movie position; Choose new movie; Choose which video is displayed by jit.window …
+- **jit.release~** (1) — MSP via TCP
+- **jit.rgb2hsl** (1) — Sonification of pixel hue and level
+- **jit.rgb2luma** (2) — Invert a black and white image using jit.op; Reveal sections of an image with alphablend
+- **jit.rota** (5) — Bidirectional jit.matrix scroll; MIDI to saturation and rotation; Rotate, zoom, and offset video using jit.rota; Stretch 1D matrix to 2D matrix; Zoom a video in or out
+- **jit.scalebias** (1) — Multicolor Subtitles
+- **jit.scissors** (1) — Split screen video
+- **jit.spill** (8) — Choose a random mix of sine tones; Get column from jit.matrix; MSP vector to list; Oscillators controlled by cellular automata; Sonification of pixel hue and level; Store matrices in a text file; Upsampling number lists with Jitter; Using Jitter to store numerical data
+- **jit.submatrix** (4) — Find the maximum of a jitter matrix column; Get column from jit.matrix; Resizing a matrix non-destructively; Sonification of pixel hue and level
+- **jit.synapse** (1) — Body tracking with Kinect and Synapse
+- **jit.unpack** (6) — Combine 2 Matrices; Multicolor Subtitles; Reference particular plane in matrix; Sonification of pixel hue and level; Submatrices and masking; Using alpha masking with jit.lcd content overlay
+- **jit.wake** (1) — Bypass video effect
+- **jit.window** (69) — A/B video switcher; Add text to video in GL; Alpha masking; Alphablend a videoplane in OpenGL; Animating 2D graphics; Apply a texture to a shape in OpenGL; Attributes of jit.qt.movie; Basic movie playing; Capture and play video excerpts; Centering an image in jit.window; Change hue rotation; Check movie position …
+- **jit.world** (2) — 3D animation of a MIDI note; Display randomly chosen frames of a movie
+- **jit.xfade** (5) — Crossfade and blur movie files using jit.xfade and jit.matrix; Crossfade to new location in a video; Crossfade video and audio; Slideshow; Video crossfade
+- **join** (2) — Saving and recalling presets in pattrstorage; Set the state of different sets of toggles
+- **js** (2) — Harmonizer written in JavaScript; Live API via JavaScript
+- **key** (40) — A/B audio crossfade; A/B audio switch; A/B video switcher; ADSR amplitude envelope; ASCII key; Adjustable Tempo; Autostart; Change number box with key; Choose from among multiple processes; Choose one of several sounds; Comb filtering; Crossfade to new location in a video …
+- **keyup** (9) — ADSR amplitude envelope; Basic movie playing; Different number sources using Max; MIDIGlissando; Polyphony requires multiple objects; Record as long as space bar is held; Slideshow; Using arrow keys to control a slider; Using key presses and releases
+- **kink~** (2) — A demonstration of phase distortion synthesis; Phase distortion synthesis in a poly~ subpatch
+- **kslider** (28) — 3D animation of a MIDI note; ADSR filter envelope; Adjust the pitch of a comb filter; Automated countermelody improviser; Comb filter; Converting MIDI pitch to frequency; Detect MIDI Notes Being Played; Harmonizer written in JavaScript; Linear crescendo; Linear interpolation over time; Linear note movement; Long term crescendo …
+- **lcd** (16) — Abstraction for hexagonal constant-intensity panning; Basics of drawing in the lcd object; Countdown; Display changing text in the user interface; Draw Points on the Circumference of a Circle; Draw random multicolored lines; Drawing an image from a file into lcd; Drawing with sprites in lcd; Flashing LED with metro; LCD Drawing Demo 1; LCD drawing demo 2; Mouseclick Up/Down solutions …
+- **led** (1) — Behringer BCF2000 emulator
+- **line** (45) — Amplitude control in decibels; Animating 2D graphics; Auto-panning MIDI notes; Automated blues "improviser"; Automated countermelody improviser; Buffer techniques; Change hue rotation; Continuous control shapes; Countdown; Crossfade to new location in a video; Different number sources using Max; Display a video on a plane in OpenGL …
+- **line~** (113) — 1/4 of a sine wave as a control shape; A basic chorus effect; A beeping test sound; A demonstration of phase distortion synthesis; A variation on the simple envelope follower; A/B audio crossfade; Abstraction for crossfading between delay times; Abstraction for crossfading delay times of a remote tapin~ object; Abstraction for delay with quadraphonic panning; Abstraction for delay with stereo panning; Abstraction for flanging; Alter phase of sinusoid by milliseconds …
+- **list** (1) — Pack without Pack
+- **live.dial** (12) — Bass drum player with swing; Comb filtering; Delay effect with feedback; Delay with tapin~ and tapout~; Initialize UI objects; Interface for a flanger; Pitchbend using notein; Set minimum and maximum of two dials; Short delay creates a timbre change; Sync tremolo to transport units; Tremolo effect in Max for Live; Turn an audio effect on or off
+- **live.gain~** (43) — 1/4 of a sine wave as a control shape; Arpeggiate the harmonic series; Basic frequency modulation; Choose a random mix of sine tones; Detuning oscillators in Max; Envelope with the function object; Event timing with transport; Frequency modulation; Generate a burst of audio pulses; How the adsr~ object works; Initialize UI objects; Interface for a flanger …
+- **live.menu** (1) — Sync MIDI Notes with Ableton
+- **live.meter~** (1) — Tremolo effect in Max for Live
+- **live.numbox** (5) — Animating 2D graphics; Arpeggiate the harmonic series; Delay effect with feedback; Delay with tapin~ and tapout~; Tremolo effect in Max for Live
+- **live.object** (3) — Changing Live device parameters with the Live API; Tap Tempo for Ableton Live; Tap tempo utility in Max for Live
+- **live.path** (3) — Changing Live device parameters with the Live API; Tap Tempo for Ableton Live; Tap tempo utility in Max for Live
+- **live.thisdevice** (1) — Live API via JavaScript
+- **live.toggle** (1) — Test hexagonal panner
+- **lmap** (1) — Linear mapping and linear interpolation
+- **loadbang** (188) — A 16-stage note sequencer; A basic chorus effect; A beeping test sound; A demonstration of phase distortion synthesis; A subpatch suitable for use in poly~; A/B audio crossfade; A/B audio switch; A/B video switcher; ADSR amplitude envelope; Abstraction for flanging; Abstraction for hexagonal constant-intensity panning; Add text to video in GL …
+- **loadmess** (51) — ADSR filter envelope; Adjust brightness and contrast on a 1-plane char matrix; Adjustable Tempo; Arpeggiate the harmonic series; Basic frequency modulation; Comb filtering; Controlling the range of a set of numbers; Convert between musical time and clock time; Counting and stopping; Create MIDI File; DIY ring buffer; Display MIDI input devices …
+- **lookup~** (2) — Audio in RAM — buffer~ and related objects; MSP functions
+- **lores~** (3) — ADSR filter envelope; Calculating Doppler shift for moving virtual sound sources; Resonant lowpass filter
+- **makenote** (86) — A 16-stage note sequencer; A timepoint is a point in musical time; ASCII key; Accelerando; Algorithmic composition with math functions; Any rhythmic value, with transport; Auto-panning MIDI notes; Automated blues "improviser"; Basic linear mapping; Bass drum player with swing; Beat divisions with transport; Chaos algorithm for choosing pitches …
+- **match** (3) — Match demo; Oscillators controlled by cellular automata; sigmund~ for pitch tracking
+- **matrixctrl** (6) — Bypass video effect; Dynamically resize matrixctrl range; Frequency and pitch; Linear vs. exponential audio fade; Show the sum of harmonically-related sinusoids; Video effect chooser
+- **matrix~** (13) — Audio cue chooser; Choose one of several sounds; Enable/disable subpatches; FM mix; Frequency and pitch; Linear vs. exponential audio fade; Mixing multiple audio processes; Rhythmic delays in time with a musical tempo; Show the sum of harmonically-related sinusoids; Simple audio mixing with matrix~; Switching and mixing audio; Using matrix~ for audio routing and mixing …
+- **maximum** (5) — A basic chorus effect; Abstraction to flange an audio signal; Abstraction to trigger a timed series of bangs; Oscillators controlled by cellular automata; Retaining rotational speed while varying radius size
+- **mean** (1) — Get the mean of many numbers
+- **meter~** (14) — Chorusing; Delay with tempo-relative timing; Flanging explained; Live capture in buffer~; Live capture in sound file; Multi-tap audio delay with feedback; Panning between four front speakers; Play random clips (in reverse) from a RAM buffer; Polyphonic quad-panned delays with poly~; Polyphony requires multiple objects; Record mater values; Reset Meter~ Display …
+- **metro** (185) — A 16-stage note sequencer; A beeping test sound; ASCII key; Abstraction to trigger a timed series of bangs; Accelerando; Adjust image brightness, contrast and saturation; Algorithmic counting; Alpha masking; Any rhythmic value, with transport; Apply a texture to a shape in OpenGL; Arpeggiate the harmonic series; Attributes example …
+- **midiflush** (3) — Routing MIDI data flow; Use seq to play MIDI files; Useful MIDI Objects
+- **midiformat** (4) — Create MIDI File; Grand Master Fader; MIDI and audio via ReWire; Useful MIDI Objects
+- **midiin** (8) — Display MIDI input devices; MIDI Input in Ableton Live; MIDI cc to control umenu; Parse MIDI notes; Routing MIDI data flow; Use seq to play MIDI files; Useful MIDI Objects; View MIDI input
+- **midiinfo** (2) — Behringer BCF2000 emulator; Display MIDI input devices
+- **midiout** (11) — Grand Master Fader; MIDI with ProTools; MIDIGlissando; Pitchbend using notein; Routing MIDI data flow; Score following with the follow object; Simplest MIDI file player; Use seq to play MIDI files; Useful MIDI Objects; Using A Loop to Set Master Tempo; more MIDIglissando
+- **midiparse** (4) — MIDI cc to control umenu; Parse MIDI notes; Useful MIDI Objects; View MIDI input
+- **midiselect** (1) — MIDI Input in Ableton Live
+- **mix~** (3) — Chorusing; Flanging explained; Linear audio crossfade
+- **modifiers** (1) — Ganging sliders
+- **mousefilter** (1) — Make slider spring back to a designated value
+- **mousestate** (10) — ADSR filter envelope; Different number sources using Max; Generate MIDI notes; Linear mapping of ranges; MIDIGlissando; Mouse click kslider; Mouseclick Up/Down solutions; Mousestate; The ‘alpha’ attribute of a picture; Theremin using mouse position
+- **mstosamps~** (2) — Alter phase of sinusoid by milliseconds; Simple delay of audio signal
+- **mtof** (35) — ADSR filter envelope; Adjust the pitch of a comb filter; Circular quadraphonic panning; Comb filter; Conversion between pitch and frequency; Converting MIDI pitch to frequency; Envelope with the function object; Event timing with transport; Linear motion in two voices; MIDI to Frequency; MIDI to Frequency Math; MSP functions …
+- **mtof~** (10) — 1/4 of a sine wave as a control shape; Frequency and amplitude; Frequency and pitch; Line segment function as a musical motive; Linear and exponential; Linear frequency vs. linear pitch; Smooth filter changes; Synchronize an LFO to a note onset with phasor~; Tempo-relative timing for MSP LFO control; Triggering events with each cycle of a phasor~
+- **mtr** (2) — Adjustable Tempo; Record mater values
+- **multislider** (6) — Change color with RGB values; Indexing and accessing the bins of an FFT; Initialize a multislider with a sine function; Interpolation with pattrstorage; Mixing multiple audio processes; Saving and recalling presets in pattrstorage
+- **mute~** (4) — Enable/disable subpatches; FM mix; Switching and mixing audio; Ways to turn MSP on and off
+- **noise~** (24) — 1/4 of a sine wave as a control shape; Amplitude and decibels; Biquad filter; Comb filter; Constant power panning using square root of intensity; Constant power panning using table lookup; Exponential mapping; Linear amplitude panning; Linear interpolation of audio; Play a stream of random grains from a sound file; Resonant bandpass filter; Resonant lowpass filter …
+- **notein** (37) — 3D animation of a MIDI note; A polyphonic phase distortion synthesizer using poly~; Adjust pitches according to a pitch class set; Automated countermelody improviser; Creating a MIDI trill effect; Delay Midi Note Input; Different number sources using Max; Displaying MIDI note values using jit.lcd; Harmonize a single MIDI note; Keep pitches of held MIDI notes in a bag; Linear interpolation over time; MIDI input objects …
+- **noteout** (92) — A 16-stage note sequencer; A timepoint is a point in musical time; ASCII key; Accelerando; Algorithmic composition with math functions; Any rhythmic value, with transport; Auto-panning MIDI notes; Automated blues "improviser"; Automated countermelody improviser; Basic linear mapping; Bass drum player with swing; Beat divisions with transport …
+- **number~** (45) — Adjusting audio amplitude; Amplitude modulation and frequency modulation; Audio amplitude control; Avoid groove~ sync output initial jump; Biquad filter; Chorusing; Constant power panning using square root of intensity; Constant power panning using table lookup; Control the volume and rate of a sound file; Cycle~ behaviors; Cycle~ phase demo; Delay with feedback …
+- **onebang** (7) — Check movie position; Detect when an audio event occurs; Filter out too-frequent repetitions; Schedule event on next bar; Sync Multiple sfplay~; Synchronize live events to the Max transport; qlim timing workaround
+- **osc-route** (1) — TouchOSC data via wireless UDP
+- **oscbank~** (1) — Oscillators controlled by cellular automata
+- **out** (2) — Checkerboard pattern with jit.gen; Generate a sinusoid with gen~
+- **out~** (6) — A subpatch suitable for use in poly~; Abstraction for delay with quadraphonic panning; Abstraction for delay with stereo panning; Phase distortion synthesis in a poly~ subpatch; Sine grain player suitable for use in poly~; Subpatch for playing sound cues from sflist~
+- **pack** (136) — A basic chorus effect; A demonstration of phase distortion synthesis; A polyphonic phase distortion synthesizer using poly~; A subpatch suitable for use in poly~; A variation on the simple envelope follower; A/B audio crossfade; Abstraction for crossfading delay times of a remote tapin~ object; Abstraction for delay with quadraphonic panning; Abstraction for delay with stereo panning; Adjustable Tempo; Alter phase of sinusoid by milliseconds; Amplitude control in decibels …
+- **pak** (26) — Alphablend a videoplane in OpenGL; Apply a texture to a shape in OpenGL; Basics of drawing in the lcd object; Changing Live device parameters with the Live API; Dial Min/Max Demo; Display a video on a plane in OpenGL; Displaying colors using jit.matrix; Draw Points on the Circumference of a Circle; Draw shapes and text; Drawing with sprites in lcd; Dynamically resize matrixctrl range; GL quad panning demo …
+- **panLRFB~** (3) — Circular quad panning; GL quad panning demo; Quadraphonic panning with mouse control and Open GL visualization
+- **pan~** (5) — Abstraction for delay with stereo panning; Abstraction for quad panning using x,y coordinates; Sine grain player suitable for use in poly~; Single stream of grains from a buffer~; Turn an audio effect on or off
+- **param** (1) — Generate a sinusoid with gen~
+- **partofamotive** (1) — Choose from among multiple processes
+- **PassPct** (1) — Repeated notes at 6 related tempi, with different probabilities
+- **pass~** (7) — Abstraction for crossfading between delay times; Enable/disable subpatches; FM mix; Fade audio after a given time under a dB threshold; Rhythmic automated panning; Switching and mixing audio; Using the preset capabilities of pattrstorage
+- **past** (1) — Trigger a bang when numbers increase or decrease
+- **patcherargs** (13) — A useful noise gate (ducker) subpatch for rejecting unwanted sounds; Abstraction for calculating the Hénon attractor; Abstraction to flange an audio signal; Abstraction to trigger a timed series of bangs; Amplitude control in decibels; Detect when an audio event occurs; Fade audio after a given time under a dB threshold; Invert the pitches of MIDI notes; Linear mapping equation (lmap); Make a yes-or-no decision with a given likelihood; Saving slider values; Sixteen Harmonics …
+- **pattr** (13) — Activate and deactivate parameters for pattrstorage; Binding a pattr object to another object; Binding objects to each other, and to a pattr; Binding pattr objects between a subpatch and its parent patch; Communicate with many pattr objects from a central hub; Ganging sliders; Initialize UI objects; Interpolation with pattrstorage; Introduction to the pattr object; Saving and recalling presets in pattrstorage; Saving slider values; Store and output data with pattr …
+- **pattrforward** (1) — Storing and recalling multiple pattr values
+- **pattrhub** (2) — Communicate with many pattr objects from a central hub; Ganging sliders
+- **pattrstorage** (5) — Activate and deactivate parameters for pattrstorage; Interpolation with pattrstorage; Saving and recalling presets in pattrstorage; Storing and recalling multiple pattr values; Using the preset capabilities of pattrstorage
+- **pcontrol** (6) — Behringer BCF2000 router; Enable/disable subpatches; Rhythmic automated panning; Switching and mixing audio; Using the preset capabilities of pattrstorage; Ways to turn MSP on and off
+- **peakamp~** (9) — A useful noise gate (ducker) subpatch for rejecting unwanted sounds; A variation on the simple envelope follower; Creating a MIDI trill effect; Detect when an audio event occurs; Different number sources using Max; Fade audio after a given time under a dB threshold; Four way audio crossfader; Simple envelope follower; Smooth Output of Peakamp~
+- **peek~** (7) — Audio in RAM — buffer~ and related objects; Customize oscillator behavior; Generate a window function to use as an amplitude envelope; Play a sinusoidal melody; Sample and hold using triggers stored in a buffer; Sine Wave into Buffer~; Windowing an audio signal
+- **pfft~** (1) — Indexing and accessing the bins of an FFT
+- **pgmin** (1) — Useful MIDI Objects
+- **pgmout** (18) — A 16-stage note sequencer; Count numbers and use them to play notes; Generate MIDI notes; Linear crescendo; MIDI input objects; MIDIGlissando; Minimal loops using a portion of a table; Overly simple MIDI synth; Pitchbend using notein; Playing MIDI with the computer keyboard; Playing a pattern; Program changes for multi-timbral MIDI …
+- **phasor~** (46) — A beeping test sound; A demonstration of phase distortion synthesis; Abstraction to flange an audio signal; Audio in RAM — buffer~ and related objects; Buffer shape; Buffer techniques; Calculating Doppler shift for moving virtual sound sources; Circular quadraphonic panning; Cycle~ behaviors; Detect the end of a phasor~ cycle; Different number sources using Max; Expanding vibrato on an ascending glissando …
+- **pictslider** (9) — Controlling the range of a set of numbers; Different number sources using Max; Drawing an image from a file into lcd; Drawing with sprites in lcd; Four way audio crossfader; GL quad panning demo; Plot a point in lcd; Quadraphonic panning with mouse control and Open GL visualization; Sync 2 jit.cellblocks
+- **pinger** (1) — Mixing multiple audio processes
+- **pink~** (1) — Calculating Doppler shift for moving virtual sound sources
+- **pipe** (17) — Adjustable Tempo; Delay MIDI note messages; Delay Midi Note Input; Delaying MIDI notes; Ducking when changing delay time; Ducking when changing delay time using tapin~ and tapout~; Iterate through elements of a message with a delay interval; Max For Live Quantization; Play a list of notes; Random MIDI note delay; Schedule a collection of future events; Stop-action slideshow (backward) …
+- **playbar** (3) — Controllable movie timeline playbar; Loop points in Quicktime; iMovie demo
+- **playlist~** (1) — Interface for a flanger
+- **play~** (20) — Audio in RAM — buffer~ and related objects; Basic RAM recording into buffer~; Basic stereo recording into buffer~; Buffer shape; Buffer techniques; Consecutive recordings concatenated in the same buffer~; DJ-like sample scrubbing; List audio cue points; Play a stream of random grains from a sound file; Play part of a sample using groove~; Play random excerpts from a sound file; Playing a sample from RAM …
+- **plot~** (2) — Plot an exponential curve; Show the sum of harmonically-related sinusoids
+- **plugin~** (1) — Tremolo effect in Max for Live
+- **plugout~** (1) — Tremolo effect in Max for Live
+- **poke~** (5) — Audio in RAM — buffer~ and related objects; DIY ring buffer; Envelope follower with minimal latency; Indexing and accessing the bins of an FFT; continually write to and read from a buffer~
+- **poltocar** (1) — Retaining rotational speed while varying radius size
+- **poly** (9) — Pitchbend using notein; Polyphony requires multiple objects; Polyphony with the poly~ object; Sampling synthesizer in Max; Use floats with poly; Use stored waveform for a synthesizer; Useful MIDI Objects; Using a sustain point in a function object; Very simple monophonic MIDI synthesizer
+- **polyin** (1) — Useful MIDI Objects
+- **polyout** (1) — Useful MIDI Objects
+- **poly~** (6) — A polyphonic phase distortion synthesizer using poly~; Polyphonic granular synthesizer with parameter controls; Polyphonic panned delays with poly~; Polyphonic quad-panned delays with poly~; Polyphony with the poly~ object; Six samples at six pitches at six tempi
+- **pong~** (1) — DIY ring buffer
+- **pow** (20) — Avoiding infinity in pow and /; Calculate pitchbend transposition; Change hue rotation; Conversion between pitch and frequency; Converting MIDI pitch to frequency; Exponential video fade; Frequency and pitch; Half speed and double speed; Interpolation with pattrstorage; Linear motion in two voices; MIDI mapping to amplitude; Phase distortion synthesis in a poly~ subpatch …
+- **pow~** (5) — Buffer shape; Compare exponential versus linear speed change to sound file; Flanger effect on sound file; Random pitch variation of an oscillator; Transpose a sound file using sfplay~
+- **prepend** (66) — A 16-stage note sequencer; A polyphonic phase distortion synthesizer using poly~; Abstraction for flanging; Abstraction to flange an audio signal; Animating 2D graphics; Any rhythmic value, with transport; Apply a texture to a shape in OpenGL; Attributes example; Automate file creation; Automate pitch with bline; Automated countermelody improviser; Basic movie playing …
+- **preset** (6) — Amplitude modulation and frequency modulation; Circular quadraphonic panning; Multiple delays with stereo panning; Rangeslider demo (rslider); Repeated notes at 6 related tempi, with different probabilities; Using the preset capabilities of pattrstorage
+- **print** (35) — Abstraction to flange an audio signal; Binding a pattr object to another object; Binding objects to each other, and to a pattr; Combine items into a single message; Detect MIDI Notes Being Played; Display MIDI input devices; Extract Indices; Get column from jit.matrix; Initialize UI objects; Introduction to the pattr object; Keep pitches of held MIDI notes in a bag; MSP vector to list …
+- **qlist** (1) — Schedule a collection of future events
+- **qmetro** (45) — A/B video switcher; Add text to video in GL; Alphablend a videoplane in OpenGL; Animating 2D graphics; Attributes of jit.qt.movie; Body tracking with Kinect and Synapse; Capture and play video excerpts; Choose a random mix of sine tones; Control Slider with Timecode; Crossfade and blur movie files using jit.xfade and jit.matrix; Crossfade to new location in a video; Crossfade video and audio …
+- **quadpanner** (1) — GL quad panning demo
+- **quadpan~** (3) — Abstraction for delay with quadraphonic panning; Circular quadraphonic panning; Gain factors for quadraphonic panning based on radial angle
+- **r** (4) — Behringer BCF2000 router; Convert MIDI data into coll format; Formatting messages to use in "forward"; loadbang delay argument
+- **radiogroup** (3) — A 16-stage note sequencer; Output integers from button inputs; Rhythmic automated panning
+- **rampsmooth~** (4) — A useful noise gate (ducker) subpatch for rejecting unwanted sounds; Fade audio after a given time under a dB threshold; Linear interpolation to a new value; Oscillators controlled by cellular automata
+- **random** (81) — ASCII key; Algorithmic composition with math functions; Any rhythmic value, with transport; Audio cue chooser; Automated blues "improviser"; Basic linear mapping; Bass drum player with swing; Beat divisions with transport; Capture and play video excerpts; Choose randomly from a list of numbers with table; Continuous control shapes; Controlling the range of a set of numbers …
+- **randomizedmetro** (1) — Demonstration of the randomizedmetro subpatch
+- **rand~** (3) — A basic chorus effect; Chorusing; Random pitch variation of an oscillator
+- **receive~** (1) — Play part of a sample using groove~
+- **record~** (14) — Audio in RAM — buffer~ and related objects; Basic RAM recording into buffer~; Basic stereo recording into buffer~; Consecutive recordings concatenated in the same buffer~; Granulation of a recorded sound; Live capture in buffer~; Measure time recorded into a buffer; Play random clips (in reverse) from a RAM buffer; Record and fragment audio in rhythmic units; Record as long as space bar is held; Record line~ as a series of numbers; Recording to and playing sounds from RAM …
+- **rect~** (3) — Generate classic waveforms; Line segment function as a musical motive; Linear motion in two voices
+- **regexp** (2) — Remove spaces from list; Separating items in a formatted message
+- **reson~** (9) — 1/4 of a sine wave as a control shape; Bandpass filter swept with a LFO; Resonant bandpass filter; Rhythmic filtered noise bursts; Simple two-part gestures; Six upper harmonics of a fundamental; Switching and mixing audio; Using the Hénon attractor; Using the preset capabilities of pattrstorage
+- **rewire~** (1) — MIDI and audio via ReWire
+- **round** (5) — Pitch tracking with sigmund~; Play a sinusoidal melody; Report different cells from consecutive frames; Stop-action slideshow (backward); sigmund~ for pitch tracking
+- **round~** (1) — Abstraction for hexagonal constant-intensity panning
+- **route** (76) — Abstraction for quad panning using x,y coordinates; Abstraction to flange an audio signal; Abstraction to trigger a timed series of bangs; Apply a texture to a shape in OpenGL; Ask if a number belongs to a set; Attributes of jit.qt.movie; Automate file creation; Basic movie playing; Behringer BCF2000 emulator; Behringer BCF2000 router; Body tracking with Kinect and Synapse; Bypass video effect …
+- **routepass** (2) — Avoiding infinity in pow and /; Subpatch for playing sound cues from sflist~
+- **router** (1) — Video effect chooser
+- **rslider** (7) — Calculate the range of rslider; MIDI to Frequency; Polyphonic granular synthesizer with parameter controls; Rangeslider demo (rslider); Saving slider values; Single stream of grains from a buffer~; jit.gt.movie loopstart
+- **rtin** (1) — Useful MIDI Objects
+- **sah~** (6) — Isolate a single bin of an FFT; Play a stream of random grains from a sound file; Sample and hold; Sample and hold using triggers stored in a buffer; Transport-controlled phasor~; Triggering events with each cycle of a phasor~
+- **sampstoms~** (3) — Sine Wave into Buffer~; Test Interaural Time Difference; Windowing an audio signal
+- **saw~** (15) — ADSR filter envelope; Amplitude envelope with the function object; Arpeggiate the harmonic series; Detuning oscillators in Max; Envelope with the function object; Frequency and pitch; Generate classic waveforms; Linear and exponential; Linear motion in two voices; Overly simple MIDI synth; Random pitch variation of an oscillator; Smooth filter changes …
+- **scale** (15) — Basic linear mapping; Change size of a UI object; Generate MIDI notes; Linear mapping and linear interpolation; Linear mapping of ranges; MIDI mapping to amplitude; MIDI to Frequency; Managing samples in Max; Math in the slider object; Overly simple MIDI synth; Pitch tracking with sigmund~; Table lookup …
+- **scope~** (53) — A demonstration of phase distortion synthesis; ADSR amplitude envelope; Addition of sinusoidal tones; Adjusting audio amplitude; Alter phase of sinusoid by milliseconds; Alter the speed of an audio file; Amplitude modulation and frequency modulation; Amplitude modulation of sinusoidal tones; Beating between sine tones; Buffer shape; Click resulting from amplitude change; Create a simple test tone with frequency and amplitude control …
+- **screensize** (4) — Generate MIDI notes; Linear mapping of ranges; Mousestate; Theremin using mouse position
+- **sel** (99) — A timepoint is a point in musical time; A/B audio crossfade; A/B audio switch; A/B video switcher; ADSR filter envelope; Abstraction for hexagonal constant-intensity panning; Abstraction to trigger a timed series of bangs; Amplitude control in decibels; Ask if a number belongs to a set; Audio amplitude control; Audio cue chooser; Automate pitch with bline …
+- **select** (113) — A/B video switcher; ADSR amplitude envelope; ASCII key; Accelerando; Activate and deactivate parameters for pattrstorage; Add text to video in GL; Alpha masking; Amplitude and decibels; Apply a texture to a shape in OpenGL; Arpeggiate the harmonic series; Attributes of jit.qt.movie; Automated countermelody improviser …
+- **selector~** (6) — A/B audio switch; Routing audio data flow; Switching and mixing audio; Synchronize an LFO to a note onset with phasor~; The simplest lowpass filter; Windowing an audio signal
+- **semitonetrill** (1) — Choose from among multiple processes
+- **send~** (1) — Play part of a sample using groove~
+- **seq** (6) — Create MIDI File; Routing MIDI data flow; Score following with the follow object; Simplest MIDI file player; Use seq to play MIDI files; Useful MIDI Objects
+- **seq~** (1) — Using A Loop to Set Master Tempo
+- **sfinfo~** (2) — Controlling sfplay~ speed with line~; Live capture in sound file
+- **sflist~** (6) — Audio cue chooser; List audio cue points; Polyphony requires multiple objects; Preload Sound Files; Six samples at six pitches at six tempi; Sync Multiple sfplay~
+- **sfplay~** (69) — A basic chorus effect; A/B audio crossfade; A/B audio switch; Adjust the pitch of a comb filter; Alter the speed of an audio file; Audio cue chooser; Bandpass filter swept with a LFO; Biquad filter; Change of delay time may cause clicks; Chorusing; Comb filter; Comb filtering …
+- **sfrecord~** (4) — Automate file creation; Live capture in sound file; Record an audio file; Simple sound recording
+- **sigmund~** (2) — Pitch tracking with sigmund~; sigmund~ for pitch tracking
+- **sig~** (43) — A basic chorus effect; A beeping test sound; A useful noise gate (ducker) subpatch for rejecting unwanted sounds; A useful subpatch for mixing and balancing two sounds; A/B audio crossfade; Abstraction for S-curve crossfading; Abstraction for mixing or crossfading two audio signals; Abstraction to flange an audio signal; Audio in RAM — buffer~ and related objects; Automate pitch with bline; Avoid groove~ sync output initial jump; Buffer techniques …
+- **sin** (1) — Draw Points on the Circumference of a Circle
+- **slider** (54) — Adjusting audio amplitude; Amplitude and decibels; Attributes of jit.qt.movie; Audio amplitude control; Automate sinusoidal MIDI pitchbend; Behringer BCF2000 emulator; Binding objects to each other, and to a pattr; Change size of a UI object; Chaos algorithm for choosing pitches; Constant power panning using square root of intensity; Constant power panning using table lookup; Control Slider with Timecode …
+- **snapshot~** (4) — Automate sinusoidal MIDI pitchbend; Change hue rotation; Different number sources using Max; Triggering events with each cycle of a phasor~
+- **spectroscope~** (7) — Biquad filter; Comb filter; Resonant bandpass filter; Resonant lowpass filter; Rhythmic filtered noise bursts; The simplest lowpass filter; Variable-mode filter demo
+- **speedlim** (1) — Generate MIDI notes
+- **spigot~** (1) — QT audio to MSP
+- **split** (16) — Displaying MIDI note values using jit.lcd; Frequency and pitch; Managing samples in Max; Polyphony requires multiple objects; Present different views of a subpatch; Score following with the follow object; Tap Tempo; Tap Tempo for Ableton Live; Tap tempo utility in Max for Live; Tap to set tempo; Tap to teach tempo to Max; Testing for a range of numbers …
+- **sprintf** (3) — Automate file creation; Formatting messages to use in "forward"; Synchronizing MSP audio loops with the transport
+- **sqrt~** (3) — Calculating Doppler shift for moving virtual sound sources; Constant power panning using square root of intensity; Linear interpolation of audio
+- **stripnote** (16) — 3D animation of a MIDI note; Adjust pitches according to a pitch class set; Automated countermelody improviser; Creating a MIDI trill effect; Displaying MIDI note values using jit.lcd; Harmonizer written in JavaScript; Linear interpolation over time; MIDI to saturation and rotation; Managing samples in Max; Modulo operator: %; Playing sound files with a MIDI Keyboard; Score following with the follow object …
+- **sustain** (1) — MIDIGlissando
+- **swap** (7) — Adjustable Tempo; Behringer BCF2000 emulator; Behringer BCF2000 router; Calculate the range of rslider; Delay MIDI note messages; Pitchbend using notein; Polyphony with the poly~ object
+- **swatch** (1) — LCD in Jitter
+- **switch** (2) — Reference particular plane in matrix; Routing MIDI data flow
+- **swiz** (1) — Checkerboard pattern with jit.gen
+- **sxformat** (1) — Useful MIDI Objects
+- **sysexin** (1) — Useful MIDI Objects
+- **t** (186) — A timepoint is a point in musical time; ADSR filter envelope; Abstraction for calculating the Hénon attractor; Abstraction for crossfading between delay times; Abstraction for crossfading delay times of a remote tapin~ object; Abstraction for flanging; Abstraction to flange an audio signal; Abstraction to trigger a timed series of bangs; Activate and deactivate parameters for pattrstorage; Add text to video in GL; Adjust brightness and contrast on a 1-plane char matrix; Adjust pitches according to a pitch class set …
+- **tab** (1) — Dynamically hide or show an object one at a time
+- **table** (32) — A 16-stage note sequencer; Accelerando; Automated blues "improviser"; Automated countermelody improviser; Bass drum player with swing; Choose randomly from a list of numbers with table; Controlling the range of a set of numbers; Converting notes per second to ms and using the Tempo object; Customize oscillator behavior; Delay MIDI note messages; Delaying MIDI notes; Invert the pitches of MIDI notes …
+- **tapin~** (20) — A basic chorus effect; Abstraction for crossfading between delay times; Abstraction to flange an audio signal; Calculating Doppler shift for moving virtual sound sources; Change of delay time may cause clicks; Chorusing; Continuous change of delay time causes a pitch shift; Delay effect with feedback; Delay effects; Delay with feedback; Delay with tapin~ and tapout~; Demonstration of multiple crossfading delay times referring to the same remote tapin~ object …
+- **tapoutstereo~** (1) — Multiple delays with stereo panning
+- **tapoutxfade~** (3) — Abstraction for delay with quadraphonic panning; Abstraction for delay with stereo panning; Demonstration of multiple crossfading delay times referring to the same remote tapin~ object
+- **tapout~** (17) — A basic chorus effect; Abstraction for crossfading between delay times; Abstraction for crossfading delay times of a remote tapin~ object; Abstraction to flange an audio signal; Calculating Doppler shift for moving virtual sound sources; Change of delay time may cause clicks; Chorusing; Continuous change of delay time causes a pitch shift; Delay effect with feedback; Delay effects; Delay with feedback; Delay with tapin~ and tapout~ …
+- **teeth~** (1) — teeth~ test
+- **tempo** (10) — Converting notes per second to ms and using the Tempo object; Delaying MIDI notes; Different number sources using Max; Interpolation with the function object; Long term crescendo; MSP functions; Sequencer with Tempo; The tempo object; Two ways to get BPM timing; Using audio to trigger the display of a frame of video
+- **text** (3) — Duplicate the first item in a message; LCD in Jitter; Simple subtitles in a video
+- **textbutton** (8) — A/B video switcher; Adjustable Tempo; Behringer BCF2000 router; Hide or show an object; Increase or Decrease a value; Metronome using General MIDI sounds; Present different views of a subpatch; Using the metro object controlled by the transport
+- **textedit** (1) — Route Text or Bang from textedit
+- **thispatcher** (4) — Dynamic view of bpatcher; Hide or show an object; Present different views of a subpatch; Providing a full path name
+- **thispoly~** (2) — A subpatch suitable for use in poly~; Phase distortion synthesis in a poly~ subpatch
+- **thresh** (3) — Detect MIDI Notes Being Played; MIDI and audio via ReWire; Pseudo-random numbers appear random
+- **timedbangs** (1) — Try the timedbangs abstraction
+- **timepoint** (12) — A timepoint is a point in musical time; Adjustable Tempo; Conditional timepoint; Event timing with transport; MSP transport demo; Multiple times for timepoint object; Record and fragment audio in rhythmic units; Schedule a collection of future events; Schedule timepoints in straight clock time; Tempo-relative timing with the transport object; Using the metro object controlled by the transport; Using timepoints for interactive sequencing
+- **timer** (15) — Demonstration of the randomizedmetro subpatch; Live capture in buffer~; Measure time recorded into a buffer; Multiple simultaneous tempi using named transports; Record as long as space bar is held; Score following with the follow object; Sequencer with Tempo; Tap Tempo; Tap Tempo for Ableton Live; Tap tempo utility in Max for Live; Tap to set tempo; Tap to teach tempo to Max …
+- **togedge** (2) — Recording to and playing sounds from RAM; Timed linear fade
+- **tosymbol** (4) — Abstraction to flange an audio signal; Automate file creation; Combine items into a single message; LCD in Jitter
+- **touchin** (1) — Useful MIDI Objects
+- **touchout** (1) — Useful MIDI Objects
+- **translate** (18) — A useful noise gate (ducker) subpatch for rejecting unwanted sounds; Comb filtering; Convert between musical time and clock time; DIY ring buffer; MSP transport demo; Multiple times for timepoint object; Phase cancellation due to delay; Record and fragment audio in rhythmic units; Rhythmic automated panning; Rhythmic delays in time with a musical tempo; Schedule timepoints in straight clock time; Simple demonstration of flanging …
+- **transport** (42) — A timepoint is a point in musical time; Adjustable Tempo; Any rhythmic value, with transport; Base transport tempo on loop length; Bass drum player with swing; Beat divisions with transport; Communicate with many pattr objects from a central hub; Conditional timepoint; Convert between musical time and clock time; Event timing with transport; MSP transport demo; Metronome using General MIDI sounds …
+- **trapezoid~** (9) — Generate a window function to use as an amplitude envelope; Play random clips (in reverse) from a RAM buffer; Repeatedly reading a function with phasor~; Synchronizing MSP audio loops with the transport; Transport-controlled phasor~; Trapezoidal control signals; Trapezoidal envelope; Triggering events with each cycle of a phasor~; Windowing an audio signal
+- **triangle~** (6) — A beeping test sound; Generate a window function to use as an amplitude envelope; Generate classic waveforms; Repeatedly reading a function with phasor~; Synchronize an LFO to a note onset with phasor~; Windowing an audio signal
+- **trigger** (4) — Draw shapes and text; Match demo; Message ordering in Max; Table and coll objects
+- **tri~** (1) — Generate classic waveforms
+- **ubutton** (4) — Flashing picture as a button; The ‘alpha’ attribute of a picture; Trigger sound cues with the mouse or from the computer keyboard; Ubutton ignore click
+- **udpreceive** (3) — Body tracking with Kinect and Synapse; Networking Max messages via UDP; TouchOSC data via wireless UDP
+- **udpsend** (3) — Body tracking with Kinect and Synapse; Networking Max messages via UDP; Slow OSC messages
+- **umenu** (30) — Amplitude and decibels; Any rhythmic value, with transport; Beat divisions with transport; Behringer BCF2000 emulator; Biquad filter; Different number sources using Max; Display MIDI input devices; Display changing text in the user interface; Exponential mapping; Joystick to MIDI; LCD in Jitter; Linear mapping of ranges …
+- **unjoin** (1) — Abstraction to flange an audio signal
+- **unpack** (68) — A subpatch suitable for use in poly~; A useful noise gate (ducker) subpatch for rejecting unwanted sounds; Abstraction for calculating the Hénon attractor; Abstraction for hexagonal constant-intensity panning; Abstraction for quad panning using x,y coordinates; Abstraction to trigger a timed series of bangs; Adjustable Tempo; Animating 2D graphics; Apply a texture to a shape in OpenGL; Attributes of jit.qt.movie; Basic movie playing; Body tracking with Kinect and Synapse …
+- **urn** (11) — Choose new movie; Dynamic probabilities; Load movies; Random and urn; Random numbers without repetitions; Saving and recalling presets in pattrstorage; Simulation of MIDI lighting control; Six upper harmonics of a fundamental; Some objects for generating numbers; Soundfile player in MSP; Using the preset capabilities of pattrstorage
+- **uzi** (31) — Algorithmic composition with math functions; Calculating the mean of each cell of a series of matrices; Checkerboard pattern in a matrix; Customize oscillator behavior; Find the maximum of a jitter matrix column; Generate a window function to use as an amplitude envelope; Get column from jit.matrix; Initialize a multislider with a sine function; Interweave Lists; Iterate through Polyphonic MIDI files as simultaneous chords with detonate; Make an elliptical mask in Jitter; Pitchbend using notein …
+- **Uzi** (1) — Oscillators controlled by cellular automata
+- **vexpr** (2) — Choose a random mix of sine tones; Dynamically resize matrixctrl range
+- **vst~** (2) — MIDI Control to VST; Oscillators controlled by cellular automata
+- **vtoa** (1) — Test MIDI velocity to amplitude (vtoa) abstraction
+- **waveform~** (1) — Loop points in Quicktime
+- **wave~** (4) — Audio in RAM — buffer~ and related objects; Buffer techniques; Repeatedly reading a function with phasor~; Sample and hold using triggers stored in a buffer
+- **when** (3) — Conditional timepoint; Event timing with transport; Using the metro object controlled by the transport
+- **xbendin** (1) — Useful MIDI Objects
+- **xbendout** (4) — MIDIGlissando; Pitchbend using notein; Useful MIDI Objects; more MIDIglissando
+- **xfade~** (1) — Try the xfade~ abstraction
+- **xnotein** (1) — Useful MIDI Objects
+- **xnoteout** (1) — Useful MIDI Objects
+- **zl** (19) — Choose one of several sounds; Extract Indices; Fitting text to a window; Generate MIDI notes; Initialize a multislider with a sine function; Interleave two lists; Interweave Lists; List to 3plane 2D matrix; Output js object into a function; Output matrix values to a number box; Plot a randomly generated envelope curve with a list of (x, y) pairs; Plot an exponential curve …
+- **zmap** (9) — Amplitude and decibels; Attributes of jit.qt.movie; Exponential mapping; Generate MIDI notes; Linear mapping and linear interpolation; MIDI stream to exponential curve; Output video duration after read; Scrub a movie using slider; Visualize MIDI note value using lcd

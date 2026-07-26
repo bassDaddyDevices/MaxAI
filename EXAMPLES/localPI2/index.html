@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osaurus Live Streaming Chat UI</title>
+    <!-- Marked.js library for fast Markdown parsing -->
+    <script src="https://jsdelivr.net"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 650px;
+            height: 85vh;
+            background-color: #262626;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: #333333;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #444;
+            color: #fff;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 14px;
+            line-height: 1.5;
+            font-size: 0.95rem;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background-color: #007acc;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .bot-message {
+            background-color: #3d3d3d;
+            color: #f0f0f0;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        /* Styling for markdown content rendered in messages */
+        .bot-message pre {
+            background-color: #1e1e1e;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 8px 0;
+            overflow-x: auto;
+        }
+        .bot-message code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #2b2b2b;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .bot-message p { margin-bottom: 8px; }
+        .bot-message p:last-child { margin-bottom: 0; }
+        .bot-message ul, .bot-message ol { margin-left: 20px; margin-bottom: 8px; }
+
+        .chat-input-area {
+            padding: 15px;
+            background-color: #333333;
+            border-top: 1px solid #444;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px;
+            background-color: #444;
+            border: 1px solid #555;
+            border-radius: 8px;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .send-btn {
+            background-color: #007acc;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .send-btn:disabled {
+            background-color: #555;
+            cursor: not-allowed;
+        }
+
+        .chat-messages::-webkit-scrollbar { width: 6px; }
+        .chat-messages::-webkit-scrollbar-thumb { background-color: #555; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">Osaurus Core Link</div>
+    <div class="chat-messages" id="chat-messages">
+        <div class="message bot-message">Hello! Connected and listening to your local environment.</div>
+    </div>
+    <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Ask your agent..." autocomplete="off">
+        <button class="send-btn" id="send-btn">Send</button>
+    </div>
+</div>
+
+<script>
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+    const sendButton = document.getElementById('send-btn');
+
+    // Message history log array to maintain conversational context
+    let conversationHistory = [];
+
+    function appendMessage(htmlContent, sender) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', `${sender}-message`);
+        messageDiv.innerHTML = htmlContent;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        return messageDiv;
+    }
+
+    async function streamOsaurusResponse(userPrompt) {
+        // 1. Build context structure 
+        conversationHistory.push({ role: "user", content: userPrompt });
+        
+        // 2. Insert blank response block to catch incoming text
+        const botBubble = appendMessage('Thinking...', 'bot');
+        let fullResponseText = "";
+
+        try {
+            // 3. Request data stream from the default local Osaurus port
+            const response = await fetch('http://127.0.0.1:1337/v1/chat/completions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    model: "default", // Osaurus routes automatically to your active agent/model
+                    messages: conversationHistory,
+                    stream: true
+                })
+            });
+
+            if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+
+            // 4. Set up chunk-by-chunk reader processing
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder('utf-8');
+            botBubble.innerHTML = ""; // Clear loader text
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                const chunk = decoder.decode(value, { stream: true });
+                // Split standard Server-Sent Events text protocol
+                const lines = chunk.split('\n');
+                
+                for (const line of lines) {
+                    const cleanedLine = line.replace(/^data: /, '').trim();
+                    if (!cleanedLine || cleanedLine === '[DONE]') continue;
+
+                    try {
+                        const parsed = JSON.parse(cleanedLine);
+                        const delta = parsed.choices[0].delta?.content || "";
+                        
+                        if (delta) {
+                            fullResponseText += delta;
+                            // Dynamically re-parse Markdown structure with every incoming token
+                            botBubble.innerHTML = marked.parse(fullResponseText);
+                            chatMessages.scrollTop = chatMessages.scrollHeight;
+                        }
+                    } catch (e) {
+                        // Skip incomplete or structural chunks
+                    }
+                }
+            }
+
+            // 5. Append final agent outcome to state array
+            conversationHistory.push({ role: "assistant", content: fullResponseText });
+
+        } catch (error) {
+            console.error(error);
+            botBubble.innerHTML = `<span style="color: #ff6b6b;">Error connecting to Osaurus workspace server: ${error.message}</span>`;
+        } finally {
+            toggleControls(false);
+        }
+    }
+
+    function handleSend() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        appendMessage(text, 'user');
+        chatInput.value = '';
+        toggleControls(true);
+
+        streamOsaurusResponse(text);
+    }
+
+    function toggleControls(isDisabled) {
+        sendButton.disabled = isDisabled;
+        chatInput.disabled = isDisabled;
+        if (!isDisabled) chatInput.focus();
+    }
+
+    sendButton.addEventListener('click', handleSend);
+    chatInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') handleSend();
+    });
+</script>
+
+</body>
+</html>

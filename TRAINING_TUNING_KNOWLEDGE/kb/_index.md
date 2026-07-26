@@ -121,6 +121,749 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **live.toggle** — Switch between off and on (0/1)
 - **midiselect** — Select and interpret raw MIDI data
 
+## cookbook (740)
+
+- **1/4 of a sine wave as a control shape** — The cycle~ object uses a lookup table of 512 values that make the shape of a single cycle of a cosine wave, and it reads through those repeatedly at whatever ra
+- **32-bit versus 64-bit** — 64-bit precision is useful for when you need, well, more precision.
+- **3D animation of a MIDI note** — To do animation in 3D, you need to learn about the jit.gl.\\ family of Jitter objects.
+- **A 16-stage note sequencer** — Analog synthesizers of the early 1970s often included a \"sequencer\" capable of cycling through a timed sequence of 16 different voltages (which would most commo
+- **A basic chorus effect** — The \"chorus\" effect is commonly used to enrich a sound.
+- **A beeping test sound** — This patch is designed to be used as an abstraction (subpatch) in another patch, such as the example \"Mixing multiple audio processes\".
+- **A demonstration of phase distortion synthesis** — Phase distortion is a synthesis technique that was used in some Casio synthesizers in the 1980s.
+- **A polyphonic phase distortion synthesizer using poly~** — This example shows the patch from “Phase distortion synthesis in a poly~ subpatch(phase-distortion-synthesis-poly-subpatch.md)” being used as a subpatch inside the poly~ object.
+- **A subpatch suitable for use in poly~** — This patch demonstrates how one might make an audio patch that can serve as a voice in a polyphonic synthesizer.
+- **A timepoint is a point in musical time** — A timepoint is a point in musical time.
+- **A useful noise gate (ducker) subpatch for rejecting unwanted sounds** — A \"ducker\" is a system that turns a signal down to 0 when it's below a given threshold.
+- **A useful subpatch for mixing and balancing two sounds** — To mix two sounds together equally, you just add them together.
+- **A variation on the simple envelope follower** — This patch is very similar to the \"Simple envelope follower(simple-envelope-follower.md)\", with the difference that in this patch the line~ object's time of int
+- **A/B audio crossfade** — This patch shows how to crossfade between two sounds.
+- **A/B audio switch** — This patch shows how the selector~ object may be used to choose just one of two (or more) different audio signals.
+- **A/B video switcher** — This is a slightly more refined A/B video switcher patch than the simple one shown in \"Simplest A/B video switcher(simplest-possible-ab-video-switcher.md)\".
+- **ADSR amplitude envelope** — The way that a sound’s amplitude evolves over time is called its amplitude envelope.
+- **ADSR filter envelope** — An ADSR envelope generator is a common tool for controlling the amplitude of a note, and in fact it can be used to control any parameter of a sound.
+- **ASCII key** — The key object tracks and outputs the ASCII values of the keys you press on the computer keyboard.
+- **Abstraction for S-curve crossfading** — A good way to mix two sounds is to give one sound a gain between 0 and 1 and give the other sound a gain that's equal to 1 minus that amount.
+- **Abstraction for calculating the Hénon attractor** — The \"Hénon attractor\" (or \"Hénon map\") is an iterative function that produces a particular chaotic pattern of behavior, which can be visualized or sonified.
+- **Abstraction for crossfading between delay times** — This example shows my preferred method for changing between different fixed delay times.
+- **Abstraction for crossfading delay times of a remote tapin~ object** — If we want to use the delay crossfading technique shown in \"Abstraction for crossfading between delay times(abstraction-crossfading-between-delay-times.md)\" for
+- **Abstraction for delay with quadraphonic panning** — This patch shows how you might combine several of the abstractions that are presented in other examples.
+- **Abstraction for delay with stereo panning** — This abstraction encapsulates delay, gain control, and stereo panning in a single object that can be used in some other \"parent\" patch.
+- **Abstraction for flanging** — This patch can be used as an abstraction for flanging a sound.
+- **Abstraction for hexagonal constant-intensity panning** — For speakers that are configured in a circle or in the vertices of a regular polygon, you can give a sense of localization of a sound by calculating the radial
+- **Abstraction for mixing or crossfading two audio signals** — This patch is functionally identical to the mix~ abstraction in \"A useful subpatch for mixing and balancing two sounds(useful-subpatch-mixing-and-balancing-two-
+- **Abstraction for quad panning using x,y coordinates** — There are several standard speaker configurations for 2-dimensional surround sound panning, such as quadraphonic (four speakers in a square or rectangular place
+- **Abstraction to flange an audio signal** — This is a flanger that can easily be used as an abstraction (subpatch) within any audio patch.
+- **Abstraction to trigger a timed series of bangs** — A common need in computer music is to schedule events to occur at regular intervals of time.
+- **Accelerando** — This example demonstrates accelerando by playing 7-note scale (diatonic) over five octaves while increasing the velocity from soft to loud (20 to 125), and also the rate from 2 to 22 notes per second.
+- **Activate and deactivate parameters for pattrstorage** — This example shows how you can ignore certain preset parameters in pattrstorage.
+- **Add text to video in GL** — One method of subtitling a video is shown in the example \"Write subtitles onto a video(write-subtitles-video.md)\".
+- **Addition of sinusoidal tones** — To play two tones, you need two oscillators: two cycle~ objects).
+- **Adjust brightness and contrast on a 1-plane char matrix** — Brightness and contrast are explained briefly in Jitter Tutorial 7: Image Level Adjustment.
+- **Adjust image brightness, contrast and saturation** — This patch demonstrates two ways to adjust the color balance in a video.
+- **Adjust pitches according to a pitch class set** — One potential use of the “inlist” abstraction(ask-if-number-belongs-set.md) is to compare incoming pitches to a pitch class set.
+- **Adjust the pitch of a comb filter** — This patch demonstrates how to adjust the delay time of a comb filter to make the filter correspond to a desired fundamental pitch.
+- **Adjustable Tempo** — This example explores some approaches to recording and playing events in Max.
+- **Adjusting audio amplitude** — Amplification of audio (turning the volume up or down) corresponds to the mathematical operation of multiplication in your program.
+- **Algorithmic composition with math functions** — This patch is based on an example in the Max 3.5 Tutorial, chapter 44.
+- **Algorithmic counting** — This patch demonstrates an application of modular arithmetic to wrap a series of numbers around within a defined range.
+- **Alpha masking** — A video matrix, such as comes out of jit.movie, has four planes of data, representing alpha, red, green, and blue.
+- **Alphablend a videoplane in OpenGL** — A crossfade or blend between two videos is particularly easy to accomplish in Jitter using OpenGL.
+- **Alter phase of sinusoid by milliseconds** — This example shows how you can alter the phase of a wave by milliseconds using delay~.
+- **Alter the speed of an audio file** — This example demonstrates how to modulate the playback speed of an audio file.
+- **Amplitude and decibels** — A linear fade-in or fade-out of audio is okay for quick changes that take place in a fraction of a second, but for slower fades one should generally take into a
+- **Amplitude control in decibels** — This patch is an abstraction for supplying an amplitude factor to control the level of an audio signal.
+- **Amplitude envelope with the function object** — Each MSP object (each object that has signal input and/or output) is always producing signal as long as audio is turned on.
+- **Amplitude is inversely proportional to distance** — Our tympanic membrane (a.k.a.
+- **Amplitude modulation and frequency modulation** — In electronic music parlance, the word \"modulation\" means change, specifically the continuous or cyclical change caused by using one signal to control another.
+- **Amplitude modulation of sinusoidal tones** — Amplitude modulation is the use of one oscillator—usually but not obligatorily at a sub-audio frequency—to modify the amplitude of a sound.
+- **Animating 2D graphics** — In working with video and animation in Jitter, it’s important to remember that the effect of continuous motion is achieved by successive discrete images, each somewhat different from the preceding one.
+- **Any rhythmic value, with transport** — Transport-based tempo-relative timing in Max allows you to specify any rhythmic value.
+- **Append data to coll** — A reasonable way to append an item in the coll object is to keep track of the last or highest index.
+- **Apply a texture to a shape in OpenGL** — The OpenGL object jit.gl.gridshape allows you to create and render standard 3D geometrical shapes (cube, sphere, cone, etc.).
+- **Arpeggiate the harmonic series** — This example repeatedly arpgeggiates the first 16 notes of the harmonic series based on the frequency 65.406395 Hz, which is the fundamental frequency of the open C string on a cello.
+- **Ask if a number belongs to a set** — This abstraction, which I call “inlist”, checks to see if a given number belongs to a previously-collected set of numbers.
+- **Attributes example** — Most Jitter objects have internal states, known as attributes, and you can get and set their values.
+- **Attributes of jit.qt.movie** — The jit.qt.movie object (or jit.movie, or jit.movie~), for playing videos, has a great many attributes and understands a great many messages.
+- **Audio amplitude control** — As explained in MSP Tutorial 2, in order to avoid creating clicks in audio when you change the amplitude, you need to interpolate smoothly from one gain value to another.
+- **Audio cue chooser** — This examples shows a way to choose automatically from a list of preestablished sound cues, with a crossfade between cues rather than a sudden switch.
+- **Audio in RAM — buffer~ and related objects** — Preloading sound into random-access memory (RAM)—as opposed to reading it off of a hard disk—allows you more easily to access any point in the sound file instan
+- **Auto-panning MIDI notes** — This example demonstrates how to automatically pan MIDI notes with a given speed.
+- **Automate file creation** — To automate file creation of similarly named stereo sound files (for example, soundbite1, soundbite 2, etc), this patch allows you to send the desired file name
+- **Automate pitch with bline** — This patch demonstrates the bline object, and also shows how it might be used to trigger a different transposition of a sound with every bang of a metro.
+- **Automate sinusoidal MIDI pitchbend** — This patch demonstrates one way to create a sinusoidal pattern of numbers in Max.
+- **Automated blues \"improviser\"** — This patch shows an idea for an automated improvising algorithm.
+- **Automated countermelody improviser** — This patch provides an example of simple interactive improvising program that plays a melody influenced by the notes played by a live performer.
+- **Autostart** — The object loadbang sends a bang when a patcher is opened.
+- **Avoid groove~ sync output initial jump** — To avoid an initial spike on the sync output of a groove~ object, make sure that its associated buffer~ is given a nonzero size.
+- **Avoiding infinity in pow and /** — Taking 0 to the power of any negative exponent equals infinity.
+- **Bandpass filter swept with a LFO** — This example demonstrates one of MSP's many filter objects—the resonant bandpass filter reson~—and demonstrates how a parameter of that filter—in this case its
+- **Base transport tempo on loop length** — To coordinate the tempo of the transport object with the length of a recorded audio loop, get the duration of the loop in milliseconds, divide it by the number
+- **Basic RAM recording into buffer~** — To record a sound into RAM, you must first allocate/designate a place in RAM into which to record.
+- **Basic frequency modulation** — Frequency modulation refers to using the output of a low-frequency oscillator to continually alter (modulate) the frequency of another oscillator.
+- **Basic linear mapping** — The most direct way to convert one range of numbers into a different range of numbers is a process called linear mapping.
+- **Basic movie playing** — This patch shows some fundamental techniques for playing a video in Max.
+- **Basic stereo recording into buffer~** — This example is essentially the same as \"Basic RAM recording into buffer~(basic-ram-recording-buffer.md)\", except that it's designed for recording and playing b
+- **Basics of drawing in the lcd object** — Onscreen drawing of lines, shapes, text, and stored images is done using drawing commands derived from Apple's QuickDraw/Quartz systems for creating 2D graphics.
+- **Bass drum player with swing** — This patch uses the transport object to control an algorithmic performer of kick drum patterns.
+- **Beat divisions with transport** — In the MIDI specification, and in most DAW software, and in Max, the smallest unit of metric timing is expressed in \"ticks\", which is to say, partial units of a beat.
+- **Beating between sine tones** — This example shows interference between two sine tones that have nearly the same frequency, causing a beating effect.
+- **Behringer BCF2000 emulator** — This patch provides a virtual emulator of the popular Behringer BCF2000 hardware MIDI controller.
+- **Behringer BCF2000 router** — To work properly, this patch requires the abstraction BCF2000.maxpat and the related graphic file \"BCF2000.jpg\".
+- **Bend image brightness** — In this example, output of the MIDI pitch bend values from bendin are sent to the object jit.brcosa to adjust the brightness of the image.
+- **Bidirectional jit.matrix scroll** — This example demonstrates how one can make a scrolling display of an array of data using Jitter.
+- **Binding a pattr object to another object** — If you're unfamiliar with the pattr object, see first the \"Introduction to the pattr object(introduction-pattr-object.md)\".
+- **Binding objects to each other, and to a pattr** — If you want two user interface objects (UI) always to display the same information, it might seem sensible to connect the outlet of one to the inlet of the other and vice versa.
+- **Binding pattr objects between a subpatch and its parent patch** — For the basics of binding a pattr object to another object, see also \"Binding a pattr object to another object(binding-pattr-object-another-object.md)\" and \"Bin
+- **Biquad filter** — The biquad~ object is a biquadratic filter.
+- **Blur a float32 matrix** — To blur an image in a Jitter matrix, one cheap and easy way is to downsample the image, then re-upsample it with interpolation.
+- **Body tracking with Kinect and Synapse** — Max Cookbook example: Body tracking with Kinect and Synapse
+- **Buffer shape** — The buffer~ object can hold any audio data—or, for that matter, any collection of floating-point numbers.
+- **Buffer techniques** — This patch demonstrates a few different ways of reading audio from buffer~.
+- **Bypass video effect** — To create an effects chain for video similar to a guitarist’s pedal board, one needs a bypass mechanism so that disabling one effect doesn’t stop video playback.
+- **Calculate pitchbend transposition** — This patch shows how to calculate pitch bend transposition.
+- **Calculate the range of rslider** — This example shows how to get the range of a rslider object.
+- **Calculating Doppler shift for moving virtual sound sources** — A stereo spatialization effect can be achieved using x,y coordinates to determine intensity and delay for the sound at each speaker at each moment.
+- **Calculating the mean of each cell of a series of matrices** — To calculate the mean value of each cell of a series of Jitter matrices, you can keep the running sums in a matrix, and then divide by the number of instances received.
+- **Capture and play video excerpts** — This patch shows a way to capture and play back excerpts of live video.
+- **Cause and effect** — This example shows a series of events that causes a movie to start playing.
+- **Centering an image in jit.window** — This example shows you a way to center an image file in jit.window (or jit.world), while retaining the original dimensions of the image.
+- **Change color of selected messages** — Utilizing the message box’s bgcolor attribute, it's possible to change a message’s color in when it is selected, so as to indicate which message is currently selected.
+- **Change color with RGB values** — Any desired color is produced by blending three primary colors of light: red, green and blue, each with its own intensity.
+- **Change hue rotation** — This examples shows how you can adjust the hue of an image by adjusting the value of hue angle of the object jit.hue.
+- **Change number box with key** — This example shows how you can increase or decrease the number in a number box each time the up or down arrow keys are pressed.
+- **Change of delay time may cause clicks** — The main ways to delay a sound in Max are demonstrated in the examples from this site Simple delay of an audio signal(simple-delay-audio-signal.md) and Delay wi
+- **Change size of a UI object** — This example shows how you can change the length of a ui object (a slider object in this case) with the patching\\rect message.
+- **Change the color of text in a user interface object** — You can change the color of text in most Max UI objects with the textcolor attribute.
+- **Changing Live device parameters with the Live API** — This patch demonstrates some of the steps necessary to change a parameter automatically in a Max for Live device using the Live API.
+- **Chaos algorithm for choosing pitches** — Mathematicians have observed that certain repeated iterative equations create interesting visual patterns when the results are graphed.
+- **Check movie position** — This example shows you how to how you can retrieve some attributes of jit.qt.movie object, and how you could use the position of the movie in milliseconds to cause an effect.
+- **Checkerboard pattern in a matrix** — This example shows a way to set the contents of a 2D Jitter matrix.
+- **Checkerboard pattern with jit.gen** — This example shows a way to set the contents of a 2D Jitter matrix algorithmically in jit.gen.
+- **Choose a random mix of sine tones** — This patch uses a random number generator to choose a mix of 12 sine tones, play them, and display them as white pixels in a black and white matrix.
+- **Choose from among multiple processes** — For this example to work properly you'll first need to download two other patches.
+- **Choose new movie** — In this example, when you turn on the two metro objects, one of the three movies are chosen randomly by the urm object every three seconds to be read by the jit.qt.movie object.
+- **Choose one of several sounds** — The matrix~ object is a multichannel audio mixer.
+- **Choose randomly from a list of numbers with table** — This example demonstrates how to output randomly-chosen numbers from a list using the random and table objects.
+- **Choose which video is displayed by jit.window** — This patch shows how to switch between which of three different video files is being displayed on jit.window.
+- **Choosing one of two signals** — This patch is similar to the abgate~ abstraction for \"Routing a signal to one of two destinations(routing-signal-one-two-destinations.md)\" with a fade from one to the other.
+- **Chorusing** — For this example to work properly, you will also need to download the additional Max file mix~.maxpat from the example “A use subpatch for mixing and balancing
+- **Chromatic scale** — In this example, one octave of chromatic scale is played from the middle C.
+- **Circular quad panning** — This patch demonstrates the use of the cycle~ object to control quadraphonic panning in such a way as to simulate circular movement of a sound.
+- **Circular quadraphonic panning** — For this example to work correctly, you must first download the abstraction quadpan~.maxpat(../patches/quadpan3~.maxpat) which is explained in the example \"Quad
+- **Click resulting from amplitude change** — The amplitude of a sound is controlled by multiplying the sound wave by a certain factor.
+- **Color bit depth in Jitter** — A Jitter matrix in which the cells represent colored pixels—such as a video—normally has four planes of 8-bit (char) data, representing the values of the alpha,
+- **Comb filter** — When a sound is mixed with a delayed version of itself, each sinusoidal component of the delayed sound has a unique phase offset compared to the original, so ea
+- **Comb filtering** — Because of the phase cancellation effect caused when a sound is mixed with a delayed copy of itself, the resonance or attenuation (strengthening or weakening) o
+- **Combine 2 Matrices** — If you have a 3 plane matrix and a 4 plane matrix, and would like to combine these to create a 7 plane matrix, you would first unpack a multiple matrix into mul
+- **Combine items into a single message** — Unlike the join and pack objects, which combine their inputs into a single space-separated list, the combine object concatenates its inputs into a single item with no space in between.
+- **Communicate with many pattr objects from a central hub** — In large and complex patches that have many pattr objects, it might be useful to be able to communicate with all of them at one central location.
+- **Compare exponential versus linear speed change to sound file** — This example shows a comparison between an exponential change of speed and a linear change of speed when playing a soundfile.
+- **Conditional timepoint** — The timepoint object automatically and reliably sends out a bang when the specified point in time is reached.
+- **Consecutive recordings concatenated in the same buffer~** — A named record~ object records audio data into the buffer~ object that shares the same name.
+- **Constant power panning using square root of intensity** — The intensity of sound is proportional to the square of its amplitude.
+- **Constant power panning using table lookup** — In \"Constant power panning using square root of intensity(constant-power-panning-using-square-root-intensity.md)\" we used the square root of the desired intensi
+- **Constant-intensity panning subpatch** — This pan~ subpatch takes one signal in the left inlet, and sends it out each of two outlets.
+- **Continuous change of delay time causes a pitch shift** — The way we commonly avoid clicks when changing the amplitude of a sound is to interpolate smoothly sample-by-sample from one gain factor to another, using an object such as line~.
+- **Continuous control shapes** — Above are examples of four types of non-linear contours of values from 0 to 127 that one could use as continuous controller information for a MIDI device.
+- **Control Slider with Timecode** — If you want to drive a slider using the current time information from jit.qt.movie, you can send the ‘gettime’ message into jit.qt.movie to cause the ‘time’ mes
+- **Control the balance between two channels of audio** — This abstraction allows you to adjust the balance between two channels of audio.
+- **Control the volume and rate of a sound file** — The right inlet of sfplay~ accepts a rate factor (increment factor) to control the speed of sound file playback.
+- **Controllable movie timeline playbar** — You can easily jump to different parts of the movie using the readymade object called playbar.
+- **Controlling sfplay~ speed with line~** — You can use the line~ object to supply a changing speed value to the right inlet of the sfplay~ object.
+- **Controlling the range of a set of numbers** — This patch is intended to show how to generate any desired range of numbers by some combination of the following operations: 1) generate a set of possible numbe
+- **Conversion between pitch and frequency** — The objects mtof and ftom provide easy conversion between MIDI pitch numbers and their equivalent equal-tempered frequency values.
+- **Convert MIDI data into coll format** — Here’s an example patch that takes MIDI pitch and velocity information, runs it through borax and stores time-tagged note information in a coll, which you can then look up and play later.
+- **Convert between musical time and clock time** — The translate object performs conversions from one kind of time unit to any other, and is particularly useful when you need to convert from a tempo-relative tim
+- **Converting MIDI pitch to frequency** — This patch shows three different ways to convert MIDI pitch value to frequency.
+- **Converting notes per second to ms and using the Tempo object** — This example shows how to convert a value expressing “notes per second” into \"milliseconds per note\", which is a more useful value for the metro object.
+- **Copying one matrix to another** — To set matrix “B” to have the contents of matrix “A”, you simply send “A” to “B”.
+- **Count numbers and use them to play notes** — This patch shows several of the most basic and useful Max objects.
+- **Count with incdec** — The incdec object is a user interface object with an up arrow and a down arrow.
+- **Countdown** — This example shows how to make a countdown progress indicator by progressively filling a circle.
+- **Counting and stopping** — How do you do something x number of times, then stop?
+- **Create MIDI File** — This is an example that generates a sixteenth-note rhythm, formats the information as MIDI note messages with midiformat, and stores them in a seq object, which
+- **Create a go board in Max** — This patch demonstrates how to create a 19x19 matrix that functions as a sort of \"go\" board, in which each mouse click alternates between placing a white or black square in a cell of the matrix.
+- **Create a simple test tone with frequency and amplitude control** — This example demonstrates an easy setup for creating a testing tone.
+- **Create a sphere in OpenGL** — This example shows how to create and render a 3D shape in OpenGL.
+- **Create a stop motion effect using jit.qt.movie** — To create a stop motion effect, calculate the ratio of the movie’s framerate to your desired (stopframe) framerate.
+- **Creating a MIDI trill effect** — This example shows how to create a MIDI “trill” effect, with a randomized rhythm, triggered when a particular incoming MIDI value is detected or when a specifie
+- **Creating a window on a sound file** — A \"window\" is a function (shape) used to control the amplitude of a sound, briefly turning it up then turning it back down.
+- **Crossfade and blur movie files using jit.xfade and jit.matrix** — This example shows a couple of different Jitter techniques.
+- **Crossfade to new location in a video** — To jump immediately to a new location in a movie, you can send the frame message to jit.movie (or jit.qt.movie).
+- **Crossfade video and audio** — You can make a crossfade between two videos or betwen two sounds by multiplying the amplitude of one of them by values going progressively from 1 to 0 while you
+- **Curve in a transfer function** — You can obtain values that change exponentially or logarithmically by using the pow object or by using the pow($f1,$f2) function in the expr object.
+- **Customize oscillator behavior** — The canonical way to get cyclic \"oscillator\" behavior is, for every sample number (n), take a step of a certain size (increment) at a certain rate of speed (sam
+- **Cycle~ behaviors** — Here are a few behaviors of the cycle~ object worth knowing.
+- **Cycle~ phase demo** — This patch allows you to see how the phase relationship between two sine waves will affect the shape of the waveform when the two are mixed together.
+- **DIY ring buffer** — For time-delayed audio, we need to create what's called a \"circular buffer\" or a \"ring buffer\", an array of samples to which we record continuously in a loop, a
+- **DJ-like sample scrubbing** — Although playback is normally achieved by progressing linearly through a stored sound, other ways of traversing the sound can give interesting results.
+- **Dealing with the \"symbol\" output of coll** — Any message that consists of a single word is a message of type symbol (as opposed to int or float or list or some other word followed by other items).
+- **Delay MIDI note messages** — To delay a single bang message by a certain amount of time, use the delay object.
+- **Delay Midi Note Input** — This example shows a simple way to delay the input of midi notes.
+- **Delay a matrix** — This patch demonstrates a way to create a video delay effect using jit.matrixset.
+- **Delay effect with feedback** — Some interesting effects can be obtained by feeding the output of a delay line back into itself and adding that to whatever new sound is coming in.
+- **Delay effects** — The tapin~ and tapout~ objects work together to delay sound.
+- **Delay with feedback** — The delay~ object does not permit its delayed signal to be fed back into its own left inlet.
+- **Delay with tapin~ and tapout~** — In addition to the delay~ object, another way to implement a circular buffer for audio delay is with the pair of objects called tapin~ and tapout~.
+- **Delay with tempo-relative timing** — The delay attribute (the delay time) of a delay~ object can be specified with tempo-relative timing (such as ‘notevalues’) instead of samples.
+- **Delaying MIDI notes** — There are many objects available for delaying events (i.e., for scheduling events to happen at a specific future moment).
+- **Demonstration of crossfading delay** — This patch demonstrates the use of the abstraction in \"Abstraction for crossfading between delay times(abstraction-crossfading-between-delay-times.md)\".
+- **Demonstration of multiple crossfading delay times referring to the same remote tapin~ object** — This patch requires the tapoutxfade~ abstraction in the example \"Abstraction for crossfading delay times of a remote tapin~ object(abstraction-crossfading-delay-times-remote-tapin-object.md)\".
+- **Demonstration of the randomizedmetro subpatch** — Max Cookbook example: Demonstration of the randomizedmetro subpatch
+- **Detect Changes in jit.matrix** — This example uses jit.change to report when a jit.matrix object is altered.
+- **Detect MIDI Notes Being Played** — This example shows how to get a complete list with all currently played notes using bag object.
+- **Detect end of video in imovie** — The imovie object displays a video within a single UI object in a Max patch.
+- **Detect pauses in a data stream** — To detect a certain period of inactivity from a data source, you can use the delay object.
+- **Detect the end of a phasor~ cycle** — This example demonstrates how to detect the end/beginning of a phasor~ cycle.
+- **Detect two bangs within a given interval** — This example demonstrates a way to detect if two events, coming from two different sources, occur within a given interval of time from each other.
+- **Detect when a movie has been read successfully** — Did you know that the jit.movie (or jit.qt.movie) object will report when it has completed a read operation?
+- **Detect when a video has reached the end** — A jit.movie or jit.qt.movie object doesn't automatically provide a notification when it reaches the end of a video.
+- **Detect when an audio event occurs** — To detect when an audio event (such as a musical note) occurs, one straightforward method is to test whether the peak amplitude of the audio signal surpasses an
+- **Determine the length of a buffer~** — This example shows how to retrieve the total duration in ms of a loaded file in a buffer~, using the info~ object.
+- **Detokenizing Stream of Numbers** — A Max user was having trouble detokenizing a stream of number.
+- **Detuning oscillators in Max** — This patch shows how to mix detuned oscillators with modulation.
+- **Dial Min/Max Demo** — Max Cookbook example: Dial Min/Max Demo
+- **Different number sources using Max** — This patch shows different ways to receive and generate numerical values using MaxMSP.
+- **Dim of moviedim** — Whenever a movie is read into jit.qt.movie, it sends out a read message that reports whether the movie was read in successfully.
+- **Display MIDI input devices** — This example shows how to retrieve a list of MIDI input devices and display them in a umenu object.
+- **Display a video on a plane in OpenGL** — Max Cookbook example: Display a video on a plane in OpenGL
+- **Display a video on a shape in OpenGL** — Max Cookbook example: Display a video on a shape in OpenGL
+- **Display changing text in the user interface** — This example shows several different ways you can display changing text in the user interface of your Max patch.
+- **Display randomly chosen frames of a movie** — When you open a movie file in jit.movie with a read message, the exact amount of time that that operation will take is unknowable, but jit.movie will send a rea
+- **Displaying MIDI note values using jit.lcd** — The example shows how to display the note value of a midi note input in a jit.window as a rectangle.
+- **Displaying colors using jit.matrix** — This example shows how to show a color on jit.pwindow by using jit.matrix.
+- **Draw Points on the Circumference of a Circle** — This example shows how to draw a circumference with the lcd object, and how to draw N evenly spaced dots along that same circumferece.
+- **Draw random multicolored lines** — This patch shows the use of random number generators, the lcdobject for drawing graphics, and the use of replaceable ‘$’ arguments in a message box.
+- **Draw shapes and text** — The jit.lcd object understands a variety of command messages for drawing simple things such as lines, geometric shapes, text, and pictures any place in a matrix.
+- **Drawing an image from a file into lcd** — For this example to work properly, you will also need to download the small image file gourmet.jpg.
+- **Drawing with sprites in lcd** — For this example to work properly, you will also need to download the small image file \"guitariste.jpg\".
+- **Ducking when changing delay time** — Whenever you change the delay time, you're asking MSP to look at a new location in the delay buffer, which can cause a click in the output if the new sample val
+- **Ducking when changing delay time using tapin~ and tapout~** — One possible solution to the problem of clicks occurring when delay time is changed is to fade the amplitude of the delayed sound to 0 just before changing the
+- **Dump list into another coll** — To transfer all or part of a list into another coll object, the dump message can be sent to the sending coll object.
+- **Duplicate the first item in a message** — The prepend object allows you to concatenate two messages.
+- **Dynamic probabilities** — This example demonstrates how to dynamically alter probability.
+- **Dynamic view of bpatcher** — The bptatcher object allows you to show a view of a portion of a subpatch inside the main patch.
+- **Dynamically hide or show an object one at a time** — This example demonstrates how to dynamically hide or show objects (patch must be locked) by sending a \"hidden\" message.
+- **Dynamically resize matrixctrl range** — Here’s a way to store all of matrixctrl’s settings in a jit.matrix, and recall them whenever the matrixctrl is resized by messages.
+- **Easing function for animation** — Simple linear motion in 2D animation is achieved by interpolating between two points and successively drawing an object at each intermediate point, as demonstra
+- **Enable/disable subpatches** — The most direct and usually the best way to \"turn off\" a signal in MSP is to multiply it by 0.
+- **Envelope follower with minimal latency** — Audio signals change drastically and quickly.
+- **Envelope function without a fixed starting point** — The function object permits you to design a shape made up of line segments, and then you can send that information (out the second outlet) to a line~ object to
+- **Envelope with the function object** — The line~ object calculates and performs that interpolation, sending out a signal that arrives at a specified destination value in a specified amount of time.
+- **Event timing with transport** — This patch shows a simple use of a transport-governed metronome to trigger events at a constant rate.
+- **Expanding vibrato on an ascending glissando** — A single phasor~ object can serve to synchronize several different modulations.
+- **Exponential mapping** — A linear fade-in or fade-out of audio is okay for quick changes that take place in a fraction of a second, but for slower fades one should generally take into a
+- **Exponential video fade** — This patch allows you to try different exponentialities of fade-in/fade-out of a video.
+- **Extract Indices** — In the first example, you can retrieve specific indices from a list using zl lookup.
+- **FM mix** — Max Cookbook example: FM mix
+- **Fade audio after a given time under a dB threshold** — The example demonstrates two methods.
+- **Filter out too-frequent repetitions** — A common way of detecting the onset of a significant event in a continuous stream of data is to look for the data to exceed a certain threshold.
+- **Find the maximum of a jitter matrix column** — This example demonstrates how to find the maximum value in a jit.matrix column using jit.submatrix and jit.3m.
+- **Fitting text to a window** — This example shows you how you can implement twitter posts into a video without using JavaScript.
+- **Flanger effect on sound file** — This example shows how to create a flanger effect on a sound file.
+- **Flanging explained** — For this example to work properly, you will also need to download the additional Max file \"mix~.maxpat\" from the example \"A useful subpatch for mixing and balan
+- **Flash a numbox on received value** — This example demonstrates how to visually alter a numboxwhen it receives a value.
+- **Flashing LED with metro** — If you have a patch in which you are flashing a button object using metro, the flashing may be delayed due to different degrees of operation priorities when used in a more complicated patch.
+- **Flashing picture as a button** — The button object in Max gives visual feedback when it’s clicked upon, by flashing once briefly.
+- **Formatting messages to use in \"forward\"** — A max user had the following problem:  I have a number and a list.
+- **Four videos in one window** — To show four videos at once in four quadrants of the screen (i.e., four quadrants of a window), one way is to use the videos as textures on four different jit.g
+- **Four way audio crossfader** — Here’s a way to create a four-way audio crossfader.
+- **Frequency and amplitude** — Max Cookbook example: Frequency and amplitude
+- **Frequency and pitch** — Max Cookbook example: Frequency and pitch
+- **Frequency modulation** — Frequency modulation refers to using the output of a low-frequency oscillator to continually alter (modulate) the frequency of another oscillator.
+- **Frequency modulation of sinusoidal tones** — Frequency modulation is the use of one oscillator—usually but not obligatorily at a sub-audio frequency—to modify the frequency of a sound.
+- **Function Demo** — If you have wondered how to setup the function object to remember its settings upon opening there 3 things to note:  1.
+- **GL alpha blending** — This patch shows how to use globjects in Jitter to fade the color of a rendered sphere between two values.
+- **GL quad panning demo** — Max Cookbook example: GL quad panning demo
+- **Gain factors for quadraphonic panning based on radial angle** — Max Cookbook example: Gain factors for quadraphonic panning based on radial angle
+- **Ganging sliders** — This example shows how you can create a gangable multislider-like object.
+- **Generate MIDI notes** — Here are three ways of generating MIDI notes.
+- **Generate a burst of audio pulses** — This example shows how you can generate a pulse burst of a certain number of repeated rectangle waves.
+- **Generate a sinusoid with gen~** — Max provides an object called gen~ that opens up a new patching window in which you can program audio at the sample level.
+- **Generate a window function to use as an amplitude envelope** — To play short grains of sound, especially ones randomly chosen from a sound file, it's usually necessary to impose some sort of \"window\"—an amplitude envelope—t
+- **Generate classic waveforms** — There are certain wave types that are historically used in electronic music, known as \"classic\" waveforms: sine, sawtooth, square, and triangle.
+- **Generate negative random numbers** — This example demonstrates how to generate a negative random number.
+- **Generate random numbers within a specified range** — This patch demonstrates a way to generate random numbers within a specified range.
+- **Generating a simple 2-operator FM tone** — In order to enable and disable portions of an audio program easily, and to be able to reuse them multiple times, you will probably want to encapsulate an entire
+- **Get column from jit.matrix** — If you want to isolate a particular subset of a matrix—such as a single column, or a single row, or really any rectangular portion of the matrix—a handy object for that purpose is jit.submatrix.
+- **Get the mean of many numbers** — The mean object provides the average (mean) value of a list of numbers.
+- **Get timescale and duration of a movie** — This example demonstrates how to retrieve the timescale and duration values associated with a movie file.
+- **Getting a sound sample from RAM** — The buffer~ object holds audio data in RAM as an array of 32-bit floating point numbers (floats).
+- **Grand Master Fader** — Given a hypothetical grand master fader that can be controller with the continuous controller 13 (assuming for the sake of this example that your device is also
+- **Granulation of a recorded sound** — In classic granular synthesis, grains are very short windowed segments of sound, normally from 5 ms to 100 ms in length.
+- **Half speed and double speed** — For specifying the rate of an audio file or the rate of a video file, the number 1 is used for normal rate, and we may want to be able to increase or decrease the rate by a certain ratio.
+- **Hanning function to control parameters of a sound** — If you scale a one cycle of cosine wave by a factor of -0.5 and offset it by 0.5 you get a \"Hanning function\", which goes from 0 to 1 and back to 0 as smoothly as possible.
+- **Harmonize a single MIDI note** — This example demonstrates how to harmonize a single MIDI note with multiple pitches.
+- **Harmonizer written in JavaScript** — As a demo project to explore JavaScript programming in Max, this patch implements a script that harmonizes any played MIDI note with either a major seventh chor
+- **Hide or show an object** — A way of hiding or showing Max objects is to assign an object a “scripting name” in the Inspector, then give the thispatcher object a ‘script’ message telling it to hide or show that object.
+- **Highlight a number box** — Max Cookbook example: Highlight a number box
+- **How pack handles the list message** — The pack object is useful for combining int, float, and/or symbol messages into a single space-separated list.
+- **How the adsr~ object works** — The adsr~ object provides a signal in the shape of an ADSR envelope (attack, decay, sustain, release) commonly used in synthesizer design.
+- **Import movie captures into jit.matrix to create a photo booth effect** — How does one import multiple movie captures into a single matrix resembling a print from a photo booth?
+- **Inaccuracy in very large float values** — Floating-point numbers are necessary for representing fractional numbers, and they're useful for numbers that might range from very small (e.g., 0.000396) to ve
+- **Inactivity Ramp** — This example shows how to get the output of a slider object to slowly ramp back down to 0 after 10 seconds of inactivity.
+- **Increase or Decrease a value** — This example show 2 ways to increase and decrease a value on a number box.
+- **Indexing and accessing the bins of an FFT** — The Fast Fourier Transform (FFT) is a mathematical procedure for converting a time-domain signal (such as a sound wave) into an equivalent frequency-domain representation (the sound’s spectrum).
+- **Initialize UI objects** — This patch shows how to initialize UI objects using loadbang, loadmess, and pattrobjects.
+- **Initialize a multislider with a sine function** — Question: How does one fill a multislider of 512 sliders (range -1.
+- **Int and float** — Did you know that some Max objects make a distinction between integer numbers and numbers that have a fractional part?
+- **Interface for a flanger** — This patch shows an appropriate interface for a flanger, including dials to control delay time, flanging rate, flanging depth, and control over the mix between
+- **Interference** — This patch demonstrates wave interference with two cycle~objects, and offers two ways of visualizing the audio signal, with scope~or by creating your own scope with Jitter.
+- **Interference between sound waves** — When sound waves are mixed together, be it mathematically within the computer or physically in the air, they “interfere” with each other.
+- **Interleave two lists** — If you have two lists that you want to combine, you can do so using zl object with an argument lace.
+- **Interpolation with line or line~** — The line~ object outputs a signal and interpolates sample-by-sample from wherever it currently is to wherever you tell it to go, in the amount of time you specify.
+- **Interpolation with pattrstorage** — This example shows different ways to interpolate between values, for the purpose of automating volume control.
+- **Interpolation with the function object** — The function object can be used to create line segment functions that control a line~ object, and it can also be used as a lookup table.
+- **Interweave Lists** — While zl lace interweaves two lists, zl group allows you to interweave more than two lists.
+- **Introduction to the pattr object** — The pattr object and its related objects such as pattrhub, pattrforward, autopattr, and pattrstorage make it possible for you to store data (or any sort of mess
+- **Invert Black and White** — Max Cookbook example: Invert Black and White
+- **Invert a black and white image using jit.op** — This example demonstrates how to invert a black and white image using jit.op.
+- **Invert the pitches of MIDI notes** — To invert a musical phrase around a particular axis of symmetry, multiply the axis pitch by 2, then subtract the played pitches from that.
+- **Irrationally out-of-sync phasors** — Two oscillators with a ratio of frequencies that's an irrational number will never have exactly the same phase relationship.
+- **Isolate a single bin of an FFT** — This example shows how to isolate a single FFT bin, as opposed to displaying the entire spectrum.
+- **Iterate through Polyphonic MIDI files as simultaneous chords with detonate** — Load a MIDI file into detonate, send it a “start” message, then send it “next” messages to output each note.
+- **Iterate through elements of a message with a delay interval** — This example demonstrates how to iterate through elements of a message with a delay interval.
+- **Jit start** — Max Cookbook example: Jit start
+- **Joystick to MIDI** — This patch demonstrates how to convert data from joystick controllers to MIDI information in Max.
+- **Keep pitches of held MIDI notes in a bag** — The bag object stores an unordered collection of integers.
+- **Keeping audio and video synced** — This example shows how you can always keep your video and audio in sync even when you pause the video.
+- **LCD Drawing Demo 1** — Coordinates in lcd refer to the upper-left corner of a pixel.
+- **LCD drawing demo 2** — This patch shows how to use linewith lcdto create a moving image.
+- **LCD in Jitter** — Max Cookbook example: LCD in Jitter
+- **Line segment control functions** — In some other examples (e.g., Linear fade-in/out of audio from a different course website) you can see how the line~ object interpolates sample-by-sample in a straight line from one value to another.
+- **Line segment control functions** — The line~ object is intended for use as a control signal for audio.
+- **Line segment function as a musical motive** — This example is from my Algorithmic Composition blog, and is explained there.
+- **Linear amplitude panning** — The simplest and most common way to localize a sound in a stereo field is to vary the relative intensity between the two speakers.
+- **Linear and exponential** — This patch demonstrates the sound of linear and exponential changes in pitch and amplitude.
+- **Linear audio crossfade** — This example uses the subpatch from \"A useful subpatch for mixing and balancing two sounds(useful-subpatch-mixing-and-balancing-two-sounds.md)\", so it requires
+- **Linear control function** — The line~ object generates a signal that interpolates linearly from its current value to a new destination value in a specified amount of time.
+- **Linear control signal** — The phasor~ object produces a linear control signal that goes repeatedly from 0 to 1.
+- **Linear crescendo** — This patch demonstrates how to create a linear crescendo using the makenoteand noteoutobjects.
+- **Linear crescendo** — This patch shows how to create a linear crescendo using MIDI velocity.
+- **Linear fade-in/out of audio** — The line~ object is useful for providing a control signal.
+- **Linear frequency vs. linear pitch** — As expressed in Fechner's law, our subjective sensation of a phenomenon is often proportional to the logarithm of the empirical measurements of the intensity of
+- **Linear interpolation of audio** — For linear interpolation of a MSP signal, the line~ object sends out a signal that progress to some new value over a certain amount of time interpolating sample-by-sample along the way.
+- **Linear interpolation over time** — The line object sends out a periodic series of numbers that progress to some new value over a certain amount of time.
+- **Linear interpolation to a new value** — The rampsmooth~ object is useful for smoothing MSP signals, a sort of lowpass filter, especially appropriate for smoothing out overly sudden changes in control signals.
+- **Linear mapping and linear interpolation** — This patch shows examples of linear mapping and linear interpolation, using the lmap abstraction described in the “Linear mapping equation(linear-mapping-equation-lmap.md)” example.
+- **Linear mapping equation (lmap)** — The term \"mapping\" refers to making a map of correspondences between a source domain and some other \"target\" range.
+- **Linear mapping of one range to another** — This program shows the formula for linear mapping of one range to another, and implements the formula using basic Max math objects.
+- **Linear mapping of ranges** — To translate numbers that occupy a particular range into an equivalent set of numbers in a different range, one common and useful technique is \"linear mapping\".
+- **Linear motion in two voices** — Two oscillators, one in the left channel and one in the right channel, play notes that have a continuously changing frequency, at a continuously changing note rate.
+- **Linear note movement** — The line object interpolates linearly from its current value to some new destination value, ramping over a specified period of time, reporting its intermediate values along the way.
+- **Linear vs. exponential audio fade** — An exponential amplitude fade is usually more subjectively natural-sounding than a linear amplitude fade.
+- **List audio cue points** — To set a list of cue points in an audio file and have them played in order, use either sfplay~ (with a set of cues established by preload messages to sfplay~ or
+- **List to 3plane 2D matrix** — This example shows a way to divide your list into three-item groups with zl.group, then put each of those values into one of the three planes of jit.matrix.
+- **Live API via JavaScript** — You can program the Live API in JavaScript if you prefer using a text-based procedural language.
+- **Live capture in buffer~** — This shows how to record into a RAM (random-access memory) buffer, and how to play back the contents of the buffer at any rate (even backward by using a negativ
+- **Live capture in sound file** — This shows how to record into a sound file, and how to play back the contents of the file.
+- **Load and Read Video Files** — Max Cookbook example: Load and Read Video Files
+- **Load movies** — This patch shows a simple way to automate the loading of movies in a jit.qt.window.
+- **Long term crescendo** — This patch uses tempo to control the timing of a long crescendo in musical terms.
+- **Long term function** — This patch uses metroand counter to automate a scale with crescendo by referencing a tableobject containing patterns of pitch and velocity MIDI values.
+- **Look up chords in an array** — The coll object allows one to store an indexed collection of messages of any type.
+- **Lookup table demo using table** — This example shows a way to use the table object as a “lookup table” to play either a major or minor scale via the noteout object.
+- **Loop points in Quicktime** — This example shows how to link waveform~ loop points and jit.qt.movie loop points.
+- **MIDI Control to VST** — Using any MIDI synth VST plug-in, you can control MIDI data such as modulation and volume.
+- **MIDI Input in Ableton Live** — This example shows how to listen to a specific MIDI CC in Max for Live.
+- **MIDI Scale and Crescendo** — This patch uses a counter to send out MIDI pitch and velocity values using makenoteand noteout.
+- **MIDI and audio via ReWire** — Max can interface with other applications via ReWire.
+- **MIDI cc to control umenu** — To get the values of only one particular continuous controller, use the ctlin object, or use the route object to parse the controller data coming out of midiparse.
+- **MIDI input objects** — Max has dedicated objects for parsing each particular type of MIDI channel message coming into the computer, such as notes, pitchbends, controllers, etc., and i
+- **MIDI mapping to amplitude** — Mapping one range of values to another needed range of values is a crucial technique in computer music.
+- **MIDI note off messages** — Every MIDI note-on message must be turned off at some time by a subsequent corresponding note-off message for the same pitch (or note-on message with velocity 0).
+- **MIDI stream to exponential curve** — In this patch the zmap object changes the scale of the incoming number stream from the ctlin object from the standard range of MIDI (0-127) – the 0 is bypassed
+- **MIDI to Frequency** — Incoming MIDI control values (0 to 127) from a ctlin object can be scaled with the scale object to cover any desired pitch range (in terms of MIDI pitch number)
+- **MIDI to Frequency Math** — To better understand the function of a mtof object, it can be recreated with an expr object.
+- **MIDI to saturation and rotation** — Max Cookbook example: MIDI to saturation and rotation
+- **MIDI with ProTools** — A max user asked the following:  I would like to create a virtual mixer with max and control Pro Tools 9.
+- **MIDI-DMX conversion** — DMX data is encoded with “channel” information similarly to MIDI so that each receiving device can pay attention only to particular information.
+- **MIDIGlissando** — This example shows how to control glissando using MIDI.
+- **MSP functions** — This patch shows the lookup tables (a.k.a.
+- **MSP transport demo** — This patch demonstrates several capabilities, features, and techniques of the transport object for managing tempo-relative time, the translate object for conver
+- **MSP vector to list** — Max Cookbook example: MSP vector to list
+- **MSP via TCP** — Max Cookbook example: MSP via TCP
+- **Major scale up and down** — This patch uses metro, counter, and tableto read through MIDI values to create an ascending and descending major scale.
+- **Make a buffer larger than the sample it contains** — To load a sample into a buffer~ when the sample is shorter than the desired length of the buffer~, use the clear, size, and read messages.
+- **Make a yes-or-no decision with a given likelihood** — The probablility P of something occurring is defined as the number of looked-for outcomes divided by the number of possible outcomes.
+- **Make an elliptical mask in Jitter** — Video masking is a technique that allows you to focus an effect on some parts of an image, while leaving other parts uneffected.
+- **Make slider spring back to a designated value** — This example demonstrates how to make a sliderobject spring back to a specified value.
+- **Manage MIDI processing using Gate** — This example shows how to use the gate object to route midi note data to different patcher objects that could be used for a variety of processing options.
+- **Manage large amounts of conditions** — Once you get to a large number of booleans, you might want to pack all those 0/1 states together as a single integer and use that integer to look up a behavior.
+- **Managing audio processing using matrix~** — This example shows how to use the matrix~ object to route an audio source—in this case the adc~—to different effect patches represented by the patcher objects.
+- **Managing samples in Max** — This is an example of a patch loaded in a poly~ which uses midi values to load and transpose samples of guitar strings in a groove~.
+- **Managing transpositions for sustained MIDI notes** — When transposing the pitch of sustained incoming MIDI notes, you need to be certain that the note-off message has the same transposition.
+- **Manipulate object size in presentation mode** — An object’s size and position can be manipulated using the presentation\\rect attribute.
+- **Many Unrelated LFOs** — By combining numerous low-frequency oscillators with unrelated repetition rates, you can create irregular shapes of modulation and patterns that never exactly r
+- **Match demo** — Every number that comes in the left inlet of the match object—whether individually or as part of a list—gets used, in order, for the list-matching comparison.
+- **Math in the slider object** — The slider object has some attributes that have a significant effect on its output: floatoutput, size, minimum and multiplier.
+- **Matrix locations** — This patch demonstrates how to manipulate source and destination dimensions in a jit.matrixto arrange windows into matrix locations.
+- **Max For Live Quantization** — Max Cookbook example: Max For Live Quantization
+- **Measure time recorded into a buffer** — Use the timer object to measure the time between when you turn on recording and when you stop recording.
+- **Message ordering in Max** — Even though Max is graphical, object-based, and event-driven (responds to user events like mouse clicks, key strokes, MIDI data, etc.), it's still sequential.
+- **Metronome using General MIDI sounds** — When you’re trying to synchronize musical events to a timeline, it’s sometimes useful to have a metronome that tells you where the computer thinks the beat is.
+- **Metronome with random perturbations of tempo** — Max Cookbook example: Metronome with random perturbations of tempo
+- **Minimal loops using a portion of a table** — This patch composes a melody in Minimal style, playing periodically-varying diatonic melodic loops of different lengths.
+- **Mix two signals (more efficiently)** — This demonstrates a linear interpolation formula for achieving a weighted balance of two signals.
+- **Mix two sinusoids** — This patch shows a simple method for mixing and viewing two sine tones generated by the cycle~object.
+- **Mixed inlets in a subpatch** — To create an inlet for a subpatch that accepts both signals and data, try using t signal.
+- **Mixing and crossfading** — Mixing or blending two things—whether it’s two sounds or two videos—just means taking a certain amount of thing A and a certain amount of thing B and adding them together.
+- **Mixing multiple audio processes** — For this example to work correctly you will need to first download the pinger(beeping-test-sound.md) abstraction from the example \"A beeping test sound(beeping-
+- **Mixing sound of two videos** — The volume of two movies can be crossfaded between by sending each jit.qt.movie a vol $1 message with one being an inversion of the other.
+- **Mixing two audio sources** — This example shows a simple way to mix two audio sources.
+- **Modulated sound** — This patch shows how to modulate a sound file in realtime using cycle~.
+- **Modulating oscillator** — An oscillator is an electronic circuit that generates a cyclic (periodically repeating) signal.
+- **Modulo operator: %** — The % object is the arithmetic operator “modulo” (a.k.a.
+- **Monitor no change** — This patch monitors data and outputs a bang when no change is detected.
+- **Motivic \"improviser\"** — This patch enacts a particular type of improvisational behavior, playing a partial statement of a stored motivic phrase.
+- **Mouse click kslider** — In this example, you can play notes by pressing the mouse on the kslider object, and when you release the mouse, the notes will be turned off.
+- **Mouseclick Up/Down solutions** — This example shows 2 approaches, using 2 different objects, to send a 0 value when mouse is pressed and a 255 value when mouse button is released.
+- **Mousestate** — In this example, the horizontal location of the mouse in the screen is used to determine whether to send a bang or not.
+- **Move LCD Pen** — To write and draw in an lcd object, the moveto message is used to move the lcd pen into position for the next drawing operation.
+- **Move text across the surface of a sphere** — Here is a way to create text that moves across the surface of a sphere.
+- **Movie attributes** — The jit.qt.movie object has a large number of attributes that you can use either to modify the object's behavior or to get information about the video it's playing.
+- **Moving video using x y coordinates** — This example shows how to change the size and rotation position of an image or video displayed using Jitter.
+- **Multi-tap audio delay with feedback** — Audio delay is achieved by creating a buffer in which the most recent past sound can be stored.
+- **Multicolor Subtitles** — This patch uses jit.lcd to draw white text on a black background, uses that monochrome image as the color and alpha channels, colorizes the text using jit.scale
+- **Multiple delays with stereo panning** — This patch demonstrates a way to use multiple delays with stereo panning.
+- **Multiple simultaneous tempi using named transports** — One of the most intriguing features of the transport object is that there can be multiple independent transports in action at the same time.
+- **Multiple times for timepoint object** — Max Cookbook example: Multiple times for timepoint object
+- **Multiplication of sinusoidal tones** — Multiplying one tone by another, in effect, imposes the contour of one waveform on that of the other waveform.
+- **Multiplying Float Demo** — Max Cookbook example: Multiplying Float Demo
+- **Networking Jitter matrices via TCP** — For sending large amounts of media data—such as video—over the internet, TCP is more reliable than UDP because the receiving computer can check that it has rece
+- **Networking Max messages via UDP** — The simplest way to communicate over the internet in Max is by sending Max messages as UDP packets.
+- **Non-UI version of live.gain~** — The live.gain~ object is terrific for volume control of audio signals.
+- **Note on and off with list** — To store all note on messages in a list and delete them when a note off message is received, use the bag object.
+- **Notify when a certain time has elapsed** — When we want to measure how much time something took, we use a stopwatch.
+- **Open a sound file and play it** — This shows an extremely bare-bones program for audio file playback.
+- **Oscillator bank with Glissandi** — Each cycle~ starts at 800 Hz and ramps to a note in the harmonic spectrum with a fundamental frequency of 100 Hz over 45 seconds after a delay of 5 seconds.
+- **Oscillators controlled by cellular automata** — Relevant to the musical applications of cellular automata, this is a patch that controls a bank of 128 oscillators based on the on-off state of a row of cells i
+- **Other basic functionality of the transport object** — This patch does some of the same things as the \"GlobalTransport\" patch in the Extras menu, and shows what is likely going on behind the scenes in that patch.
+- **Output bang if two bangs are received at the same time** — This patch will output a bang if it receives a bang in both of its inputs simultaneously.
+- **Output integers from button inputs** — This example shows how you can output a single integer as the result of a group of button inputs.
+- **Output js object into a function** — This example shows two methods for outputting a list in groups of two elements.
+- **Output matrix values to a number box** — To output matrix values to a number box, use metro 1000 to bang a counter object, and use that output as the matrix coordinate for the getcell message.
+- **Output the difference between a current and previous value** — This example shows a simple way to calculate the difference between an incoming value, and the previously received value (for integers).
+- **Output video duration after read** — This example shows how to automatically retrieve several information data regarding a loaded video on jit.qt.movie.
+- **Overly simple MIDI synth** — This is a bare-bones monophonic MIDI synthesizer that uses the pitch and velocity information from incoming MIDI note messages to control the frequency and amplitude of a sawtooth waveform.
+- **Pack without Pack** — Int, float, and list are all (normally hidden) message selectors that are assumed whenever Max encounters a message that consists of (respectively) a single int
+- **Palindrome Counter** — What if I want to use a counter to drive a step sequencer and add a palindrome, always counting from 1 to 16, and from 16 to 1 again so that it will be kept in sync.
+- **Panning between four front speakers** — This patch is an abstraction for panning a sound source among four speakers arranged in a row—or more precisely, in an equidistant arc—in front of the listener.
+- **Parse MIDI notes** — This patch demonstrates using the midiparse object to separate individual MIDI message parameters from a single midiin object.
+- **Pass a certain percentage of bangs** — To make a random decision between two things, you can use the decide object.
+- **Phase cancellation** — When two sinusoidal waves have the same frequency, amplitude, and phase, they constructively interfere; the amplitude of their sum is twice the amplitude of each one alone.
+- **Phase cancellation due to delay** — A sinusoid added to a delayed version of itself will result in a sinusoid of the same frequency but with its amplitude altered.
+- **Phase distortion synthesis in a poly~ subpatch** — This shows an implementation of phase distortion synthesis in MSP—using the phasor~, kink~, and cycle~ objects—in a patch that is designed to be used inside the poly~ object.
+- **Phasor as control signal** — The phasor~ object is an oscillator that makes a \"sawtooth\" waveform, repeatedly ramping from 0 to 1.
+- **Phasor lookup in cosine** — One common usage of the phasor~ object is to readrepeatedly through a stored table of numbers.
+- **Pitch and loudness formulae** — This patch doesn't do anything musical, but it shows the math formulae that underlie the mtof, ftom, atodb, and dbtoa objects.
+- **Pitch tracking with sigmund~** — The sigmund~ object is not a standard Max object; it’s a “third-party” object for Macintosh by Miller Puckette that you you can download and install on your com
+- **Pitchbend using notein** — Max Cookbook example: Pitchbend using notein
+- **Play a QuickTime movie** — This shows a simple way to play a QuickTime movie using Jitter.
+- **Play a QuickTime movie with Jitter** — The jit.qt.movie object can open (read) a .mov file (or really any media file that QuickTime is capable of dealing with) and start playing it, loading its visua
+- **Play a list of notes** — The coll object stores an indexed collection of messages.
+- **Play a movie** — This patch demonstrates a simple way to play a movie in Jitter.
+- **Play a movie in Jitter, fade in and out, and jump around** — This patch shows the basics of displaying a movie with Jitter, and also shows the use of movie attributes to learn and use important information about the movie
+- **Play a sinusoidal melody** — How would you go about playing a melody (or arpeggio) that has a sinusoidal shape?
+- **Play a sinusoidal tone** — This simple program allows you to listen to a sinusoidal tone with any desired frequency and amplitude.
+- **Play a sound file with vibrato** — To impose a vibrato (a periodic fluctuation of frequency) on the playback of a sound file, you can use a low-frequency oscillator (a cycle~ object) to modulate the playback speed of the file.
+- **Play a sound from RAM with vibrato** — In the groove~ object, you specify the rate of playback of a buffer~ by means of a signal in the left inlet of groove~.
+- **Play a stream of random grains from a sound file** — This patch demonstrates a method for playing a stream of sound grains randomly chosen from a sound file.
+- **Play audio file with sfplay~** — This example demonstrates how to play an audio file.
+- **Play chunks of a movie** — This patch shows how to play a loaded movie file in short chunks.
+- **Play one MIDI note** — This patch will send out a MIDI command to play middle C (60) when the \"c\" key on the computer keyboard is pressed.
+- **Play part of a sample using groove~** — This example shows how to play part of a sample in Max.
+- **Play random clips (in reverse) from a RAM buffer** — This example demonstrates creating a RAM buffer to hold a 10-second stereo recording, recording live audio into it (with input volume adjustment), and then play
+- **Play random excerpts from a sound file** — When you read a sound file into a buffer~ with a read or replace message, the exact amount of time that that operation will take is unknowable, but the buffer~
+- **Play random notes with a cosine tone** — This patch will play random cosine tones within the range of two octaves above middle C.
+- **Play random video segments** — This patch will choose a new 1 second segment of a video to play every second.
+- **Playing MIDI with the computer keyboard** — This patch demonstrates how to implement your computer keyboard as a MIDI controller.
+- **Playing a pattern** — These patches use timed counting—in both cases using a metro object and a counter—to step through a series of MIDI notes.
+- **Playing a sample from RAM** — You can use the play~ object to play the contents of a buffer~, simply by sending it a start message.
+- **Playing a sample with groove~** — The groove~ object plays sound from a buffer~, using two important pieces of information: a rate provided as a MSP signal and a starting point provided as a float or int message.
+- **Playing sound files with a MIDI Keyboard** — This example shows how to play sound files preloaded into sfplay~ using a MIDI keyboard with the select object.
+- **Plot a point in lcd** — The lcd object is very handy for drawing simple 2D graphics.
+- **Plot a randomly generated envelope curve with a list of (x, y) pairs** — The function object is designed to control the line~ object (or curve~ object) to make envelopes.
+- **Plot an exponential curve** — This patch allows you to see the effect of different exponents in a formula that maps input values to output values with a power function.
+- **Poly-rhythm generator** — To create a poly-rhythm generator, this example chooses a division and articulates every attack point of that division.
+- **Polyphonic granular synthesizer with parameter controls** — Max Cookbook example: Polyphonic granular synthesizer with parameter controls
+- **Polyphonic panned delays with poly~** — Max Cookbook example: Polyphonic panned delays with poly~
+- **Polyphonic quad-panned delays with poly~** — Max Cookbook example: Polyphonic quad-panned delays with poly~
+- **Polyphony requires multiple objects** — Any given MSP patch cord represents a single channel of audio.
+- **Polyphony with multiple copies of a MSP subpatch** — This example shows the patch from another example being used as a subpatch in a larger patch.
+- **Polyphony with the poly~ object** — This example shows the patch from “A subpatch suitable for use in poly~(subpatch-suitable-use-poly.md)” being used as a subpatch inside the poly~ object.
+- **Preload Sound Files** — This example shows how to preload a folder containing a large number of sound files into an sflist~ object by using the umenu and uzi objects.
+- **Preload and play sound cues** — A single sfplay~ object can refer to many different sound files, or even specific portions of sound files, with a unique \"cue\" number assigned to each sound.
+- **Present different views of a subpatch** — The bpatcher object allows a patch to show a window onto the contents of a subpatch.
+- **Probability distribution vector** — A computer can make a choice between different alternatives based on assigned statistical “likelihoods”—relative probabilities assigned to each possible alternative.
+- **Program changes for multi-timbral MIDI** — You can use a MIDI \"program change\" message to tell a synthesizer to change to a different sound.
+- **Providing a full path name** — To ensure finding a file (regardless of any File Preferences… settings in Max) you may need to provide the entire path to the file in the hierarchical file syst
+- **Pseudo-random numbers appear random** — Programming languages all provide some means of generating random numbers.
+- **QT audio to MSP** — Max Cookbook example: QT audio to MSP
+- **Quadraphonic panning based on radial angle** — This patch enables you to pan a sound to any azimuth angle in a quadraphonic sound system.
+- **Quadraphonic panning with mouse control and Open GL visualization** — panLRFB~(abstraction-quad-panning-using-xy-coordinates.md)
+- **RGB color** — One way to describe a color is in terms of the intensity of three components: red, green, and blue.
+- **Ramp amplitude with number~** — This exmaple demonstrates a simple way to ramp amplitude with number~.
+- **Random Except Previous Number** — This example shows how you can continue to output random numbers without duplicating.
+- **Random MIDI note delay** — This example shows how to delay midi note input by a random amount.
+- **Random MIDI pitch offset** — This example shows how to offset the pitch of a midi note by a random amount.
+- **Random \"one-hand\" MIDI note playing** — This patch will output random MIDI note values stored within the table.The range and offset of values are determined by the top-right random object and drunk object respectively.
+- **Random access of a sound sample** — The fact that groove~ can leap to any point in the buffer~ makes it a suitable object for certain kinds of algorithmic fragmented sound playback.
+- **Random and urn** — This patch demonstrates the two simplest objects for generating random numbers.
+- **Random frames of a video** — Max Cookbook example: Random frames of a video
+- **Random movie edits** — This is a program for random editing of a video by periodically leaping to randomly-chosen times in the video and playing from there.
+- **Random note choices** — The left part of this example shows the use of the random object to make arbitrary note choices.
+- **Random numbers without repetitions** — The random object outputs a pseudo-randomly chosen integer.
+- **Random pitch variation of an oscillator** — If you want to make an oscillator with unstable pitch, you can modulate the pitch of the oscillator using a noise signal as an exponent with a base of 2, and ap
+- **Random semitone trills** — A trill can be thought of as a fast back-and-forth alternation between two pitches—or more generally as fast back-and-forth alternation between any two things or states.
+- **Random video frame leap** — This patch will leap to a random point in the video loaded into jit.qt.movie every 1/4 of a second.
+- **Random voicings of a pitch class set** — A chord can be described as a pitch class set.
+- **Randomly change color of horizontal bars** — This example shows how to use jit.matrix to randomly alter the color of horizontal bars displayed in a jit.pwindow after a fixed delay.
+- **Rangeslider demo (rslider)** — This patch uses a rslider to set the minimum and maximum for random values of the brightness of red ouput by the jit.matrix and the frequency of an cycle~.
+- **Rate and interval** — Max Cookbook example: Rate and interval
+- **Read MIDI pitches from a lookup table** — To store any series of integer numbers as an array, the table object is most convenient.
+- **Record an audio file** — This example demonstrates how to record an audio file with sfrecord~.
+- **Record and fragment audio in rhythmic units** — Max Cookbook example: Record and fragment audio in rhythmic units
+- **Record as long as space bar is held** — This patch records while the spacebar is held down, and starts looping when the spacebar is released.
+- **Record line~ as a series of numbers** — To record the output of a line~ as a series of numbers, a buffer~ can be used to capture the entirety of its output.
+- **Record mater values** — This example shows how you can record incoming data, in this case, changing amplitude values, using the mtr object.
+- **Record with fade in and out** — This patch shows a slight improvement on the basic way of recording and playing back a sound file, fading the sound in and out quickly when recording in order to avoid clicks.
+- **Recording to and playing sounds from RAM** — This patch demonstrates a method of storing and recalling sound in RAM using the buffer~ object and the various objects that can access a buffer.
+- **Recording to and playing sounds from RAM** — This patch demonstrates a method of storing and recalling sound in RAM using the buffer~ object and the various objects that can access a buffer.
+- **Refer to a lookup table remotely** — You can temporarily change the name and contents of a table object with the refer message, referring to the contents of another named table.
+- **Reference particular plane in matrix** — This example shows how you can make changes to only one plane of a matrix.
+- **Remove spaces from list** — The regexp object makes a list that expresses rules for text matching and substitution, using a format that is valid in many computer languages.
+- **Render a moving object** — This patch demonstrates how to render objects of both one and two-dimensions which move accross a display window.
+- **Repeated notes at 6 related tempi, with different probabilities** — This example (taken from Tutorial 37 in the original Max tutorials) demonstrates one way the passpct program, from the example \"Pass a certain percentage of ban
+- **Repeatedly reading a function with phasor~** — The real value of phasor~ is that it provides a very accurate way to read through (or mathematically calculate) some nonlinear shape to use as a control signal (or even as an audio signal).
+- **Replaceable white mask** — If you have a video that you first want it masked by a white background, and uncover the video as lines are drawn into it, you can use a jit.lcd with a white ba
+- **Report a data stream’s peak** — If you know the peak value you’re looking for, you can use sel, >=, peak, or past.
+- **Report different cells from consecutive frames** — Max Cookbook example: Report different cells from consecutive frames
+- **Representing all decibel values as positive** — Is it possible to see decibel values that start at 0 dB so that the values are all positive?
+- **Reset Meter~ Display** — Max Cookbook example: Reset Meter~ Display
+- **Reset default cosine buffer for cycle~** — This example shows how to change and reset the wavetable that a cycle~ object is linked to.
+- **Resizing a matrix non-destructively** — This example uses a 4-plane, 256×256 matrix for easy visualization, but it could be adapted to a 6-plane 1×1024 matrix.
+- **Resonant bandpass filter** — The reson~ object is a resonant bandpass filter; it passes frequencies in a specified region, and attenuates the other frequencies.
+- **Resonant lowpass filter** — The lores~ object is a resonant lowpass filter.
+- **Retaining rotational speed while varying radius size** — To retain the same rotational speed while varying the radius size (rotations per unit time), that means varying the velocity of circumnavigation as the radius changes.
+- **Retrieve Timecode Info** — In order to retrieve timecode information from a movie, you can send the message ‘gettimecodeinfo’ and ‘gettimecode’ to query the state of those attributes.
+- **Reveal sections of an image with alphablend** — This example demonstrates how to use an alpha channel to reveal certain sections of an image.
+- **Rhythmic automated panning** — This example allows a choice of four different modes of intensity panning, and two ways to specify the rate of panning change.
+- **Rhythmic delays in time with a musical tempo** — The tempo-relative timing capabilities in Max can be used to synchronize MSP processing in time with a musical beat.
+- **Rhythmic filtered noise bursts** — This example demonstrates how the settings of a resonant bandpass filter can be altered in a rhythmic way for musical effect.
+- **Rhythmically out-of-sync phasors** — Two low-frequency phasor~ objects with slightly different frequencies can create a rhythmic pattern determined by the ratio of the periodicities of the two LFOs.
+- **Rotate, zoom, and offset video using jit.rota** — This patch shows how to rotate, zoom, and offset video using jit.rota.
+- **Route Text or Bang from textedit** — A max user was having trouble with the textedit object, and asked:  I’m using the textedit object and sometimes it will be empty.
+- **Route signal for audio and control data** — The way audio Max compiles audio signal networks is, whenever audio is turned on, MSP outlets send out the message ‘signal’.
+- **Routing MIDI data flow** — Managing the flow of data in a program is a common issue.
+- **Routing MIDI to other applications** — The easiest way to establish MIDI connection between Max and other applications on the same computer is via the \"virtual\" MIDI ports Max provides.
+- **Routing a signal to one of two destinations** — This patch is quite similar to the onoff~ abstraction for \"Turning a signal on or off(turning-signal-or.md)\" with a fade-in or fade-out.
+- **Routing audio data flow** — The selector~ and gate~ objects serve the same function for audio signals as the switch and gate objects do for Max messages.
+- **Run Function at Event Rate** — This example shows how to run a function at event rate.
+- **Sample and hold** — The idea of “sample and hold” is to capture the amplitude of a signal at a particular instant in time, and hold it constant for a while.
+- **Sample and hold using triggers stored in a buffer** — In analog electronics, a sample-and-hold device does what its name implies, it takes a sample of the voltage coming into it at a precise instant, and holds that voltage as a constant output signal.
+- **Sample playback driven by a signal** — The play~ object can be controlled by any MSP signal in its inlet.
+- **Sampling synthesizer in Max** — This patch is an example of a sampling synthesizer in Max.
+- **Save jit.matrix presets** — jit.matrixset has write and read messages that allow you to store and recall its contents in a file, just as you would do with most presets.
+- **Saving and recalling presets in pattrstorage** — This patch demonstrates the use of pattr objects to store several attributes of a note-generating algorithm, and pattrstorage to store and recall preset values for all of those pattrs.
+- **Saving slider values** — There are several ways to initialize UI objects, but the data is not stored with the object itself (except for the Live objects).
+- **Scale and offset** — There’s a simple way to convert one range of values into a corresponding set of values in a different range.
+- **Schedule a collection of future events** — In Max there are many ways to schedule an event to occur at a certain time in the future, using delay, pipe, or timepoint, for example.
+- **Schedule a future event** — Timing is very important in music.
+- **Schedule event on next bar** — Max Cookbook example: Schedule event on next bar
+- **Schedule events in the future** — In Max, the message bang is used as an all-purpose triggering message, to cause some event to happen.
+- **Schedule timepoints in straight clock time** — To schedule timepoints in straight clock time, it’s easy enough to do, and if I want transport to report the current time to me in straight clock time, that’s easy enough to do, too.
+- **Score following with the follow object** — This patch is based on an example in the Max 2.0 Tutorial, chapter 35.
+- **Scrub a movie using slider** — This patch shows how to scrub through a movie file using slider and jit.qt.movie.
+- **Separating items in a formatted message** — This example demonstrates how to separate items in a formatted message.
+- **Sequencer with Tempo** — Max Cookbook example: Sequencer with Tempo
+- **Sequential or random access of a lookup table** — One of the nice features of an array is that you can store data in a particular order, then recall it in that order simply by incrementing an index counter.
+- **Set minimum and maximum of two dials** — This example shows how you can have two dials be “aware” of each other’s value, to constrain their minimum and maximum output.
+- **Set minimum domain value of the function object** — This example shows you how you can set the minimum value of the domain in the function object while keeping the domain maximum the same.
+- **Set the state of different sets of toggles** — This patch shows how you might use one set of four toggle objects to control the states of four on/off switches in each of eight different \"tracks\" or \"banks\" of four.
+- **Short delay creates a timbre change** — A single sample value of 1 (surrounded on either side by sample values of 0) is the shortest possible sound that can be represented in a digital audio signal.
+- **Show the sum of harmonically-related sinusoids** — This patch allows you to see and hear the sum of up to 16 harmonically-related sinusoidal tones, mixed with equal amplitudes.
+- **Sigmoid vs Sinusoid acceleration control** — You can calculate the desired acceleration/deceleration curve using expr.
+- **Simple MIDI harmonizer in C major** — One way to analyze MIDI note information is to use the modulo(modulo-operator.md) operator to determine a note’s pitch class (C, C#, D, etc., regardless of what octave it occurs in).
+- **Simple amplitude control** — When you're changing the amplitude of a sound, if the amplitude is changed very suddenly and significantly, it may create a sudden discontinuity in the waveform
+- **Simple audio file player** — The example demonstrates a simple way to play an audio file.
+- **Simple audio mixing with matrix~** — Mixing and crossfading are such common operations in audio and video that it makes sense to have an object dedicated to that purpose.
+- **Simple delay of audio signal** — The delay~ object creates a \"ring buffer\" into which it constantly records the signal coming in its left inlet.
+- **Simple demonstration of flanging** — The technique of flanging in computer music refers to a changing delay time applied to a sound, usually by modulating the delay time with a low-frequency oscillator (LFO).
+- **Simple demonstration of the transport object** — Timing objects such as metro normally operate with their time interval specified in milliseconds, and they are controlled by the Max scheduler, which is always running.
+- **Simple envelope follower** — An \"envelope follower\" provides a smoothed global representation of the extreme amplitudes of a signal.
+- **Simple flanging** — This patch demonstrates a simple implementation of \"flanging\"—the effect created by making a delayed copy of a sound, with the delay time periodically fluctuati
+- **Simple sound recording** — This patch shows the basics of how to record and play back a sound file.
+- **Simple subtitles in a video** — For this example to work properly, you will also need to download the small text file subtitles.txt.
+- **Simple two-part gestures** — I believe that we respond to and recognize something about the shape of the change in a sound, and that shape forms a metaphorical sonic \"gesture\" in our minds.
+- **Simple video file player** — This patch demonstrates a simple way to play a video file.
+- **Simple video file player with controls** — This patch demonstrates a simple video file player with simple controls.
+- **Simple wavetable synthesis** — One of the earliest methods of digital sound synthesis was a digital version of the electronic oscillator, which was the most common sound generator in analog synthesizers.
+- **Simplest MIDI file player** — This example demonstrates a very simple setup for playing a MIDI file.
+- **Simplest audio file player** — Thie example demonstrates a simple setup for playing a sound file using sfplay~.
+- **Simplest possible A/B video switcher** — This is the simplest possible way to switch between two videos.
+- **Simplest way to draw a line across a screen** — This patch uses a jit.matrix to move a line across the screen by first using the setall message to set all the cells of the jit.matrix to 255 which causes all p
+- **Simulation of MIDI lighting control** — Max Cookbook example: Simulation of MIDI lighting control
+- **Sine Wave into Buffer~** — The cycle~ object allows you to read from a stored cosine function (use a phase offset of 0.75 to get a sine phase), and does high-quality interpolation to give
+- **Sine grain player suitable for use in poly~** — Will need to download the pan~ abstraction found here(constant-intensity-panning-subpatch.md).
+- **Single stream of grains from a buffer~** — This patch shows several techniques relevant to granular synthesis, playing a stream of short excerpts of recorded sound.
+- **Single stream of sine grains** — Max Cookbook example: Single stream of sine grains
+- **Sinusoidal events** — To generate a series of numbers in Max that outline a sinusoidal shape, you can use the sin() function in the expr object.
+- **Six samples at six pitches at six tempi** — In order for this patch to work properly, you'll need to first download the attached .zip archive of six short soundfiles, uncompress it, and put the sound files in the Max search path.
+- **Six upper harmonics of a fundamental** — This is an algorithmic generator of sound patterns based on the number 6.
+- **Sixteen Harmonics** — This example plays the first sixteen harmonics based on a fundamental frequency where the rate at which each harmonic play is period / # of harmonic.
+- **Slideshow** — This program assumes that you have a folder of image files (jpg, etc.) that you want to show as a slideshow.
+- **Slideshow folders in Jitter** — To switch between folders of a slideshow in jitter (explained here) you can set the prefix or folder (i.e.
+- **Slow OSC messages** — To slow the flow of OSC messages, store the most recent value for each parameter using the combine object, but only send it out as an OSC message at the desired rate.
+- **Smooth Output of Peakamp~** — The peakamp~ object can be used to take the amplitude of one signal and have it control the amplitude of another.
+- **Smooth audio switching to bypass an audio effect** — This example shows how, instead of switching instantaneously from one audio signal to another, we can do a quick crossfade between signals, thus avoiding clicks.
+- **Smooth filter changes** — If you want to change the coefficients of biquad~ in real time while a sound is playing, it's usually better to use MSP signals rather than individual Max messages, to avoid causing clicks.
+- **Smoothly scale signals with gain~** — This patch demonstrates how to use gain~ to smoothly scale a signal.
+- **Some objects for generating numbers** — This patch shows four objects that are useful for generating numbers, each with a different behavior.
+- **Some useful Jitter attributes** — Here are a few attributes of the jit.movie and jit.window objects that I find useful for initializing the objects to behave the way I want.
+- **Sonification of pixel hue and level** — There’s a wide variety of ways that one can try to make direct correspondences between 2D or 3D visual images and sound.
+- **Soundfile player in MSP** — This patch shows the use of sfplay~ to play pre-recorded sound files, the use of gain~ to control their loudness, and a few other features of controlling soundfile playback in MSP.
+- **Split screen video** — The easiest way to cut a two-dimensional matrix into equal-sized rectangular segments is with jit.scissors.
+- **Stack overflow** — Recursion, feedback loops, and unlimited untimed (as fast as possible) loops are not feasible in Max.
+- **Stereo balance and panning** — This patch shows a simple way to control the balance between two sounds, and also illustrates the relationship between a) mixing two sounds to one location and b) panning one sound to two locations.
+- **Stitch MOV frames** — Q: I would like to stitch the frames of a MOV and create one big frame in another matrix by stitching all of the frames one after another vertically so I can save it as one bmp.
+- **Stop a modulating oscillator** — When you want to turn off an oscillator in MSP, you don’t literally stop it or turn it off, you just turn its amplitude to 0; you multiply it by a constant value of 0 so that the resulting signal is 0.
+- **Stop-action slideshow (backward)** — Here's an example of algorithmic video editing in Jitter.
+- **Store and output data with pattr** — This example shows how to store and output data using the pattr object.
+- **Store matrices in a text file** — To store an array of integers, you will usually use the table object.
+- **Store numbers on keypress with coll** — This example demonstrates how to assign an index number to an incoming number.
+- **Storing and recalling multiple pattr values** — In order for this example to work properly, you should first download the file called twocloudspresets.json and save it with that name somewhere in the Max file search path.
+- **Stretch 1D matrix to 2D matrix** — This example shows how you can rotate the output of a jit.gradient object.
+- **Submatrices and masking** — This patch shows how to use a mask in the alpha channel to impose a non-rectangular image on top of another image.
+- **Subpatch for playing sound cues from sflist~** — This is a subpatch that can be used for playing sound cues from an sflist~ object.
+- **Switching Video** — You can switch between multiple videos without starting from the beginning of each clip after each every switch by acquiring the time the clip was stopped as the next starting point.
+- **Switching and mixing audio** — As you get more involved in programming audio, it's likely that you'll want to have multiple sound possibilities available in your program, that you can switch on and off as needed.
+- **Sync 2 jit.cellblocks** — This example shows how to sync data between 2 jit.cellblocks, while being able to have different views/scrolling of the same data, by using either jit.matrix or a coll to store the data.
+- **Sync MIDI Notes with Ableton** — This example shows how to delay incoming midi notes by a specified note duration.
+- **Sync Multiple sfplay~** — The examples above show two different ways that you can trigger sound files while keeping in sync with a particular beat when the durations of the sound files a
+- **Sync pipe to transport** — To achieve delays that are quantized to a named transport, use a combination of pipe (delay numbers by the desired amount), translate (to set the pipe to the de
+- **Sync tremolo to transport units** — Max Cookbook example: Sync tremolo to transport units
+- **Synchronize MIDI note duration to a transport with translate** — This exmaple demonstrates how to synchronize MIDI note length with a tempo determined by the transportobject.
+- **Synchronize an LFO to a note onset with phasor~** — To sync an LFO to the onset of a note, drive it with a phasor~ object.
+- **Synchronize live events to the Max transport** — If you want to synchronize realtime performed events to the Max transport, or to the Live transport in Max for Live, you need to hold onto the vital information
+- **Synchronizing MSP audio loops with the transport** — This example shows one way you might use phasor~ to make the length of an audio sample loop stay precisely synchronized with the beat of the transport.
+- **Syncing Visuals To Transport** — This example shows how can you create a visual metronome, synced to the transport, that flashes white at the beginning of each bar.
+- **Synthesize a sinusoid in MSP** — Synthesizing a sinusoid in MSP is a fairly trivial matter, because the cycle~ object does most of the work for you.
+- **Table and coll objects** — This patch demonstrates use of the tableand collobjects to read through a data set to automate musical parameters.
+- **Table lookup** — The table object is what's commonly called a \"lookup table\" or an \"array\".
+- **Tap Tempo** — This example shows a super simple tap tempo implementation.
+- **Tap Tempo for Ableton Live** — Following the “Tap Tempo(tap-tempo.md)” example, this is a translation of that patch it into a Max for Live device that controls the Live transport (using the mouse instead of the t key).
+- **Tap tempo utility in Max for Live** — This patch is, in many ways, identical to the patch shown in \"Tap to teach tempo to Max(tap-teach-tempo-max.md)\", but in this instance it's implemented in a way
+- **Tap to set tempo** — Instead of the user entering a tempo value by hand, it’s possible to have the computer measure the tempo at which the user is tapping the beat.
+- **Tap to teach tempo to Max** — This patch implements tap tempo using a \"simple moving average\" (SMA) calculation of time between taps.
+- **Tempo-relative timing for MSP LFO control** — The MSP phasor~ object is frequently used as a low-frequency control signal for audio.
+- **Tempo-relative timing with the transport object** — This patch doesn't do anything musical in its own right, but it shows some features of the transport object for tempo-relative control of timing in Max.
+- **Tendency Masks** — This example shows how to use the function object for making tendency masks with breakpoint line segment functions (à la Koenig and as explained by Rowe) using
+- **Test Interaural Time Difference** — When a sound is to one side or the other of us, it arrives at one ear ever-so-slightly before the other.
+- **Test MIDI velocity to amplitude (vtoa) abstraction** — This patch uses the vtoa abstraction (found here(use-midi-velocity-amplitude-envelope.md)) to convert MIDI velocity to amplitude which controls the volume of a saw~.
+- **Test hexagonal panner** — This patch requires the abstraction for hexagonal radial panningto be saved in the Max file search path with the name \"hexagonalradialpanner~\".
+- **Test interaural intensity difference** — One of the ways we determine where a sound is located is by comparing the sound's intensity in our two ears.
+- **Test movie timing to make editing decisions** — You can use the gettime message to ask jit.qt.movie for a report of its video's current time location (in QuickTime time units).
+- **Test multi-channel audio with stereo output** — In the I/O Mappings window within the Audio Status… window you can map the outputs numbered 3-16 to play through outputs 1 or 2 of your available stereo output
+- **Testing for a range of numbers** — If you want to detect when a number has occurred that fits within a particular range, you'll want to use logical operators to test conditions such as is less th
+- **The error object** — When Max detects a bug or a problem in your patch, it posts an error message in the Max window, such as “sfplay~: cant find file <filename>”.
+- **The function object** — The function object assists you to make shapes composed of line segments.
+- **The patcher object encapsulates a subpatch** — In programming, it’s often useful to divide a task into parts, and consider the overall program as a combination of small tasks.
+- **The phasor~ object** — The phasor~ object is one of the most valuable MSP signals to use as a control signal.
+- **The simplest lowpass filter** — Almost all digital filters involve mixing a sound with one or more delayed versions of itself, usually to cause interference and thus change the amplitude at certain frequencies.
+- **The tempo object** — In the tempo object, the first argument specifies the initial quarter-note tempo in quarter-notes per minute.
+- **The translate object updates its output when the tempo changes** — The translate object converts a message from one type of time unit to another.
+- **The ‘alpha’ attribute of a picture** — In digital images, each pixel contains color information (such as values describing intensity of red, green, and blue) and also contains a value for its opacity known as its ‘alpha’ value.
+- **Theremin using mouse position** — This example shows how to create a “theremin” where the mouse position controls pitch and amplitude of a cycle~ with the x and y position respectively.
+- **Three-octave chromatic scale** — This example plays a 12-note chromatic scale over three octaves with timed triggers.
+- **Time interval and rate** — This patch provides examples that compare linear rate changes to exponential rate changes.
+- **Timed counting in Max** — The upper example shows how to count from 1 to 10 at a specific rate (e.g., one count every 500 ms) and stop when you reach 10.
+- **Timed linear fade** — This patch shows how to make a fade-in or a fade-out using the line object (for numbers) or line~ (for a signal).
+- **Timed ouput of list elements** — This patch is one method of outputting a list of integers individually spread out over time.
+- **Timed removal of drawn objects using jit.lcd** — The simplest way to remove objects after a set duration using jit.lcd – because jit.lcd doesn’t support sprites – is to keep track of the individual drawing components and then redraw the whole stage.
+- **Toggle on/off router** — This abstraction expects to get a number in any of its inlets, and will pass the number out the corresponding outlet, but before doing so it will send a 0 out the previous outlet.
+- **TouchOSC data via wireless UDP** — You can send messages to Max wirelessly from a mobile device such as iPhone, iPod Touch, iPad, or Android-based smart phone or tablet, using the TouchOSC app.
+- **Transport-controlled phasor~** — A phasor~ object, like other MSP objects such as cycle~ that use a rate for their timing, can have its repetition rate specified as a transport-related tempo-re
+- **Transpose a sound file using sfplay~** — This example shows a simple way to transpose a sound file including the time it takes to get from one transposition level to another (glide time).
+- **Transpose and invert MIDI notes** — This patch demonstrates a couple of very simple sorts of transformations that could be imposed on incoming MIDI pitch values before sending them on to a synthesizer.
+- **Trapezoidal control signals** — The trapezoid~ object outputs a trapezoidal shape, rising linearly from 0 to 1 in a certain fraction of its time, then staying at 1, then falling linearly back to 0 in a fraction of its time.
+- **Trapezoidal envelope** — The trapezoid~ object allows you to make a control signal that rises to a certain level, stays there, then falls back to its initial level.
+- **Tremolo effect in Max for Live** — This patch shows one possible implementation of a tremolo effect as a Max for Live (M4L) device.
+- **Tremolo effect on a sound file** — This example shows how to impose a tremolo effect on a playing sound file.
+- **Trigger a bang when numbers increase or decrease** — This example shows three conditions to trigger a bang when incoming values either increase or decrease.
+- **Trigger repeated actions metronomically** — The metro (metronome) object is the most obvious way to trigger repeated events in Max.
+- **Trigger sample with metro** — This program triggers a sound repeatedly, and changes the sound's playback rate with each repetition.
+- **Trigger sound cues from the computer keyboard** — This shows how to prepare multiple sound cues for playback, and how to detect specific keystrokes in order to trigger the sound cues.
+- **Trigger sound cues with the mouse or from the computer keyboard** — This is effectively pretty much identical to Trigger sound cues from the computer keyboard(trigger-sound-cues-computer-keyboard.md), but a) it allows the user t
+- **Triggering events with each cycle of a phasor~** — How do we detect, with sample-accurate precision, the precise moment when phasor~ begins a new cycle from 0 to 1?
+- **Try the delaynote abstraction** — This is an example patch you can use to try out the delaynote patch shown in \"Delay MIDI note messages(delay-midi-note-messages.md).\" Of course, you will first
+- **Try the invertpitch abstraction** — This is an example patch you can use to try out the invertpitch patch shown in \"Invert the pitches of MIDI notes(invert-pitches-midi-notes.md)\".
+- **Try the timedbangs abstraction** — This patch demonstrates the use of the abstraction presented in the example \"Abstraction to trigger a timed series of bangs(abstraction-trigger-timed-series-bangs.md)\".
+- **Try the xfade~ abstraction** — For this example to work properly, you must first download \"Abstraction for mixing or crossfading two audio signals(abstraction-mixing-or-crossfading-two-audio-
+- **Turn an audio effect on or off** — This patch shows a way to use the the abgate~ abstraction from the example \"Routing a signal to one of two destinations(routing-signal-one-two-destinations.md)\"
+- **Turn files on and off** — This example shows how you can turn on and off audio files with a single toggle –– as in swapping between one and the other.
+- **Turning a signal on or off** — To turn an audio signal on or off instantly, Max provides the gate~ object.
+- **Two ways to get BPM timing** — Sometimes it’s more convenient to think about musical time in \"beats per minute\" (BPM) instead of milliseconds.
+- **Ubutton ignore click** — This example demonstrates a particular logical task: make one text clickable, and as soon as it is clicked upon, make it unclickable and set some other text to be clickable.
+- **Upsampling & downsampling video using Jitter** — Techniques called upsampling and downsampling can be used to get a “mosaic-like effect.” This effect is achieved by reducing the resolution – via changing the f
+- **Upsampling number lists with Jitter** — The term \"upsample\" is used in digital audio and video to mean increasing the sampling resolution of a sound or an image.
+- **Use MIDI velocity for amplitude envelope** — This patch converts MIDI velocity values to create an amplitude envelope to control a \\~.
+- **Use floats with poly** — To use floating point numbers with the poly object separate the integer portion and the fractional portion.
+- **Use function to control line segments** — This patch only work correctly in Max version 8 or later.
+- **Use of \"pow\" in \"expr\"** — This example shows how to use pow in expr.
+- **Use seq to play MIDI files** — This patch contains examples of useful messages for playing MIDI files with the seq object.
+- **Use stored waveform for a synthesizer** — This patch demonstrates the technique of wavetable synthesis: using one cycle of a stored waveform as the wave type for a synthesizer tone.
+- **Useful MIDI Objects** — This patch shows objects that are useful when working with MIDI in Max.
+- **Using A Loop to Set Master Tempo** — The groove~ object can be used to record a loop on the fly and use the loop length to set a master tempo which can send MIDI clock messages to other machines.
+- **Using Jitter attributes** — This example shows how to use the different attributes for jit.qt.movie.
+- **Using Jitter to store numerical data** — Storage of large quantities of numerical data is exactly what Jitter is for.
+- **Using MIDI pitchbend data in MSP** — For this patch to work correctly, you must have the six guitar string samples in the same directory as you save this Max patch.
+- **Using Metro with Transport** — When using a tempo-relative timing unit (such as ticks) for metro, rather than the tempo-independent ms, the metro becomes linked to the transport.
+- **Using Presentation Mode** — This program demonstrates how objects in Presentation Mode can have a different location and appearance than they do in Patching Mode.
+- **Using a sustain point in a function object** — When you play a note with MIDI, you usually want the note to sustain as long as the key is held down, then you want it to turn off (either immediately or gradua
+- **Using alpha masking with jit.lcd content overlay** — One way to superimpose 2D graphics over a video is to draw into a jit.lcd object and then use alpha masking to overlay the jit.lcd contents on top of the video image.
+- **Using arrow keys to control a slider** — The up-down arrow keys seem like reasonable keys to use for incrementing or decrementing a number box or a slider.
+- **Using audio to trigger the display of a frame of video** — One way to make video respond to audio in Max, is to detect some significant event in an MSP audio signal, and use that to trigger something in Jitter.
+- **Using delay for inactivity trigger** — What's the best way to detect lack of activity?
+- **Using gate to route messages** — You can assign input data to have a different function at different times, simply by sending it to different parts of your program.
+- **Using key presses and releases** — Using both the key and keyup objects, you can tell when a key was pressed and when it was released.
+- **Using matrix~ for audio routing and mixing** — The matrix~ object is an audio mixer/router that can be configured with any number of inlets and outlets.
+- **Using matrix~ for multi-channel audio amplitude control** — This example shows how to control the amplitude of multiple signals with the matrix~ object, instead of with line~ and \\~ objects.
+- **Using phasor~ directly as a control signal** — If you need a linear signal that repeats at a specific rate, phasor~ can be scaled and offset to provide a repeating line from one signal value to another.
+- **Using table to transpose a MIDI note** — Pitch transposition of MIDI notes is easy; you simply add (or subtract) some number of semitones to the pitch value.
+- **Using the Hénon attractor** — In order for this example to work correctly, you first need to download the patch called henon.maxpat(../patches/henon.maxpat) and place it in the Max file search path.
+- **Using the full path when opening a file** — This example consists of a .zip archive of files.
+- **Using the metro object controlled by the transport** — Whenever the time interval of a metro object is specified using tempo-relative time units such as note values, the operation of that metro will be governed by the transport.
+- **Using the preset capabilities of pattrstorage** — In order for this example to work properly, you should first download the file called noiseburstpresets.json and save it with that name somewhere in the Max file search path.
+- **Using the select object** — This example shows different methods for using the select object.
+- **Using timepoints for interactive sequencing** — The timepoint object sends out a bang when the transport reaches a specified time position.
+- **Variable-mode filter demo** — This patch allows you to try out various filter settings of the biquad~ object, via the filtergraph~ object.
+- **Very low frequency modulation for gradual change** — This example combines seven pre-recorded saxophone sounds, slowly modulating several aspects of their playback to create an ever-changing mix.
+- **Very simple monophonic MIDI synthesizer** — This is a bare-bones monophonic MIDI synthesizer that uses the pitch and velocity information from incoming MIDI note messages to control the frequency and amplitude of a sawtooth waveform.
+- **Vibrato** — In music the term vibrato (Italian for “vibrated”) means small repetitive fluctuations of pitch and loudness in a tone.
+- **Video crossfade** — The concepts of mixing and crossfading, and the mathematics of how to accomplish them, are discussed and demonstrated in Mixing and crossfading(mixing-and-crossfading.md).
+- **Video effect chooser** — Here is a patch for choosing between multiple video effects.
+- **View MIDI input** — This patch demonstrates implementation of the midiparse object to separate and view incoming MIDI data from a single midiinobject.
+- **View image pixel by pixel** — This example uses Jitter to reveal text pixel by pixel.
+- **Visualize MIDI note value using lcd** — This example shows a way to visualize the pitch of a MIDI note on the x axis of a lcd object.
+- **Visualize float on jit.window** — This example uses jit.lcd to visualize a float on a jit.window using the write message.
+- **Ways to turn MSP on and off** — Did you know that there are several different ways to turn MSP audio on and off in Max?
+- **Windowing an audio signal** — In signal processing, a \"window\" is a function (shape) that is nonzero for some period of time, and zero before and after that period.
+- **Write subtitles onto a video** — One way to combine text and video is to write text in jit.lcd as demonstrated in the example “Draw shapes and text(draw-shapes-and-text.md)“, then composite that matrix with a video matrix.
+- **Zoom a video in or out** — The jit.rota object can zoom an image in or out, along the x dimension, the y dimension, or both.
+- **coll simple 'output current' option** — When using coll, sending a bang or a next message will have it always output the following entry.
+- **continually write to and read from a buffer~** — This example shows how to create a buffer~ that always contains the last ten seconds of audio coming out of and adc~.
+- **detonate demo** — For producing a score out of time and then saving as a standard MIDI file, detonate is the best way to go, and it can save in either format 0 or format 1.
+- **iMovie demo** — This example shows a demonstration of how to the imovie object.
+- **jit.gt.movie loopstart** — This example lets you loop a movie, and jump to the beginning of the loop point by defining with a ‘looppoints’ attribute, and using ‘getloopstart’ to retrieve
+- **loadbang delay argument** — Upon patch initialization, one might be tempted to use multiple loadbang objects attached to delay objects in order to control the order of operations.
+- **more MIDIglissando** — Following on the “MIDIglissando(midiglissando.md)” example, this example shows how to program a rather long glissando with the push of a button.
+- **patcherargs output** — This example is intends to clarify a situation where the difference between integers and symbols might be less than obvious.
+- **qlim timing workaround** — Here is a workaround for instantly changing the time interval of a qlim object without waiting for the current cycle to end.
+- **sigmund~ for pitch tracking** — The sigmund~ object is a third-party object for pitch tracking designed by Miller Puckette and Ted Apel, available on their page of downloadable Max objects.
+- **teeth~ test** — If gain is set to 1, a teeth~ object with ‘feedforward gain’ and ‘feedback gain’ arguments set to 0 is bypassed/transparent, which can be used as a dry/wet control.
+- **text to video** — This example shows a simple way of putting text into video, with the lines of text stored in a coll object.
+
 ## gen (196)
 
 - **abs** — The absolute value of the input
@@ -798,7 +1541,7 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **mc.jit.peek~** — Read matrix data as an audio signal  (multichannel)
 - **mc.jit.release~** — Transforms matrix data into signals
 
-## max (544)
+## max (525)
 
 - **!-** — Subtraction object (inlets reversed)
 - **!/** — Divide input from a number
@@ -899,8 +1642,6 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **bendin** — Output MIDI pitch bend values
 - **bendout** — Send MIDI pitch bend messages
 - **bgcolor** — Set background color
-- **bitand** — Bitwise intersection of two numbers
-- **bitor** — Bitwise union of two numbers
 - **bline** — Generate ramps using  bang
 - **bondo** — Synchronize a group of messages
 - **borax** — Report note-on and note-off information
@@ -956,10 +1697,8 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **dict.strip** — Remove keys from a dictionary
 - **dict.unpack** — Extract values from a dictionary
 - **dict.view** — View the contents of a dictionary
-- **div** — Divide two numbers
 - **dropfile** — Drag and drop files
 - **drunk** — Output random numbers within a step range
-- **equals** — Compare numbers for equal-to condition
 - **error** — Report Max errors
 - **expr** — Evaluate a mathematical expression
 - **f** — Store a decimal number
@@ -988,8 +1727,6 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **getattr** — Query object attributes
 - **ggate** — Send input to one of two outlets
 - **grab** — Intercept the output of another object
-- **greaterthan** — Compare numbers for greater than condition
-- **greaterthaneq** — Compare numbers for greater than or equal to condition
 - **gswitch** — Select output from two inlets
 - **gswitch2** — Send input to one of two outlets
 - **hi** — Human Interface device input (legacy)
@@ -1017,8 +1754,6 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **kslider** — Output numbers from an onscreen keyboard
 - **lcd** — Display graphics (deprecated)
 - **led** — Color on/off button
-- **lessthan** — Compare numbers for less than condition
-- **lessthaneq** — Compare numbers as less than or equal to
 - **line** — Generate timed ramp
 - **linedrive** — Scale numbers exponentially
 - **list.change** — Process lists in many ways
@@ -1056,8 +1791,6 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **listfunnel** — Index and output list elements
 - **loadbang** — Send a bang when a patcher is loaded
 - **loadmess** — Send a message when a patch is loaded
-- **logand** — Perform a logical AND
-- **logor** — Perform a logical OR
 - **makenote** — Generate a note-on/note-off pair
 - **mappings** — Utility object for Mappings
 - **match** — Watch for a message match, then output the message
@@ -1077,12 +1810,10 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **midiout** — Transmit raw MIDI data
 - **midiparse** — Interpret raw MIDI data
 - **minimum** — Output the smallest value
-- **minus** — Subtract two numbers, output the result
 - **mira.frame** — Mirror your Max patcher on your iPad
 - **mira.motion** — Receive data from iPad accelerometer, gyroscope and magnetometer.
 - **mira.multitouch** — Receive touch and gesture data from touchscreen.
 - **modifiers** — Report modifier key presses
-- **modulo** — Divide two numbers, output the remainder
 - **mousefilter** — Gate messages with the mouse
 - **mousestate** — Report the mouse information
 - **movie** — Play a movie in a window
@@ -1100,7 +1831,6 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **nodes** — Interpolate data graphically
 - **notein** — Receive MIDI note messages
 - **noteout** — Transmit MIDI note messages
-- **notequals** — Compare numbers for not-equal-to condition
 - **nrpnin** — Output received NRPN values
 - **nrpnout** — Format 14-bit MIDI NRPN messages
 - **nslider** — Output numbers from a notation display
@@ -1136,7 +1866,6 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **pictslider** — Picture-based slider control
 - **pipe** — Delay numbers, lists or symbols
 - **playbar** — Control video or audio file playback
-- **plus** — Add two numbers, output the result
 - **poltocar** — Convert polar to cartesian coordinates
 - **poly** — Allocate notes to different voices
 - **polyin** — Received MIDI poly pressure
@@ -1158,12 +1887,10 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **r** — Receive messages without patch cords
 - **radiogroup** — Radio button or check box
 - **random** — Generate a random number
-- **rdiv** — Divide input from a number
 - **receive** — Receive messages without patch cords
 - **regexp** — Use regular expressions to process input
 - **relativepath** — Convert an absolute to a relative path
 - **repl** — Send, receive and output Max Console commands
-- **rminus** — Subtraction object (inlets reversed)
 - **round** — Round to a value
 - **route** — Select outlet based on input matching
 - **routepass** — Route a complete incoming message based on input matching
@@ -1184,8 +1911,6 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **seq** — Sequencer for recording and playing MIDI data
 - **serial** — Send and receive from a serial port
 - **setclock** — Create and control an alternative clock
-- **shiftleft** — Bit shift to the left
-- **shiftright** — Bit shift to the right
 - **sin** — Sine function
 - **sinh** — Hyperbolic sine function
 - **slide** — Smooth values logarithmically
@@ -1270,7 +1995,6 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **thresh** — Combine numbers, symbols and lists when received close together
 - **timepoint** — Bang at a specific time
 - **timer** — Report elapsed time between two events
-- **times** — Multiply two numbers
 - **togedge** — Report zero/non-zero transitions
 - **toggle** — Switch between off and on (0 and 1)
 - **tosymbol** — Convert messages, numbers, or lists to a single symbol
@@ -1594,7 +2318,22 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 
 ## msp (246)
 
+- **!-~** — Signal subtraction (inlets reversed)
+- **!/~** — Signal division (inlets reversed)
+- **!=~** — Not equal to, comparison of two signals
+- **%~** — Divide two signals, output the remainder
+- **&~** — Bitwise and-operation of floating point signals
+- ***~** — Multiply two signals
+- **+=~** — Signal accumulator
+- **+~** — Add signals
+- **-~** — Signal subtraction
+- **/~** — Divide one signal by another
 - **2d.wave~** — Two-dimensional wavetable
+- **<=~** — Is less than or equal to, comparison of two signals
+- **<~** — Is less than, comparison of two signals
+- **==~** — Is equal to, comparison of two signals
+- **>=~** — Is greater than or equal to, comparison of two signals
+- **>~** — Is greater than, comparison of two signals
 - **abs~** — Absolute value of a signal
 - **acosh~** — Signal hyperbolic arc-cosine function
 - **acos~** — Signal arc-cosine function
@@ -1614,9 +2353,7 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **avg~** — Signal average
 - **begin~** — Define a switchable part of a signal network
 - **biquad~** — Two-pole, two-zero filter
-- **bitand~** — Bitwise and-operation of floating point signals
 - **bitnot~** — Bitwise inversion of a floating point signal
-- **bitor~** — Bitwise or-operation of floating point signals
 - **bitsafe~** — Replace NaN and infinite signal values with 0
 - **bitshift~** — Bit shifting for floating point signals
 - **bitxor~** — Bitwise exclusive-or-operation of floating point signals
@@ -1642,12 +2379,10 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **delay~** — Delay a signal
 - **deltaclip~** — Limit changes in signal amplitude
 - **delta~** — Signal of sample differences
-- **div~** — Divide one signal by another
 - **downsamp~** — Downsample a signal
 - **dspstate~** — Report current DSP settings
 - **dsptime~** — Report milliseconds of audio processed
 - **edge~** — Detect logical signal transitions
-- **equals~** — Is equal to, comparison of two signals
 - **ezadc~** — Audio input and on/off button
 - **ezdac~** — Audio output and on/off button
 - **fbinshift~** — Frequency domain frequency shifter for pfft~
@@ -1674,8 +2409,6 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **gen** — Generate native audio event processing routines
 - **gen~** — Generate native audio signal processing routines
 - **gizmo~** — Frequency-domain pitch shifter for pfft~
-- **greaterthaneq~** — Is greater than or equal to, comparison of two signals
-- **greaterthan~** — Is greater than, comparison of two signals
 - **gridmeter~** — Display signal levels as brightness
 - **groove~** — Variable-rate looping sample playback
 - **hilbert~** — Phase quadrature filter
@@ -1687,8 +2420,6 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **ioscbank~** — Interpolating oscillator bank
 - **jweb~** — Web browser with audio output
 - **kink~** — Distort a sawtooth waveform
-- **lessthaneq~** — Is less than or equal to, comparison of two signals
-- **lessthan~** — Is less than, comparison of two signals
 - **levelmeter~** — RMS level meter
 - **limi~** — Lookahead peak-limiter
 - **line~** — Linear signal ramp generator
@@ -1717,15 +2448,12 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **meter~** — Visual peak level indicator
 - **minimum~** — Compare two signals, output the minimum
 - **minmax~** — Compute minimum/maximum signal values
-- **minus~** — Signal subtraction
-- **modulo~** — Divide two signals, output the remainder
 - **mstosamps~** — Convert milliseconds to samples
 - **mtof~** — Convert a MIDI note number to frequency at signal rate
 - **mute~** — Disable signal processing in a subpatch
 - **mxj~** — Java in MSP
 - **noise~** — Generate white noise
 - **normalize~** — Scale on the basis of maximum amplitude
-- **notequals~** — Not equal to, comparison of two signals
 - **number~** — Signal monitor and constant generator
 - **omx.4band~** — OctiMax 4-band Compressor
 - **omx.5band~** — OctiMax 5-band Compressor
@@ -1755,8 +2483,6 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **plugreceive~** — Receive audio from another plug-in
 - **plugsend~** — Send audio to another plug-in
 - **plugsync~** — Report host synchronization information
-- **plusequals~** — Signal accumulator
-- **plus~** — Add signals
 - **poke~** — Write sample values to a buffer by index
 - **poltocar~** — Signal Polar to Cartesian coordinate conversion
 - **polybuffer~** — Manage multiple  buffer~ objects
@@ -1767,13 +2493,11 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **ramp~** — Trigger a Single Ramp With an Audio Signal
 - **rand~** — Band-limited random signal
 - **rate~** — Time-scale the output of a phasor~
-- **rdiv~** — Signal division (inlets reversed)
 - **receive~** — Signals can be received from any loaded patcher, without patch cords
 - **record~** — Record sound into a buffer
 - **rect~** — Antialiased rectangular (pulse) oscillator
 - **reson~** — Resonant bandpass filter
 - **retune~** — Ztx-based pitch detection and pitchshift
-- **rminus~** — Signal subtraction (inlets reversed)
 - **round~** — Round an input signal value
 - **r~** — Signals can be received from any loaded patcher, without patch cords
 - **sah~** — Sample and hold a signal
@@ -1821,7 +2545,6 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **teeth~** — Comb filter with feedforward and feedback delay control
 - **thispoly~** — Control  poly~ voice allocation and muting
 - **thresh~** — Detect signal above a set level
-- **times~** — Multiply two signals
 - **train~** — Pulse train generator
 - **trapezoid~** — Trapezoidal wavetable
 - **triangle~** — Triangle/ramp wavetable
@@ -1840,3 +2563,4 @@ summary: "Every Max, MSP, Jitter, Gen, MC and Ableton object with a one-line des
 - **zerox~** — Detect zero crossings
 - **zigzag~** — Linked list function editor
 - **zplane~** — Graph filter poles and zeros on the Z-plane
+- **|~** — Bitwise or-operation of floating point signals

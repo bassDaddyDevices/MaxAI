@@ -1,0 +1,37 @@
+---
+type: cookbook
+name: "Generate MIDI notes"
+summary: "Here are three ways of generating MIDI notes."
+chapter: "Max"
+keywords: ["change", "counter", "ctlin", "loadbang", "makenote", "metro", "MIDI", "mousestate", "noteout", "pgmout", "scale", "screensize", "select", "slider", "speedlim", "zl", "zmap", "/"]
+objects: ["/", "change", "counter", "ctlin", "loadbang", "makenote", "metro", "mousestate", "noteout", "pgmout", "scale", "screensize", "select", "slider", "speedlim", "zl", "zmap"]
+patch: "/Volumes/DEV/Ableton Projects/MAX-LEARNOTRON/max-cookbook-archive/patches/generatemidinotes.maxpat"
+image: "/Volumes/DEV/Ableton Projects/MAX-LEARNOTRON/max-cookbook-archive/images/generatemidinotes.png"
+---
+
+# Generate MIDI notes
+
+Here are three ways of generating MIDI notes. Admittedly they don't result in very interesting music, but they show ways how numbers can be converted for usage as pitch information.
+
+At the bottom-left, in the pink portion of the patch, the **makenote** object receives numbers in its left inlet, considers them to be MIDI pitch numbers, combines them with a velocity value (supplied either as the first argument typed into the object box or as a number received in the middle inlet) and sends them both out. Using the duration value (supplied either as the second argument typed into the object box or as a number received in the right inlet), it schedules a corresponding note-off message to be sent that many milliseconds in the future; at that time it sends out the same pitch with a velocity of 0. The outputs of **makenote** are designed to go directly to the pitch and velocity inlets of **noteout**, which formats a MIDI note message and sends the MIDI to an external destination. You can double-click on **noteout** to choose the destination device. The simplest thing is to send the notes to the built-in DLS synthesizer of your operating system.
+
+At the upper-left, in the blue portion of the patch, the **ctlin** object looks only for MIDI continuous controller messages with a controller number of 1 coming from an external source. (You can double-click on the object to select the MIDI source.) Controller 1, by convention, designates the modulation wheel of most controllers. The value of each controller 1 message comes out the left outlet of **ctlin** and is displayed graphically by the **slider**. You can also generate such values just by dragging on the **slider** with your mouse. The range of the **slider**, by default, is 0-127 just like the range of a MIDI controller value. The speed with which those messages come in is determined by the source device. It's often quite fast, say, 50 messages per second. To limit the speed of such a rapid stream of numbers to something more like a human note speed, we use the **speedlim** object. That object refuses to send out more than one number per time interval (specified by a typed-in argument or a number received in its right inlet). Any numbers that come in faster than that will be suppressed. Drag on the **slider** to play some notes.
+
+As demonstrated in the upper-right (yellow) portion of the patch, you can change the timbre of the synthesized sound by sending a MIDI program change number via the **pgmout** object.
+
+In the lower-right (purple) part of the patch, we use a **metro** to send out repeated triggers at a specified time interval, and we use a **counter** to count the events as they occur. The exact numbers in the count depend on the specified minimum, maximum, and direction values that have been provided to the **counter**. (See the [counter reference](https://docs.cycling74.com/max5/refpages/max-ref/counter.html) page for details.) In this case, we used typed-in arguments to specify a minimum of 60 and a maximum of 72. We use a **select *72*** object to detect when the count reaches 72, and when that number is detected we trigger a message of *0* to the **toggle** to turn it off. The result is a one-octave upward chromatic scale. (Pop quiz: By inserting just one object, can you make it play a whole-tone scale instead?)
+
+The central (green) portion of the patch shows one way you could use the position of the mouse to play notes. The **mousestate** object reports the location of the mouse (its horizontal and vertical offset, in pixels, from the top-left corner of the screen area) out its second and third outlets every time it receives a *bang* in its inlet. To keep a constant watch on the mouse position, use a fast-paced **metro**. Here we use a **metro** with a time interval of 100 ms so that the maximum note speed will be 10 notes per second. But wait! The horizontal range of pixels on your screen is probably much greater than 0-127. The horizontal dimension of your display is likely 1024 pixels, or 1440, or even greater. So the x coordinates reported by **mousestate** will likely be in a range such as 0-1439. To solve that problem, we "map" the larger range into a smaller range using arithmetic. The **screensize** object reports the screen dimensions as a 4-item list noting the left, top, right, and bottom limits of the screen (such as *0 0 1440 900*). The **zl** object is a very useful object for all sorts of operations dealing with lists; here we use it to get the nth number from the list, namely the 3rd number which (assuming that the left boundary is 0) will tell us the screen width. We divide the screen width (the range of possible pixels) by 128 (the range of MIDI note values), and we use that number as the divisor for every mouse x coordinate that we get. (Note that by default the **/** object will perform integer division and throw away any remainder.) That will reduce the range of numbers we can produce with the mouse to a range from 0 to 127, just as we would like. However, that will likely result in many repetitions because the number of possible mouse locations is much greater than the number of possible notes (and because our **metro** keeps triggering **mousestate** even when the mouse is not moving). So, to filter out repetitions, we use the **change** object, which only lets an incoming number pass through if it's different from the previously received number. Try turning on the mouse-polling **metro** and playing some notes by moving the mouse on the x axis.
+
+Notice that with the **slider** (or mod wheel) and the mouse, we're generating numbers that span the full range of all possible notes in MIDI from 0 to 127. That goes from the lowest note C at about 8 Hz (which technically would be a sub-audio fundamental frequency) up to the G a perfect 12th above the top note of the piano (about 12,500 Hz). That's a much larger range than we usually use in most musical situations! A more standard traditional range would be approximately from 36 to 96 (cello low C to flute high C), which is the normal range of a standard 5-octave MIDI keyboard. To perform such a mapping in Max (e.g., mapping the range 0-1439 into the range 36-96), you might want to use the object **zmap** or **scale**.
+
+## Objects used
+
+`/` ×2, `metro` ×2, `zl`, `loadbang`, `screensize`, `select`, `counter`, `scale`, `zmap`, `change`, `mousestate`, `ctlin`, `speedlim`, `slider`, `makenote`, `pgmout`, `noteout`
+
+*Patch contains 61 boxes, 33 connections.*
+
+## Files
+
+- Patch: `/Volumes/DEV/Ableton Projects/MAX-LEARNOTRON/max-cookbook-archive/patches/generatemidinotes.maxpat`
+- Signal flow diagram: `/Volumes/DEV/Ableton Projects/MAX-LEARNOTRON/max-cookbook-archive/images/generatemidinotes.png`
